@@ -46,16 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TelaLiberadpr.cs">
+    <Compile Include="Screens\RegrasLiberacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TelaLiberadpr.Designer.cs">
-      <DependentUpon>TelaLiberadpr.cs</DependentUpon>
+    <Compile Include="Screens\RegrasLiberacao.Designer.cs">
+      <DependentUpon>RegrasLiberacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\TelaLiberador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\TelaLiberador.Designer.cs">
+      <DependentUpon>TelaLiberador.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="TelaLiberadpr.resx">
-      <DependentUpon>TelaLiberadpr.cs</DependentUpon>
+    <EmbeddedResource Include="Screens\RegrasLiberacao.resx">
+      <DependentUpon>RegrasLiberacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\TelaLiberador.resx">
+      <DependentUpon>TelaLiberador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

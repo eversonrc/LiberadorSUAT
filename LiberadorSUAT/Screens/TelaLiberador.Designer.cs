@@ -1,7 +1,9 @@
 ﻿
+using LiberadorSUAT.Screens;
+
 namespace LiberadorSUAT
 {
-    partial class TelaLiberadpr
+    partial class TelaLiberador
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +31,9 @@ namespace LiberadorSUAT
         /// </summary>
         private void InitializeComponent()
         {
+            RegrasLiberacao regras = new RegrasLiberacao();
+            regras.ShowDialog();
+
             this.btnLiberarVersao = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();

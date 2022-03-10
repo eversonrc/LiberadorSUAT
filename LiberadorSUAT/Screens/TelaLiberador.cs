@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LiberadorSUAT
 {
-    public partial class TelaLiberadpr : Form
+    public partial class TelaLiberador : Form
     {
-        public TelaLiberadpr()
+        public TelaLiberador()
         {
             InitializeComponent();
         }
@@ -54,7 +54,7 @@ namespace LiberadorSUAT
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            
+            Application.Exit();
         }
     }
 }
