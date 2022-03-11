@@ -15,7 +15,6 @@ namespace LiberadorSUAT
         public TelaLiberador()
         {
             InitializeComponent();
-            regras.ShowDialog();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -56,16 +55,6 @@ namespace LiberadorSUAT
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnExcluirAlteracao_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void regras_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
