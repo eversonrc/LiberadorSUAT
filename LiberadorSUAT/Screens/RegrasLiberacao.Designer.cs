@@ -94,6 +94,7 @@ namespace LiberadorSUAT.Screens
             this.Controls.Add(this.btnOk);
             this.Name = "RegrasLiberacao";
             this.Text = "RegrasLiberacao";
+            this.Load += new System.EventHandler(this.RegrasLiberacao_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

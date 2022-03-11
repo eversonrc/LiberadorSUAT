@@ -65,11 +65,11 @@ namespace LiberadorSUAT
             // regras
             // 
             this.regras.ClientSize = new System.Drawing.Size(464, 251);
-            this.regras.Location = new System.Drawing.Point(78, 78);
+            this.regras.Location = new System.Drawing.Point(156, 156);
             this.regras.Name = "regras";
             this.regras.Text = "RegrasLiberacao";
             this.regras.Visible = false;
-            this.regras.Load += new System.EventHandler(this.regras_Load);
+            this.regras.Load += new System.EventHandler(this.regras_Load_1);
             // 
             // btnLiberarVersao
             // 
@@ -253,6 +253,7 @@ namespace LiberadorSUAT
             this.btnAdicionarScript.TabIndex = 18;
             this.btnAdicionarScript.Text = "Adicionar";
             this.btnAdicionarScript.UseVisualStyleBackColor = false;
+            this.btnAdicionarScript.Click += new System.EventHandler(this.btnAdicionarScript_Click);
             // 
             // btnExcluirScript
             // 
@@ -295,6 +296,7 @@ namespace LiberadorSUAT
             this.btnNovoAlteracao.TabIndex = 23;
             this.btnNovoAlteracao.Text = "Novo";
             this.btnNovoAlteracao.UseVisualStyleBackColor = false;
+            this.btnNovoAlteracao.Click += new System.EventHandler(this.btnNovoAlteracao_Click);
             // 
             // btnAlterarAlteracao
             // 
@@ -422,7 +424,6 @@ namespace LiberadorSUAT
         private System.Windows.Forms.Button btnAdicionarScript;
         private System.Windows.Forms.Button btnExcluirScript;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListView listViewAlteracoes;
         private System.Windows.Forms.Button btnNovoAlteracao;
         private System.Windows.Forms.Button btnAlterarAlteracao;
         private System.Windows.Forms.Button btnExcluirAlteracao;
@@ -431,6 +432,7 @@ namespace LiberadorSUAT
         private System.Windows.Forms.Button btnAdcionarDocumentacao;
         private System.Windows.Forms.Button btnExcluirDocumentacao;
         private RegrasLiberacao regras;
+        public System.Windows.Forms.ListView listViewAlteracoes;
     }
 }
 

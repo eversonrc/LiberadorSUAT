@@ -31,5 +31,10 @@ namespace LiberadorSUAT.Screens
         {
 
         }
+
+        private void RegrasLiberacao_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

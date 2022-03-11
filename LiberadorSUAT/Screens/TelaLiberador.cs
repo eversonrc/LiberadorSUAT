@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiberadorSUAT.Screens;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,6 @@ namespace LiberadorSUAT
         public TelaLiberador()
         {
             InitializeComponent();
-            regras.ShowDialog();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -40,7 +40,6 @@ namespace LiberadorSUAT
 
         private void listViewAlteracoes_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -64,6 +63,22 @@ namespace LiberadorSUAT
         }
 
         private void regras_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdicionarScript_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNovoAlteracao_Click(object sender, EventArgs e)
+        {
+            TelaAlteracoes telaAlteracao = new TelaAlteracoes();
+            telaAlteracao.ShowDialog();
+        }
+
+        private void regras_Load_1(object sender, EventArgs e)
         {
 
         }

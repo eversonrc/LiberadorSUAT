@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Alteracao.cs" />
     <Compile Include="Screens\RegrasLiberacao.cs">
       <SubType>Form</SubType>
     </Compile>
