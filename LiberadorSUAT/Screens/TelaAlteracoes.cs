@@ -22,7 +22,7 @@ namespace LiberadorSUAT.Screens
         {
             InitializeComponent();
             telaLiberador = tela;
-            listaAlteracoes = new List<Alteracao>();
+           // listaAlteracoes = new List<Alteracao>();
         }
 
         public TelaAlteracoes(TelaLiberador tela, string helpesk, string responsavel, string descricao, string alteracao)
@@ -37,6 +37,8 @@ namespace LiberadorSUAT.Screens
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            listaAlteracoes = new List<Alteracao>();
+
             string helpdesk = txbHelpdesk.Text;
             string responsavel = txbResponsavel.Text;
             string descricao = txbDescricao.Text;

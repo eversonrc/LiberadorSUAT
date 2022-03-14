@@ -343,6 +343,7 @@ namespace LiberadorSUAT
             this.btnAdcionarDocumentacao.TabIndex = 28;
             this.btnAdcionarDocumentacao.Text = "Adicionar";
             this.btnAdcionarDocumentacao.UseVisualStyleBackColor = false;
+            this.btnAdcionarDocumentacao.Click += new System.EventHandler(this.btnAdcionarDocumentacao_Click);
             // 
             // btnExcluirDocumentacao
             // 

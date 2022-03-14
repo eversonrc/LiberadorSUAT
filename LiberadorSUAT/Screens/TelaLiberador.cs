@@ -14,12 +14,12 @@ namespace LiberadorSUAT
 {
     public partial class TelaLiberador : Form
     {
-        
+
         public TelaLiberador()
         {
             InitializeComponent();
             regras.ShowDialog();
-            gerarGrade();        
+            gerarGrade();
         }
 
         private void gerarGrade()
@@ -32,6 +32,7 @@ namespace LiberadorSUAT
 
             listViewAlteracoes.FullRowSelect = true;
             listViewAlteracoes.GridLines = true;
+            listViewAlteracoes.CheckBoxes = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -77,9 +78,14 @@ namespace LiberadorSUAT
         {
             foreach (ListViewItem item in listViewAlteracoes.Items)
             {
-                if (item.Selected)
+                //if (item.Selected) esse código só exclui o item que tá selecionado
+                if (item.Checked)
                 {
                     listViewAlteracoes.Items.RemoveAt(item.Index);
+                }
+                else
+                {
+                    MessageBox.Show("Nenhuma alteração foi selecionada.");
                 }
             }
         }
@@ -113,13 +119,28 @@ namespace LiberadorSUAT
 
         private void btnAlterarAlteracao_Click(object sender, EventArgs e)
         {
-            //passar nos parâmetros abaixo o valor selecionado do listview
-            string helpdesk = listViewAlteracoes.SelectedItems[0].ToString();
-            /*string responsavel = listViewAlteracoes.SelectedItems[1].ToString(); 
-            string descricao = listViewAlteracoes.SelectedItems[2].ToString();
-            string alteracao = listViewAlteracoes.SelectedItems[3].ToString();*/
-            TelaAlteracoes tela = new TelaAlteracoes(this, helpdesk, "Iolanda", "Teste", "X");
-            tela.ShowDialog();  
+
+            foreach (ListViewItem item in listViewAlteracoes.Items)
+            {
+                if (item.Checked)
+                {
+                    string helpdesk = item.SubItems[0].Text;
+                    string responsavel = item.SubItems[1].Text;
+                    string descricao = item.SubItems[2].Text;
+                    string alteracao = item.SubItems[3].Text;
+                    TelaAlteracoes telaAlteracao = new TelaAlteracoes(this, helpdesk, responsavel, descricao, alteracao);
+                    telaAlteracao.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Nenhuma alteração foi selecionada.");
+                }
+            }
+        }
+
+        private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
