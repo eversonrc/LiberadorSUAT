@@ -46,16 +46,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TelaLiberadpr.cs">
+    <Compile Include="Models\Alteracao.cs" />
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="Screens\RegrasLiberacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TelaLiberadpr.Designer.cs">
-      <DependentUpon>TelaLiberadpr.cs</DependentUpon>
+    <Compile Include="Screens\RegrasLiberacao.Designer.cs">
+      <DependentUpon>RegrasLiberacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\TelaAlteracoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\TelaAlteracoes.Designer.cs">
+      <DependentUpon>TelaAlteracoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\TelaLiberador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\TelaLiberador.Designer.cs">
+      <DependentUpon>TelaLiberador.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="TelaLiberadpr.resx">
-      <DependentUpon>TelaLiberadpr.cs</DependentUpon>
+    <EmbeddedResource Include="Screens\RegrasLiberacao.resx">
+      <DependentUpon>RegrasLiberacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\TelaAlteracoes.resx">
+      <DependentUpon>TelaAlteracoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\TelaLiberador.resx">
+      <DependentUpon>TelaLiberador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,6 +98,44 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Outlook">
+      <Guid>{00062FFF-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.OutlookViewCtl">
+      <Guid>{0006F062-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>2</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
