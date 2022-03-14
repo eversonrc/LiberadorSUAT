@@ -82,5 +82,10 @@ namespace LiberadorSUAT
         {
 
         }
+
+        private void btnEnviarEmail_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

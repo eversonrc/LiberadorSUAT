@@ -223,6 +223,7 @@ namespace LiberadorSUAT
             this.btnEnviarEmail.TabIndex = 15;
             this.btnEnviarEmail.Text = "Enviar E-mail";
             this.btnEnviarEmail.UseVisualStyleBackColor = false;
+            this.btnEnviarEmail.Click += new System.EventHandler(this.btnEnviarEmail_Click);
             // 
             // label8
             // 
