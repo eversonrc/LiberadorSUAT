@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,9 @@ namespace LiberadorSUAT
         {
             InitializeComponent();
             regras.ShowDialog();
-            gerarGrade();        
+            gerarGrade();
         }
-
+        
         private void gerarGrade()
         {
             listViewAlteracoes.Columns.Add("Helpdesk", 100).TextAlign = HorizontalAlignment.Center;
@@ -36,7 +37,7 @@ namespace LiberadorSUAT
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void btn_Liberar(object sender, EventArgs e)
@@ -75,11 +76,11 @@ namespace LiberadorSUAT
 
         private void btnExcluirAlteracao_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in listViewAlteracoes.Items)
+            foreach (ListViewItem item in listBoxAttachments.Items)
             {
                 if (item.Selected)
                 {
-                    listViewAlteracoes.Items.RemoveAt(item.Index);
+                    listBoxAttachments.Items.RemoveAt(item.Index);
                 }
             }
         }
@@ -91,7 +92,31 @@ namespace LiberadorSUAT
 
         private void btnAdicionarScript_Click(object sender, EventArgs e)
         {
+            listBoxScripts.IntegralHeight = true;
 
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Multiselect = true;
+
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    foreach (var file in dialog.FileNames)
+                    {
+                        listBoxScripts.Items.Add(file);
+                    }
+                }
+            }
+
+            // Display a horizontal scroll bar.
+            listBoxScripts.HorizontalScrollbar = true;
+
+            //// Create a Graphics object to use when determining the size of the largest item in the ListBox.
+            //Graphics g = listBoxAttachments.CreateGraphics();
+
+            //// Determine the size for HorizontalExtent using the MeasureString method using the last item in the list.
+            //int hzSize = (int)g.MeasureString(listBoxAttachments.Items[listBoxAttachments.Items.Count - 1].ToString(), listBoxAttachments.Font).Width;
+            //// Set the HorizontalExtent property.
+            //listBoxAttachments.HorizontalExtent = hzSize;
         }
 
         private void btnNovoAlteracao_Click(object sender, EventArgs e)
@@ -120,6 +145,65 @@ namespace LiberadorSUAT
             string alteracao = listViewAlteracoes.SelectedItems[3].ToString();*/
             TelaAlteracoes tela = new TelaAlteracoes(this, helpdesk, "Iolanda", "Teste", "X");
             tela.ShowDialog();  
+        }
+
+        private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
+        {
+            listBoxAttachments.IntegralHeight = true;
+
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Multiselect = true;
+
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    foreach (var file in dialog.FileNames)
+                    {
+                        listBoxAttachments.Items.Add(file);
+                    }
+                }
+            }
+
+            // Display a horizontal scroll bar.
+            listBoxAttachments.HorizontalScrollbar = true;
+
+            //// Create a Graphics object to use when determining the size of the largest item in the ListBox.
+            //Graphics g = listBoxAttachments.CreateGraphics();
+
+            //// Determine the size for HorizontalExtent using the MeasureString method using the last item in the list.
+            //int hzSize = (int)g.MeasureString(listBoxAttachments.Items[listBoxAttachments.Items.Count - 1].ToString(), listBoxAttachments.Font).Width;
+            //// Set the HorizontalExtent property.
+            //listBoxAttachments.HorizontalExtent = hzSize;
+        }
+
+        private void btnExcluirDocumentacao_Click(object sender, EventArgs e)
+        {
+            for(int i = listBoxAttachments.SelectedIndices.Count -1; i >= 0; i--)
+            {
+                if(listBoxAttachments.SelectedIndex != -1)
+                {
+                    listBoxAttachments.Items.RemoveAt(listBoxAttachments.SelectedIndex);
+                }
+                else
+                {
+                    MessageBox.Show("Selecione os arquivos que deseja excluir");
+                }
+            }
+        }
+
+        private void btnExcluirScript_Click(object sender, EventArgs e)
+        {
+            for (int i = listBoxScripts.SelectedIndices.Count - 1; i >= 0; i--)
+            {
+                if (listBoxScripts.SelectedIndex != -1)
+                {
+                    listBoxScripts.Items.RemoveAt(listBoxScripts.SelectedIndex);
+                }
+                else
+                {
+                    MessageBox.Show("Selecione os arquivos que deseja excluir");
+                }
+            }
         }
     }
 }
