@@ -40,7 +40,6 @@ namespace LiberadorSUAT.Screens
             this.txbAlteracao = new System.Windows.Forms.TextBox();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.listViewTeste = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // label1
@@ -80,6 +79,7 @@ namespace LiberadorSUAT.Screens
             this.txbHelpdesk.Name = "txbHelpdesk";
             this.txbHelpdesk.Size = new System.Drawing.Size(100, 20);
             this.txbHelpdesk.TabIndex = 3;
+            this.txbHelpdesk.TextChanged += new System.EventHandler(this.txbHelpdesk_TextChanged);
             // 
             // txbResponsavel
             // 
@@ -125,9 +125,9 @@ namespace LiberadorSUAT.Screens
             // btnOk
             // 
             this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnOk.Location = new System.Drawing.Point(348, 252);
+            this.btnOk.Location = new System.Drawing.Point(349, 267);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.Size = new System.Drawing.Size(78, 32);
             this.btnOk.TabIndex = 9;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = false;
@@ -136,30 +136,19 @@ namespace LiberadorSUAT.Screens
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnCancelar.Location = new System.Drawing.Point(441, 252);
+            this.btnCancelar.Location = new System.Drawing.Point(446, 267);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(70, 32);
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // listViewTeste
-            // 
-            this.listViewTeste.HideSelection = false;
-            this.listViewTeste.Location = new System.Drawing.Point(12, 283);
-            this.listViewTeste.Name = "listViewTeste";
-            this.listViewTeste.Size = new System.Drawing.Size(277, 131);
-            this.listViewTeste.TabIndex = 11;
-            this.listViewTeste.UseCompatibleStateImageBehavior = false;
-            this.listViewTeste.SelectedIndexChanged += new System.EventHandler(this.listViewTeste_SelectedIndexChanged);
-            // 
             // TelaAlteracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 441);
-            this.Controls.Add(this.listViewTeste);
+            this.ClientSize = new System.Drawing.Size(544, 311);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.txbAlteracao);
@@ -191,6 +180,5 @@ namespace LiberadorSUAT.Screens
         private System.Windows.Forms.TextBox txbAlteracao;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.ListView listViewTeste;
     }
 }

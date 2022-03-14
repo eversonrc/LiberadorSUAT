@@ -10,34 +10,52 @@ using System.Threading.Tasks;
 using LiberadorSUAT.Screens;
 using System.Windows.Forms;
 
+
 namespace LiberadorSUAT.Screens
 {
     public partial class TelaAlteracoes : Form
     {
         public List<Alteracao> listaAlteracoes;
+        private TelaLiberador telaLiberador;
 
-        public TelaAlteracoes()
+        public TelaAlteracoes(TelaLiberador tela)
         {
             InitializeComponent();
+            telaLiberador = tela;
             listaAlteracoes = new List<Alteracao>();
+        }
+
+        public TelaAlteracoes(TelaLiberador tela, string helpesk, string responsavel, string descricao, string alteracao)
+        {
+            InitializeComponent();
+            telaLiberador = tela;
+            txbHelpdesk.Text = helpesk;
+            txbResponsavel.Text = responsavel;
+            txbDescricao.Text = descricao;
+            txbAlteracao.Text = alteracao;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-             string helpdesk = txbHelpdesk.Text;
-             string responsavel = txbResponsavel.Text;
-             string descricao = txbDescricao.Text;
-             string alteracao = txbAlteracao.Text;
+            string helpdesk = txbHelpdesk.Text;
+            string responsavel = txbResponsavel.Text;
+            string descricao = txbDescricao.Text;
+            string alteracaoRealizada = txbAlteracao.Text;
+            listaAlteracoes.Add(new Alteracao(helpdesk, responsavel, descricao, alteracaoRealizada));
 
-             Alteracao alteracaoRealizada = new Alteracao(helpdesk, responsavel, descricao, alteracao);
-             listaAlteracoes.Add(alteracaoRealizada);
-          
-            foreach (var item in listaAlteracoes)
+            string[] item = new string[4];
+
+            foreach (Alteracao alteracao in listaAlteracoes)
             {
-                //listViewTeste.Items.Add(item.ToString());
-                list
+                item[0] = alteracao.HelpDesk;
+                item[1] = alteracao.Responsavel;
+                item[2] = alteracao.Descricao;
+                item[3] = alteracao.AlteracaoRealizada;
             }
 
+            telaLiberador.listViewAlteracoes.Items.Add(new ListViewItem(item));
+
+            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -48,6 +66,11 @@ namespace LiberadorSUAT.Screens
         private void listViewTeste_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txbHelpdesk_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

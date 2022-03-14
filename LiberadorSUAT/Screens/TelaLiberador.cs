@@ -1,4 +1,5 @@
-﻿using LiberadorSUAT.Screens;
+﻿using LiberadorSUAT.Models;
+using LiberadorSUAT.Screens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,24 @@ namespace LiberadorSUAT
 {
     public partial class TelaLiberador : Form
     {
+        
         public TelaLiberador()
         {
             InitializeComponent();
+            regras.ShowDialog();
+            gerarGrade();        
+        }
+
+        private void gerarGrade()
+        {
+            listViewAlteracoes.Columns.Add("Helpdesk", 100).TextAlign = HorizontalAlignment.Center;
+            listViewAlteracoes.Columns.Add("Responsável", 150).TextAlign = HorizontalAlignment.Center;
+            listViewAlteracoes.Columns.Add("Descrição", 250).TextAlign = HorizontalAlignment.Center;
+            listViewAlteracoes.Columns.Add("Alteração", 250).TextAlign = HorizontalAlignment.Center;
+            listViewAlteracoes.View = View.Details;
+
+            listViewAlteracoes.FullRowSelect = true;
+            listViewAlteracoes.GridLines = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -59,7 +75,13 @@ namespace LiberadorSUAT
 
         private void btnExcluirAlteracao_Click(object sender, EventArgs e)
         {
-
+            foreach (ListViewItem item in listViewAlteracoes.Items)
+            {
+                if (item.Selected)
+                {
+                    listViewAlteracoes.Items.RemoveAt(item.Index);
+                }
+            }
         }
 
         private void regras_Load(object sender, EventArgs e)
@@ -74,7 +96,7 @@ namespace LiberadorSUAT
 
         private void btnNovoAlteracao_Click(object sender, EventArgs e)
         {
-            TelaAlteracoes telaAlteracao = new TelaAlteracoes();
+            TelaAlteracoes telaAlteracao = new TelaAlteracoes(this);
             telaAlteracao.ShowDialog();
         }
 
@@ -85,7 +107,19 @@ namespace LiberadorSUAT
 
         private void btnEnviarEmail_Click(object sender, EventArgs e)
         {
+            Email email = new Email();
+            email.GetApplicationObject();
+        }
 
+        private void btnAlterarAlteracao_Click(object sender, EventArgs e)
+        {
+            //passar nos parâmetros abaixo o valor selecionado do listview
+            string helpdesk = listViewAlteracoes.SelectedItems[0].ToString();
+            /*string responsavel = listViewAlteracoes.SelectedItems[1].ToString(); 
+            string descricao = listViewAlteracoes.SelectedItems[2].ToString();
+            string alteracao = listViewAlteracoes.SelectedItems[3].ToString();*/
+            TelaAlteracoes tela = new TelaAlteracoes(this, helpdesk, "Iolanda", "Teste", "X");
+            tela.ShowDialog();  
         }
     }
 }
