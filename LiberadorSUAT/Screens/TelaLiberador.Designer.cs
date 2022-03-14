@@ -47,7 +47,6 @@ namespace LiberadorSUAT
             this.txbHoras = new System.Windows.Forms.TextBox();
             this.btnEnviarEmail = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.listViewScripts = new System.Windows.Forms.ListView();
             this.btnAdicionarScript = new System.Windows.Forms.Button();
             this.btnExcluirScript = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,10 +55,11 @@ namespace LiberadorSUAT
             this.btnAlterarAlteracao = new System.Windows.Forms.Button();
             this.btnExcluirAlteracao = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.listViewDocumentacoes = new System.Windows.Forms.ListView();
             this.btnAdcionarDocumentacao = new System.Windows.Forms.Button();
             this.btnExcluirDocumentacao = new System.Windows.Forms.Button();
             this.regras = new LiberadorSUAT.Screens.RegrasLiberacao();
+            this.listBoxAttachments = new System.Windows.Forms.ListBox();
+            this.listBoxScripts = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnLiberarVersao
@@ -226,20 +226,11 @@ namespace LiberadorSUAT
             this.label8.TabIndex = 16;
             this.label8.Text = "Scripts de Banco de Dados";
             // 
-            // listViewScripts
-            // 
-            this.listViewScripts.HideSelection = false;
-            this.listViewScripts.Location = new System.Drawing.Point(466, 345);
-            this.listViewScripts.Name = "listViewScripts";
-            this.listViewScripts.Size = new System.Drawing.Size(263, 90);
-            this.listViewScripts.TabIndex = 17;
-            this.listViewScripts.UseCompatibleStateImageBehavior = false;
-            // 
             // btnAdicionarScript
             // 
             this.btnAdicionarScript.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnAdicionarScript.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdicionarScript.Location = new System.Drawing.Point(735, 345);
+            this.btnAdicionarScript.Location = new System.Drawing.Point(788, 345);
             this.btnAdicionarScript.Name = "btnAdicionarScript";
             this.btnAdicionarScript.Size = new System.Drawing.Size(96, 26);
             this.btnAdicionarScript.TabIndex = 18;
@@ -251,12 +242,13 @@ namespace LiberadorSUAT
             // 
             this.btnExcluirScript.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnExcluirScript.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluirScript.Location = new System.Drawing.Point(735, 398);
+            this.btnExcluirScript.Location = new System.Drawing.Point(788, 377);
             this.btnExcluirScript.Name = "btnExcluirScript";
             this.btnExcluirScript.Size = new System.Drawing.Size(96, 26);
             this.btnExcluirScript.TabIndex = 20;
             this.btnExcluirScript.Text = "Excluir";
             this.btnExcluirScript.UseVisualStyleBackColor = false;
+            this.btnExcluirScript.Click += new System.EventHandler(this.btnExcluirScript_Click);
             // 
             // label9
             // 
@@ -324,20 +316,11 @@ namespace LiberadorSUAT
             this.label10.TabIndex = 26;
             this.label10.Text = "Documentações Extras";
             // 
-            // listViewDocumentacoes
-            // 
-            this.listViewDocumentacoes.HideSelection = false;
-            this.listViewDocumentacoes.Location = new System.Drawing.Point(15, 345);
-            this.listViewDocumentacoes.Name = "listViewDocumentacoes";
-            this.listViewDocumentacoes.Size = new System.Drawing.Size(263, 90);
-            this.listViewDocumentacoes.TabIndex = 27;
-            this.listViewDocumentacoes.UseCompatibleStateImageBehavior = false;
-            // 
             // btnAdcionarDocumentacao
             // 
             this.btnAdcionarDocumentacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnAdcionarDocumentacao.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdcionarDocumentacao.Location = new System.Drawing.Point(284, 345);
+            this.btnAdcionarDocumentacao.Location = new System.Drawing.Point(342, 345);
             this.btnAdcionarDocumentacao.Name = "btnAdcionarDocumentacao";
             this.btnAdcionarDocumentacao.Size = new System.Drawing.Size(96, 26);
             this.btnAdcionarDocumentacao.TabIndex = 28;
@@ -349,12 +332,13 @@ namespace LiberadorSUAT
             // 
             this.btnExcluirDocumentacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnExcluirDocumentacao.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluirDocumentacao.Location = new System.Drawing.Point(284, 377);
+            this.btnExcluirDocumentacao.Location = new System.Drawing.Point(342, 377);
             this.btnExcluirDocumentacao.Name = "btnExcluirDocumentacao";
             this.btnExcluirDocumentacao.Size = new System.Drawing.Size(96, 26);
             this.btnExcluirDocumentacao.TabIndex = 30;
             this.btnExcluirDocumentacao.Text = "Excluir";
             this.btnExcluirDocumentacao.UseVisualStyleBackColor = false;
+            this.btnExcluirDocumentacao.Click += new System.EventHandler(this.btnExcluirDocumentacao_Click);
             // 
             // regras
             // 
@@ -365,14 +349,35 @@ namespace LiberadorSUAT
             this.regras.Visible = false;
             this.regras.Load += new System.EventHandler(this.regras_Load_1);
             // 
+            // listBoxAttachments
+            // 
+            this.listBoxAttachments.FormattingEnabled = true;
+            this.listBoxAttachments.ItemHeight = 14;
+            this.listBoxAttachments.Location = new System.Drawing.Point(17, 347);
+            this.listBoxAttachments.Name = "listBoxAttachments";
+            this.listBoxAttachments.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBoxAttachments.Size = new System.Drawing.Size(319, 88);
+            this.listBoxAttachments.TabIndex = 31;
+            // 
+            // listBoxScripts
+            // 
+            this.listBoxScripts.FormattingEnabled = true;
+            this.listBoxScripts.ItemHeight = 14;
+            this.listBoxScripts.Location = new System.Drawing.Point(466, 347);
+            this.listBoxScripts.Name = "listBoxScripts";
+            this.listBoxScripts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBoxScripts.Size = new System.Drawing.Size(316, 88);
+            this.listBoxScripts.TabIndex = 32;
+            // 
             // TelaLiberador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 509);
+            this.Controls.Add(this.listBoxScripts);
+            this.Controls.Add(this.listBoxAttachments);
             this.Controls.Add(this.btnExcluirDocumentacao);
             this.Controls.Add(this.btnAdcionarDocumentacao);
-            this.Controls.Add(this.listViewDocumentacoes);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnExcluirAlteracao);
             this.Controls.Add(this.btnAlterarAlteracao);
@@ -381,7 +386,6 @@ namespace LiberadorSUAT
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnExcluirScript);
             this.Controls.Add(this.btnAdicionarScript);
-            this.Controls.Add(this.listViewScripts);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnEnviarEmail);
             this.Controls.Add(this.txbHoras);
@@ -424,7 +428,6 @@ namespace LiberadorSUAT
         private System.Windows.Forms.TextBox txbHoras;
         private System.Windows.Forms.Button btnEnviarEmail;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListView listViewScripts;
         private System.Windows.Forms.Button btnAdicionarScript;
         private System.Windows.Forms.Button btnExcluirScript;
         private System.Windows.Forms.Label label9;
@@ -432,11 +435,12 @@ namespace LiberadorSUAT
         private System.Windows.Forms.Button btnAlterarAlteracao;
         private System.Windows.Forms.Button btnExcluirAlteracao;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListView listViewDocumentacoes;
         private System.Windows.Forms.Button btnAdcionarDocumentacao;
         private System.Windows.Forms.Button btnExcluirDocumentacao;
         private RegrasLiberacao regras;
         public System.Windows.Forms.ListView listViewAlteracoes;
+        private System.Windows.Forms.ListBox listBoxAttachments;
+        private System.Windows.Forms.ListBox listBoxScripts;
     }
 }
 
