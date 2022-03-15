@@ -97,9 +97,7 @@ namespace LiberadorSUAT
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = true;
-                dialog.Filter = "Word Documents|*.doc|Excel Worksheets|*.xls|PowerPoint Presentations|*.ppt" +
-             "|Office Files|*.doc;*.xls;*.ppt" +
-             "|All Files|*.*";
+                dialog.Filter = "All Files|*.*";
 
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
@@ -157,9 +155,7 @@ namespace LiberadorSUAT
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = true;
-                dialog.Filter = "Word Documents|*.doc|Excel Worksheets|*.xls|PowerPoint Presentations|*.ppt" +
-             "|Office Files|*.doc;*.xls;*.ppt" +
-             "|All Files|*.*";
+                dialog.Filter = "Word Documents|*.doc|PDF Files|*.pdf";
 
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
