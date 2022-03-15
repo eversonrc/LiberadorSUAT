@@ -15,13 +15,17 @@ namespace LiberadorSUAT
 {
     public partial class TelaLiberador : Form
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 34419df84f823a5829db23e4010b1d1b7a34d9c9
         public TelaLiberador()
         {
             InitializeComponent();
-            regras.ShowDialog();
+            //regras.ShowDialog();
             gerarGrade();
         }
-        
+
         private void gerarGrade()
         {
             listViewAlteracoes.Columns.Add("Helpdesk", 100).TextAlign = HorizontalAlignment.Center;
@@ -37,7 +41,7 @@ namespace LiberadorSUAT
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btn_Liberar(object sender, EventArgs e)
@@ -101,6 +105,7 @@ namespace LiberadorSUAT
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = true;
+                dialog.Filter = "All Files|*.*";
 
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
@@ -142,6 +147,7 @@ namespace LiberadorSUAT
 
         private void btnAlterarAlteracao_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             
             foreach (ListViewItem item in listViewAlteracoes.Items)
             {
@@ -160,6 +166,15 @@ namespace LiberadorSUAT
                     MessageBox.Show("Nenhuma alteração foi selecionada.");
                 }
             }
+=======
+            //passar nos parâmetros abaixo o valor selecionado do listview
+            string helpdesk = listViewAlteracoes.SelectedItems[0].ToString();
+            /*string responsavel = listViewAlteracoes.SelectedItems[1].ToString(); 
+            string descricao = listViewAlteracoes.SelectedItems[2].ToString();
+            string alteracao = listViewAlteracoes.SelectedItems[3].ToString();*/
+            TelaAlteracoes tela = new TelaAlteracoes(this, helpdesk, "Iolanda", "Teste", "X");
+            tela.ShowDialog();
+>>>>>>> 34419df84f823a5829db23e4010b1d1b7a34d9c9
         }
 
 
@@ -170,18 +185,22 @@ namespace LiberadorSUAT
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = true;
+                dialog.Filter = "Word Documents|*.doc|PDF Files|*.pdf";
 
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     foreach (var file in dialog.FileNames)
                     {
                         listBoxAttachments.Items.Add(file);
+
+                        //NotSupportedException
+                        //path está em um formato inválido.
                     }
                 }
             }
 
-            // Display a horizontal scroll bar.
-            listBoxAttachments.HorizontalScrollbar = true;
+        // Display a horizontal scroll bar.
+        listBoxAttachments.HorizontalScrollbar = true;
 
             //// Create a Graphics object to use when determining the size of the largest item in the ListBox.
             //Graphics g = listBoxAttachments.CreateGraphics();

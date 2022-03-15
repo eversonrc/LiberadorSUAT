@@ -55,7 +55,6 @@ namespace LiberadorSUAT
             this.label10 = new System.Windows.Forms.Label();
             this.btnAdcionarDocumentacao = new System.Windows.Forms.Button();
             this.btnExcluirDocumentacao = new System.Windows.Forms.Button();
-            this.regras = new LiberadorSUAT.Screens.RegrasLiberacao();
             this.listBoxAttachments = new System.Windows.Forms.ListBox();
             this.listBoxScripts = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
@@ -320,15 +319,6 @@ namespace LiberadorSUAT
             this.btnExcluirDocumentacao.UseVisualStyleBackColor = false;
             this.btnExcluirDocumentacao.Click += new System.EventHandler(this.btnExcluirDocumentacao_Click);
             // 
-            // regras
-            // 
-            this.regras.ClientSize = new System.Drawing.Size(464, 251);
-            this.regras.Location = new System.Drawing.Point(156, 156);
-            this.regras.Name = "regras";
-            this.regras.Text = "RegrasLiberacao";
-            this.regras.Visible = false;
-            this.regras.Load += new System.EventHandler(this.regras_Load_1);
-            // 
             // listBoxAttachments
             // 
             this.listBoxAttachments.FormattingEnabled = true;
@@ -413,7 +403,6 @@ namespace LiberadorSUAT
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnAdcionarDocumentacao;
         private System.Windows.Forms.Button btnExcluirDocumentacao;
-        private RegrasLiberacao regras;
         public System.Windows.Forms.ListView listViewAlteracoes;
         private System.Windows.Forms.ListBox listBoxAttachments;
         private System.Windows.Forms.ListBox listBoxScripts;
