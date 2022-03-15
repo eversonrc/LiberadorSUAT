@@ -15,34 +15,32 @@ namespace LiberadorSUAT.Screens
 {
     public partial class TelaAlteracoes : Form
     {
-        public List<Alteracao> listaAlteracoes;
+        public List<Alteracao> listaAlteracoes = new List<Alteracao>();
         private TelaLiberador telaLiberador;
-
+        private int indice = -1;
         public TelaAlteracoes(TelaLiberador tela)
         {
             InitializeComponent();
             telaLiberador = tela;
-           // listaAlteracoes = new List<Alteracao>();
         }
 
-        public TelaAlteracoes(TelaLiberador tela, string helpesk, string responsavel, string descricao, string alteracao)
+        public TelaAlteracoes(TelaLiberador tela, string helpesk, string responsavel, string descricao, string alteracao, int index)
         {
             InitializeComponent();
             telaLiberador = tela;
             txbHelpdesk.Text = helpesk;
             txbResponsavel.Text = responsavel;
             txbDescricao.Text = descricao;
-            txbAlteracao.Text = alteracao;
+            indice = index;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            listaAlteracoes = new List<Alteracao>();
-
             string helpdesk = txbHelpdesk.Text;
             string responsavel = txbResponsavel.Text;
             string descricao = txbDescricao.Text;
             string alteracaoRealizada = txbAlteracao.Text;
+
             listaAlteracoes.Add(new Alteracao(helpdesk, responsavel, descricao, alteracaoRealizada));
 
             string[] item = new string[4];
@@ -73,6 +71,21 @@ namespace LiberadorSUAT.Screens
         private void txbHelpdesk_TextChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnAlterar_Click_1(object sender, EventArgs e)
+        {
+            telaLiberador.listViewAlteracoes.Items[indice].SubItems[0].Text = txbHelpdesk.Text;
+            telaLiberador.listViewAlteracoes.Items[indice].SubItems[1].Text = txbResponsavel.Text;
+            telaLiberador.listViewAlteracoes.Items[indice].SubItems[2].Text = txbDescricao.Text;
+            telaLiberador.listViewAlteracoes.Items[indice].SubItems[3].Text = txbAlteracao.Text;
+
+            this.Close();
         }
     }
 }

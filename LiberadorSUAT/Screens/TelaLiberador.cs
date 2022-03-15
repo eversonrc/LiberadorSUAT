@@ -15,7 +15,6 @@ namespace LiberadorSUAT
 {
     public partial class TelaLiberador : Form
     {
-
         public TelaLiberador()
         {
             InitializeComponent();
@@ -27,8 +26,8 @@ namespace LiberadorSUAT
         {
             listViewAlteracoes.Columns.Add("Helpdesk", 100).TextAlign = HorizontalAlignment.Center;
             listViewAlteracoes.Columns.Add("Responsável", 150).TextAlign = HorizontalAlignment.Center;
-            listViewAlteracoes.Columns.Add("Descrição", 250).TextAlign = HorizontalAlignment.Center;
-            listViewAlteracoes.Columns.Add("Alteração", 250).TextAlign = HorizontalAlignment.Center;
+            listViewAlteracoes.Columns.Add("Descrição", 260).TextAlign = HorizontalAlignment.Center;
+            listViewAlteracoes.Columns.Add("Alteração", 260).TextAlign = HorizontalAlignment.Center;
             listViewAlteracoes.View = View.Details;
 
             listViewAlteracoes.FullRowSelect = true;
@@ -77,12 +76,11 @@ namespace LiberadorSUAT
 
         private void btnExcluirAlteracao_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in listBoxAttachments.Items)
+            foreach (ListViewItem item in listViewAlteracoes.Items)
             {
-                //if (item.Selected) esse código só exclui o item que tá selecionado
                 if (item.Checked)
                 {
-                    listBoxAttachments.Items.RemoveAt(item.Index);
+                    listViewAlteracoes.Items.RemoveAt(item.Index);
                 }
                 else
                 {
@@ -144,16 +142,17 @@ namespace LiberadorSUAT
 
         private void btnAlterarAlteracao_Click(object sender, EventArgs e)
         {
-
+            
             foreach (ListViewItem item in listViewAlteracoes.Items)
             {
                 if (item.Checked)
                 {
+                    int indice = listViewAlteracoes.Items.IndexOf(item);
                     string helpdesk = item.SubItems[0].Text;
                     string responsavel = item.SubItems[1].Text;
                     string descricao = item.SubItems[2].Text;
                     string alteracao = item.SubItems[3].Text;
-                    TelaAlteracoes telaAlteracao = new TelaAlteracoes(this, helpdesk, responsavel, descricao, alteracao);
+                    TelaAlteracoes telaAlteracao = new TelaAlteracoes(this, helpdesk, responsavel, descricao, alteracao, indice);
                     telaAlteracao.ShowDialog();
                 }
                 else
@@ -163,10 +162,6 @@ namespace LiberadorSUAT
             }
         }
 
-        private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
         {
