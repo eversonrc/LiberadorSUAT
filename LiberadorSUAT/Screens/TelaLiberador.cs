@@ -15,14 +15,10 @@ namespace LiberadorSUAT
 {
     public partial class TelaLiberador : Form
     {
-<<<<<<< HEAD
-=======
 
->>>>>>> 34419df84f823a5829db23e4010b1d1b7a34d9c9
         public TelaLiberador()
         {
             InitializeComponent();
-            //regras.ShowDialog();
             gerarGrade();
         }
 
@@ -146,9 +142,7 @@ namespace LiberadorSUAT
         }
 
         private void btnAlterarAlteracao_Click(object sender, EventArgs e)
-        {
-<<<<<<< HEAD
-            
+        { 
             foreach (ListViewItem item in listViewAlteracoes.Items)
             {
                 if (item.Checked)
@@ -166,15 +160,6 @@ namespace LiberadorSUAT
                     MessageBox.Show("Nenhuma alteração foi selecionada.");
                 }
             }
-=======
-            //passar nos parâmetros abaixo o valor selecionado do listview
-            string helpdesk = listViewAlteracoes.SelectedItems[0].ToString();
-            /*string responsavel = listViewAlteracoes.SelectedItems[1].ToString(); 
-            string descricao = listViewAlteracoes.SelectedItems[2].ToString();
-            string alteracao = listViewAlteracoes.SelectedItems[3].ToString();*/
-            TelaAlteracoes tela = new TelaAlteracoes(this, helpdesk, "Iolanda", "Teste", "X");
-            tela.ShowDialog();
->>>>>>> 34419df84f823a5829db23e4010b1d1b7a34d9c9
         }
 
 
@@ -238,6 +223,88 @@ namespace LiberadorSUAT
                 {
                     MessageBox.Show("Selecione os arquivos que deseja excluir");
                 }
+            }
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdicionarArquivos_Click(object sender, EventArgs e)
+        {
+            listBoxArquivos.IntegralHeight = true;
+
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Multiselect = true;
+                dialog.Filter = "All Files|*.*";
+
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    foreach (var file in dialog.FileNames)
+                    {
+                        listBoxArquivos.Items.Add(file);
+                    }
+                }
+            }
+
+            listBoxArquivos.HorizontalScrollbar = true;
+        }
+
+        private void btnExcluirArquivos_Click(object sender, EventArgs e)
+        {
+            for (int i = listBoxArquivos.SelectedIndices.Count - 1; i >= 0; i--)
+            {
+                if (listBoxArquivos.SelectedIndex != -1)
+                {
+                    listBoxArquivos.Items.RemoveAt(listBoxArquivos.SelectedIndex);
+                }
+                else
+                {
+                    MessageBox.Show("Selecione os arquivos que deseja excluir");
+                }
+            }
+        }
+
+        private void btnRegras_Click(object sender, EventArgs e)
+        {
+            RegrasLiberacao regras = new RegrasLiberacao();
+            regras.ShowDialog();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listTipoLiberacao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void checkedListBoxSistemas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string item = listBoxSistemas.SelectedItem.ToString();
+
+            if (item == "Evasores")
+            {
+                txbSigla.Text = "EVA";
+            }
+            else if (item == "SUATMobilidade")
+            {
+                txbSigla.Text = "SUAT";
+            }
+            else if (item == "VLTRio")
+            {
+                txbSigla.Text = "VLT";
+            }
+            else if (item == "Automatizador")
+            {
+                txbSigla.Text = "AUTO";
+            }
+            else
+            {
+                txbSigla.Text = "BRC";
             }
         }
     }
