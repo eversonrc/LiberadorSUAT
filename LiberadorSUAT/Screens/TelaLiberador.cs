@@ -15,14 +15,14 @@ namespace LiberadorSUAT
 {
     public partial class TelaLiberador : Form
     {
-        
+
         public TelaLiberador()
         {
             InitializeComponent();
-            regras.ShowDialog();
+            //regras.ShowDialog();
             gerarGrade();
         }
-        
+
         private void gerarGrade()
         {
             listViewAlteracoes.Columns.Add("Helpdesk", 100).TextAlign = HorizontalAlignment.Center;
@@ -37,7 +37,7 @@ namespace LiberadorSUAT
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btn_Liberar(object sender, EventArgs e)
@@ -97,6 +97,7 @@ namespace LiberadorSUAT
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = true;
+                dialog.Filter = "All Files|*.*";
 
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
@@ -144,7 +145,7 @@ namespace LiberadorSUAT
             string descricao = listViewAlteracoes.SelectedItems[2].ToString();
             string alteracao = listViewAlteracoes.SelectedItems[3].ToString();*/
             TelaAlteracoes tela = new TelaAlteracoes(this, helpdesk, "Iolanda", "Teste", "X");
-            tela.ShowDialog();  
+            tela.ShowDialog();
         }
 
         private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
@@ -154,18 +155,22 @@ namespace LiberadorSUAT
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = true;
+                dialog.Filter = "Word Documents|*.doc|PDF Files|*.pdf";
 
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     foreach (var file in dialog.FileNames)
                     {
                         listBoxAttachments.Items.Add(file);
+
+                        //NotSupportedException
+                        //path está em um formato inválido.
                     }
                 }
             }
 
-            // Display a horizontal scroll bar.
-            listBoxAttachments.HorizontalScrollbar = true;
+        // Display a horizontal scroll bar.
+        listBoxAttachments.HorizontalScrollbar = true;
 
             //// Create a Graphics object to use when determining the size of the largest item in the ListBox.
             //Graphics g = listBoxAttachments.CreateGraphics();
