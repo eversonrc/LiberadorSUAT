@@ -41,10 +41,8 @@ namespace LiberadorSUAT
             this.listSigla = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.txbVersao = new System.Windows.Forms.TextBox();
             this.txbRelease = new System.Windows.Forms.TextBox();
-            this.txbHoras = new System.Windows.Forms.TextBox();
             this.btnEnviarEmail = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.btnAdicionarScript = new System.Windows.Forms.Button();
@@ -65,7 +63,7 @@ namespace LiberadorSUAT
             // 
             this.btnLiberarVersao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnLiberarVersao.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLiberarVersao.Location = new System.Drawing.Point(609, 467);
+            this.btnLiberarVersao.Location = new System.Drawing.Point(616, 481);
             this.btnLiberarVersao.Name = "btnLiberarVersao";
             this.btnLiberarVersao.Size = new System.Drawing.Size(147, 26);
             this.btnLiberarVersao.TabIndex = 1;
@@ -76,7 +74,7 @@ namespace LiberadorSUAT
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(769, 467);
+            this.btnCancelar.Location = new System.Drawing.Point(788, 481);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(96, 26);
             this.btnCancelar.TabIndex = 2;
@@ -171,17 +169,6 @@ namespace LiberadorSUAT
             this.label6.TabIndex = 10;
             this.label6.Text = "Release";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(339, 99);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 17);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Horas Franquia";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
             // txbVersao
             // 
             this.txbVersao.Location = new System.Drawing.Point(15, 119);
@@ -196,18 +183,11 @@ namespace LiberadorSUAT
             this.txbRelease.Size = new System.Drawing.Size(113, 20);
             this.txbRelease.TabIndex = 13;
             // 
-            // txbHoras
-            // 
-            this.txbHoras.Location = new System.Drawing.Point(342, 119);
-            this.txbHoras.Name = "txbHoras";
-            this.txbHoras.Size = new System.Drawing.Size(117, 20);
-            this.txbHoras.TabIndex = 14;
-            // 
             // btnEnviarEmail
             // 
             this.btnEnviarEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnEnviarEmail.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnviarEmail.Location = new System.Drawing.Point(21, 467);
+            this.btnEnviarEmail.Location = new System.Drawing.Point(21, 481);
             this.btnEnviarEmail.Name = "btnEnviarEmail";
             this.btnEnviarEmail.Size = new System.Drawing.Size(147, 26);
             this.btnEnviarEmail.TabIndex = 15;
@@ -363,7 +343,7 @@ namespace LiberadorSUAT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 509);
+            this.ClientSize = new System.Drawing.Size(914, 519);
             this.Controls.Add(this.listBoxScripts);
             this.Controls.Add(this.listBoxAttachments);
             this.Controls.Add(this.btnExcluirDocumentacao);
@@ -378,10 +358,8 @@ namespace LiberadorSUAT
             this.Controls.Add(this.btnAdicionarScript);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnEnviarEmail);
-            this.Controls.Add(this.txbHoras);
             this.Controls.Add(this.txbRelease);
             this.Controls.Add(this.txbVersao);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.listSigla);
@@ -412,10 +390,8 @@ namespace LiberadorSUAT
         private System.Windows.Forms.ListBox listSigla;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txbVersao;
         private System.Windows.Forms.TextBox txbRelease;
-        private System.Windows.Forms.TextBox txbHoras;
         private System.Windows.Forms.Button btnEnviarEmail;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnAdicionarScript;

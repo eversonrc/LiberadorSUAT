@@ -38,8 +38,9 @@ namespace LiberadorSUAT.Screens
             this.txbDescricao = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txbAlteracao = new System.Windows.Forms.TextBox();
-            this.btnOk = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -122,16 +123,16 @@ namespace LiberadorSUAT.Screens
             this.txbAlteracao.Size = new System.Drawing.Size(501, 20);
             this.txbAlteracao.TabIndex = 8;
             // 
-            // btnOk
+            // btnCadastrar
             // 
-            this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnOk.Location = new System.Drawing.Point(349, 267);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(78, 32);
-            this.btnOk.TabIndex = 9;
-            this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = false;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCadastrar.Location = new System.Drawing.Point(320, 267);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(100, 32);
+            this.btnCadastrar.TabIndex = 9;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancelar
             // 
@@ -144,13 +145,25 @@ namespace LiberadorSUAT.Screens
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // btnAlterar
+            // 
+            this.btnAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnAlterar.Location = new System.Drawing.Point(193, 267);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(100, 32);
+            this.btnAlterar.TabIndex = 11;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click_1);
+            // 
             // TelaAlteracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 311);
+            this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnOk);
+            this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.txbAlteracao);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txbDescricao);
@@ -178,7 +191,8 @@ namespace LiberadorSUAT.Screens
         private System.Windows.Forms.TextBox txbDescricao;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txbAlteracao;
-        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnAlterar;
     }
 }

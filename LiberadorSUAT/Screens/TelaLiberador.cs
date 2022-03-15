@@ -15,7 +15,10 @@ namespace LiberadorSUAT
 {
     public partial class TelaLiberador : Form
     {
+<<<<<<< HEAD
+=======
 
+>>>>>>> 34419df84f823a5829db23e4010b1d1b7a34d9c9
         public TelaLiberador()
         {
             InitializeComponent();
@@ -27,12 +30,13 @@ namespace LiberadorSUAT
         {
             listViewAlteracoes.Columns.Add("Helpdesk", 100).TextAlign = HorizontalAlignment.Center;
             listViewAlteracoes.Columns.Add("Responsável", 150).TextAlign = HorizontalAlignment.Center;
-            listViewAlteracoes.Columns.Add("Descrição", 250).TextAlign = HorizontalAlignment.Center;
-            listViewAlteracoes.Columns.Add("Alteração", 250).TextAlign = HorizontalAlignment.Center;
+            listViewAlteracoes.Columns.Add("Descrição", 260).TextAlign = HorizontalAlignment.Center;
+            listViewAlteracoes.Columns.Add("Alteração", 260).TextAlign = HorizontalAlignment.Center;
             listViewAlteracoes.View = View.Details;
 
             listViewAlteracoes.FullRowSelect = true;
             listViewAlteracoes.GridLines = true;
+            listViewAlteracoes.CheckBoxes = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -76,11 +80,15 @@ namespace LiberadorSUAT
 
         private void btnExcluirAlteracao_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in listBoxAttachments.Items)
+            foreach (ListViewItem item in listViewAlteracoes.Items)
             {
-                if (item.Selected)
+                if (item.Checked)
                 {
-                    listBoxAttachments.Items.RemoveAt(item.Index);
+                    listViewAlteracoes.Items.RemoveAt(item.Index);
+                }
+                else
+                {
+                    MessageBox.Show("Nenhuma alteração foi selecionada.");
                 }
             }
         }
@@ -139,6 +147,26 @@ namespace LiberadorSUAT
 
         private void btnAlterarAlteracao_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+            
+            foreach (ListViewItem item in listViewAlteracoes.Items)
+            {
+                if (item.Checked)
+                {
+                    int indice = listViewAlteracoes.Items.IndexOf(item);
+                    string helpdesk = item.SubItems[0].Text;
+                    string responsavel = item.SubItems[1].Text;
+                    string descricao = item.SubItems[2].Text;
+                    string alteracao = item.SubItems[3].Text;
+                    TelaAlteracoes telaAlteracao = new TelaAlteracoes(this, helpdesk, responsavel, descricao, alteracao, indice);
+                    telaAlteracao.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Nenhuma alteração foi selecionada.");
+                }
+            }
+=======
             //passar nos parâmetros abaixo o valor selecionado do listview
             string helpdesk = listViewAlteracoes.SelectedItems[0].ToString();
             /*string responsavel = listViewAlteracoes.SelectedItems[1].ToString(); 
@@ -146,7 +174,9 @@ namespace LiberadorSUAT
             string alteracao = listViewAlteracoes.SelectedItems[3].ToString();*/
             TelaAlteracoes tela = new TelaAlteracoes(this, helpdesk, "Iolanda", "Teste", "X");
             tela.ShowDialog();
+>>>>>>> 34419df84f823a5829db23e4010b1d1b7a34d9c9
         }
+
 
         private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
         {
