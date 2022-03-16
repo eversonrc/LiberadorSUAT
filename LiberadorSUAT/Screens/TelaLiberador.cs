@@ -1,4 +1,4 @@
-﻿using LiberadorSUAT.Models;
+using LiberadorSUAT.Models;
 using LiberadorSUAT.Screens;
 using System;
 using System.Collections.Generic;
@@ -223,88 +223,6 @@ namespace LiberadorSUAT
                 {
                     MessageBox.Show("Selecione os arquivos que deseja excluir");
                 }
-            }
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAdicionarArquivos_Click(object sender, EventArgs e)
-        {
-            listBoxArquivos.IntegralHeight = true;
-
-            using (OpenFileDialog dialog = new OpenFileDialog())
-            {
-                dialog.Multiselect = true;
-                dialog.Filter = "All Files|*.*";
-
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    foreach (var file in dialog.FileNames)
-                    {
-                        listBoxArquivos.Items.Add(file);
-                    }
-                }
-            }
-
-            listBoxArquivos.HorizontalScrollbar = true;
-        }
-
-        private void btnExcluirArquivos_Click(object sender, EventArgs e)
-        {
-            for (int i = listBoxArquivos.SelectedIndices.Count - 1; i >= 0; i--)
-            {
-                if (listBoxArquivos.SelectedIndex != -1)
-                {
-                    listBoxArquivos.Items.RemoveAt(listBoxArquivos.SelectedIndex);
-                }
-                else
-                {
-                    MessageBox.Show("Selecione os arquivos que deseja excluir");
-                }
-            }
-        }
-
-        private void btnRegras_Click(object sender, EventArgs e)
-        {
-            RegrasLiberacao regras = new RegrasLiberacao();
-            regras.ShowDialog();
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listTipoLiberacao_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void checkedListBoxSistemas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string item = listBoxSistemas.SelectedItem.ToString();
-
-            if (item == "Evasores")
-            {
-                txbSigla.Text = "EVA";
-            }
-            else if (item == "SUATMobilidade")
-            {
-                txbSigla.Text = "SUAT";
-            }
-            else if (item == "VLTRio")
-            {
-                txbSigla.Text = "VLT";
-            }
-            else if (item == "Automatizador")
-            {
-                txbSigla.Text = "AUTO";
-            }
-            else
-            {
-                txbSigla.Text = "BRC";
             }
         }
     }
