@@ -1,4 +1,4 @@
-﻿using LiberadorSUAT.Models;
+using LiberadorSUAT.Models;
 using LiberadorSUAT.Screens;
 using System;
 using System.Collections.Generic;
@@ -15,14 +15,10 @@ namespace LiberadorSUAT
 {
     public partial class TelaLiberador : Form
     {
-<<<<<<< HEAD
-=======
 
->>>>>>> 34419df84f823a5829db23e4010b1d1b7a34d9c9
         public TelaLiberador()
         {
             InitializeComponent();
-            //regras.ShowDialog();
             gerarGrade();
         }
 
@@ -146,9 +142,7 @@ namespace LiberadorSUAT
         }
 
         private void btnAlterarAlteracao_Click(object sender, EventArgs e)
-        {
-<<<<<<< HEAD
-            
+        { 
             foreach (ListViewItem item in listViewAlteracoes.Items)
             {
                 if (item.Checked)
@@ -166,15 +160,6 @@ namespace LiberadorSUAT
                     MessageBox.Show("Nenhuma alteração foi selecionada.");
                 }
             }
-=======
-            //passar nos parâmetros abaixo o valor selecionado do listview
-            string helpdesk = listViewAlteracoes.SelectedItems[0].ToString();
-            /*string responsavel = listViewAlteracoes.SelectedItems[1].ToString(); 
-            string descricao = listViewAlteracoes.SelectedItems[2].ToString();
-            string alteracao = listViewAlteracoes.SelectedItems[3].ToString();*/
-            TelaAlteracoes tela = new TelaAlteracoes(this, helpdesk, "Iolanda", "Teste", "X");
-            tela.ShowDialog();
->>>>>>> 34419df84f823a5829db23e4010b1d1b7a34d9c9
         }
 
 
