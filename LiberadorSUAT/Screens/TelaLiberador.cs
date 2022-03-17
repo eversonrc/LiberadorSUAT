@@ -121,7 +121,39 @@ namespace LiberadorSUAT
             regras.ShowDialog();
         }
 
-        
+        private void listBoxSistemas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string item = listBoxSistemas.SelectedItem.ToString();
+
+            switch (item)
+            {
+                case "Evasores":
+                    txbSigla.Text = "EVA";
+                    break;
+
+                case "SUATMobilidade":
+                    txbSigla.Text = "SUAT";
+                    break;
+
+                case "VLTRio":
+                    txbSigla.Text = "VLT";
+                    break;
+
+                case "Automatizador":
+                    txbSigla.Text = "AUTO";
+                    break;
+
+                case "Barcas":
+                    txbSigla.Text = "BRC";
+                    break;
+
+                default:
+                    MessageBox.Show("Selecione um sistema.");
+                    break;
+            }
+        }
+
+
     }
 
 

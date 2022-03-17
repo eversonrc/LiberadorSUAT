@@ -43,8 +43,8 @@ namespace LiberadorSUAT.Screens.Modals
             this.btnExcluirScript = new System.Windows.Forms.Button();
             this.btnAdicionarScript = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnTelaEmail = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.btnAjudaArquivos = new System.Windows.Forms.Button();
             this.btnAjudaScripts = new System.Windows.Forms.Button();
             this.btnAjudaDocs = new System.Windows.Forms.Button();
@@ -186,28 +186,31 @@ namespace LiberadorSUAT.Screens.Modals
             this.label8.TabIndex = 41;
             this.label8.Text = "Scripts de Banco de Dados";
             // 
-            // button1
+            // btnTelaEmail
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Info;
-            this.button1.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(682, 400);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 26);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "Concluir";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnTelaEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnTelaEmail.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTelaEmail.Location = new System.Drawing.Point(653, 391);
+            this.btnTelaEmail.Name = "btnTelaEmail";
+            this.btnTelaEmail.Size = new System.Drawing.Size(122, 35);
+            this.btnTelaEmail.TabIndex = 45;
+            this.btnTelaEmail.Text = "Enviar E-mail";
+            this.btnTelaEmail.UseVisualStyleBackColor = false;
+            this.btnTelaEmail.Click += new System.EventHandler(this.btnTelaEmail_Click);
             // 
-            // button2
+            // btnVoltar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button2.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(23, 400);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 26);
-            this.button2.TabIndex = 46;
-            this.button2.Text = "Voltar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnVoltar.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
+            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVoltar.Location = new System.Drawing.Point(23, 391);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(120, 35);
+            this.btnVoltar.TabIndex = 46;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnAjudaArquivos
             // 
@@ -253,8 +256,8 @@ namespace LiberadorSUAT.Screens.Modals
             this.Controls.Add(this.btnAjudaDocs);
             this.Controls.Add(this.btnAjudaScripts);
             this.Controls.Add(this.btnAjudaArquivos);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.btnTelaEmail);
             this.Controls.Add(this.listBoxScripts);
             this.Controls.Add(this.btnExcluirScript);
             this.Controls.Add(this.btnAdicionarScript);
@@ -288,8 +291,8 @@ namespace LiberadorSUAT.Screens.Modals
         private System.Windows.Forms.Button btnExcluirScript;
         private System.Windows.Forms.Button btnAdicionarScript;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnTelaEmail;
+        private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnAjudaArquivos;
         private System.Windows.Forms.Button btnAjudaScripts;
         private System.Windows.Forms.Button btnAjudaDocs;

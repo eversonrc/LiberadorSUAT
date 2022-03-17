@@ -54,18 +54,6 @@ namespace LiberadorSUAT
             this.toolTipTelaLiberador = new System.Windows.Forms.ToolTip(this.components);
             this.btnAjudaAlteracoes = new System.Windows.Forms.Button();
             this.btnModalAnexos = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.liberaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enviarEmailPréliberaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.liberarVersãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.parâmetrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.regrasDeLiberaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreOLiberadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.novaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salvarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -210,14 +198,15 @@ namespace LiberadorSUAT
             // 
             // btnRegras
             // 
+            this.btnRegras.BackColor = System.Drawing.Color.Transparent;
             this.btnRegras.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegras.ForeColor = System.Drawing.Color.Red;
-            this.btnRegras.Location = new System.Drawing.Point(788, 76);
+            this.btnRegras.ForeColor = System.Drawing.Color.Black;
+            this.btnRegras.Location = new System.Drawing.Point(792, 52);
             this.btnRegras.Name = "btnRegras";
             this.btnRegras.Size = new System.Drawing.Size(147, 40);
             this.btnRegras.TabIndex = 38;
             this.btnRegras.Text = "Regras de Liberação";
-            this.btnRegras.UseVisualStyleBackColor = true;
+            this.btnRegras.UseVisualStyleBackColor = false;
             this.btnRegras.Click += new System.EventHandler(this.btnRegras_Click);
             // 
             // label7
@@ -243,6 +232,7 @@ namespace LiberadorSUAT
             this.listBoxSistemas.Name = "listBoxSistemas";
             this.listBoxSistemas.Size = new System.Drawing.Size(131, 79);
             this.listBoxSistemas.TabIndex = 41;
+            this.listBoxSistemas.SelectedIndexChanged += new System.EventHandler(this.listBoxSistemas_SelectedIndexChanged);
             // 
             // txbSigla
             // 
@@ -278,87 +268,6 @@ namespace LiberadorSUAT
             this.btnModalAnexos.UseVisualStyleBackColor = true;
             this.btnModalAnexos.Click += new System.EventHandler(this.btnModalAnexos_Click);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.liberaçãoToolStripMenuItem,
-            this.parâmetrosToolStripMenuItem,
-            this.ajudaToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(951, 24);
-            this.menuStrip1.TabIndex = 45;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // liberaçãoToolStripMenuItem
-            // 
-            this.liberaçãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novaToolStripMenuItem,
-            this.abrirToolStripMenuItem,
-            this.salvarToolStripMenuItem,
-            this.enviarEmailPréliberaçãoToolStripMenuItem,
-            this.liberarVersãoToolStripMenuItem});
-            this.liberaçãoToolStripMenuItem.Name = "liberaçãoToolStripMenuItem";
-            this.liberaçãoToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.liberaçãoToolStripMenuItem.Text = "Liberação";
-            // 
-            // enviarEmailPréliberaçãoToolStripMenuItem
-            // 
-            this.enviarEmailPréliberaçãoToolStripMenuItem.Name = "enviarEmailPréliberaçãoToolStripMenuItem";
-            this.enviarEmailPréliberaçãoToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.enviarEmailPréliberaçãoToolStripMenuItem.Text = "Enviar e-mail pré-liberação";
-            // 
-            // liberarVersãoToolStripMenuItem
-            // 
-            this.liberarVersãoToolStripMenuItem.Name = "liberarVersãoToolStripMenuItem";
-            this.liberarVersãoToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.liberarVersãoToolStripMenuItem.Text = "Liberar versão";
-            // 
-            // parâmetrosToolStripMenuItem
-            // 
-            this.parâmetrosToolStripMenuItem.Name = "parâmetrosToolStripMenuItem";
-            this.parâmetrosToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.parâmetrosToolStripMenuItem.Text = "Parâmetros";
-            // 
-            // ajudaToolStripMenuItem
-            // 
-            this.ajudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.regrasDeLiberaçãoToolStripMenuItem,
-            this.sobreOLiberadorToolStripMenuItem});
-            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.ajudaToolStripMenuItem.Text = "Ajuda";
-            // 
-            // regrasDeLiberaçãoToolStripMenuItem
-            // 
-            this.regrasDeLiberaçãoToolStripMenuItem.Name = "regrasDeLiberaçãoToolStripMenuItem";
-            this.regrasDeLiberaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.regrasDeLiberaçãoToolStripMenuItem.Text = "Regras de liberação";
-            // 
-            // sobreOLiberadorToolStripMenuItem
-            // 
-            this.sobreOLiberadorToolStripMenuItem.Name = "sobreOLiberadorToolStripMenuItem";
-            this.sobreOLiberadorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sobreOLiberadorToolStripMenuItem.Text = "Sobre o Liberador";
-            // 
-            // novaToolStripMenuItem
-            // 
-            this.novaToolStripMenuItem.Name = "novaToolStripMenuItem";
-            this.novaToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.novaToolStripMenuItem.Text = "Nova";
-            // 
-            // salvarToolStripMenuItem
-            // 
-            this.salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
-            this.salvarToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.salvarToolStripMenuItem.Text = "Salvar";
-            // 
-            // abrirToolStripMenuItem
-            // 
-            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.abrirToolStripMenuItem.Text = "Abrir";
-            // 
             // TelaLiberador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -384,15 +293,11 @@ namespace LiberadorSUAT
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txbTitulo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "TelaLiberador";
             this.Text = "Arquivos";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,17 +325,6 @@ namespace LiberadorSUAT
         private System.Windows.Forms.ToolTip toolTipTelaLiberador;
         private System.Windows.Forms.Button btnAjudaAlteracoes;
         private System.Windows.Forms.Button btnModalAnexos;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem liberaçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem novaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salvarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem enviarEmailPréliberaçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem liberarVersãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem parâmetrosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem regrasDeLiberaçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sobreOLiberadorToolStripMenuItem;
     }
 }
 

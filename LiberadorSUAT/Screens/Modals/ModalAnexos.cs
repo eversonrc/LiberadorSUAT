@@ -111,5 +111,11 @@ namespace LiberadorSUAT.Screens.Modals
         {
             this.Close();
         }
+
+        private void btnTelaEmail_Click(object sender, EventArgs e)
+        {
+            ModalEmail modalEmail = new ModalEmail();
+            modalEmail.ShowDialog();
+        }
     }
 }
