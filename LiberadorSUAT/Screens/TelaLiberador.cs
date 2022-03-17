@@ -9,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -101,7 +102,7 @@ namespace LiberadorSUAT
             toolTipTelaLiberador.ToolTipIcon = ToolTipIcon.Info;
 
             toolTipTelaLiberador.SetToolTip(btnAjudaAlteracoes, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
-            toolTipTelaLiberador.SetToolTip(btnModalAnexos, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
+            //toolTipTelaLiberador.SetToolTip(btnModalAnexos, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
         }
 
         private void btnAjudaAlteracoes_Click(object sender, EventArgs e)
@@ -111,8 +112,27 @@ namespace LiberadorSUAT
 
         private void btnModalAnexos_Click(object sender, EventArgs e)
         {
+            Processar("Processando as informações");
+            toolStripStatusLabel1.Text = "Passo 1 encerrado.";
+
+           //MessageBox.Show("Passo 1 encerrado", "Passo 1", MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+            toolStripProgressBar1.Value = 0;
+
             ModalAnexos anexo = new ModalAnexos();
             anexo.ShowDialog();
+        }
+
+        private void Processar (string msg)
+        {
+            toolStripStatusLabel1.Text = msg;
+            statusStrip1.Refresh();
+
+            for (int i = 1; i <= 100; i++)
+            {
+                toolStripProgressBar1.Value = i;
+                Thread.Sleep(20);
+            }
         }
 
         private void btnRegras_Click(object sender, EventArgs e)
@@ -153,8 +173,19 @@ namespace LiberadorSUAT
             }
         }
 
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
 
     }
-
-
 }
