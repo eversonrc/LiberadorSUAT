@@ -14,10 +14,13 @@ namespace LiberadorSUAT.Screens.Modals
 {
     public partial class ModalAnexos : Form
     {
-        public ModalAnexos()
+        private TelaLiberador telaLiberador;
+        public ModalAnexos(TelaLiberador tela)
         {
             InitializeComponent();
             ConfigurarToolTip();
+            telaLiberador = tela;
+            btnLiberacao.BackColor = Color.Cyan;
         }
         private void ConfigurarToolTip()
         {
@@ -49,28 +52,11 @@ namespace LiberadorSUAT.Screens.Modals
 
                 listBoxArquivos.Items.Add(fullName);
 
-                foreach(FileInfo file in dInfo.GetFiles())
+                foreach (FileInfo file in dInfo.GetFiles())
                 {
                     listBoxArquivos.Items.Add(file.FullName);
                 }
             }
-            /*
-            using (OpenFileDialog dialog = new OpenFileDialog())
-            {
-            dialog.Multiselect = true;
-            //dialog.Filter = "Xml Files|(*.xml)|*.xml";
-            dialog.Filter = "Word Documents|*.doc|PDF Files|*.pdf";
-
-            foreach (var file in dialog.FileNames)
-            {
-                listBoxArquivos.Items.Add(file);
-            }
-            }
-
-            listBoxArquivos.IntegralHeight = true;
-            // Display a horizontal scroll bar.
-            listBoxArquivos.HorizontalScrollbar = true;
-            */
         }
         
         private void btnExcluirArquivos_Click(object sender, EventArgs e)
@@ -109,15 +95,21 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
-
+            telaLiberador.btnLiberacao.BackColor = Color.Transparent;
             this.Close();
         }
 
         private void btnTelaEmail_Click(object sender, EventArgs e)
         {
-            ModalEmail modalEmail = new ModalEmail();
+            btnAnexo.BackColor = Color.Cyan;
+
+            ModalEmail modalEmail = new ModalEmail(this);
             modalEmail.ShowDialog();
+        }
+
+        private void ModalAnexos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

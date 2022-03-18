@@ -120,8 +120,7 @@
   <data name="label1.Text" xml:space="preserve">
     <value>1. Verificar se os scripts/fontes estão atualizados.
 2. Colocar no corpo do e-mail a ordem de compilação dos scripts, 
-as parametrizações necessárias e quais os sistemas que precisarão
- ser parados.
+as parametrizações necessárias e quais os sistemas que precisarão ser parados.
 3. Atualizar branchs referentes ao sistema no Github.
 </value>
   </data>

@@ -112,27 +112,10 @@ namespace LiberadorSUAT
 
         private void btnModalAnexos_Click(object sender, EventArgs e)
         {
-            Processar("Processando as informações");
-            toolStripStatusLabel1.Text = "Passo 1 encerrado.";
+            btnLiberacao.BackColor = Color.Cyan;
 
-           //MessageBox.Show("Passo 1 encerrado", "Passo 1", MessageBoxButtons.OK,MessageBoxIcon.Information);
-
-            toolStripProgressBar1.Value = 0;
-
-            ModalAnexos anexo = new ModalAnexos();
+            ModalAnexos anexo = new ModalAnexos(this);
             anexo.ShowDialog();
-        }
-
-        private void Processar (string msg)
-        {
-            toolStripStatusLabel1.Text = msg;
-            statusStrip1.Refresh();
-
-            for (int i = 1; i <= 100; i++)
-            {
-                toolStripProgressBar1.Value = i;
-                Thread.Sleep(20);
-            }
         }
 
         private void btnRegras_Click(object sender, EventArgs e)
