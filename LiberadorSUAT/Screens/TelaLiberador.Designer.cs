@@ -56,15 +56,15 @@ namespace LiberadorSUAT
             this.btnModalAnexos = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.liberaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salvarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enviarEmailPréliberaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liberarVersãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parâmetrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regrasDeLiberaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreOLiberadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.novaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salvarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -302,6 +302,24 @@ namespace LiberadorSUAT
             this.liberaçãoToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.liberaçãoToolStripMenuItem.Text = "Liberação";
             // 
+            // novaToolStripMenuItem
+            // 
+            this.novaToolStripMenuItem.Name = "novaToolStripMenuItem";
+            this.novaToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.novaToolStripMenuItem.Text = "Nova";
+            // 
+            // abrirToolStripMenuItem
+            // 
+            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.abrirToolStripMenuItem.Text = "Abrir";
+            // 
+            // salvarToolStripMenuItem
+            // 
+            this.salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
+            this.salvarToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.salvarToolStripMenuItem.Text = "Salvar";
+            // 
             // enviarEmailPréliberaçãoToolStripMenuItem
             // 
             this.enviarEmailPréliberaçãoToolStripMenuItem.Name = "enviarEmailPréliberaçãoToolStripMenuItem";
@@ -332,32 +350,14 @@ namespace LiberadorSUAT
             // regrasDeLiberaçãoToolStripMenuItem
             // 
             this.regrasDeLiberaçãoToolStripMenuItem.Name = "regrasDeLiberaçãoToolStripMenuItem";
-            this.regrasDeLiberaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.regrasDeLiberaçãoToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.regrasDeLiberaçãoToolStripMenuItem.Text = "Regras de liberação";
             // 
             // sobreOLiberadorToolStripMenuItem
             // 
             this.sobreOLiberadorToolStripMenuItem.Name = "sobreOLiberadorToolStripMenuItem";
-            this.sobreOLiberadorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sobreOLiberadorToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.sobreOLiberadorToolStripMenuItem.Text = "Sobre o Liberador";
-            // 
-            // novaToolStripMenuItem
-            // 
-            this.novaToolStripMenuItem.Name = "novaToolStripMenuItem";
-            this.novaToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.novaToolStripMenuItem.Text = "Nova";
-            // 
-            // salvarToolStripMenuItem
-            // 
-            this.salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
-            this.salvarToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.salvarToolStripMenuItem.Text = "Salvar";
-            // 
-            // abrirToolStripMenuItem
-            // 
-            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.abrirToolStripMenuItem.Text = "Abrir";
             // 
             // TelaLiberador
             // 

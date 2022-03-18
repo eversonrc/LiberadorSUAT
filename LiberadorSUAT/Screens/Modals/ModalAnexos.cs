@@ -18,7 +18,31 @@ namespace LiberadorSUAT.Screens.Modals
         {
             InitializeComponent();
             ConfigurarToolTip();
+            gerarGrade();
         }
+
+        private bool IsFileLocked(FileInfo file)
+        {
+            FileStream stream = null;
+
+            try
+            {
+                stream = file.Open(FileMode.Open, FileAccess.Read, FileShare.None);
+            }
+            catch (IOException)
+            {
+                return true;
+            }
+            finally
+            {
+                if (stream != null)
+                    stream.Close();
+            }
+
+            //file is not locked
+            return false;
+        }
+
         private void ConfigurarToolTip()
         {
             toolTipModalAnexo.AutoPopDelay = 4000;
@@ -34,6 +58,18 @@ namespace LiberadorSUAT.Screens.Modals
             toolTipModalAnexo.SetToolTip(btnAjudaDocs, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
         }
 
+        private void gerarGrade()
+        {
+            listViewArquivos.Columns.Add("", -2).TextAlign = HorizontalAlignment.Center;
+            listViewArquivos.Columns.Add("Arquivo", -2).TextAlign = HorizontalAlignment.Center;
+            listViewArquivos.Columns.Add("Caminho do arquivo", 500).TextAlign = HorizontalAlignment.Center;
+            listViewArquivos.View = View.Details;
+
+            listViewArquivos.FullRowSelect = true;
+            listViewArquivos.GridLines = true;
+            listViewArquivos.CheckBoxes = true;
+        }
+
         // ANEXAR Arquivos de compilação
         //
         private void btnAdicionarArquivos_Click(object sender, EventArgs e)
@@ -41,42 +77,47 @@ namespace LiberadorSUAT.Screens.Modals
             DialogResult result = folderBrowserDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                string[] path = Directory.GetFileSystemEntries(folderBrowserDialog1.SelectedPath);
-                string direc = String.Join("", path);
-                DirectoryInfo dInfo = new DirectoryInfo(direc);
+                DirectoryInfo diretorioInicial = new DirectoryInfo(folderBrowserDialog1.SelectedPath);
+                DirectoryInfo[] directories = diretorioInicial.GetDirectories("*", SearchOption.AllDirectories);
+                FileInfo[] files = diretorioInicial.GetFiles("*.*", SearchOption.AllDirectories);
 
-                string fullName = dInfo.FullName;
-
-                listBoxArquivos.Items.Add(fullName);
-
-                foreach(FileInfo file in dInfo.GetFiles())
+                foreach (DirectoryInfo dir in directories)
                 {
-                    listBoxArquivos.Items.Add(file.FullName);
+                    foreach (FileInfo file in files)
+                    {
+                        if (!this.IsFileLocked(file))
+                        {
+                            string nome = file.Name;
+                            string caminho = file.FullName;
+
+                            ListViewItem listView = new ListViewItem();
+                            listView.SubItems.Add(nome);
+                            listView.SubItems.Add(caminho);
+
+                            listViewArquivos.Items.Add(listView);
+                        }
+                    }
                 }
+                
             }
-            /*
-            using (OpenFileDialog dialog = new OpenFileDialog())
-            {
-            dialog.Multiselect = true;
             //dialog.Filter = "Xml Files|(*.xml)|*.xml";
-            dialog.Filter = "Word Documents|*.doc|PDF Files|*.pdf";
-
-            foreach (var file in dialog.FileNames)
-            {
-                listBoxArquivos.Items.Add(file);
-            }
-            }
-
-            listBoxArquivos.IntegralHeight = true;
-            // Display a horizontal scroll bar.
-            listBoxArquivos.HorizontalScrollbar = true;
-            */
         }
         
         private void btnExcluirArquivos_Click(object sender, EventArgs e)
         {
-            Arquivo arquivo = new Arquivo();
-            arquivo.ExcluirArquivos(listBoxArquivos);
+            //Arquivo arquivo = new Arquivo();
+            //arquivo.ExcluirArquivos(listViewArquivos);
+            foreach(ListViewItem item in listViewArquivos.Items)
+            {
+                if (item.Checked)
+                {
+                    listViewArquivos.Items.RemoveAt(item.Index);
+                }
+                else
+                {
+                    MessageBox.Show("Nenhuma alteração foi selecionada.");
+                }
+            }
         }
 
         // ANEXAR Documentação
@@ -110,6 +151,11 @@ namespace LiberadorSUAT.Screens.Modals
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void listViewArquivos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

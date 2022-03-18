@@ -120,8 +120,6 @@ namespace LiberadorSUAT
             RegrasLiberacao regras = new RegrasLiberacao();
             regras.ShowDialog();
         }
-
-        
     }
 
 
