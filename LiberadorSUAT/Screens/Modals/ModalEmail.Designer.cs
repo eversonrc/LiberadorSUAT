@@ -38,6 +38,9 @@
             this.btnEnvioEmail = new System.Windows.Forms.Button();
             this.btnAnexo = new System.Windows.Forms.Button();
             this.btnLiberacao = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,40 +95,43 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnLiberacaoVersao);
             this.groupBox1.Controls.Add(this.btnEnvioEmail);
             this.groupBox1.Controls.Add(this.btnAnexo);
             this.groupBox1.Controls.Add(this.btnLiberacao);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(682, 66);
+            this.groupBox1.Size = new System.Drawing.Size(664, 66);
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
             // btnLiberacaoVersao
             // 
-            this.btnLiberacaoVersao.Location = new System.Drawing.Point(503, 19);
+            this.btnLiberacaoVersao.Location = new System.Drawing.Point(517, 19);
             this.btnLiberacaoVersao.Name = "btnLiberacaoVersao";
-            this.btnLiberacaoVersao.Size = new System.Drawing.Size(161, 28);
+            this.btnLiberacaoVersao.Size = new System.Drawing.Size(122, 28);
             this.btnLiberacaoVersao.TabIndex = 3;
             this.btnLiberacaoVersao.Text = "Liberação de Versão";
             this.btnLiberacaoVersao.UseVisualStyleBackColor = true;
             // 
             // btnEnvioEmail
             // 
-            this.btnEnvioEmail.Location = new System.Drawing.Point(329, 19);
+            this.btnEnvioEmail.Location = new System.Drawing.Point(349, 19);
             this.btnEnvioEmail.Name = "btnEnvioEmail";
-            this.btnEnvioEmail.Size = new System.Drawing.Size(139, 28);
+            this.btnEnvioEmail.Size = new System.Drawing.Size(102, 28);
             this.btnEnvioEmail.TabIndex = 2;
             this.btnEnvioEmail.Text = "Envio de E-mail";
             this.btnEnvioEmail.UseVisualStyleBackColor = true;
             // 
             // btnAnexo
             // 
-            this.btnAnexo.Location = new System.Drawing.Point(154, 19);
+            this.btnAnexo.Location = new System.Drawing.Point(176, 19);
             this.btnAnexo.Name = "btnAnexo";
-            this.btnAnexo.Size = new System.Drawing.Size(139, 28);
+            this.btnAnexo.Size = new System.Drawing.Size(107, 28);
             this.btnAnexo.TabIndex = 1;
             this.btnAnexo.Text = "Anexo de Arquivos";
             this.btnAnexo.UseVisualStyleBackColor = true;
@@ -133,18 +139,45 @@
             // btnLiberacao
             // 
             this.btnLiberacao.BackColor = System.Drawing.Color.Transparent;
-            this.btnLiberacao.Location = new System.Drawing.Point(23, 19);
+            this.btnLiberacao.Location = new System.Drawing.Point(36, 19);
             this.btnLiberacao.Name = "btnLiberacao";
-            this.btnLiberacao.Size = new System.Drawing.Size(88, 28);
+            this.btnLiberacao.Size = new System.Drawing.Size(74, 28);
             this.btnLiberacao.TabIndex = 0;
             this.btnLiberacao.Text = "Liberação";
             this.btnLiberacao.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(116, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(54, 23);
+            this.button1.TabIndex = 52;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(289, 22);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(54, 23);
+            this.button2.TabIndex = 53;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(457, 22);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(54, 23);
+            this.button3.TabIndex = 54;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // ModalEmail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 357);
+            this.ClientSize = new System.Drawing.Size(687, 357);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnEnviarEmail);
@@ -170,5 +203,8 @@
         public System.Windows.Forms.Button btnEnvioEmail;
         public System.Windows.Forms.Button btnAnexo;
         public System.Windows.Forms.Button btnLiberacao;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

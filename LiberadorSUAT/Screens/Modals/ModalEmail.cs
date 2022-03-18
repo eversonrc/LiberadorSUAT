@@ -17,8 +17,7 @@ namespace LiberadorSUAT.Screens.Modals
         {
             InitializeComponent();
             modalAnexo = modal;
-            btnLiberacao.BackColor = Color.Cyan;
-            btnAnexo.BackColor = Color.Cyan;
+            btnEnvioEmail.BackColor = Color.LawnGreen;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -28,7 +27,7 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void btnEnviarEmail_Click(object sender, EventArgs e)
         {
-            btnEnvioEmail.BackColor = Color.Cyan;
+           // btnEnvioEmail.BackColor = Color.LawnGreen;
 
             Email email = new Email();
             email.GetApplicationObject();
@@ -36,7 +35,7 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            modalAnexo.btnAnexo.BackColor = Color.Transparent;
+            //modalAnexo.btnAnexo.BackColor = Color.Transparent;
             this.Close();
         }
 

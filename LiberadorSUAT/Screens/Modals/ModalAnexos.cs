@@ -20,7 +20,7 @@ namespace LiberadorSUAT.Screens.Modals
             InitializeComponent();
             ConfigurarToolTip();
             telaLiberador = tela;
-            btnLiberacao.BackColor = Color.Cyan;
+            btnAnexo.BackColor = Color.LawnGreen;
         }
         private void ConfigurarToolTip()
         {
@@ -95,13 +95,13 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void button2_Click(object sender, EventArgs e)
         {
-            telaLiberador.btnLiberacao.BackColor = Color.Transparent;
+            //telaLiberador.btnLiberacao.BackColor = Color.Transparent;
             this.Close();
         }
 
         private void btnTelaEmail_Click(object sender, EventArgs e)
         {
-            btnAnexo.BackColor = Color.Cyan;
+            //btnAnexo.BackColor = Color.LawnGreen;
 
             ModalEmail modalEmail = new ModalEmail(this);
             modalEmail.ShowDialog();
@@ -110,6 +110,11 @@ namespace LiberadorSUAT.Screens.Modals
         private void ModalAnexos_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLiberacao_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -59,6 +59,9 @@ namespace LiberadorSUAT
             this.btnAnexo = new System.Windows.Forms.Button();
             this.btnEnvioEmail = new System.Windows.Forms.Button();
             this.btnLiberacaoVersao = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -253,7 +256,7 @@ namespace LiberadorSUAT
             this.btnAjudaAlteracoes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAjudaAlteracoes.Cursor = System.Windows.Forms.Cursors.Help;
             this.btnAjudaAlteracoes.Image = ((System.Drawing.Image)(resources.GetObject("btnAjudaAlteracoes.Image")));
-            this.btnAjudaAlteracoes.Location = new System.Drawing.Point(288, 281);
+            this.btnAjudaAlteracoes.Location = new System.Drawing.Point(279, 281);
             this.btnAjudaAlteracoes.Name = "btnAjudaAlteracoes";
             this.btnAjudaAlteracoes.Size = new System.Drawing.Size(24, 26);
             this.btnAjudaAlteracoes.TabIndex = 43;
@@ -276,13 +279,16 @@ namespace LiberadorSUAT
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnLiberacaoVersao);
             this.groupBox1.Controls.Add(this.btnEnvioEmail);
             this.groupBox1.Controls.Add(this.btnAnexo);
             this.groupBox1.Controls.Add(this.btnLiberacao);
             this.groupBox1.Location = new System.Drawing.Point(23, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(867, 66);
+            this.groupBox1.Size = new System.Drawing.Size(916, 66);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -290,7 +296,7 @@ namespace LiberadorSUAT
             // btnLiberacao
             // 
             this.btnLiberacao.BackColor = System.Drawing.Color.Transparent;
-            this.btnLiberacao.Location = new System.Drawing.Point(36, 19);
+            this.btnLiberacao.Location = new System.Drawing.Point(40, 19);
             this.btnLiberacao.Name = "btnLiberacao";
             this.btnLiberacao.Size = new System.Drawing.Size(88, 28);
             this.btnLiberacao.TabIndex = 0;
@@ -299,7 +305,7 @@ namespace LiberadorSUAT
             // 
             // btnAnexo
             // 
-            this.btnAnexo.Location = new System.Drawing.Point(223, 19);
+            this.btnAnexo.Location = new System.Drawing.Point(220, 19);
             this.btnAnexo.Name = "btnAnexo";
             this.btnAnexo.Size = new System.Drawing.Size(139, 28);
             this.btnAnexo.TabIndex = 1;
@@ -308,7 +314,7 @@ namespace LiberadorSUAT
             // 
             // btnEnvioEmail
             // 
-            this.btnEnvioEmail.Location = new System.Drawing.Point(455, 19);
+            this.btnEnvioEmail.Location = new System.Drawing.Point(449, 19);
             this.btnEnvioEmail.Name = "btnEnvioEmail";
             this.btnEnvioEmail.Size = new System.Drawing.Size(139, 28);
             this.btnEnvioEmail.TabIndex = 2;
@@ -317,12 +323,40 @@ namespace LiberadorSUAT
             // 
             // btnLiberacaoVersao
             // 
-            this.btnLiberacaoVersao.Location = new System.Drawing.Point(679, 19);
+            this.btnLiberacaoVersao.Location = new System.Drawing.Point(676, 19);
             this.btnLiberacaoVersao.Name = "btnLiberacaoVersao";
             this.btnLiberacaoVersao.Size = new System.Drawing.Size(161, 28);
             this.btnLiberacaoVersao.TabIndex = 3;
             this.btnLiberacaoVersao.Text = "Liberação de Versão";
             this.btnLiberacaoVersao.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(147, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(54, 23);
+            this.button1.TabIndex = 46;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(380, 22);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(52, 23);
+            this.button2.TabIndex = 47;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(605, 22);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(52, 23);
+            this.button3.TabIndex = 48;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // TelaLiberador
             // 
@@ -388,6 +422,9 @@ namespace LiberadorSUAT
         public System.Windows.Forms.Button btnEnvioEmail;
         public System.Windows.Forms.Button btnAnexo;
         public System.Windows.Forms.Button btnLiberacao;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
     }
 }
 

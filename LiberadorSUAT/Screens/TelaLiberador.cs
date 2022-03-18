@@ -22,6 +22,7 @@ namespace LiberadorSUAT
             InitializeComponent();
             ConfigurarToolTip();
             gerarGrade();
+            btnLiberacao.BackColor = Color.LawnGreen;
         }
         private void gerarGrade()
         {
@@ -112,7 +113,7 @@ namespace LiberadorSUAT
 
         private void btnModalAnexos_Click(object sender, EventArgs e)
         {
-            btnLiberacao.BackColor = Color.Cyan;
+            //btnLiberacao.BackColor = Color.LawnGreen;
 
             ModalAnexos anexo = new ModalAnexos(this);
             anexo.ShowDialog();
@@ -166,9 +167,8 @@ namespace LiberadorSUAT
 
         }
 
-
-
-
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
