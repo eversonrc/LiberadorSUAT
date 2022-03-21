@@ -66,13 +66,22 @@ namespace LiberadorSUAT
             this.regrasDeLiberaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreOLiberadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLiberacao = new System.Windows.Forms.Button();
+            this.btnAnexo = new System.Windows.Forms.Button();
+            this.btnEnvioEmail = new System.Windows.Forms.Button();
+            this.btnLiberacaoVersao = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 52);
+            this.label2.Location = new System.Drawing.Point(18, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(160, 17);
             this.label2.TabIndex = 3;
@@ -80,7 +89,7 @@ namespace LiberadorSUAT
             // 
             // txbTitulo
             // 
-            this.txbTitulo.Location = new System.Drawing.Point(15, 72);
+            this.txbTitulo.Location = new System.Drawing.Point(21, 138);
             this.txbTitulo.Name = "txbTitulo";
             this.txbTitulo.Size = new System.Drawing.Size(458, 20);
             this.txbTitulo.TabIndex = 4;
@@ -89,7 +98,7 @@ namespace LiberadorSUAT
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(360, 124);
+            this.label3.Location = new System.Drawing.Point(374, 200);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 17);
             this.label3.TabIndex = 5;
@@ -104,7 +113,7 @@ namespace LiberadorSUAT
             "Melhoria",
             "Sustentação",
             "Apoio"});
-            this.listTipoLiberacao.Location = new System.Drawing.Point(363, 144);
+            this.listTipoLiberacao.Location = new System.Drawing.Point(377, 220);
             this.listTipoLiberacao.Name = "listTipoLiberacao";
             this.listTipoLiberacao.Size = new System.Drawing.Size(141, 20);
             this.listTipoLiberacao.TabIndex = 6;
@@ -113,7 +122,7 @@ namespace LiberadorSUAT
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(566, 124);
+            this.label4.Location = new System.Drawing.Point(756, 200);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 17);
             this.label4.TabIndex = 7;
@@ -123,7 +132,7 @@ namespace LiberadorSUAT
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(14, 124);
+            this.label5.Location = new System.Drawing.Point(18, 200);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 17);
             this.label5.TabIndex = 9;
@@ -133,7 +142,7 @@ namespace LiberadorSUAT
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(197, 124);
+            this.label6.Location = new System.Drawing.Point(218, 200);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 17);
             this.label6.TabIndex = 10;
@@ -141,14 +150,14 @@ namespace LiberadorSUAT
             // 
             // txbVersao
             // 
-            this.txbVersao.Location = new System.Drawing.Point(17, 144);
+            this.txbVersao.Location = new System.Drawing.Point(21, 220);
             this.txbVersao.Name = "txbVersao";
             this.txbVersao.Size = new System.Drawing.Size(142, 20);
             this.txbVersao.TabIndex = 12;
             // 
             // txbRelease
             // 
-            this.txbRelease.Location = new System.Drawing.Point(200, 144);
+            this.txbRelease.Location = new System.Drawing.Point(217, 220);
             this.txbRelease.Name = "txbRelease";
             this.txbRelease.Size = new System.Drawing.Size(113, 20);
             this.txbRelease.TabIndex = 13;
@@ -157,7 +166,7 @@ namespace LiberadorSUAT
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(18, 185);
+            this.label9.Location = new System.Drawing.Point(18, 291);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(264, 16);
             this.label9.TabIndex = 21;
@@ -166,7 +175,7 @@ namespace LiberadorSUAT
             // listViewAlteracoes
             // 
             this.listViewAlteracoes.HideSelection = false;
-            this.listViewAlteracoes.Location = new System.Drawing.Point(15, 204);
+            this.listViewAlteracoes.Location = new System.Drawing.Point(21, 310);
             this.listViewAlteracoes.Name = "listViewAlteracoes";
             this.listViewAlteracoes.Size = new System.Drawing.Size(818, 90);
             this.listViewAlteracoes.TabIndex = 22;
@@ -177,7 +186,7 @@ namespace LiberadorSUAT
             // 
             this.btnNovoAlteracao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnNovoAlteracao.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovoAlteracao.Location = new System.Drawing.Point(839, 204);
+            this.btnNovoAlteracao.Location = new System.Drawing.Point(845, 310);
             this.btnNovoAlteracao.Name = "btnNovoAlteracao";
             this.btnNovoAlteracao.Size = new System.Drawing.Size(96, 26);
             this.btnNovoAlteracao.TabIndex = 23;
@@ -188,7 +197,7 @@ namespace LiberadorSUAT
             // btnAlterarAlteracao
             // 
             this.btnAlterarAlteracao.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterarAlteracao.Location = new System.Drawing.Point(839, 236);
+            this.btnAlterarAlteracao.Location = new System.Drawing.Point(843, 342);
             this.btnAlterarAlteracao.Name = "btnAlterarAlteracao";
             this.btnAlterarAlteracao.Size = new System.Drawing.Size(96, 26);
             this.btnAlterarAlteracao.TabIndex = 24;
@@ -200,7 +209,7 @@ namespace LiberadorSUAT
             // 
             this.btnExcluirAlteracao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnExcluirAlteracao.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluirAlteracao.Location = new System.Drawing.Point(839, 268);
+            this.btnExcluirAlteracao.Location = new System.Drawing.Point(843, 374);
             this.btnExcluirAlteracao.Name = "btnExcluirAlteracao";
             this.btnExcluirAlteracao.Size = new System.Drawing.Size(96, 26);
             this.btnExcluirAlteracao.TabIndex = 25;
@@ -210,21 +219,22 @@ namespace LiberadorSUAT
             // 
             // btnRegras
             // 
+            this.btnRegras.BackColor = System.Drawing.Color.Transparent;
             this.btnRegras.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegras.ForeColor = System.Drawing.Color.Red;
-            this.btnRegras.Location = new System.Drawing.Point(788, 76);
+            this.btnRegras.ForeColor = System.Drawing.Color.Black;
+            this.btnRegras.Location = new System.Drawing.Point(759, 118);
             this.btnRegras.Name = "btnRegras";
-            this.btnRegras.Size = new System.Drawing.Size(147, 40);
+            this.btnRegras.Size = new System.Drawing.Size(131, 40);
             this.btnRegras.TabIndex = 38;
             this.btnRegras.Text = "Regras de Liberação";
-            this.btnRegras.UseVisualStyleBackColor = true;
+            this.btnRegras.UseVisualStyleBackColor = false;
             this.btnRegras.Click += new System.EventHandler(this.btnRegras_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(498, 52);
+            this.label7.Location = new System.Drawing.Point(566, 141);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 17);
             this.label7.TabIndex = 39;
@@ -239,14 +249,15 @@ namespace LiberadorSUAT
             "VLTRio",
             "Automatizador",
             "Barcas"});
-            this.listBoxSistemas.Location = new System.Drawing.Point(569, 37);
+            this.listBoxSistemas.Location = new System.Drawing.Point(569, 161);
             this.listBoxSistemas.Name = "listBoxSistemas";
             this.listBoxSistemas.Size = new System.Drawing.Size(131, 79);
             this.listBoxSistemas.TabIndex = 41;
+            this.listBoxSistemas.SelectedIndexChanged += new System.EventHandler(this.listBoxSistemas_SelectedIndexChanged);
             // 
             // txbSigla
             // 
-            this.txbSigla.Location = new System.Drawing.Point(569, 144);
+            this.txbSigla.Location = new System.Drawing.Point(759, 220);
             this.txbSigla.Name = "txbSigla";
             this.txbSigla.Size = new System.Drawing.Size(131, 20);
             this.txbSigla.TabIndex = 42;
@@ -257,9 +268,9 @@ namespace LiberadorSUAT
             this.btnAjudaAlteracoes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAjudaAlteracoes.Cursor = System.Windows.Forms.Cursors.Help;
             this.btnAjudaAlteracoes.Image = ((System.Drawing.Image)(resources.GetObject("btnAjudaAlteracoes.Image")));
-            this.btnAjudaAlteracoes.Location = new System.Drawing.Point(289, 175);
+            this.btnAjudaAlteracoes.Location = new System.Drawing.Point(279, 281);
             this.btnAjudaAlteracoes.Name = "btnAjudaAlteracoes";
-            this.btnAjudaAlteracoes.Size = new System.Drawing.Size(24, 26);
+            this.btnAjudaAlteracoes.Size = new System.Drawing.Size(27, 26);
             this.btnAjudaAlteracoes.TabIndex = 43;
             this.btnAjudaAlteracoes.UseVisualStyleBackColor = false;
             this.btnAjudaAlteracoes.Click += new System.EventHandler(this.btnAjudaAlteracoes_Click);
@@ -268,102 +279,103 @@ namespace LiberadorSUAT
             // 
             this.btnModalAnexos.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModalAnexos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModalAnexos.Location = new System.Drawing.Point(811, 340);
+            this.btnModalAnexos.Location = new System.Drawing.Point(815, 427);
             this.btnModalAnexos.Name = "btnModalAnexos";
             this.btnModalAnexos.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnModalAnexos.Size = new System.Drawing.Size(124, 45);
+            this.btnModalAnexos.Size = new System.Drawing.Size(124, 43);
             this.btnModalAnexos.TabIndex = 44;
             this.btnModalAnexos.Text = "Adicionar anexos";
             this.btnModalAnexos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnModalAnexos.UseVisualStyleBackColor = true;
             this.btnModalAnexos.Click += new System.EventHandler(this.btnModalAnexos_Click);
             // 
-            // menuStrip1
+            // groupBox1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.liberaçãoToolStripMenuItem,
-            this.parâmetrosToolStripMenuItem,
-            this.ajudaToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(951, 24);
-            this.menuStrip1.TabIndex = 45;
-            this.menuStrip1.Text = "menuStrip1";
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnLiberacaoVersao);
+            this.groupBox1.Controls.Add(this.btnEnvioEmail);
+            this.groupBox1.Controls.Add(this.btnAnexo);
+            this.groupBox1.Controls.Add(this.btnLiberacao);
+            this.groupBox1.Location = new System.Drawing.Point(23, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(916, 66);
+            this.groupBox1.TabIndex = 45;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
-            // liberaçãoToolStripMenuItem
+            // btnLiberacao
             // 
-            this.liberaçãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novaToolStripMenuItem,
-            this.abrirToolStripMenuItem,
-            this.salvarToolStripMenuItem,
-            this.enviarEmailPréliberaçãoToolStripMenuItem,
-            this.liberarVersãoToolStripMenuItem});
-            this.liberaçãoToolStripMenuItem.Name = "liberaçãoToolStripMenuItem";
-            this.liberaçãoToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.liberaçãoToolStripMenuItem.Text = "Liberação";
+            this.btnLiberacao.BackColor = System.Drawing.Color.Transparent;
+            this.btnLiberacao.Location = new System.Drawing.Point(40, 19);
+            this.btnLiberacao.Name = "btnLiberacao";
+            this.btnLiberacao.Size = new System.Drawing.Size(88, 28);
+            this.btnLiberacao.TabIndex = 0;
+            this.btnLiberacao.Text = "Liberação";
+            this.btnLiberacao.UseVisualStyleBackColor = false;
             // 
-            // novaToolStripMenuItem
+            // btnAnexo
             // 
-            this.novaToolStripMenuItem.Name = "novaToolStripMenuItem";
-            this.novaToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.novaToolStripMenuItem.Text = "Nova";
+            this.btnAnexo.Location = new System.Drawing.Point(220, 19);
+            this.btnAnexo.Name = "btnAnexo";
+            this.btnAnexo.Size = new System.Drawing.Size(139, 28);
+            this.btnAnexo.TabIndex = 1;
+            this.btnAnexo.Text = "Anexo de Arquivos";
+            this.btnAnexo.UseVisualStyleBackColor = true;
             // 
-            // abrirToolStripMenuItem
+            // btnEnvioEmail
             // 
-            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.abrirToolStripMenuItem.Text = "Abrir";
+            this.btnEnvioEmail.Location = new System.Drawing.Point(449, 19);
+            this.btnEnvioEmail.Name = "btnEnvioEmail";
+            this.btnEnvioEmail.Size = new System.Drawing.Size(139, 28);
+            this.btnEnvioEmail.TabIndex = 2;
+            this.btnEnvioEmail.Text = "Envio de E-mail";
+            this.btnEnvioEmail.UseVisualStyleBackColor = true;
             // 
-            // salvarToolStripMenuItem
+            // btnLiberacaoVersao
             // 
-            this.salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
-            this.salvarToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.salvarToolStripMenuItem.Text = "Salvar";
+            this.btnLiberacaoVersao.Location = new System.Drawing.Point(676, 19);
+            this.btnLiberacaoVersao.Name = "btnLiberacaoVersao";
+            this.btnLiberacaoVersao.Size = new System.Drawing.Size(161, 28);
+            this.btnLiberacaoVersao.TabIndex = 3;
+            this.btnLiberacaoVersao.Text = "Liberação de Versão";
+            this.btnLiberacaoVersao.UseVisualStyleBackColor = true;
             // 
-            // enviarEmailPréliberaçãoToolStripMenuItem
+            // button1
             // 
-            this.enviarEmailPréliberaçãoToolStripMenuItem.Name = "enviarEmailPréliberaçãoToolStripMenuItem";
-            this.enviarEmailPréliberaçãoToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.enviarEmailPréliberaçãoToolStripMenuItem.Text = "Enviar e-mail pré-liberação";
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(147, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(54, 23);
+            this.button1.TabIndex = 46;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // liberarVersãoToolStripMenuItem
+            // button2
             // 
-            this.liberarVersãoToolStripMenuItem.Name = "liberarVersãoToolStripMenuItem";
-            this.liberarVersãoToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.liberarVersãoToolStripMenuItem.Text = "Liberar versão";
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(380, 22);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(52, 23);
+            this.button2.TabIndex = 47;
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // parâmetrosToolStripMenuItem
+            // button3
             // 
-            this.parâmetrosToolStripMenuItem.Name = "parâmetrosToolStripMenuItem";
-            this.parâmetrosToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.parâmetrosToolStripMenuItem.Text = "Parâmetros";
-            // 
-            // ajudaToolStripMenuItem
-            // 
-            this.ajudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.regrasDeLiberaçãoToolStripMenuItem,
-            this.sobreOLiberadorToolStripMenuItem});
-            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.ajudaToolStripMenuItem.Text = "Ajuda";
-            // 
-            // regrasDeLiberaçãoToolStripMenuItem
-            // 
-            this.regrasDeLiberaçãoToolStripMenuItem.Name = "regrasDeLiberaçãoToolStripMenuItem";
-            this.regrasDeLiberaçãoToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.regrasDeLiberaçãoToolStripMenuItem.Text = "Regras de liberação";
-            // 
-            // sobreOLiberadorToolStripMenuItem
-            // 
-            this.sobreOLiberadorToolStripMenuItem.Name = "sobreOLiberadorToolStripMenuItem";
-            this.sobreOLiberadorToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.sobreOLiberadorToolStripMenuItem.Text = "Sobre o Liberador";
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(605, 22);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(52, 23);
+            this.button3.TabIndex = 48;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // TelaLiberador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(951, 397);
+            this.ClientSize = new System.Drawing.Size(955, 482);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnModalAnexos);
             this.Controls.Add(this.btnAjudaAlteracoes);
             this.Controls.Add(this.txbSigla);
@@ -384,15 +396,12 @@ namespace LiberadorSUAT
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txbTitulo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "TelaLiberador";
             this.Text = "Arquivos";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,17 +429,14 @@ namespace LiberadorSUAT
         private System.Windows.Forms.ToolTip toolTipTelaLiberador;
         private System.Windows.Forms.Button btnAjudaAlteracoes;
         private System.Windows.Forms.Button btnModalAnexos;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem liberaçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem novaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salvarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem enviarEmailPréliberaçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem liberarVersãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem parâmetrosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem regrasDeLiberaçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sobreOLiberadorToolStripMenuItem;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.Button btnLiberacaoVersao;
+        public System.Windows.Forms.Button btnEnvioEmail;
+        public System.Windows.Forms.Button btnAnexo;
+        public System.Windows.Forms.Button btnLiberacao;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
     }
 }
 

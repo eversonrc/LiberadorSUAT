@@ -9,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,6 +22,7 @@ namespace LiberadorSUAT
             InitializeComponent();
             ConfigurarToolTip();
             gerarGrade();
+            btnLiberacao.BackColor = Color.LawnGreen;
         }
         private void gerarGrade()
         {
@@ -101,7 +103,7 @@ namespace LiberadorSUAT
             toolTipTelaLiberador.ToolTipIcon = ToolTipIcon.Info;
 
             toolTipTelaLiberador.SetToolTip(btnAjudaAlteracoes, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
-            toolTipTelaLiberador.SetToolTip(btnModalAnexos, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
+            //toolTipTelaLiberador.SetToolTip(btnModalAnexos, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
         }
 
         private void btnAjudaAlteracoes_Click(object sender, EventArgs e)
@@ -111,7 +113,9 @@ namespace LiberadorSUAT
 
         private void btnModalAnexos_Click(object sender, EventArgs e)
         {
-            ModalAnexos anexo = new ModalAnexos();
+            //btnLiberacao.BackColor = Color.LawnGreen;
+
+            ModalAnexos anexo = new ModalAnexos(this);
             anexo.ShowDialog();
         }
 
@@ -120,7 +124,50 @@ namespace LiberadorSUAT
             RegrasLiberacao regras = new RegrasLiberacao();
             regras.ShowDialog();
         }
+        private void listBoxSistemas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string item = listBoxSistemas.SelectedItem.ToString();
+
+            switch (item)
+            {
+                case "Evasores":
+                    txbSigla.Text = "EVA";
+                    break;
+
+                case "SUATMobilidade":
+                    txbSigla.Text = "SUAT";
+                    break;
+
+                case "VLTRio":
+                    txbSigla.Text = "VLT";
+                    break;
+
+                case "Automatizador":
+                    txbSigla.Text = "AUTO";
+                    break;
+
+                case "Barcas":
+                    txbSigla.Text = "BRC";
+                    break;
+
+                default:
+                    MessageBox.Show("Selecione um sistema.");
+                    break;
+            }
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
     }
-
-
 }

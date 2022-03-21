@@ -42,21 +42,30 @@ namespace LiberadorSUAT.Screens.Modals
             this.btnExcluirScript = new System.Windows.Forms.Button();
             this.btnAdicionarScript = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnTelaEmail = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.btnAjudaArquivos = new System.Windows.Forms.Button();
             this.btnAjudaScripts = new System.Windows.Forms.Button();
             this.btnAjudaDocs = new System.Windows.Forms.Button();
             this.toolTipModalAnexo = new System.Windows.Forms.ToolTip(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.listViewArquivos = new System.Windows.Forms.ListView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLiberacaoVersao = new System.Windows.Forms.Button();
+            this.btnEnvioEmail = new System.Windows.Forms.Button();
+            this.btnAnexo = new System.Windows.Forms.Button();
+            this.btnLiberacao = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxAttachments
             // 
             this.listBoxAttachments.ForeColor = System.Drawing.Color.Black;
             this.listBoxAttachments.FormattingEnabled = true;
-            this.listBoxAttachments.Location = new System.Drawing.Point(425, 236);
+            this.listBoxAttachments.Location = new System.Drawing.Point(425, 266);
             this.listBoxAttachments.Name = "listBoxAttachments";
             this.listBoxAttachments.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxAttachments.Size = new System.Drawing.Size(350, 82);
@@ -66,7 +75,7 @@ namespace LiberadorSUAT.Screens.Modals
             // 
             this.btnExcluirDocumentacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnExcluirDocumentacao.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluirDocumentacao.Location = new System.Drawing.Point(682, 327);
+            this.btnExcluirDocumentacao.Location = new System.Drawing.Point(682, 354);
             this.btnExcluirDocumentacao.Name = "btnExcluirDocumentacao";
             this.btnExcluirDocumentacao.Size = new System.Drawing.Size(93, 26);
             this.btnExcluirDocumentacao.TabIndex = 34;
@@ -78,7 +87,7 @@ namespace LiberadorSUAT.Screens.Modals
             // 
             this.btnAdcionarDocumentacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnAdcionarDocumentacao.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdcionarDocumentacao.Location = new System.Drawing.Point(425, 327);
+            this.btnAdcionarDocumentacao.Location = new System.Drawing.Point(425, 354);
             this.btnAdcionarDocumentacao.Name = "btnAdcionarDocumentacao";
             this.btnAdcionarDocumentacao.Size = new System.Drawing.Size(93, 26);
             this.btnAdcionarDocumentacao.TabIndex = 33;
@@ -90,7 +99,7 @@ namespace LiberadorSUAT.Screens.Modals
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(422, 215);
+            this.label10.Location = new System.Drawing.Point(422, 247);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(168, 16);
             this.label10.TabIndex = 32;
@@ -101,7 +110,7 @@ namespace LiberadorSUAT.Screens.Modals
             this.btnExcluirArquivos.BackColor = System.Drawing.Color.White;
             this.btnExcluirArquivos.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluirArquivos.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluirArquivos.Image")));
-            this.btnExcluirArquivos.Location = new System.Drawing.Point(742, 122);
+            this.btnExcluirArquivos.Location = new System.Drawing.Point(745, 174);
             this.btnExcluirArquivos.Name = "btnExcluirArquivos";
             this.btnExcluirArquivos.Size = new System.Drawing.Size(33, 41);
             this.btnExcluirArquivos.TabIndex = 40;
@@ -114,7 +123,7 @@ namespace LiberadorSUAT.Screens.Modals
             this.btnAdicionarArquivos.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionarArquivos.ForeColor = System.Drawing.Color.White;
             this.btnAdicionarArquivos.Image = ((System.Drawing.Image)(resources.GetObject("btnAdicionarArquivos.Image")));
-            this.btnAdicionarArquivos.Location = new System.Drawing.Point(742, 73);
+            this.btnAdicionarArquivos.Location = new System.Drawing.Point(745, 120);
             this.btnAdicionarArquivos.Name = "btnAdicionarArquivos";
             this.btnAdicionarArquivos.Size = new System.Drawing.Size(33, 43);
             this.btnAdicionarArquivos.TabIndex = 39;
@@ -126,17 +135,27 @@ namespace LiberadorSUAT.Screens.Modals
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(20, 54);
+            this.label1.Location = new System.Drawing.Point(23, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 16);
             this.label1.TabIndex = 38;
             this.label1.Text = "Arquivos";
             // 
+            // listBoxArquivos
+            // 
+            this.listBoxArquivos.ForeColor = System.Drawing.Color.Black;
+            this.listBoxArquivos.FormattingEnabled = true;
+            this.listBoxArquivos.Location = new System.Drawing.Point(26, 120);
+            this.listBoxArquivos.Name = "listBoxArquivos";
+            this.listBoxArquivos.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBoxArquivos.Size = new System.Drawing.Size(713, 95);
+            this.listBoxArquivos.TabIndex = 37;
+            // 
             // listBoxScripts
             // 
             this.listBoxScripts.ForeColor = System.Drawing.Color.Black;
             this.listBoxScripts.FormattingEnabled = true;
-            this.listBoxScripts.Location = new System.Drawing.Point(26, 236);
+            this.listBoxScripts.Location = new System.Drawing.Point(26, 266);
             this.listBoxScripts.Name = "listBoxScripts";
             this.listBoxScripts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxScripts.Size = new System.Drawing.Size(348, 82);
@@ -146,7 +165,7 @@ namespace LiberadorSUAT.Screens.Modals
             // 
             this.btnExcluirScript.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnExcluirScript.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluirScript.Location = new System.Drawing.Point(278, 327);
+            this.btnExcluirScript.Location = new System.Drawing.Point(278, 354);
             this.btnExcluirScript.Name = "btnExcluirScript";
             this.btnExcluirScript.Size = new System.Drawing.Size(96, 26);
             this.btnExcluirScript.TabIndex = 43;
@@ -158,7 +177,7 @@ namespace LiberadorSUAT.Screens.Modals
             // 
             this.btnAdicionarScript.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnAdicionarScript.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdicionarScript.Location = new System.Drawing.Point(26, 327);
+            this.btnAdicionarScript.Location = new System.Drawing.Point(26, 354);
             this.btnAdicionarScript.Name = "btnAdicionarScript";
             this.btnAdicionarScript.Size = new System.Drawing.Size(96, 26);
             this.btnAdicionarScript.TabIndex = 42;
@@ -170,34 +189,37 @@ namespace LiberadorSUAT.Screens.Modals
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(23, 215);
+            this.label8.Location = new System.Drawing.Point(23, 247);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(208, 16);
             this.label8.TabIndex = 41;
             this.label8.Text = "Scripts de Banco de Dados";
             // 
-            // button1
+            // btnTelaEmail
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Info;
-            this.button1.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(682, 400);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 26);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "Concluir";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnTelaEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnTelaEmail.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTelaEmail.Location = new System.Drawing.Point(653, 437);
+            this.btnTelaEmail.Name = "btnTelaEmail";
+            this.btnTelaEmail.Size = new System.Drawing.Size(122, 35);
+            this.btnTelaEmail.TabIndex = 45;
+            this.btnTelaEmail.Text = "Enviar E-mail";
+            this.btnTelaEmail.UseVisualStyleBackColor = false;
+            this.btnTelaEmail.Click += new System.EventHandler(this.btnTelaEmail_Click);
             // 
-            // button2
+            // btnVoltar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button2.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(23, 400);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 26);
-            this.button2.TabIndex = 46;
-            this.button2.Text = "Voltar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnVoltar.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
+            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVoltar.Location = new System.Drawing.Point(23, 437);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(120, 35);
+            this.btnVoltar.TabIndex = 46;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnAjudaArquivos
             // 
@@ -205,7 +227,7 @@ namespace LiberadorSUAT.Screens.Modals
             this.btnAjudaArquivos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAjudaArquivos.Cursor = System.Windows.Forms.Cursors.Help;
             this.btnAjudaArquivos.Image = ((System.Drawing.Image)(resources.GetObject("btnAjudaArquivos.Image")));
-            this.btnAjudaArquivos.Location = new System.Drawing.Point(92, 44);
+            this.btnAjudaArquivos.Location = new System.Drawing.Point(98, 91);
             this.btnAjudaArquivos.Name = "btnAjudaArquivos";
             this.btnAjudaArquivos.Size = new System.Drawing.Size(24, 26);
             this.btnAjudaArquivos.TabIndex = 47;
@@ -217,7 +239,7 @@ namespace LiberadorSUAT.Screens.Modals
             this.btnAjudaScripts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAjudaScripts.Cursor = System.Windows.Forms.Cursors.Help;
             this.btnAjudaScripts.Image = ((System.Drawing.Image)(resources.GetObject("btnAjudaScripts.Image")));
-            this.btnAjudaScripts.Location = new System.Drawing.Point(237, 209);
+            this.btnAjudaScripts.Location = new System.Drawing.Point(228, 237);
             this.btnAjudaScripts.Name = "btnAjudaScripts";
             this.btnAjudaScripts.Size = new System.Drawing.Size(24, 26);
             this.btnAjudaScripts.TabIndex = 48;
@@ -229,7 +251,7 @@ namespace LiberadorSUAT.Screens.Modals
             this.btnAjudaDocs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAjudaDocs.Cursor = System.Windows.Forms.Cursors.Help;
             this.btnAjudaDocs.Image = ((System.Drawing.Image)(resources.GetObject("btnAjudaDocs.Image")));
-            this.btnAjudaDocs.Location = new System.Drawing.Point(596, 208);
+            this.btnAjudaDocs.Location = new System.Drawing.Point(596, 237);
             this.btnAjudaDocs.Name = "btnAjudaDocs";
             this.btnAjudaDocs.Size = new System.Drawing.Size(24, 26);
             this.btnAjudaDocs.TabIndex = 49;
@@ -245,6 +267,86 @@ namespace LiberadorSUAT.Screens.Modals
             this.listViewArquivos.UseCompatibleStateImageBehavior = false;
             this.listViewArquivos.View = System.Windows.Forms.View.Details;
             this.listViewArquivos.SelectedIndexChanged += new System.EventHandler(this.listViewArquivos_SelectedIndexChanged);
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnLiberacaoVersao);
+            this.groupBox1.Controls.Add(this.btnEnvioEmail);
+            this.groupBox1.Controls.Add(this.btnAnexo);
+            this.groupBox1.Controls.Add(this.btnLiberacao);
+            this.groupBox1.Location = new System.Drawing.Point(23, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(765, 66);
+            this.groupBox1.TabIndex = 50;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // btnLiberacaoVersao
+            // 
+            this.btnLiberacaoVersao.Location = new System.Drawing.Point(597, 19);
+            this.btnLiberacaoVersao.Name = "btnLiberacaoVersao";
+            this.btnLiberacaoVersao.Size = new System.Drawing.Size(138, 28);
+            this.btnLiberacaoVersao.TabIndex = 3;
+            this.btnLiberacaoVersao.Text = "Liberação de Versão";
+            this.btnLiberacaoVersao.UseVisualStyleBackColor = true;
+            // 
+            // btnEnvioEmail
+            // 
+            this.btnEnvioEmail.Location = new System.Drawing.Point(392, 19);
+            this.btnEnvioEmail.Name = "btnEnvioEmail";
+            this.btnEnvioEmail.Size = new System.Drawing.Size(139, 28);
+            this.btnEnvioEmail.TabIndex = 2;
+            this.btnEnvioEmail.Text = "Envio de E-mail";
+            this.btnEnvioEmail.UseVisualStyleBackColor = true;
+            // 
+            // btnAnexo
+            // 
+            this.btnAnexo.Location = new System.Drawing.Point(189, 19);
+            this.btnAnexo.Name = "btnAnexo";
+            this.btnAnexo.Size = new System.Drawing.Size(139, 28);
+            this.btnAnexo.TabIndex = 1;
+            this.btnAnexo.Text = "Anexo de Arquivos";
+            this.btnAnexo.UseVisualStyleBackColor = true;
+            // 
+            // btnLiberacao
+            // 
+            this.btnLiberacao.BackColor = System.Drawing.Color.Transparent;
+            this.btnLiberacao.Location = new System.Drawing.Point(36, 19);
+            this.btnLiberacao.Name = "btnLiberacao";
+            this.btnLiberacao.Size = new System.Drawing.Size(88, 28);
+            this.btnLiberacao.TabIndex = 0;
+            this.btnLiberacao.Text = "Liberação";
+            this.btnLiberacao.UseVisualStyleBackColor = false;
+            this.btnLiberacao.Click += new System.EventHandler(this.btnLiberacao_Click);
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(130, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(54, 23);
+            this.button1.TabIndex = 47;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(334, 22);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(54, 23);
+            this.button2.TabIndex = 48;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(537, 24);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(54, 23);
+            this.button3.TabIndex = 49;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // ModalAnexos
             // 
@@ -252,11 +354,13 @@ namespace LiberadorSUAT.Screens.Modals
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 438);
             this.Controls.Add(this.listViewArquivos);
+            this.ClientSize = new System.Drawing.Size(800, 484);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAjudaDocs);
             this.Controls.Add(this.btnAjudaScripts);
             this.Controls.Add(this.btnAjudaArquivos);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.btnTelaEmail);
             this.Controls.Add(this.listBoxScripts);
             this.Controls.Add(this.btnExcluirScript);
             this.Controls.Add(this.btnAdicionarScript);
@@ -270,6 +374,8 @@ namespace LiberadorSUAT.Screens.Modals
             this.Controls.Add(this.label10);
             this.Name = "ModalAnexos";
             this.Text = "ModalAnexos";
+            this.Load += new System.EventHandler(this.ModalAnexos_Load);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,13 +394,21 @@ namespace LiberadorSUAT.Screens.Modals
         private System.Windows.Forms.Button btnExcluirScript;
         private System.Windows.Forms.Button btnAdicionarScript;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnTelaEmail;
+        private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnAjudaArquivos;
         private System.Windows.Forms.Button btnAjudaScripts;
         private System.Windows.Forms.Button btnAjudaDocs;
         private System.Windows.Forms.ToolTip toolTipModalAnexo;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         public System.Windows.Forms.ListView listViewArquivos;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.Button btnLiberacaoVersao;
+        public System.Windows.Forms.Button btnEnvioEmail;
+        public System.Windows.Forms.Button btnAnexo;
+        public System.Windows.Forms.Button btnLiberacao;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
