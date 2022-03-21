@@ -1,5 +1,6 @@
 using LiberadorSUAT.Models;
 using LiberadorSUAT.Screens;
+using LiberadorSUAT.Screens.Modals;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,13 +16,12 @@ namespace LiberadorSUAT
 {
     public partial class TelaLiberador : Form
     {
-
         public TelaLiberador()
         {
             InitializeComponent();
+            ConfigurarToolTip();
             gerarGrade();
         }
-
         private void gerarGrade()
         {
             listViewAlteracoes.Columns.Add("Helpdesk", 100).TextAlign = HorizontalAlignment.Center;
@@ -34,46 +34,10 @@ namespace LiberadorSUAT
             listViewAlteracoes.GridLines = true;
             listViewAlteracoes.CheckBoxes = true;
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void btn_Liberar(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listViewAlteracoes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnExcluirAlteracao_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in listViewAlteracoes.Items)
@@ -88,59 +52,11 @@ namespace LiberadorSUAT
                 }
             }
         }
-
-        private void regras_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAdicionarScript_Click(object sender, EventArgs e)
-        {
-            listBoxScripts.IntegralHeight = true;
-
-            using (OpenFileDialog dialog = new OpenFileDialog())
-            {
-                dialog.Multiselect = true;
-                dialog.Filter = "All Files|*.*";
-
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    foreach (var file in dialog.FileNames)
-                    {
-                        listBoxScripts.Items.Add(file);
-                    }
-                }
-            }
-
-            // Display a horizontal scroll bar.
-            listBoxScripts.HorizontalScrollbar = true;
-
-            //// Create a Graphics object to use when determining the size of the largest item in the ListBox.
-            //Graphics g = listBoxAttachments.CreateGraphics();
-
-            //// Determine the size for HorizontalExtent using the MeasureString method using the last item in the list.
-            //int hzSize = (int)g.MeasureString(listBoxAttachments.Items[listBoxAttachments.Items.Count - 1].ToString(), listBoxAttachments.Font).Width;
-            //// Set the HorizontalExtent property.
-            //listBoxAttachments.HorizontalExtent = hzSize;
-        }
-
         private void btnNovoAlteracao_Click(object sender, EventArgs e)
         {
             TelaAlteracoes telaAlteracao = new TelaAlteracoes(this);
             telaAlteracao.ShowDialog();
         }
-
-        private void regras_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEnviarEmail_Click(object sender, EventArgs e)
-        {
-            Email email = new Email();
-            email.GetApplicationObject();
-        }
-
         private void btnAlterarAlteracao_Click(object sender, EventArgs e)
         { 
             foreach (ListViewItem item in listViewAlteracoes.Items)
@@ -161,69 +77,50 @@ namespace LiberadorSUAT
                 }
             }
         }
-
-
-        private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
+        private void btnEnviarEmail_Click(object sender, EventArgs e)
         {
-            listBoxAttachments.IntegralHeight = true;
+            Email email = new Email();
+            email.GetApplicationObject();
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void btnLiberarVersao_Click(object sender, EventArgs e)
+        {
 
-            using (OpenFileDialog dialog = new OpenFileDialog())
-            {
-                dialog.Multiselect = true;
-                dialog.Filter = "Word Documents|*.doc|PDF Files|*.pdf";
+        }
+        private void ConfigurarToolTip()
+        {
+            toolTipTelaLiberador.AutoPopDelay = 4000;
+            toolTipTelaLiberador.InitialDelay = 100;
+            toolTipTelaLiberador.ReshowDelay = 200;
 
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    foreach (var file in dialog.FileNames)
-                    {
-                        listBoxAttachments.Items.Add(file);
+            toolTipTelaLiberador.ToolTipTitle = "Dica";
+            toolTipTelaLiberador.IsBalloon = true;
+            toolTipTelaLiberador.ToolTipIcon = ToolTipIcon.Info;
 
-                        //NotSupportedException
-                        //path está em um formato inválido.
-                    }
-                }
-            }
-
-        // Display a horizontal scroll bar.
-        listBoxAttachments.HorizontalScrollbar = true;
-
-            //// Create a Graphics object to use when determining the size of the largest item in the ListBox.
-            //Graphics g = listBoxAttachments.CreateGraphics();
-
-            //// Determine the size for HorizontalExtent using the MeasureString method using the last item in the list.
-            //int hzSize = (int)g.MeasureString(listBoxAttachments.Items[listBoxAttachments.Items.Count - 1].ToString(), listBoxAttachments.Font).Width;
-            //// Set the HorizontalExtent property.
-            //listBoxAttachments.HorizontalExtent = hzSize;
+            toolTipTelaLiberador.SetToolTip(btnAjudaAlteracoes, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
+            toolTipTelaLiberador.SetToolTip(btnModalAnexos, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
         }
 
-        private void btnExcluirDocumentacao_Click(object sender, EventArgs e)
+        private void btnAjudaAlteracoes_Click(object sender, EventArgs e)
         {
-            for(int i = listBoxAttachments.SelectedIndices.Count -1; i >= 0; i--)
-            {
-                if(listBoxAttachments.SelectedIndex != -1)
-                {
-                    listBoxAttachments.Items.RemoveAt(listBoxAttachments.SelectedIndex);
-                }
-                else
-                {
-                    MessageBox.Show("Selecione os arquivos que deseja excluir");
-                }
-            }
+            
         }
 
-        private void btnExcluirScript_Click(object sender, EventArgs e)
+        private void btnModalAnexos_Click(object sender, EventArgs e)
         {
-            for (int i = listBoxScripts.SelectedIndices.Count - 1; i >= 0; i--)
-            {
-                if (listBoxScripts.SelectedIndex != -1)
-                {
-                    listBoxScripts.Items.RemoveAt(listBoxScripts.SelectedIndex);
-                }
-                else
-                {
-                    MessageBox.Show("Selecione os arquivos que deseja excluir");
-                }
-            }
+            ModalAnexos anexo = new ModalAnexos();
+            anexo.ShowDialog();
+        }
+
+        private void btnRegras_Click(object sender, EventArgs e)
+        {
+            RegrasLiberacao regras = new RegrasLiberacao();
+            regras.ShowDialog();
         }
     }
+
+
 }

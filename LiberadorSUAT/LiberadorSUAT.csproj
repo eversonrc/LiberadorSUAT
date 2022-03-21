@@ -47,17 +47,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Alteracao.cs" />
+    <Compile Include="Models\Arquivo.cs" />
     <Compile Include="Models\Email.cs" />
-    <Compile Include="Screens\RegrasLiberacao.cs">
+    <Compile Include="Screens\Modals\ModalAnexos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\RegrasLiberacao.Designer.cs">
+    <Compile Include="Screens\Modals\ModalAnexos.Designer.cs">
+      <DependentUpon>ModalAnexos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Pop-ups\RegrasLiberacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Pop-ups\RegrasLiberacao.Designer.cs">
       <DependentUpon>RegrasLiberacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\TelaAlteracoes.cs">
+    <Compile Include="Screens\Modals\TelaAlteracoes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\TelaAlteracoes.Designer.cs">
+    <Compile Include="Screens\Modals\TelaAlteracoes.Designer.cs">
       <DependentUpon>TelaAlteracoes.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\TelaLiberador.cs">
@@ -68,10 +75,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Screens\RegrasLiberacao.resx">
+    <EmbeddedResource Include="Screens\Modals\ModalAnexos.resx">
+      <DependentUpon>ModalAnexos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Pop-ups\RegrasLiberacao.resx">
       <DependentUpon>RegrasLiberacao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\TelaAlteracoes.resx">
+    <EmbeddedResource Include="Screens\Modals\TelaAlteracoes.resx">
       <DependentUpon>TelaAlteracoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\TelaLiberador.resx">
