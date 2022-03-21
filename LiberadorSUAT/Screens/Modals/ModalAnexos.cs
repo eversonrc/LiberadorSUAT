@@ -147,7 +147,7 @@ namespace LiberadorSUAT.Screens.Modals
         private void btnAdicionarScript_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo();
-            arquivo.AdicionarArquivos(listBoxScripts, 2);
+            arquivo.AdicionarArquivos(listBoxScripts, 1);
         }
 
         private void button2_Click(object sender, EventArgs e)
