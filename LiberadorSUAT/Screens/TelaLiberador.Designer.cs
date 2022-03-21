@@ -54,26 +54,14 @@ namespace LiberadorSUAT
             this.toolTipTelaLiberador = new System.Windows.Forms.ToolTip(this.components);
             this.btnAjudaAlteracoes = new System.Windows.Forms.Button();
             this.btnModalAnexos = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.liberaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.novaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salvarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enviarEmailPréliberaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.liberarVersãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.parâmetrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.regrasDeLiberaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreOLiberadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnLiberacao = new System.Windows.Forms.Button();
-            this.btnAnexo = new System.Windows.Forms.Button();
-            this.btnEnvioEmail = new System.Windows.Forms.Button();
-            this.btnLiberacaoVersao = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnLiberacaoVersao = new System.Windows.Forms.Button();
+            this.btnEnvioEmail = new System.Windows.Forms.Button();
+            this.btnAnexo = new System.Windows.Forms.Button();
+            this.btnLiberacao = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -305,42 +293,23 @@ namespace LiberadorSUAT
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // btnLiberacao
+            // button3
             // 
-            this.btnLiberacao.BackColor = System.Drawing.Color.Transparent;
-            this.btnLiberacao.Location = new System.Drawing.Point(40, 19);
-            this.btnLiberacao.Name = "btnLiberacao";
-            this.btnLiberacao.Size = new System.Drawing.Size(88, 28);
-            this.btnLiberacao.TabIndex = 0;
-            this.btnLiberacao.Text = "Liberação";
-            this.btnLiberacao.UseVisualStyleBackColor = false;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(605, 22);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(52, 23);
+            this.button3.TabIndex = 48;
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // btnAnexo
+            // button2
             // 
-            this.btnAnexo.Location = new System.Drawing.Point(220, 19);
-            this.btnAnexo.Name = "btnAnexo";
-            this.btnAnexo.Size = new System.Drawing.Size(139, 28);
-            this.btnAnexo.TabIndex = 1;
-            this.btnAnexo.Text = "Anexo de Arquivos";
-            this.btnAnexo.UseVisualStyleBackColor = true;
-            // 
-            // btnEnvioEmail
-            // 
-            this.btnEnvioEmail.Location = new System.Drawing.Point(449, 19);
-            this.btnEnvioEmail.Name = "btnEnvioEmail";
-            this.btnEnvioEmail.Size = new System.Drawing.Size(139, 28);
-            this.btnEnvioEmail.TabIndex = 2;
-            this.btnEnvioEmail.Text = "Envio de E-mail";
-            this.btnEnvioEmail.UseVisualStyleBackColor = true;
-            // 
-            // btnLiberacaoVersao
-            // 
-            this.btnLiberacaoVersao.Location = new System.Drawing.Point(676, 19);
-            this.btnLiberacaoVersao.Name = "btnLiberacaoVersao";
-            this.btnLiberacaoVersao.Size = new System.Drawing.Size(161, 28);
-            this.btnLiberacaoVersao.TabIndex = 3;
-            this.btnLiberacaoVersao.Text = "Liberação de Versão";
-            this.btnLiberacaoVersao.UseVisualStyleBackColor = true;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(380, 22);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(52, 23);
+            this.button2.TabIndex = 47;
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -352,23 +321,42 @@ namespace LiberadorSUAT
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnLiberacaoVersao
             // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(380, 22);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(52, 23);
-            this.button2.TabIndex = 47;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLiberacaoVersao.Location = new System.Drawing.Point(676, 19);
+            this.btnLiberacaoVersao.Name = "btnLiberacaoVersao";
+            this.btnLiberacaoVersao.Size = new System.Drawing.Size(161, 28);
+            this.btnLiberacaoVersao.TabIndex = 3;
+            this.btnLiberacaoVersao.Text = "Liberação de Versão";
+            this.btnLiberacaoVersao.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnEnvioEmail
             // 
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(605, 22);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(52, 23);
-            this.button3.TabIndex = 48;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEnvioEmail.Location = new System.Drawing.Point(449, 19);
+            this.btnEnvioEmail.Name = "btnEnvioEmail";
+            this.btnEnvioEmail.Size = new System.Drawing.Size(139, 28);
+            this.btnEnvioEmail.TabIndex = 2;
+            this.btnEnvioEmail.Text = "Envio de E-mail";
+            this.btnEnvioEmail.UseVisualStyleBackColor = true;
+            // 
+            // btnAnexo
+            // 
+            this.btnAnexo.Location = new System.Drawing.Point(220, 19);
+            this.btnAnexo.Name = "btnAnexo";
+            this.btnAnexo.Size = new System.Drawing.Size(139, 28);
+            this.btnAnexo.TabIndex = 1;
+            this.btnAnexo.Text = "Anexo de Arquivos";
+            this.btnAnexo.UseVisualStyleBackColor = true;
+            // 
+            // btnLiberacao
+            // 
+            this.btnLiberacao.BackColor = System.Drawing.Color.Transparent;
+            this.btnLiberacao.Location = new System.Drawing.Point(40, 19);
+            this.btnLiberacao.Name = "btnLiberacao";
+            this.btnLiberacao.Size = new System.Drawing.Size(88, 28);
+            this.btnLiberacao.TabIndex = 0;
+            this.btnLiberacao.Text = "Liberação";
+            this.btnLiberacao.UseVisualStyleBackColor = false;
             // 
             // TelaLiberador
             // 
@@ -399,7 +387,7 @@ namespace LiberadorSUAT
             this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "TelaLiberador";
-            this.Text = "Arquivos";
+            this.Text = "z\\";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
