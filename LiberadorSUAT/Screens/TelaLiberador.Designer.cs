@@ -258,7 +258,7 @@ namespace LiberadorSUAT
             this.btnAjudaAlteracoes.Image = ((System.Drawing.Image)(resources.GetObject("btnAjudaAlteracoes.Image")));
             this.btnAjudaAlteracoes.Location = new System.Drawing.Point(279, 281);
             this.btnAjudaAlteracoes.Name = "btnAjudaAlteracoes";
-            this.btnAjudaAlteracoes.Size = new System.Drawing.Size(24, 26);
+            this.btnAjudaAlteracoes.Size = new System.Drawing.Size(27, 26);
             this.btnAjudaAlteracoes.TabIndex = 43;
             this.btnAjudaAlteracoes.UseVisualStyleBackColor = false;
             this.btnAjudaAlteracoes.Click += new System.EventHandler(this.btnAjudaAlteracoes_Click);
@@ -362,7 +362,7 @@ namespace LiberadorSUAT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 482);
+            this.ClientSize = new System.Drawing.Size(955, 482);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnModalAnexos);
             this.Controls.Add(this.btnAjudaAlteracoes);

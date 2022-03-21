@@ -72,9 +72,9 @@
             this.btnEnviarEmail.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnviarEmail.Image = ((System.Drawing.Image)(resources.GetObject("btnEnviarEmail.Image")));
             this.btnEnviarEmail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEnviarEmail.Location = new System.Drawing.Point(508, 310);
+            this.btnEnviarEmail.Location = new System.Drawing.Point(505, 310);
             this.btnEnviarEmail.Name = "btnEnviarEmail";
-            this.btnEnviarEmail.Size = new System.Drawing.Size(168, 35);
+            this.btnEnviarEmail.Size = new System.Drawing.Size(171, 35);
             this.btnEnviarEmail.TabIndex = 2;
             this.btnEnviarEmail.Text = "Enviar E-mail";
             this.btnEnviarEmail.UseVisualStyleBackColor = true;
