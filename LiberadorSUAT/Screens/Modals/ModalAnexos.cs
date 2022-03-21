@@ -14,11 +14,14 @@ namespace LiberadorSUAT.Screens.Modals
 {
     public partial class ModalAnexos : Form
     {
-        public ModalAnexos()
+        private TelaLiberador telaLiberador;
+        public ModalAnexos(TelaLiberador tela)
         {
             InitializeComponent();
             ConfigurarToolTip();
             gerarGrade();
+            telaLiberador = tela;
+            btnAnexo.BackColor = Color.LawnGreen;
         }
 
         private bool IsFileLocked(FileInfo file)
@@ -100,7 +103,6 @@ namespace LiberadorSUAT.Screens.Modals
                 }
                 
             }
-            //dialog.Filter = "Xml Files|(*.xml)|*.xml";
         }
         
         private void btnExcluirArquivos_Click(object sender, EventArgs e)
@@ -149,6 +151,25 @@ namespace LiberadorSUAT.Screens.Modals
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+            //telaLiberador.btnLiberacao.BackColor = Color.Transparent;
+            this.Close();
+        }
+
+        private void btnTelaEmail_Click(object sender, EventArgs e)
+        {
+            //btnAnexo.BackColor = Color.LawnGreen;
+
+            ModalEmail modalEmail = new ModalEmail(this);
+            modalEmail.ShowDialog();
+        }
+
+        private void ModalAnexos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLiberacao_Click(object sender, EventArgs e)
         {
             this.Close();
         }

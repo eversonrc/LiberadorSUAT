@@ -55,6 +55,12 @@
     <Compile Include="Screens\Modals\ModalAnexos.Designer.cs">
       <DependentUpon>ModalAnexos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Modals\ModalEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Modals\ModalEmail.Designer.cs">
+      <DependentUpon>ModalEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Pop-ups\RegrasLiberacao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Screens\Modals\ModalAnexos.resx">
       <DependentUpon>ModalAnexos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Modals\ModalEmail.resx">
+      <DependentUpon>ModalEmail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Pop-ups\RegrasLiberacao.resx">
       <DependentUpon>RegrasLiberacao.cs</DependentUpon>
