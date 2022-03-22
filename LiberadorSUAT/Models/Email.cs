@@ -41,11 +41,18 @@ namespace LiberadorSUAT
                     }
                 }
 
-                //body = body.Replace("{nomeSistema}", telaLiberador.listBoxSistemas.SelectedItem.ToString());
+                body = body.Replace("{nomeSistema}", telaLiberador.sistema);
                 body = body.Replace("{numVersao}", telaLiberador.txbVersao.Text);
                 body = body.Replace("{numRelease}", telaLiberador.txbRelease.Text);
-               // body = body.Replace("{tpLiberacao}", telaLiberador.txbRelease.ToString());
-               // body = body.Replace("", modalAnexo.listViewArquivos.Items[1].ToString());
+                body = body.Replace("{tpLiberacao}", telaLiberador.tipoLiberacao);
+
+                for(int i=0; i <= telaLiberador.listViewAlteracoes.Items.Count; i++)
+                {
+                    body = body.Replace("{helpdesk}", telaLiberador.listViewAlteracoes.Items[i].SubItems[0].ToString());
+                    body = body.Replace("{responsavel}", telaLiberador.listViewAlteracoes.Items[i].SubItems[1].ToString());
+                    body = body.Replace("{descChamado}", telaLiberador.listViewAlteracoes.Items[i].SubItems[2].ToString());
+                    body = body.Replace("{altChamado}", telaLiberador.listViewAlteracoes.Items[i].SubItems[3].ToString());
+                }
 
             }
             catch
@@ -72,17 +79,13 @@ namespace LiberadorSUAT
 
             Outlook.Application application = null;
 
-            // Check whether there is an Outlook process running.
             if (Process.GetProcessesByName("OUTLOOK").Count() > 0)
             {
-                // If so, use the GetActiveObject method to obtain the process and cast it to an Application object.
                 application = Marshal.GetActiveObject("Outlook.Application") as Outlook.Application;
                 montaEmail(application);
             }
             else
             {
-
-                // If not, create a new instance of Outlook and sign in to the default profile.
                 application = new Outlook.Application();
                 montaEmail(application);
                 Outlook.NameSpace nameSpace = application.GetNamespace("MAPI");

@@ -17,6 +17,8 @@ namespace LiberadorSUAT
 {
     public partial class TelaLiberador : Form
     {
+        public string sistema = "";
+        public string tipoLiberacao = "";
         public TelaLiberador()
         {
             InitializeComponent();
@@ -80,11 +82,7 @@ namespace LiberadorSUAT
                 }
             }
         }
-        private void btnEnviarEmail_Click(object sender, EventArgs e)
-        {
-            Email email = new Email();
-            email.GetApplicationObject();
-        }
+       
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -104,12 +102,10 @@ namespace LiberadorSUAT
             toolTipTelaLiberador.ToolTipIcon = ToolTipIcon.Info;
 
             toolTipTelaLiberador.SetToolTip(btnAjudaAlteracoes, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
-            //toolTipTelaLiberador.SetToolTip(btnModalAnexos, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
         }
 
         private void btnAjudaAlteracoes_Click(object sender, EventArgs e)
-        {
-            
+        {  
         }
 
         private void btnModalAnexos_Click(object sender, EventArgs e)
@@ -125,17 +121,15 @@ namespace LiberadorSUAT
         }
         private void listBoxSistemas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string item= "";
-
             for (int i = 0; i < listBoxSistemas.Items.Count; i++)
             {
                 if (listBoxSistemas.GetSelected(i))
                 {
-                    item+= listBoxSistemas.Items[i].ToString();
+                    sistema = listBoxSistemas.Items[i].ToString();
                 }
             }
 
-            switch (item)
+            switch (sistema)
             {
                 case "Evasores":
                     txbSigla.Text = "EVA";
@@ -174,6 +168,18 @@ namespace LiberadorSUAT
 
         private void button1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void listTipoLiberacao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+     
+            for (int i = 0; i < listTipoLiberacao.Items.Count; i++)
+            {
+                if (listTipoLiberacao.GetSelected(i))
+                {
+                    tipoLiberacao = listTipoLiberacao.Items[i].ToString();
+                }
+            }
         }
     }
 }
