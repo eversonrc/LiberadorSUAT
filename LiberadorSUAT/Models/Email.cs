@@ -41,10 +41,11 @@ namespace LiberadorSUAT
                     }
                 }
 
-                /*body = body.Replace("{nomeTitulo}", telaLiberador.txbTitulo.Text);
-                body = body.Replace("{nomeSistema}", telaLiberador.listBoxSistemas.SelectedItem.ToString());
-                body = body.Replace("{noVersao}", telaLiberador.txbVersao.Text);*/
-                
+                //body = body.Replace("{nomeSistema}", telaLiberador.listBoxSistemas.SelectedItem.ToString());
+                body = body.Replace("{numVersao}", telaLiberador.txbVersao.Text);
+                body = body.Replace("{numRelease}", telaLiberador.txbRelease.Text);
+               // body = body.Replace("{tpLiberacao}", telaLiberador.txbRelease.ToString());
+               // body = body.Replace("", modalAnexo.listViewArquivos.Items[1].ToString());
 
             }
             catch
