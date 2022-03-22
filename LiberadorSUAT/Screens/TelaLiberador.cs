@@ -23,6 +23,7 @@ namespace LiberadorSUAT
             ConfigurarToolTip();
             gerarGrade();
             btnLiberacao.BackColor = Color.LawnGreen;
+
         }
         private void gerarGrade()
         {
@@ -113,8 +114,6 @@ namespace LiberadorSUAT
 
         private void btnModalAnexos_Click(object sender, EventArgs e)
         {
-            //btnLiberacao.BackColor = Color.LawnGreen;
-
             ModalAnexos anexo = new ModalAnexos(this);
             anexo.ShowDialog();
         }
@@ -126,7 +125,15 @@ namespace LiberadorSUAT
         }
         private void listBoxSistemas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string item = listBoxSistemas.SelectedItem.ToString();
+            string item= "";
+
+            for (int i = 0; i < listBoxSistemas.Items.Count; i++)
+            {
+                if (listBoxSistemas.GetSelected(i))
+                {
+                    item+= listBoxSistemas.Items[i].ToString();
+                }
+            }
 
             switch (item)
             {
@@ -151,7 +158,6 @@ namespace LiberadorSUAT
                     break;
 
                 default:
-                    MessageBox.Show("Selecione um sistema.");
                     break;
             }
         }

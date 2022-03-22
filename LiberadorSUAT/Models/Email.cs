@@ -6,14 +6,23 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Outlook = Microsoft.Office.Interop.Outlook;
-
-
-
+using LiberadorSUAT.Models;
+using LiberadorSUAT.Screens.Modals;
 
 namespace LiberadorSUAT
 {
-    class Email
+    public class Email
     {
+        private TelaLiberador telaLiberador;
+        private ModalAnexos modalAnexo;
+        public Email(TelaLiberador tela, ModalAnexos modal)
+        {
+            telaLiberador = tela;
+            modalAnexo = modal;
+        }
+        public Email()
+        {
+        }
         private string carregarHTML()
         {
             string body = string.Empty;
@@ -28,12 +37,14 @@ namespace LiberadorSUAT
                         while (!reader.EndOfStream)
                         {
                              body = reader.ReadToEnd();
-                            //body = reader.ReadLine();
                         }
                     }
                 }
 
-                body = body.Replace("{fname}", "");
+                /*body = body.Replace("{nomeTitulo}", telaLiberador.txbTitulo.Text);
+                body = body.Replace("{nomeSistema}", telaLiberador.listBoxSistemas.SelectedItem.ToString());
+                body = body.Replace("{noVersao}", telaLiberador.txbVersao.Text);*/
+                
 
             }
             catch
@@ -44,8 +55,7 @@ namespace LiberadorSUAT
         }
 
 
-
-        public void montaEmail(Outlook.Application application)
+       public void montaEmail(Outlook.Application application)
         {
             Outlook.MailItem message = (Outlook.MailItem)application.CreateItem(Outlook.OlItemType.olMailItem);
             message.To = "";
@@ -79,7 +89,6 @@ namespace LiberadorSUAT
                 nameSpace = null;
             }
 
-            // Return the Outlook Application object.
             return application;
         }
     }

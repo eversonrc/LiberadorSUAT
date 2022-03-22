@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace LiberadorSUAT.Screens.Modals
 {
     public partial class ModalAnexos : Form
@@ -23,6 +25,7 @@ namespace LiberadorSUAT.Screens.Modals
             telaLiberador = tela;
             btnAnexo.BackColor = Color.LawnGreen;
         }
+
 
         private bool IsFileLocked(FileInfo file)
         {
@@ -42,7 +45,6 @@ namespace LiberadorSUAT.Screens.Modals
                     stream.Close();
             }
 
-            //file is not locked
             return false;
         }
 
@@ -51,15 +53,15 @@ namespace LiberadorSUAT.Screens.Modals
             toolTipModalAnexo.AutoPopDelay = 4000;
             toolTipModalAnexo.InitialDelay = 100;
             toolTipModalAnexo.ReshowDelay = 200;
-
             toolTipModalAnexo.ToolTipTitle = "Dica";
             toolTipModalAnexo.IsBalloon = true;
             toolTipModalAnexo.ToolTipIcon = ToolTipIcon.Info;
 
-            toolTipModalAnexo.SetToolTip(btnAjudaArquivos, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
-            toolTipModalAnexo.SetToolTip(btnAjudaScripts, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
+            toolTipModalAnexo.SetToolTip(btnAjudaArquivos, "Selecione o diretório de arquivos desejado.");
+            toolTipModalAnexo.SetToolTip(btnAjudaScripts, "Selecione arquivos de banco de dados com as extensôes .sql");
             toolTipModalAnexo.SetToolTip(btnAjudaDocs, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
         }
+
 
         private void gerarGrade()
         {
@@ -83,6 +85,7 @@ namespace LiberadorSUAT.Screens.Modals
                 DirectoryInfo diretorioInicial = new DirectoryInfo(folderBrowserDialog1.SelectedPath);
                 DirectoryInfo[] directories = diretorioInicial.GetDirectories("*", SearchOption.AllDirectories);
                 FileInfo[] files = diretorioInicial.GetFiles("*.*", SearchOption.AllDirectories);
+                ListViewItem listView = new ListViewItem();
 
                 foreach (DirectoryInfo dir in directories)
                 {
@@ -93,23 +96,19 @@ namespace LiberadorSUAT.Screens.Modals
                             string nome = file.Name;
                             string caminho = file.FullName;
 
-                            ListViewItem listView = new ListViewItem();
                             listView.SubItems.Add(nome);
                             listView.SubItems.Add(caminho);
-
                             listViewArquivos.Items.Add(listView);
                         }
                     }
                 }
-                
+
             }
         }
-        
+
         private void btnExcluirArquivos_Click(object sender, EventArgs e)
         {
-            //Arquivo arquivo = new Arquivo();
-            //arquivo.ExcluirArquivos(listViewArquivos);
-            foreach(ListViewItem item in listViewArquivos.Items)
+            foreach (ListViewItem item in listViewArquivos.Items)
             {
                 if (item.Checked)
                 {
@@ -135,7 +134,7 @@ namespace LiberadorSUAT.Screens.Modals
             arquivo.ExcluirArquivos(listBoxAttachments);
         }
 
-        
+
         // ANEXAR Scripts de Banco de Dados
         //
         private void btnExcluirScript_Click(object sender, EventArgs e)
@@ -152,31 +151,32 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //telaLiberador.btnLiberacao.BackColor = Color.Transparent;
             this.Close();
         }
 
         private void btnTelaEmail_Click(object sender, EventArgs e)
         {
-            //btnAnexo.BackColor = Color.LawnGreen;
-
-            ModalEmail modalEmail = new ModalEmail(this);
+            ModalEmail modalEmail = new ModalEmail(telaLiberador, this);
             modalEmail.ShowDialog();
         }
+
+
 
         private void ModalAnexos_Load(object sender, EventArgs e)
         {
 
         }
 
+
         private void btnLiberacao_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
+
         private void listViewArquivos_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }
