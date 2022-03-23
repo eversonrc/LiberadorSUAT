@@ -31,16 +31,16 @@ namespace LiberadorSUAT.Screens
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SideBarLayout));
             this.panelSideBarMenu = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.btnEmail = new FontAwesome.Sharp.IconButton();
+            this.btnAnexos = new FontAwesome.Sharp.IconButton();
+            this.btnInfos = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnExit = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelChildForm = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panelSideBarMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -51,98 +51,142 @@ namespace LiberadorSUAT.Screens
             // 
             this.panelSideBarMenu.AutoScroll = true;
             this.panelSideBarMenu.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.panelSideBarMenu.Controls.Add(this.button8);
-            this.panelSideBarMenu.Controls.Add(this.button7);
-            this.panelSideBarMenu.Controls.Add(this.button6);
+            this.panelSideBarMenu.Controls.Add(this.iconButton5);
+            this.panelSideBarMenu.Controls.Add(this.btnEmail);
+            this.panelSideBarMenu.Controls.Add(this.btnAnexos);
+            this.panelSideBarMenu.Controls.Add(this.btnInfos);
             this.panelSideBarMenu.Controls.Add(this.panel1);
-            this.panelSideBarMenu.Controls.Add(this.button4);
             this.panelSideBarMenu.Controls.Add(this.tableLayoutPanel1);
             this.panelSideBarMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideBarMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideBarMenu.Name = "panelSideBarMenu";
             this.panelSideBarMenu.Size = new System.Drawing.Size(213, 561);
             this.panelSideBarMenu.TabIndex = 48;
-            this.panelSideBarMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSideBarMenu_Paint);
             // 
-            // button8
+            // iconButton5
             // 
-            this.button8.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button8.Location = new System.Drawing.Point(0, 211);
-            this.button8.Name = "button8";
-            this.button8.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button8.Size = new System.Drawing.Size(213, 43);
-            this.button8.TabIndex = 52;
-            this.button8.Text = "Envio";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.UseVisualStyleBackColor = false;
+            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton5.FlatAppearance.BorderSize = 0;
+            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton5.ForeColor = System.Drawing.Color.White;
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.Rocket;
+            this.iconButton5.IconColor = System.Drawing.Color.White;
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.IconSize = 30;
+            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton5.Location = new System.Drawing.Point(0, 208);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.iconButton5.Size = new System.Drawing.Size(213, 42);
+            this.iconButton5.TabIndex = 53;
+            this.iconButton5.Text = "Envio";
+            this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton5.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnEmail
             // 
-            this.button7.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button7.Location = new System.Drawing.Point(0, 168);
-            this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(213, 43);
-            this.button7.TabIndex = 51;
-            this.button7.Text = "E-mail pré-liberação";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btnEmail.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmail.FlatAppearance.BorderSize = 0;
+            this.btnEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmail.ForeColor = System.Drawing.Color.White;
+            this.btnEmail.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpenText;
+            this.btnEmail.IconColor = System.Drawing.Color.White;
+            this.btnEmail.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEmail.IconSize = 30;
+            this.btnEmail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmail.Location = new System.Drawing.Point(0, 166);
+            this.btnEmail.Name = "btnEmail";
+            this.btnEmail.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnEmail.Size = new System.Drawing.Size(213, 42);
+            this.btnEmail.TabIndex = 52;
+            this.btnEmail.Text = "E-mail pré-liberação";
+            this.btnEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEmail.UseVisualStyleBackColor = true;
+            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click_1);
             // 
-            // button6
+            // btnAnexos
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button6.Location = new System.Drawing.Point(0, 125);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(213, 43);
-            this.button6.TabIndex = 50;
-            this.button6.Text = "Anexos";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btnAnexos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAnexos.FlatAppearance.BorderSize = 0;
+            this.btnAnexos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnexos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnexos.ForeColor = System.Drawing.Color.White;
+            this.btnAnexos.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
+            this.btnAnexos.IconColor = System.Drawing.Color.White;
+            this.btnAnexos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAnexos.IconSize = 30;
+            this.btnAnexos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAnexos.Location = new System.Drawing.Point(0, 124);
+            this.btnAnexos.Name = "btnAnexos";
+            this.btnAnexos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnAnexos.Size = new System.Drawing.Size(213, 42);
+            this.btnAnexos.TabIndex = 51;
+            this.btnAnexos.Text = "Anexos";
+            this.btnAnexos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAnexos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAnexos.UseVisualStyleBackColor = true;
+            this.btnAnexos.Click += new System.EventHandler(this.btnAnexos_Click_1);
+            // 
+            // btnInfos
+            // 
+            this.btnInfos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInfos.FlatAppearance.BorderSize = 0;
+            this.btnInfos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfos.ForeColor = System.Drawing.Color.White;
+            this.btnInfos.IconChar = FontAwesome.Sharp.IconChar.Book;
+            this.btnInfos.IconColor = System.Drawing.Color.White;
+            this.btnInfos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnInfos.IconSize = 30;
+            this.btnInfos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInfos.Location = new System.Drawing.Point(0, 82);
+            this.btnInfos.Name = "btnInfos";
+            this.btnInfos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnInfos.Size = new System.Drawing.Size(213, 42);
+            this.btnInfos.TabIndex = 50;
+            this.btnInfos.Text = "Informações iniciais";
+            this.btnInfos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInfos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInfos.UseVisualStyleBackColor = true;
+            this.btnInfos.Click += new System.EventHandler(this.btnInfos_Click_1);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.iconButton1);
+            this.panel1.Controls.Add(this.btnExit);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 525);
+            this.panel1.Location = new System.Drawing.Point(0, 519);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(213, 36);
+            this.panel1.Size = new System.Drawing.Size(213, 42);
             this.panel1.TabIndex = 49;
             // 
-            // button4
+            // btnExit
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button4.Location = new System.Drawing.Point(0, 82);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(213, 43);
-            this.button4.TabIndex = 48;
-            this.button4.Text = "Informações iniciais";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnExit.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.btnExit.IconColor = System.Drawing.Color.White;
+            this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnExit.IconSize = 30;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.Location = new System.Drawing.Point(0, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnExit.Size = new System.Drawing.Size(213, 42);
+            this.btnExit.TabIndex = 53;
+            this.btnExit.Text = "Sair";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -174,9 +218,9 @@ namespace LiberadorSUAT.Screens
             // 
             this.panel2.BackColor = System.Drawing.Color.Gold;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(213, 525);
+            this.panel2.Location = new System.Drawing.Point(213, 543);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(964, 36);
+            this.panel2.Size = new System.Drawing.Size(964, 18);
             this.panel2.TabIndex = 49;
             // 
             // panelChildForm
@@ -184,31 +228,8 @@ namespace LiberadorSUAT.Screens
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(213, 0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(964, 525);
+            this.panelChildForm.Size = new System.Drawing.Size(964, 543);
             this.panelChildForm.TabIndex = 50;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 35;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(213, 36);
-            this.iconButton1.TabIndex = 53;
-            this.iconButton1.Text = "Sair";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // SideBarLayout
             // 
@@ -235,15 +256,15 @@ namespace LiberadorSUAT.Screens
         #endregion
 
         private System.Windows.Forms.Panel panelSideBarMenu;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelChildForm;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnExit;
+        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton btnEmail;
+        private FontAwesome.Sharp.IconButton btnAnexos;
+        private FontAwesome.Sharp.IconButton btnInfos;
     }
 }

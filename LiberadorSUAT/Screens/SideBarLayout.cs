@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,11 +13,13 @@ using System.Windows.Forms;
 namespace LiberadorSUAT.Screens
 {
     public partial class SideBarLayout : Form
-    {
+    {     
+
         public SideBarLayout()
         {
             InitializeComponent();
             openChildForm(new TelaLiberador());
+            //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
         }
 
         private Form activeForm = null;
@@ -36,30 +39,29 @@ namespace LiberadorSUAT.Screens
             childForm.BringToFront();
             childForm.Show();
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void btnInfos_Click(object sender, EventArgs e)
         {
             openChildForm(new TelaLiberador());
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            openChildForm(new ModalAnexos());
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            openChildForm(new ModalEmail());
-        }
-
-        private void iconButton1_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void panelSideBarMenu_Paint(object sender, PaintEventArgs e)
+        private void btnAnexos_Click_1(object sender, EventArgs e)
         {
+            openChildForm(new ModalAnexos());
+        }
 
+        private void btnEmail_Click_1(object sender, EventArgs e)
+        {
+            openChildForm(new ModalEmail());
+        }
+
+        private void btnInfos_Click_1(object sender, EventArgs e)
+        {
+            openChildForm(new TelaLiberador());
         }
     }
 }
