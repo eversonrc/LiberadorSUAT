@@ -20,9 +20,7 @@ namespace LiberadorSUAT
             telaLiberador = tela;
             modalAnexo = modal;
         }
-        public Email()
-        {
-        }
+
         private string carregarHTML()
         {
             string body = string.Empty;
@@ -41,12 +39,54 @@ namespace LiberadorSUAT
                     }
                 }
 
-                //body = body.Replace("{nomeSistema}", telaLiberador.listBoxSistemas.SelectedItem.ToString());
+                body = body.Replace("{nomeSistema}", telaLiberador.sistema);
                 body = body.Replace("{numVersao}", telaLiberador.txbVersao.Text);
                 body = body.Replace("{numRelease}", telaLiberador.txbRelease.Text);
-               // body = body.Replace("{tpLiberacao}", telaLiberador.txbRelease.ToString());
-               // body = body.Replace("", modalAnexo.listViewArquivos.Items[1].ToString());
+                body = body.Replace("{tpLiberacao}", telaLiberador.tipoLiberacao);
 
+                string alteracoes = "";
+                for (int i=0; i < telaLiberador.listViewAlteracoes.Items.Count; i++)
+                {
+                    string teste= "<tr>";
+                    teste += "<td style = \"font - size: 16px; \" >{helpdesk}</td > ";
+                    teste += "<td style = \"font - size: 16px; \" >{responsavel}</td >";
+                    teste += "<td style = \"font - size: 16px; \" >{descChamado}</td >";
+                    teste += "<td style = \"font-size: 16px;\" >{altChamado}</td>";
+                    teste += "</tr>";
+
+                    teste = teste.Replace("{helpdesk}", telaLiberador.listViewAlteracoes.Items[i].SubItems[0].Text);
+                    teste = teste.Replace("{responsavel}", telaLiberador.listViewAlteracoes.Items[i].SubItems[1].Text);
+                    teste = teste.Replace("{descChamado}", telaLiberador.listViewAlteracoes.Items[i].SubItems[2].Text);
+                    teste = teste.Replace("{altChamado}", telaLiberador.listViewAlteracoes.Items[i].SubItems[3].Text);
+                    alteracoes += teste;
+                }
+                body = body.Replace("%gridAlteracoes%", alteracoes);
+
+                string scripts = "";
+                for (int i = 0; i < modalAnexo.listBoxScripts.Items.Count; i++)
+                {
+                    string teste = "<tr>";
+                    teste += "<td></td>";
+                    teste += "<td style = \"font - size: 16px; \" >{caminhoScript}</td > ";
+                    teste += "</tr>";
+
+                    teste = teste.Replace("{caminhoScript}", modalAnexo.listBoxScripts.Items[i].ToString());
+                    scripts += teste;
+                }
+                body = body.Replace("%gridScripts%", scripts);
+
+                string documentacoes = "";
+                for (int i = 0; i < modalAnexo.listBoxDocumentos.Items.Count; i++)
+                {
+                    string teste = "<tr>";
+                    teste += "<td></td>";
+                    teste += "<td style = \"font - size: 16px; \" >{caminhoDoc}</td > ";
+                    teste += "</tr>";
+
+                    teste = teste.Replace("{caminhoDoc}", modalAnexo.listBoxDocumentos.Items[i].ToString());
+                    documentacoes += teste;
+                }
+                body = body.Replace("%gridDocumentacoes%", documentacoes);
             }
             catch
             {
@@ -72,17 +112,13 @@ namespace LiberadorSUAT
 
             Outlook.Application application = null;
 
-            // Check whether there is an Outlook process running.
             if (Process.GetProcessesByName("OUTLOOK").Count() > 0)
             {
-                // If so, use the GetActiveObject method to obtain the process and cast it to an Application object.
                 application = Marshal.GetActiveObject("Outlook.Application") as Outlook.Application;
                 montaEmail(application);
             }
             else
             {
-
-                // If not, create a new instance of Outlook and sign in to the default profile.
                 application = new Outlook.Application();
                 montaEmail(application);
                 Outlook.NameSpace nameSpace = application.GetNamespace("MAPI");

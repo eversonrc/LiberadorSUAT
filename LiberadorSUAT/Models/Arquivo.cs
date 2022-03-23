@@ -35,7 +35,6 @@ namespace LiberadorSUAT.Models
                 }
             }
 
-            // Display a horizontal scroll bar.
             listBox.HorizontalScrollbar = true;
         }
 

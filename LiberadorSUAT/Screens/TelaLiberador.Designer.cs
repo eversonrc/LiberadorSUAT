@@ -66,7 +66,7 @@ namespace LiberadorSUAT
             this.label2.Size = new System.Drawing.Size(160, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Título da Liberação";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+           // this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txbTitulo
             // 
@@ -74,7 +74,7 @@ namespace LiberadorSUAT
             this.txbTitulo.Name = "txbTitulo";
             this.txbTitulo.Size = new System.Drawing.Size(458, 20);
             this.txbTitulo.TabIndex = 4;
-            this.txbTitulo.TextChanged += new System.EventHandler(this.txbTitulo_TextChanged);
+            //this.txbTitulo.TextChanged += new System.EventHandler(this.txbTitulo_TextChanged);
             // 
             // label3
             // 
@@ -85,7 +85,7 @@ namespace LiberadorSUAT
             this.label3.Size = new System.Drawing.Size(144, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "Tipo da Liberação";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            //this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // listTipoLiberacao
             // 
@@ -111,7 +111,7 @@ namespace LiberadorSUAT
             this.label4.Size = new System.Drawing.Size(48, 17);
             this.label4.TabIndex = 7;
             this.label4.Text = "Sigla";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+          //  this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -122,7 +122,7 @@ namespace LiberadorSUAT
             this.label5.Size = new System.Drawing.Size(56, 17);
             this.label5.TabIndex = 9;
             this.label5.Text = "Versão";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            //this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -133,7 +133,7 @@ namespace LiberadorSUAT
             this.label6.Size = new System.Drawing.Size(64, 17);
             this.label6.TabIndex = 10;
             this.label6.Text = "Release";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+           // this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // txbVersao
             // 
@@ -141,7 +141,7 @@ namespace LiberadorSUAT
             this.txbVersao.Name = "txbVersao";
             this.txbVersao.Size = new System.Drawing.Size(142, 20);
             this.txbVersao.TabIndex = 12;
-            this.txbVersao.TextChanged += new System.EventHandler(this.txbVersao_TextChanged);
+            //this.txbVersao.TextChanged += new System.EventHandler(this.txbVersao_TextChanged);
             // 
             // txbRelease
             // 
@@ -149,7 +149,7 @@ namespace LiberadorSUAT
             this.txbRelease.Name = "txbRelease";
             this.txbRelease.Size = new System.Drawing.Size(113, 20);
             this.txbRelease.TabIndex = 13;
-            this.txbRelease.TextChanged += new System.EventHandler(this.txbRelease_TextChanged);
+           // this.txbRelease.TextChanged += new System.EventHandler(this.txbRelease_TextChanged);
             // 
             // label9
             // 
@@ -160,7 +160,7 @@ namespace LiberadorSUAT
             this.label9.Size = new System.Drawing.Size(264, 16);
             this.label9.TabIndex = 21;
             this.label9.Text = "Alterações Realizadas no Projeto";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+          //  this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // listViewAlteracoes
             // 
@@ -171,7 +171,7 @@ namespace LiberadorSUAT
             this.listViewAlteracoes.TabIndex = 22;
             this.listViewAlteracoes.UseCompatibleStateImageBehavior = false;
             this.listViewAlteracoes.View = System.Windows.Forms.View.Details;
-            this.listViewAlteracoes.SelectedIndexChanged += new System.EventHandler(this.listViewAlteracoes_SelectedIndexChanged);
+            //this.listViewAlteracoes.SelectedIndexChanged += new System.EventHandler(this.listViewAlteracoes_SelectedIndexChanged);
             // 
             // btnNovoAlteracao
             // 
@@ -230,7 +230,7 @@ namespace LiberadorSUAT
             this.label7.Size = new System.Drawing.Size(64, 17);
             this.label7.TabIndex = 39;
             this.label7.Text = "Sistema";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            //this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // listBoxSistemas
             // 
@@ -254,7 +254,7 @@ namespace LiberadorSUAT
             this.txbSigla.Name = "txbSigla";
             this.txbSigla.Size = new System.Drawing.Size(131, 20);
             this.txbSigla.TabIndex = 42;
-            this.txbSigla.TextChanged += new System.EventHandler(this.txbSigla_TextChanged);
+           // this.txbSigla.TextChanged += new System.EventHandler(this.txbSigla_TextChanged);
             // 
             // btnAjudaAlteracoes
             // 
@@ -352,4 +352,3 @@ namespace LiberadorSUAT
         private System.Windows.Forms.ImageList imageList1;
     }
 }
-
