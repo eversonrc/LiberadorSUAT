@@ -102,7 +102,6 @@ namespace LiberadorSUAT.Screens.Modals
                         }
                     }
                 }
-
             }
         }
 
@@ -126,12 +125,12 @@ namespace LiberadorSUAT.Screens.Modals
         private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo();
-            arquivo.AdicionarArquivos(listBoxAttachments, 0);
+            arquivo.AdicionarArquivos(listBoxDocumentos, 0);
         }
         private void btnExcluirDocumentacao_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo();
-            arquivo.ExcluirArquivos(listBoxAttachments);
+            arquivo.ExcluirArquivos(listBoxDocumentos);
         }
 
 
@@ -160,13 +159,10 @@ namespace LiberadorSUAT.Screens.Modals
             modalEmail.ShowDialog();
         }
 
-
-
         private void ModalAnexos_Load(object sender, EventArgs e)
         {
 
         }
-
 
         private void btnLiberacao_Click(object sender, EventArgs e)
         {
@@ -177,6 +173,19 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void listViewArquivos_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void listBoxScripts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            for (int i = 0; i <listBoxScripts.Items.Count; i++)
+            {
+               MessageBox.Show(listBoxScripts.Items[i].ToString());
+            }
         }
     }
 }

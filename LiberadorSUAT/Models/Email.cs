@@ -20,9 +20,7 @@ namespace LiberadorSUAT
             telaLiberador = tela;
             modalAnexo = modal;
         }
-        public Email()
-        {
-        }
+
         private string carregarHTML()
         {
             string body = string.Empty;
@@ -46,14 +44,21 @@ namespace LiberadorSUAT
                 body = body.Replace("{numRelease}", telaLiberador.txbRelease.Text);
                 body = body.Replace("{tpLiberacao}", telaLiberador.tipoLiberacao);
 
-                for(int i=0; i <= telaLiberador.listViewAlteracoes.Items.Count; i++)
+                string alteracoes = "";
+                for (int i=0; i <= telaLiberador.listViewAlteracoes.Items.Count; i++)
                 {
-                    body = body.Replace("{helpdesk}", telaLiberador.listViewAlteracoes.Items[i].SubItems[0].ToString());
-                    body = body.Replace("{responsavel}", telaLiberador.listViewAlteracoes.Items[i].SubItems[1].ToString());
-                    body = body.Replace("{descChamado}", telaLiberador.listViewAlteracoes.Items[i].SubItems[2].ToString());
-                    body = body.Replace("{altChamado}", telaLiberador.listViewAlteracoes.Items[i].SubItems[3].ToString());
-                }
+                    var teste = "< td style = \"font - size: 16px; \" >{helpdesk}</ td > ";
+                    teste += "< td style = \"font - size: 16px; \" >{responsavel}</ td >";
+                    teste += "< td style = \"font - size: 16px; \" >{descChamado}</ td >";
+                    teste += "< td style = \"font-size: 16px;\" >{altChamado}</ td >";
 
+                    teste = teste.Replace("{helpdesk}", telaLiberador.listViewAlteracoes.Items[i].SubItems[0].Text);
+                    teste = teste.Replace("{responsavel}", telaLiberador.listViewAlteracoes.Items[i].SubItems[1].Text);
+                    teste = teste.Replace("{descChamado}", telaLiberador.listViewAlteracoes.Items[i].SubItems[2].Text);
+                    teste = teste.Replace("{altChamado}", telaLiberador.listViewAlteracoes.Items[i].SubItems[3].Text);
+                    alteracoes += teste;
+                }
+                body = body.Replace("%dcalteracoes%", alteracoes);                
             }
             catch
             {

@@ -12,14 +12,13 @@ namespace LiberadorSUAT.Screens.Modals
 {
     public partial class ModalEmail : Form
     {
-        private ModalAnexos modalAnexo;
         private TelaLiberador telaLiberador;
+        private ModalAnexos modalAnexo;
         public ModalEmail(TelaLiberador tela, ModalAnexos modal)
         {
             InitializeComponent();
             telaLiberador = tela;
             modalAnexo = modal;
-            btnEnvioEmail.BackColor = Color.LawnGreen;
         }
 
         private void label2_Click(object sender, EventArgs e)
