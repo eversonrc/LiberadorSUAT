@@ -48,7 +48,7 @@ namespace LiberadorSUAT.Screens
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(205, 19);
+            this.label1.Location = new System.Drawing.Point(204, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 17);
             this.label1.TabIndex = 0;
@@ -111,7 +111,7 @@ namespace LiberadorSUAT.Screens
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCadastrar.BackColor = System.Drawing.Color.Transparent;
             this.btnCadastrar.Location = new System.Drawing.Point(339, 453);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(77, 32);
@@ -122,7 +122,7 @@ namespace LiberadorSUAT.Screens
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
             this.btnCancelar.Location = new System.Drawing.Point(437, 453);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(70, 32);
@@ -133,10 +133,10 @@ namespace LiberadorSUAT.Screens
             // 
             // btnAlterar
             // 
-            this.btnAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnAlterar.Location = new System.Drawing.Point(241, 452);
+            this.btnAlterar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAlterar.Location = new System.Drawing.Point(239, 453);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 32);
+            this.btnAlterar.Size = new System.Drawing.Size(77, 31);
             this.btnAlterar.TabIndex = 11;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
@@ -176,6 +176,7 @@ namespace LiberadorSUAT.Screens
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TelaAlteracoes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaAlteracoes";
             this.ResumeLayout(false);
             this.PerformLayout();

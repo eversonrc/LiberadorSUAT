@@ -22,7 +22,8 @@ namespace LiberadorSUAT
             InitializeComponent();
             ConfigurarToolTip();
             gerarGrade();
-            btnLiberacao.BackColor = Color.LawnGreen;
+            //btnLiberacao.BackColor = Color.LawnGreen;
+
         }
         private void gerarGrade()
         {
@@ -113,10 +114,10 @@ namespace LiberadorSUAT
 
         private void btnModalAnexos_Click(object sender, EventArgs e)
         {
-            //btnLiberacao.BackColor = Color.LawnGreen;
-
-            ModalAnexos anexo = new ModalAnexos(this);
-            anexo.ShowDialog();
+            //ModalAnexos anexo = new ModalAnexos(this);
+            //anexo.ShowDialog();
+            //SideBarLayout transicao = new SideBarLayout();
+            //transicao.openChildForm(new ModalAnexos(this));
         }
 
         private void btnRegras_Click(object sender, EventArgs e)
@@ -126,7 +127,15 @@ namespace LiberadorSUAT
         }
         private void listBoxSistemas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string item = listBoxSistemas.SelectedItem.ToString();
+            string item= "";
+
+            for (int i = 0; i < listBoxSistemas.Items.Count; i++)
+            {
+                if (listBoxSistemas.GetSelected(i))
+                {
+                    item+= listBoxSistemas.Items[i].ToString();
+                }
+            }
 
             switch (item)
             {
@@ -151,7 +160,6 @@ namespace LiberadorSUAT
                     break;
 
                 default:
-                    MessageBox.Show("Selecione um sistema.");
                     break;
             }
         }
@@ -168,6 +176,81 @@ namespace LiberadorSUAT
 
         private void button1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbSigla_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewAlteracoes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbRelease_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbVersao_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listTipoLiberacao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbTitulo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
