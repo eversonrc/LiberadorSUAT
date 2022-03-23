@@ -1,4 +1,4 @@
-using LiberadorSUAT.Models;
+﻿using LiberadorSUAT.Models;
 using LiberadorSUAT.Screens;
 using LiberadorSUAT.Screens.Modals;
 using System;
@@ -24,9 +24,8 @@ namespace LiberadorSUAT
             InitializeComponent();
             ConfigurarToolTip();
             gerarGrade();
-            btnLiberacao.BackColor = Color.LawnGreen;
-
         }
+        
         private void gerarGrade()
         {
             listViewAlteracoes.Columns.Add("Helpdesk", 100).TextAlign = HorizontalAlignment.Center;
@@ -112,6 +111,8 @@ namespace LiberadorSUAT
         {
             ModalAnexos anexo = new ModalAnexos(this);
             anexo.ShowDialog();
+            //SideBarLayout transicao = new SideBarLayout();
+            //transicao.openChildForm(new ModalAnexos(this));
         }
 
         private void btnRegras_Click(object sender, EventArgs e)

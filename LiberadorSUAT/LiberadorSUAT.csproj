@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.4.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.4\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +50,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Alteracao.cs" />
@@ -73,6 +80,12 @@
     <Compile Include="Screens\Modals\TelaAlteracoes.Designer.cs">
       <DependentUpon>TelaAlteracoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\SideBarLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\SideBarLayout.Designer.cs">
+      <DependentUpon>SideBarLayout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\TelaLiberador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +106,9 @@
     <EmbeddedResource Include="Screens\Modals\TelaAlteracoes.resx">
       <DependentUpon>TelaAlteracoes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SideBarLayout.resx">
+      <DependentUpon>SideBarLayout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\TelaLiberador.resx">
       <DependentUpon>TelaLiberador.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,6 +121,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

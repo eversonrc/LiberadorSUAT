@@ -17,7 +17,7 @@ namespace LiberadorSUAT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaLiberador());
+            Application.Run(new SideBarLayout());
         }
     }
 }
