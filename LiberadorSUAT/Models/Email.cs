@@ -47,7 +47,7 @@ namespace LiberadorSUAT
                 string alteracoes = "";
                 for (int i=0; i < telaLiberador.listViewAlteracoes.Items.Count; i++)
                 {
-                    var teste= "<tr>";
+                    string teste= "<tr>";
                     teste += "<td style = \"font - size: 16px; \" >{helpdesk}</td > ";
                     teste += "<td style = \"font - size: 16px; \" >{responsavel}</td >";
                     teste += "<td style = \"font - size: 16px; \" >{descChamado}</td >";
@@ -60,7 +60,33 @@ namespace LiberadorSUAT
                     teste = teste.Replace("{altChamado}", telaLiberador.listViewAlteracoes.Items[i].SubItems[3].Text);
                     alteracoes += teste;
                 }
-                body = body.Replace("%dcalteracoes%", alteracoes);                
+                body = body.Replace("%gridAlteracoes%", alteracoes);
+
+                string scripts = "";
+                for (int i = 0; i < modalAnexo.listBoxScripts.Items.Count; i++)
+                {
+                    string teste = "<tr>";
+                    teste += "<td></td>";
+                    teste += "<td style = \"font - size: 16px; \" >{caminhoScript}</td > ";
+                    teste += "</tr>";
+
+                    teste = teste.Replace("{caminhoScript}", modalAnexo.listBoxScripts.Items[i].ToString());
+                    scripts += teste;
+                }
+                body = body.Replace("%gridScripts%", scripts);
+
+                string documentacoes = "";
+                for (int i = 0; i < modalAnexo.listBoxDocumentos.Items.Count; i++)
+                {
+                    string teste = "<tr>";
+                    teste += "<td></td>";
+                    teste += "<td style = \"font - size: 16px; \" >{caminhoDoc}</td > ";
+                    teste += "</tr>";
+
+                    teste = teste.Replace("{caminhoDoc}", modalAnexo.listBoxDocumentos.Items[i].ToString());
+                    documentacoes += teste;
+                }
+                body = body.Replace("%gridDocumentacoes%", documentacoes);
             }
             catch
             {
