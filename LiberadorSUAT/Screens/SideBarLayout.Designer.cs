@@ -230,6 +230,7 @@ namespace LiberadorSUAT.Screens
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(964, 543);
             this.panelChildForm.TabIndex = 50;
+            this.panelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildForm_Paint);
             // 
             // SideBarLayout
             // 

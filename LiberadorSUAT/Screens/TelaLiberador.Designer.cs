@@ -33,16 +33,6 @@ namespace LiberadorSUAT
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaLiberador));
-            this.toolTipTelaLiberador = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnLiberacaoVersao = new System.Windows.Forms.Button();
-            this.btnEnvioEmail = new System.Windows.Forms.Button();
-            this.btnAnexo = new System.Windows.Forms.Button();
-            this.btnLiberacao = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.txbTitulo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,96 +51,11 @@ namespace LiberadorSUAT
             this.label7 = new System.Windows.Forms.Label();
             this.listBoxSistemas = new System.Windows.Forms.CheckedListBox();
             this.txbSigla = new System.Windows.Forms.TextBox();
+            this.toolTipTelaLiberador = new System.Windows.Forms.ToolTip(this.components);
             this.btnAjudaAlteracoes = new System.Windows.Forms.Button();
             this.btnModalAnexos = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.btnLiberacaoVersao);
-            this.groupBox1.Controls.Add(this.btnEnvioEmail);
-            this.groupBox1.Controls.Add(this.btnAnexo);
-            this.groupBox1.Controls.Add(this.btnLiberacao);
-            this.groupBox1.Location = new System.Drawing.Point(27, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(916, 66);
-            this.groupBox1.TabIndex = 45;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // button3
-            // 
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(151, 22);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(50, 23);
-            this.button3.TabIndex = 50;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(609, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 23);
-            this.button1.TabIndex = 49;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(381, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 23);
-            this.button2.TabIndex = 48;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // btnLiberacaoVersao
-            // 
-            this.btnLiberacaoVersao.Location = new System.Drawing.Point(676, 19);
-            this.btnLiberacaoVersao.Name = "btnLiberacaoVersao";
-            this.btnLiberacaoVersao.Size = new System.Drawing.Size(161, 28);
-            this.btnLiberacaoVersao.TabIndex = 3;
-            this.btnLiberacaoVersao.Text = "Liberação de Versão";
-            this.btnLiberacaoVersao.UseVisualStyleBackColor = true;
-            // 
-            // btnEnvioEmail
-            // 
-            this.btnEnvioEmail.Location = new System.Drawing.Point(449, 19);
-            this.btnEnvioEmail.Name = "btnEnvioEmail";
-            this.btnEnvioEmail.Size = new System.Drawing.Size(139, 28);
-            this.btnEnvioEmail.TabIndex = 2;
-            this.btnEnvioEmail.Text = "Envio de E-mail";
-            this.btnEnvioEmail.UseVisualStyleBackColor = true;
-            // 
-            // btnAnexo
-            // 
-            this.btnAnexo.Location = new System.Drawing.Point(220, 19);
-            this.btnAnexo.Name = "btnAnexo";
-            this.btnAnexo.Size = new System.Drawing.Size(139, 28);
-            this.btnAnexo.TabIndex = 1;
-            this.btnAnexo.Text = "Anexo de Arquivos";
-            this.btnAnexo.UseVisualStyleBackColor = true;
-            // 
-            // btnLiberacao
-            // 
-            this.btnLiberacao.BackColor = System.Drawing.Color.Transparent;
-            this.btnLiberacao.Location = new System.Drawing.Point(41, 19);
-            this.btnLiberacao.Name = "btnLiberacao";
-            this.btnLiberacao.Size = new System.Drawing.Size(88, 28);
-            this.btnLiberacao.TabIndex = 0;
-            this.btnLiberacao.Text = "Liberação";
-            this.btnLiberacao.UseVisualStyleBackColor = false;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // label2
             // 
@@ -161,7 +66,7 @@ namespace LiberadorSUAT
             this.label2.Size = new System.Drawing.Size(160, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Título da Liberação";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+           // this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txbTitulo
             // 
@@ -169,7 +74,7 @@ namespace LiberadorSUAT
             this.txbTitulo.Name = "txbTitulo";
             this.txbTitulo.Size = new System.Drawing.Size(458, 20);
             this.txbTitulo.TabIndex = 4;
-            this.txbTitulo.TextChanged += new System.EventHandler(this.txbTitulo_TextChanged);
+            //this.txbTitulo.TextChanged += new System.EventHandler(this.txbTitulo_TextChanged);
             // 
             // label3
             // 
@@ -180,7 +85,7 @@ namespace LiberadorSUAT
             this.label3.Size = new System.Drawing.Size(144, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "Tipo da Liberação";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            //this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // listTipoLiberacao
             // 
@@ -206,7 +111,7 @@ namespace LiberadorSUAT
             this.label4.Size = new System.Drawing.Size(48, 17);
             this.label4.TabIndex = 7;
             this.label4.Text = "Sigla";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+          //  this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -217,7 +122,7 @@ namespace LiberadorSUAT
             this.label5.Size = new System.Drawing.Size(56, 17);
             this.label5.TabIndex = 9;
             this.label5.Text = "Versão";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            //this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -228,7 +133,7 @@ namespace LiberadorSUAT
             this.label6.Size = new System.Drawing.Size(64, 17);
             this.label6.TabIndex = 10;
             this.label6.Text = "Release";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+           // this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // txbVersao
             // 
@@ -236,7 +141,7 @@ namespace LiberadorSUAT
             this.txbVersao.Name = "txbVersao";
             this.txbVersao.Size = new System.Drawing.Size(142, 20);
             this.txbVersao.TabIndex = 12;
-            this.txbVersao.TextChanged += new System.EventHandler(this.txbVersao_TextChanged);
+            //this.txbVersao.TextChanged += new System.EventHandler(this.txbVersao_TextChanged);
             // 
             // txbRelease
             // 
@@ -244,7 +149,7 @@ namespace LiberadorSUAT
             this.txbRelease.Name = "txbRelease";
             this.txbRelease.Size = new System.Drawing.Size(113, 20);
             this.txbRelease.TabIndex = 13;
-            this.txbRelease.TextChanged += new System.EventHandler(this.txbRelease_TextChanged);
+           // this.txbRelease.TextChanged += new System.EventHandler(this.txbRelease_TextChanged);
             // 
             // label9
             // 
@@ -255,7 +160,7 @@ namespace LiberadorSUAT
             this.label9.Size = new System.Drawing.Size(264, 16);
             this.label9.TabIndex = 21;
             this.label9.Text = "Alterações Realizadas no Projeto";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+          //  this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // listViewAlteracoes
             // 
@@ -266,7 +171,7 @@ namespace LiberadorSUAT
             this.listViewAlteracoes.TabIndex = 22;
             this.listViewAlteracoes.UseCompatibleStateImageBehavior = false;
             this.listViewAlteracoes.View = System.Windows.Forms.View.Details;
-            this.listViewAlteracoes.SelectedIndexChanged += new System.EventHandler(this.listViewAlteracoes_SelectedIndexChanged);
+            //this.listViewAlteracoes.SelectedIndexChanged += new System.EventHandler(this.listViewAlteracoes_SelectedIndexChanged);
             // 
             // btnNovoAlteracao
             // 
@@ -325,7 +230,7 @@ namespace LiberadorSUAT
             this.label7.Size = new System.Drawing.Size(64, 17);
             this.label7.TabIndex = 39;
             this.label7.Text = "Sistema";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            //this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // listBoxSistemas
             // 
@@ -349,7 +254,7 @@ namespace LiberadorSUAT
             this.txbSigla.Name = "txbSigla";
             this.txbSigla.Size = new System.Drawing.Size(131, 20);
             this.txbSigla.TabIndex = 42;
-            this.txbSigla.TextChanged += new System.EventHandler(this.txbSigla_TextChanged);
+           // this.txbSigla.TextChanged += new System.EventHandler(this.txbSigla_TextChanged);
             // 
             // btnAjudaAlteracoes
             // 
@@ -423,30 +328,16 @@ namespace LiberadorSUAT
         }
 
         #endregion
-        private System.Windows.Forms.ToolTip toolTipTelaLiberador;
-        public System.Windows.Forms.GroupBox groupBox1;
-        public System.Windows.Forms.Button btnLiberacaoVersao;
-        public System.Windows.Forms.Button btnEnvioEmail;
-        public System.Windows.Forms.Button btnAnexo;
-        public System.Windows.Forms.Button btnLiberacao;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox txbTitulo;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.ListBox listTipoLiberacao;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.TextBox txbVersao;
-        public System.Windows.Forms.TextBox txbRelease;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.ListView listViewAlteracoes;
         private System.Windows.Forms.Button btnNovoAlteracao;
         private System.Windows.Forms.Button btnAlterarAlteracao;
         private System.Windows.Forms.Button btnExcluirAlteracao;
+        public System.Windows.Forms.ListView listViewAlteracoes;
         private System.Windows.Forms.Button btnRegras;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ToolTip toolTipTelaLiberador;
@@ -461,4 +352,3 @@ namespace LiberadorSUAT
         private System.Windows.Forms.ImageList imageList1;
     }
 }
-

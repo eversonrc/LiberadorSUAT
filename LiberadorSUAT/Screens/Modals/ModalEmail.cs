@@ -14,11 +14,13 @@ namespace LiberadorSUAT.Screens.Modals
     {
         private TelaLiberador telaLiberador;
         private ModalAnexos modalAnexo;
-        public ModalEmail(TelaLiberador tela, ModalAnexos modal)
+        private SideBarLayout sideBar;
+        public ModalEmail(SideBarLayout side, TelaLiberador tela, ModalAnexos modal)
         {
             InitializeComponent();
             telaLiberador = tela;
             modalAnexo = modal;
+            sideBar = side;
         }
 
         private void label2_Click(object sender, EventArgs e)

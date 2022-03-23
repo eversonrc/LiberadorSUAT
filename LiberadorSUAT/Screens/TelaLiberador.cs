@@ -19,11 +19,17 @@ namespace LiberadorSUAT
     {
         public string sistema = "";
         public string tipoLiberacao = "";
-        public TelaLiberador()
+        public SideBarLayout sideBar;
+        public TelaLiberador(SideBarLayout side)
         {
             InitializeComponent();
             ConfigurarToolTip();
             gerarGrade();
+            sideBar = side;
+        }
+
+        public TelaLiberador()
+        {
         }
         
         private void gerarGrade()
@@ -109,10 +115,7 @@ namespace LiberadorSUAT
 
         private void btnModalAnexos_Click(object sender, EventArgs e)
         {
-            ModalAnexos anexo = new ModalAnexos(this);
-            anexo.ShowDialog();
-            //SideBarLayout transicao = new SideBarLayout();
-            //transicao.openChildForm(new ModalAnexos(this));
+            sideBar.openChildForm(new ModalAnexos(sideBar, this));
         }
 
         private void btnRegras_Click(object sender, EventArgs e)

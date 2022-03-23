@@ -18,12 +18,11 @@ namespace LiberadorSUAT.Screens
         public SideBarLayout()
         {
             InitializeComponent();
-            openChildForm(new TelaLiberador());
-            //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+            openChildForm(new TelaLiberador(this));
         }
 
         private Form activeForm = null;
-        private void openChildForm(Form childForm)
+        public void openChildForm(Form childForm)
         {
             if (activeForm != null)
                 activeForm.Close();
@@ -41,7 +40,7 @@ namespace LiberadorSUAT.Screens
         }
         private void btnInfos_Click(object sender, EventArgs e)
         {
-            openChildForm(new TelaLiberador());
+            openChildForm(new TelaLiberador(this));
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -51,17 +50,20 @@ namespace LiberadorSUAT.Screens
 
         private void btnAnexos_Click_1(object sender, EventArgs e)
         {
-            openChildForm(new ModalAnexos());
         }
 
         private void btnEmail_Click_1(object sender, EventArgs e)
         {
-            openChildForm(new ModalEmail());
+           // openChildForm(new ModalEmail());
         }
 
         private void btnInfos_Click_1(object sender, EventArgs e)
         {
-            openChildForm(new TelaLiberador());
+        }
+
+        private void panelChildForm_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

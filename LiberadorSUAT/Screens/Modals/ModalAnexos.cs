@@ -17,13 +17,14 @@ namespace LiberadorSUAT.Screens.Modals
     public partial class ModalAnexos : Form
     {
         private TelaLiberador telaLiberador;
-        public ModalAnexos()
+        private SideBarLayout sideBar;
+        public ModalAnexos(SideBarLayout side, TelaLiberador tela)
         {
             InitializeComponent();
             ConfigurarToolTip();
             gerarGrade();
-            //telaLiberador = tela;
-            //btnAnexo.BackColor = Color.LawnGreen;
+            sideBar = side;
+            telaLiberador = tela;
         }
 
 
@@ -155,8 +156,7 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void btnTelaEmail_Click(object sender, EventArgs e)
         {
-           /* ModalEmail modalEmail = new ModalEmail(telaLiberador, this);
-            modalEmail.ShowDialog();*/
+            sideBar.openChildForm(new ModalEmail(sideBar, telaLiberador, this));
         }
 
         private void ModalAnexos_Load(object sender, EventArgs e)
