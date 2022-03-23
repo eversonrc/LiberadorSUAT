@@ -45,12 +45,14 @@ namespace LiberadorSUAT
                 body = body.Replace("{tpLiberacao}", telaLiberador.tipoLiberacao);
 
                 string alteracoes = "";
-                for (int i=0; i <= telaLiberador.listViewAlteracoes.Items.Count; i++)
+                for (int i=0; i < telaLiberador.listViewAlteracoes.Items.Count; i++)
                 {
-                    var teste = "< td style = \"font - size: 16px; \" >{helpdesk}</ td > ";
-                    teste += "< td style = \"font - size: 16px; \" >{responsavel}</ td >";
-                    teste += "< td style = \"font - size: 16px; \" >{descChamado}</ td >";
-                    teste += "< td style = \"font-size: 16px;\" >{altChamado}</ td >";
+                    var teste= "<tr>";
+                    teste += "<td style = \"font - size: 16px; \" >{helpdesk}</td > ";
+                    teste += "<td style = \"font - size: 16px; \" >{responsavel}</td >";
+                    teste += "<td style = \"font - size: 16px; \" >{descChamado}</td >";
+                    teste += "<td style = \"font-size: 16px;\" >{altChamado}</td>";
+                    teste += "</tr>";
 
                     teste = teste.Replace("{helpdesk}", telaLiberador.listViewAlteracoes.Items[i].SubItems[0].Text);
                     teste = teste.Replace("{responsavel}", telaLiberador.listViewAlteracoes.Items[i].SubItems[1].Text);
