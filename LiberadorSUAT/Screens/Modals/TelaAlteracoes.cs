@@ -87,5 +87,10 @@ namespace LiberadorSUAT.Screens
 
             this.Close();
         }
+
+        private void TelaAlteracoes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

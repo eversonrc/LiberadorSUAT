@@ -13,16 +13,19 @@ using System.Windows.Forms;
 namespace LiberadorSUAT.Screens
 {
     public partial class SideBarLayout : Form
-    {     
+    {
+        public TelaLiberador telaLiberador = new TelaLiberador();
+        public ModalAnexos modalAnexos = new ModalAnexos();
+        public ModalEmail modalEmail = new ModalEmail();
 
         public SideBarLayout()
         {
             InitializeComponent();
-            openChildForm(new TelaLiberador(this));
+            openChildForm(telaLiberador);
         }
 
-        private Form activeForm = null;
-        public void openChildForm(Form childForm)
+        public Form activeForm = null;
+        public  void openChildForm(Form childForm)
         {
             if (activeForm != null)
                 activeForm.Close();
@@ -40,7 +43,7 @@ namespace LiberadorSUAT.Screens
         }
         private void btnInfos_Click(object sender, EventArgs e)
         {
-            openChildForm(new TelaLiberador(this));
+           openChildForm(new TelaLiberador(this));
         }
 
         private void btnExit_Click(object sender, EventArgs e)

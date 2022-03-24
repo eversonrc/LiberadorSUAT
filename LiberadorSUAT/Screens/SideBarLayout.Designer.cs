@@ -255,17 +255,16 @@ namespace LiberadorSUAT.Screens
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelSideBarMenu;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelChildForm;
-        private FontAwesome.Sharp.IconButton btnExit;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private FontAwesome.Sharp.IconButton btnEmail;
-        private FontAwesome.Sharp.IconButton btnAnexos;
-        private FontAwesome.Sharp.IconButton btnInfos;
+        public System.Windows.Forms.Panel panelSideBarMenu;
+        public FontAwesome.Sharp.IconButton btnExit;
+        public FontAwesome.Sharp.IconButton iconButton5;
+        public FontAwesome.Sharp.IconButton btnEmail;
+        public FontAwesome.Sharp.IconButton btnAnexos;
+        public FontAwesome.Sharp.IconButton btnInfos;
     }
 }

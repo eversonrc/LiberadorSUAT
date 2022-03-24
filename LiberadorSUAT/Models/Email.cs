@@ -20,7 +20,6 @@ namespace LiberadorSUAT
             telaLiberador = tela;
             modalAnexo = modal;
         }
-
         private string carregarHTML()
         {
             string body = string.Empty;
@@ -40,8 +39,8 @@ namespace LiberadorSUAT
                 }
 
                 body = body.Replace("{nomeSistema}", telaLiberador.sistema);
-                body = body.Replace("{numVersao}", telaLiberador.txbVersao.Text);
-                body = body.Replace("{numRelease}", telaLiberador.txbRelease.Text);
+                body = body.Replace("{numVersao}", telaLiberador.versao);
+                body = body.Replace("{numRelease}", telaLiberador.release);
                 body = body.Replace("{tpLiberacao}", telaLiberador.tipoLiberacao);
 
                 string alteracoes = "";

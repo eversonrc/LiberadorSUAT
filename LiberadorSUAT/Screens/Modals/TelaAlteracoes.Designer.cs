@@ -178,6 +178,7 @@ namespace LiberadorSUAT.Screens
             this.Name = "TelaAlteracoes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaAlteracoes";
+            this.Load += new System.EventHandler(this.TelaAlteracoes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,14 +189,14 @@ namespace LiberadorSUAT.Screens
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txbHelpdesk;
-        private System.Windows.Forms.TextBox txbResponsavel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAlterar;
-        private System.Windows.Forms.RichTextBox txbDescricao;
-        private System.Windows.Forms.RichTextBox txbAlteracao;
+        public System.Windows.Forms.TextBox txbHelpdesk;
+        public System.Windows.Forms.TextBox txbResponsavel;
+        public System.Windows.Forms.Button btnCadastrar;
+        public System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.Button btnAlterar;
+        public System.Windows.Forms.RichTextBox txbDescricao;
+        public System.Windows.Forms.RichTextBox txbAlteracao;
     }
 }

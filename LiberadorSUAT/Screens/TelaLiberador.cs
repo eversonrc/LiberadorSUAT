@@ -19,7 +19,10 @@ namespace LiberadorSUAT
     {
         public string sistema = "";
         public string tipoLiberacao = "";
-        public SideBarLayout sideBar;
+        public string versao = "";
+        public string release = "";
+        public ListView teste = new ListView();
+        private SideBarLayout sideBar;
         public TelaLiberador(SideBarLayout side)
         {
             InitializeComponent();
@@ -31,7 +34,6 @@ namespace LiberadorSUAT
         public TelaLiberador()
         {
         }
-        
         private void gerarGrade()
         {
             listViewAlteracoes.Columns.Add("Helpdesk", 100).TextAlign = HorizontalAlignment.Center;
@@ -44,10 +46,7 @@ namespace LiberadorSUAT
             listViewAlteracoes.GridLines = true;
             listViewAlteracoes.CheckBoxes = true;
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+    
         private void btnExcluirAlteracao_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in listViewAlteracoes.Items)
@@ -68,7 +67,7 @@ namespace LiberadorSUAT
             telaAlteracao.ShowDialog();
         }
         private void btnAlterarAlteracao_Click(object sender, EventArgs e)
-        { 
+        {
             foreach (ListViewItem item in listViewAlteracoes.Items)
             {
                 if (item.Checked)
@@ -88,6 +87,11 @@ namespace LiberadorSUAT
             }
         }
        
+        public ListView getListViewAlteracoes()
+        {
+            return listViewAlteracoes;
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -110,12 +114,13 @@ namespace LiberadorSUAT
         }
 
         private void btnAjudaAlteracoes_Click(object sender, EventArgs e)
-        {  
+        {
+
         }
 
         private void btnModalAnexos_Click(object sender, EventArgs e)
         {
-            sideBar.openChildForm(new ModalAnexos(sideBar, this));
+            sideBar.openChildForm(sideBar.modalAnexos);
         }
 
         private void btnRegras_Click(object sender, EventArgs e)
@@ -174,9 +179,62 @@ namespace LiberadorSUAT
         {
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbSigla_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewAlteracoes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbRelease_TextChanged(object sender, EventArgs e)
+        {
+            release = txbRelease.Text;
+        }
+
+        private void txbVersao_TextChanged(object sender, EventArgs e)
+        {
+            versao = txbVersao.Text;
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void listTipoLiberacao_SelectedIndexChanged(object sender, EventArgs e)
         {
-     
             for (int i = 0; i < listTipoLiberacao.Items.Count; i++)
             {
                 if (listTipoLiberacao.GetSelected(i))
@@ -184,6 +242,26 @@ namespace LiberadorSUAT
                     tipoLiberacao = listTipoLiberacao.Items[i].ToString();
                 }
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbTitulo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TelaLiberador_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

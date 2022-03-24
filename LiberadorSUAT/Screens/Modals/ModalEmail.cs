@@ -22,6 +22,10 @@ namespace LiberadorSUAT.Screens.Modals
             modalAnexo = modal;
             sideBar = side;
         }
+        public ModalEmail()
+        {
+            InitializeComponent();
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {

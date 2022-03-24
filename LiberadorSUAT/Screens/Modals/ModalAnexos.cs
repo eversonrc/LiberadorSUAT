@@ -11,14 +11,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-
 namespace LiberadorSUAT.Screens.Modals
 {
     public partial class ModalAnexos : Form
     {
-        private TelaLiberador telaLiberador;
-        private SideBarLayout sideBar;
-        public ModalAnexos(SideBarLayout side, TelaLiberador tela)
+        public TelaLiberador telaLiberador;
+        public SideBarLayout sideBar;
+        public ModalAnexos(TelaLiberador tela, SideBarLayout side)
         {
             InitializeComponent();
             ConfigurarToolTip();
@@ -27,6 +26,12 @@ namespace LiberadorSUAT.Screens.Modals
             telaLiberador = tela;
         }
 
+        public ModalAnexos()
+        {
+            InitializeComponent();
+            ConfigurarToolTip();
+            gerarGrade();
+        }
 
         private bool IsFileLocked(FileInfo file)
         {
@@ -186,6 +191,17 @@ namespace LiberadorSUAT.Screens.Modals
             {
                MessageBox.Show(listBoxScripts.Items[i].ToString());
             }
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            MessageBox.Show(telaLiberador.teste.Items.Count.ToString());
+            MessageBox.Show(telaLiberador.versao);
+        }
+
+        private void button2_Click_3(object sender, EventArgs e)
+        {
+            MessageBox.Show(sideBar.telaLiberador.listViewAlteracoes.Items.Count.ToString());
         }
     }
 }
