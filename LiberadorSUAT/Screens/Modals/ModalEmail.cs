@@ -22,6 +22,12 @@ namespace LiberadorSUAT.Screens.Modals
             modalAnexo = modal;
             sideBar = side;
         }
+
+        public ModalEmail(SideBarLayout side)
+        {
+            InitializeComponent();
+            sideBar = side;
+        }
         public ModalEmail()
         {
             InitializeComponent();

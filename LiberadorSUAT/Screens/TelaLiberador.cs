@@ -21,6 +21,7 @@ namespace LiberadorSUAT
         public string tipoLiberacao = "";
         public string versao = "";
         public string release = "";
+        public string titulo = "";
         public ListView teste = new ListView();
         private SideBarLayout sideBar;
         public TelaLiberador(SideBarLayout side)
@@ -251,7 +252,7 @@ namespace LiberadorSUAT
 
         private void txbTitulo_TextChanged(object sender, EventArgs e)
         {
-
+            titulo = txbTitulo.Text;
         }
 
         private void label2_Click(object sender, EventArgs e)

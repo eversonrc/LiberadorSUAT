@@ -26,11 +26,12 @@ namespace LiberadorSUAT.Screens.Modals
             telaLiberador = tela;
         }
 
-        public ModalAnexos()
+        public ModalAnexos(SideBarLayout side)
         {
             InitializeComponent();
             ConfigurarToolTip();
             gerarGrade();
+            sideBar = side;
         }
 
         private bool IsFileLocked(FileInfo file)
@@ -156,12 +157,12 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            sideBar.openChildForm(sideBar.telaLiberador);
         }
 
         private void btnTelaEmail_Click(object sender, EventArgs e)
         {
-            sideBar.openChildForm(new ModalEmail(sideBar, telaLiberador, this));
+            sideBar.openChildForm(sideBar.modalEmail);
         }
 
         private void ModalAnexos_Load(object sender, EventArgs e)
@@ -201,7 +202,7 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void button2_Click_3(object sender, EventArgs e)
         {
-            MessageBox.Show(sideBar.telaLiberador.listViewAlteracoes.Items.Count.ToString());
+            MessageBox.Show(sideBar.telaLiberador.titulo);
         }
     }
 }
