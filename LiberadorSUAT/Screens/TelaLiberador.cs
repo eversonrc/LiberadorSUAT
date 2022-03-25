@@ -110,8 +110,8 @@ namespace LiberadorSUAT
             this.Hide();
             ModalAnexos modalAnexo = new ModalAnexos(sideBar);
             modalAnexo.telaLiberador = this;
-            modalAnexo.Show();
-            //sideBar.openChildForm(modalAnexo);
+            //modalAnexo.Show();
+            sideBar.openChildForm(modalAnexo);
         }
 
         private void btnRegras_Click(object sender, EventArgs e)

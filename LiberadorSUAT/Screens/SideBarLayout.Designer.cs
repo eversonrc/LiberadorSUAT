@@ -84,6 +84,7 @@ namespace LiberadorSUAT.Screens
             this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton5.UseVisualStyleBackColor = true;
+            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
             // 
             // btnEmail
             // 
@@ -259,12 +260,12 @@ namespace LiberadorSUAT.Screens
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panelChildForm;
         public System.Windows.Forms.Panel panelSideBarMenu;
         public FontAwesome.Sharp.IconButton btnExit;
         public FontAwesome.Sharp.IconButton iconButton5;
         public FontAwesome.Sharp.IconButton btnEmail;
         public FontAwesome.Sharp.IconButton btnAnexos;
         public FontAwesome.Sharp.IconButton btnInfos;
+        public System.Windows.Forms.Panel panelChildForm;
     }
 }

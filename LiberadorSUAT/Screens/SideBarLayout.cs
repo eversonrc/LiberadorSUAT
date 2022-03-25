@@ -21,13 +21,8 @@ namespace LiberadorSUAT.Screens
             openChildForm(new TelaLiberador(this));   
         }
 
-        public Form FormAtivo = new Form();
         public void openChildForm(Form childForm)
         {
-            if (FormAtivo != null)
-            FormAtivo.Close();
-
-            FormAtivo = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
@@ -62,6 +57,11 @@ namespace LiberadorSUAT.Screens
         }
 
         private void panelChildForm_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void iconButton5_Click(object sender, EventArgs e)
         {
 
         }

@@ -83,7 +83,6 @@ namespace LiberadorSUAT.Screens.Modals
                 DirectoryInfo diretorioInicial = new DirectoryInfo(folderBrowserDialog1.SelectedPath);
                 DirectoryInfo[] directories = diretorioInicial.GetDirectories("*", SearchOption.AllDirectories);
                 FileInfo[] files = diretorioInicial.GetFiles("*.*", SearchOption.AllDirectories);
-                ListViewItem listView = new ListViewItem();
 
                 foreach (DirectoryInfo dir in directories)
                 {
@@ -93,6 +92,7 @@ namespace LiberadorSUAT.Screens.Modals
                         {
                             string nome = file.Name;
                             string caminho = file.FullName;
+                            ListViewItem listView = new ListViewItem();
 
                             listView.SubItems.Add(nome);
                             listView.SubItems.Add(caminho);
@@ -157,7 +157,8 @@ namespace LiberadorSUAT.Screens.Modals
             this.Hide();
             ModalEmail modalEmail = new ModalEmail(sideBar, telaLiberador);
             modalEmail.modalAnexo = this;
-            modalEmail.Show();
+            // modalEmail.Show();
+            sideBar.openChildForm(modalEmail);
         }
 
         private void ModalAnexos_Load(object sender, EventArgs e)

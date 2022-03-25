@@ -40,6 +40,7 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
+            this.Hide();
             modalAnexo.Show();
         }
 
