@@ -8,15 +8,19 @@ using System.Windows.Forms;
 using Outlook = Microsoft.Office.Interop.Outlook;
 using LiberadorSUAT.Models;
 using LiberadorSUAT.Screens.Modals;
+using LiberadorSUAT.Screens;
 
 namespace LiberadorSUAT
 {
     public class Email
     {
-        private TelaLiberador telaLiberador;
-        private ModalAnexos modalAnexo;
-        public Email(TelaLiberador tela, ModalAnexos modal)
+        public SideBarLayout sideBar { get; set; }
+        public TelaLiberador telaLiberador { get; set; }
+        public ModalAnexos modalAnexo { get; set; }
+
+        public Email(SideBarLayout side, TelaLiberador tela, ModalAnexos modal)
         {
+            sideBar = side;
             telaLiberador = tela;
             modalAnexo = modal;
         }
@@ -39,10 +43,10 @@ namespace LiberadorSUAT
                     }
                 }
 
-                body = body.Replace("{nomeSistema}", telaLiberador.sistema);
+                body = body.Replace("{nomeSistema}", telaLiberador.Sistema);
                 body = body.Replace("{numVersao}", telaLiberador.txbVersao.Text);
                 body = body.Replace("{numRelease}", telaLiberador.txbRelease.Text);
-                body = body.Replace("{tpLiberacao}", telaLiberador.tipoLiberacao);
+                body = body.Replace("{tpLiberacao}", telaLiberador.TipoLiberacao);
 
                 string alteracoes = "";
                 for (int i=0; i < telaLiberador.listViewAlteracoes.Items.Count; i++)
@@ -63,27 +67,29 @@ namespace LiberadorSUAT
                 body = body.Replace("%gridAlteracoes%", alteracoes);
 
                 string scripts = "";
-                for (int i = 0; i < modalAnexo.listBoxScripts.Items.Count; i++)
+                for (int i = 0; i < modalAnexo.listViewScripts.Items.Count; i++)
                 {
                     string teste = "<tr>";
-                    teste += "<td></td>";
+                    teste += "<tdstyle = \"font - size: 16px; \">{nomeScript}</td>";
                     teste += "<td style = \"font - size: 16px; \" >{caminhoScript}</td > ";
                     teste += "</tr>";
 
-                    teste = teste.Replace("{caminhoScript}", modalAnexo.listBoxScripts.Items[i].ToString());
+                    teste = teste.Replace("{nomeScript}", modalAnexo.listViewScripts.Items[i].SubItems[0].Text);
+                    teste = teste.Replace("{caminhoScript}", modalAnexo.listViewScripts.Items[i].SubItems[1].Text);
                     scripts += teste;
                 }
                 body = body.Replace("%gridScripts%", scripts);
 
                 string documentacoes = "";
-                for (int i = 0; i < modalAnexo.listBoxDocumentos.Items.Count; i++)
+                for (int i = 0; i < modalAnexo.listViewDocumentos.Items.Count; i++)
                 {
                     string teste = "<tr>";
-                    teste += "<td></td>";
+                    teste += "<td style = \"font - size: 16px; \" >{nomeDoc}</td > ";
                     teste += "<td style = \"font - size: 16px; \" >{caminhoDoc}</td > ";
                     teste += "</tr>";
 
-                    teste = teste.Replace("{caminhoDoc}", modalAnexo.listBoxDocumentos.Items[i].ToString());
+                    teste = teste.Replace("{nomeDoc}", modalAnexo.listViewDocumentos.Items[i].SubItems[0].Text);
+                    teste = teste.Replace("{caminhoDoc}", modalAnexo.listViewDocumentos.Items[i].SubItems[1].Text);
                     documentacoes += teste;
                 }
                 body = body.Replace("%gridDocumentacoes%", documentacoes);

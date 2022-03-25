@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,14 +14,12 @@ namespace LiberadorSUAT.Models
     {
         string[] optionList = new string[2]
         {
-            "Word Documents|*.doc|PDF Files|*.pdf",
+            "Word Documents|*.doc|PDF Documents|*.pdf",
             "DB Files|*.sql|*.seq|*.syn|*.tab|*.trg|*.tps|*.vw|*.fnc|*.bdy"
         };
 
-        public void AdicionarArquivos(ListBox listBox, int i)
+        public void AdicionarArquivos(ListView listView, int i)
         {
-            listBox.IntegralHeight = true;
-
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Multiselect = true;
@@ -30,25 +29,30 @@ namespace LiberadorSUAT.Models
                 {
                     foreach (var file in dialog.FileNames)
                     {
-                        listBox.Items.Add(file);
+                        string nome = dialog.SafeFileName;
+                        string caminho = dialog.FileName;
+
+                        ListViewItem arquivos = new ListViewItem();
+                        arquivos.SubItems.Add(nome);
+                        arquivos.SubItems.Add(caminho);
+                        listView.Items.Add(arquivos);
+                        //listView.Items.Add(file);
                     }
                 }
             }
-
-            listBox.HorizontalScrollbar = true;
         }
 
-        public void ExcluirArquivos(ListBox listBox)
+        public void ExcluirArquivos(ListView listView)
         {
-            for (int i = listBox.SelectedIndices.Count - 1; i >= 0; i--)
+            foreach (ListViewItem item in listView.Items)
             {
-                if (listBox.SelectedIndex != -1)
+                if (item.Checked)
                 {
-                    listBox.Items.RemoveAt(listBox.SelectedIndex);
+                    listView.Items.RemoveAt(item.Index);
                 }
                 else
                 {
-                    MessageBox.Show("Selecione os arquivos que deseja excluir");
+                    MessageBox.Show("Nenhuma alteração foi selecionada.");
                 }
             }
         }

@@ -16,19 +16,19 @@ namespace LiberadorSUAT.Screens.Modals
 {
     public partial class ModalAnexos : Form
     {
-        private TelaLiberador telaLiberador;
         private SideBarLayout sideBar;
-        public ModalAnexos(SideBarLayout side, TelaLiberador tela)
+        public TelaLiberador telaLiberador { get; set; }
+        public static bool isAcessivel { get; set; }
+        public ModalAnexos(SideBarLayout side)
         {
             InitializeComponent();
             ConfigurarToolTip();
             gerarGrade();
             sideBar = side;
-            telaLiberador = tela;
+            isAcessivel = false;
         }
 
-
-        private bool IsFileLocked(FileInfo file)
+        public bool IsFileLocked(FileInfo file)
         {
             FileStream stream = null;
 
@@ -63,7 +63,6 @@ namespace LiberadorSUAT.Screens.Modals
             toolTipModalAnexo.SetToolTip(btnAjudaDocs, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
         }
 
-
         private void gerarGrade()
         {
             listViewArquivos.Columns.Add("", -2).TextAlign = HorizontalAlignment.Center;
@@ -74,6 +73,26 @@ namespace LiberadorSUAT.Screens.Modals
             listViewArquivos.FullRowSelect = true;
             listViewArquivos.GridLines = true;
             listViewArquivos.CheckBoxes = true;
+            
+            /*Scripts*/
+            listViewScripts.Columns.Add("", -2).TextAlign = HorizontalAlignment.Center;
+            listViewScripts.Columns.Add("Arquivo", -2).TextAlign = HorizontalAlignment.Center;
+            listViewScripts.Columns.Add("Caminho do arquivo", 500).TextAlign = HorizontalAlignment.Center;
+            listViewScripts.View = View.Details;
+
+            listViewScripts.FullRowSelect = true;
+            listViewScripts.GridLines = true;
+            listViewScripts.CheckBoxes = true;
+
+            /*Documentações*/
+            listViewDocumentos.Columns.Add("", -2).TextAlign = HorizontalAlignment.Center;
+            listViewDocumentos.Columns.Add("Arquivo", -2).TextAlign = HorizontalAlignment.Center;
+            listViewDocumentos.Columns.Add("Caminho do arquivo", 500).TextAlign = HorizontalAlignment.Center;
+            listViewDocumentos.View = View.Details;
+
+            listViewDocumentos.FullRowSelect = true;
+            listViewDocumentos.GridLines = true;
+            listViewDocumentos.CheckBoxes = true;
         }
 
         // ANEXAR Arquivos de compilação
@@ -86,7 +105,6 @@ namespace LiberadorSUAT.Screens.Modals
                 DirectoryInfo diretorioInicial = new DirectoryInfo(folderBrowserDialog1.SelectedPath);
                 DirectoryInfo[] directories = diretorioInicial.GetDirectories("*", SearchOption.AllDirectories);
                 FileInfo[] files = diretorioInicial.GetFiles("*.*", SearchOption.AllDirectories);
-                ListViewItem listView = new ListViewItem();
 
                 foreach (DirectoryInfo dir in directories)
                 {
@@ -97,6 +115,7 @@ namespace LiberadorSUAT.Screens.Modals
                             string nome = file.Name;
                             string caminho = file.FullName;
 
+                            ListViewItem listView = new ListViewItem();
                             listView.SubItems.Add(nome);
                             listView.SubItems.Add(caminho);
                             listViewArquivos.Items.Add(listView);
@@ -126,65 +145,70 @@ namespace LiberadorSUAT.Screens.Modals
         private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo();
-            arquivo.AdicionarArquivos(listBoxDocumentos, 0);
+            arquivo.AdicionarArquivos(listViewDocumentos, 0);
         }
         private void btnExcluirDocumentacao_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo();
-            arquivo.ExcluirArquivos(listBoxDocumentos);
+            arquivo.ExcluirArquivos(listViewDocumentos);
         }
 
+        private bool validadorCampos()
+        {
+            if (
+                listViewArquivos.Items.Count > 0 &&
+                listViewScripts.Items.Count > 0 &&
+                listViewDocumentos.Items.Count > 0 
+            )
+            {
+                return true;
+            }
+
+            return false;
+        }
 
         // ANEXAR Scripts de Banco de Dados
         //
         private void btnExcluirScript_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo();
-            arquivo.ExcluirArquivos(listBoxScripts);
+            arquivo.ExcluirArquivos(listViewScripts);
         }
 
         private void btnAdicionarScript_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo();
-            arquivo.AdicionarArquivos(listBoxScripts, 1);
+            arquivo.AdicionarArquivos(listViewScripts, 1);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            telaLiberador.Show();
+            //sideBar.openChildForm(new TelaLiberador(sideBar));
         }
 
         private void btnTelaEmail_Click(object sender, EventArgs e)
         {
-            sideBar.openChildForm(new ModalEmail(sideBar, telaLiberador, this));
-        }
-
-        private void ModalAnexos_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLiberacao_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-
-        private void listViewArquivos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void listBoxScripts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            if (validadorCampos() == true)
+            {
+                isAcessivel = true;
+                this.Hide();
+                ModalEmail modalEmail = new ModalEmail(sideBar, telaLiberador);
+                modalEmail.modalAnexo = this;
+                sideBar.openChildForm(modalEmail);
+            }
+            else
+            {
+                MessageBox.Show("Todos os campo devem ser preenchidos antes de avançar para a próxima etapa. Por favor verifique os dados novamente.");
+            } 
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            for (int i = 0; i <listBoxScripts.Items.Count; i++)
+            for (int i = 0; i < listViewScripts.Items.Count; i++)
             {
-               MessageBox.Show(listBoxScripts.Items[i].ToString());
+               MessageBox.Show(listViewScripts.Items[i].ToString());
             }
         }
     }

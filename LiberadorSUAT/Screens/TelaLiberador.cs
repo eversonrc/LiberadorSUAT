@@ -17,9 +17,9 @@ namespace LiberadorSUAT
 {
     public partial class TelaLiberador : Form
     {
-        public string sistema = "";
-        public string tipoLiberacao = "";
-        public SideBarLayout sideBar;
+        private SideBarLayout sideBar;
+        public String Sistema { get; set; }
+        public String TipoLiberacao { get; set; }
         public TelaLiberador(SideBarLayout side)
         {
             InitializeComponent();
@@ -44,10 +44,23 @@ namespace LiberadorSUAT
             listViewAlteracoes.GridLines = true;
             listViewAlteracoes.CheckBoxes = true;
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
+        private bool validadorCampos()
+        {
+            if(
+                txbTitulo.Text != "" && 
+                txbVersao.Text != "" &&
+                txbRelease.Text != "" &&
+                txbSigla.Text != "" &&
+                listViewAlteracoes.Items.Count > 0
+            )
+            {
+                return true;
+            }
+            
+            return false;
         }
+
         private void btnExcluirAlteracao_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in listViewAlteracoes.Items)
@@ -92,10 +105,7 @@ namespace LiberadorSUAT
         {
             this.Close();
         }
-        private void btnLiberarVersao_Click(object sender, EventArgs e)
-        {
 
-        }
         private void ConfigurarToolTip()
         {
             toolTipTelaLiberador.AutoPopDelay = 4000;
@@ -109,13 +119,19 @@ namespace LiberadorSUAT
             toolTipTelaLiberador.SetToolTip(btnAjudaAlteracoes, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
         }
 
-        private void btnAjudaAlteracoes_Click(object sender, EventArgs e)
-        {  
-        }
-
         private void btnModalAnexos_Click(object sender, EventArgs e)
         {
-            sideBar.openChildForm(new ModalAnexos(sideBar, this));
+            if(validadorCampos() == true)
+            {
+                this.Hide();
+                ModalAnexos modalAnexo = new ModalAnexos(sideBar);
+                modalAnexo.telaLiberador = this;
+                sideBar.openChildForm(modalAnexo);
+            }
+            else
+            {
+                MessageBox.Show("Todos os campo devem ser preenchidos antes de avançar para a próxima etapa. Por favor verifique os dados novamente.");
+            }
         }
 
         private void btnRegras_Click(object sender, EventArgs e)
@@ -129,11 +145,11 @@ namespace LiberadorSUAT
             {
                 if (listBoxSistemas.GetSelected(i))
                 {
-                    sistema = listBoxSistemas.Items[i].ToString();
+                    Sistema = listBoxSistemas.Items[i].ToString();
                 }
             }
 
-            switch (sistema)
+            switch (Sistema)
             {
                 case "Evasores":
                     txbSigla.Text = "EVA";
@@ -160,20 +176,6 @@ namespace LiberadorSUAT
             }
         }
 
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
-
         private void listTipoLiberacao_SelectedIndexChanged(object sender, EventArgs e)
         {
      
@@ -181,7 +183,7 @@ namespace LiberadorSUAT
             {
                 if (listTipoLiberacao.GetSelected(i))
                 {
-                    tipoLiberacao = listTipoLiberacao.Items[i].ToString();
+                    TipoLiberacao = listTipoLiberacao.Items[i].ToString();
                 }
             }
         }

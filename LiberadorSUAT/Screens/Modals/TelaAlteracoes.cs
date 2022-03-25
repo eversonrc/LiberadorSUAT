@@ -36,26 +36,44 @@ namespace LiberadorSUAT.Screens
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            string helpdesk = txbHelpdesk.Text;
-            string responsavel = txbResponsavel.Text;
-            string descricao = txbDescricao.Text;
-            string alteracaoRealizada = txbAlteracao.Text;
+            try {
+                string helpdesk = txbHelpdesk.Text;
+                string responsavel = txbResponsavel.Text;
+                string descricao = txbDescricao.Text;
+                string alteracaoRealizada = txbAlteracao.Text;
 
-            listaAlteracoes.Add(new Alteracao(helpdesk, responsavel, descricao, alteracaoRealizada));
+                listaAlteracoes.Add(new Alteracao(helpdesk, responsavel, descricao, alteracaoRealizada));
 
-            string[] item = new string[4];
+                string[] item = new string[4];
 
-            foreach (Alteracao alteracao in listaAlteracoes)
-            {
-                item[0] = alteracao.HelpDesk;
-                item[1] = alteracao.Responsavel;
-                item[2] = alteracao.Descricao;
-                item[3] = alteracao.AlteracaoRealizada;
+                foreach (Alteracao alteracao in listaAlteracoes)
+                {
+                    item[0] = alteracao.HelpDesk;
+                    item[1] = alteracao.Responsavel;
+                    item[2] = alteracao.Descricao;
+                    item[3] = alteracao.AlteracaoRealizada;
+                }
+
+                if (
+                    txbHelpdesk.Text != "" &&
+                    txbResponsavel.Text != "" &&
+                    txbDescricao.Text != "" &&
+                    txbAlteracao.Text != ""
+                )
+                {
+                    telaLiberador.listViewAlteracoes.Items.Add(new ListViewItem(item));
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Existem campos não preenchidos. Verifique-os");
+                }
             }
+            catch (Exception)
+            {
 
-            telaLiberador.listViewAlteracoes.Items.Add(new ListViewItem(item));
-
-            this.Close();
+            }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -80,12 +98,32 @@ namespace LiberadorSUAT.Screens
 
         private void btnAlterar_Click_1(object sender, EventArgs e)
         {
-            telaLiberador.listViewAlteracoes.Items[indice].SubItems[0].Text = txbHelpdesk.Text;
-            telaLiberador.listViewAlteracoes.Items[indice].SubItems[1].Text = txbResponsavel.Text;
-            telaLiberador.listViewAlteracoes.Items[indice].SubItems[2].Text = txbDescricao.Text;
-            telaLiberador.listViewAlteracoes.Items[indice].SubItems[3].Text = txbAlteracao.Text;
+            try
+            {
+                telaLiberador.listViewAlteracoes.Items[indice].SubItems[0].Text = txbHelpdesk.Text;
+                telaLiberador.listViewAlteracoes.Items[indice].SubItems[1].Text = txbResponsavel.Text;
+                telaLiberador.listViewAlteracoes.Items[indice].SubItems[2].Text = txbDescricao.Text;
+                telaLiberador.listViewAlteracoes.Items[indice].SubItems[3].Text = txbAlteracao.Text;
 
-            this.Close();
+                if (
+                    txbHelpdesk.Text != "" &&
+                    txbResponsavel.Text != "" &&
+                    txbDescricao.Text != "" &&
+                    txbAlteracao.Text != ""
+                )
+                {
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Existem campos não preenchidos. Verifique-os");
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            
         }
     }
 }

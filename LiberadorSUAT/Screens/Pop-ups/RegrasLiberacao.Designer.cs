@@ -93,6 +93,7 @@ namespace LiberadorSUAT.Screens
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnOk);
             this.Name = "RegrasLiberacao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegrasLiberacao";
             this.Load += new System.EventHandler(this.RegrasLiberacao_Load);
             this.ResumeLayout(false);

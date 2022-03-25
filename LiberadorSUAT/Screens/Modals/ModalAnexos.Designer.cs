@@ -31,14 +31,12 @@ namespace LiberadorSUAT.Screens.Modals
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModalAnexos));
-            this.listBoxDocumentos = new System.Windows.Forms.ListBox();
             this.btnExcluirDocumentacao = new System.Windows.Forms.Button();
             this.btnAdcionarDocumentacao = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.btnExcluirArquivos = new System.Windows.Forms.Button();
             this.btnAdicionarArquivos = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBoxScripts = new System.Windows.Forms.ListBox();
             this.btnExcluirScript = new System.Windows.Forms.Button();
             this.btnAdicionarScript = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -50,23 +48,15 @@ namespace LiberadorSUAT.Screens.Modals
             this.toolTipModalAnexo = new System.Windows.Forms.ToolTip(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.listViewArquivos = new System.Windows.Forms.ListView();
+            this.listViewScripts = new System.Windows.Forms.ListView();
+            this.listViewDocumentos = new System.Windows.Forms.ListView();
             this.SuspendLayout();
-            // 
-            // listBoxDocumentos
-            // 
-            this.listBoxDocumentos.ForeColor = System.Drawing.Color.Black;
-            this.listBoxDocumentos.FormattingEnabled = true;
-            this.listBoxDocumentos.Location = new System.Drawing.Point(506, 260);
-            this.listBoxDocumentos.Name = "listBoxDocumentos";
-            this.listBoxDocumentos.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxDocumentos.Size = new System.Drawing.Size(350, 82);
-            this.listBoxDocumentos.TabIndex = 35;
             // 
             // btnExcluirDocumentacao
             // 
             this.btnExcluirDocumentacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnExcluirDocumentacao.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluirDocumentacao.Location = new System.Drawing.Point(763, 348);
+            this.btnExcluirDocumentacao.Location = new System.Drawing.Point(812, 362);
             this.btnExcluirDocumentacao.Name = "btnExcluirDocumentacao";
             this.btnExcluirDocumentacao.Size = new System.Drawing.Size(93, 26);
             this.btnExcluirDocumentacao.TabIndex = 34;
@@ -78,7 +68,7 @@ namespace LiberadorSUAT.Screens.Modals
             // 
             this.btnAdcionarDocumentacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnAdcionarDocumentacao.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdcionarDocumentacao.Location = new System.Drawing.Point(506, 348);
+            this.btnAdcionarDocumentacao.Location = new System.Drawing.Point(506, 362);
             this.btnAdcionarDocumentacao.Name = "btnAdcionarDocumentacao";
             this.btnAdcionarDocumentacao.Size = new System.Drawing.Size(93, 26);
             this.btnAdcionarDocumentacao.TabIndex = 33;
@@ -90,7 +80,7 @@ namespace LiberadorSUAT.Screens.Modals
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(503, 241);
+            this.label10.Location = new System.Drawing.Point(503, 219);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(168, 16);
             this.label10.TabIndex = 32;
@@ -132,22 +122,11 @@ namespace LiberadorSUAT.Screens.Modals
             this.label1.TabIndex = 38;
             this.label1.Text = "Arquivos";
             // 
-            // listBoxScripts
-            // 
-            this.listBoxScripts.ForeColor = System.Drawing.Color.Black;
-            this.listBoxScripts.FormattingEnabled = true;
-            this.listBoxScripts.Location = new System.Drawing.Point(28, 260);
-            this.listBoxScripts.Name = "listBoxScripts";
-            this.listBoxScripts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxScripts.Size = new System.Drawing.Size(427, 82);
-            this.listBoxScripts.TabIndex = 44;
-            this.listBoxScripts.SelectedIndexChanged += new System.EventHandler(this.listBoxScripts_SelectedIndexChanged);
-            // 
             // btnExcluirScript
             // 
             this.btnExcluirScript.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnExcluirScript.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluirScript.Location = new System.Drawing.Point(359, 348);
+            this.btnExcluirScript.Location = new System.Drawing.Point(386, 362);
             this.btnExcluirScript.Name = "btnExcluirScript";
             this.btnExcluirScript.Size = new System.Drawing.Size(96, 26);
             this.btnExcluirScript.TabIndex = 43;
@@ -159,7 +138,7 @@ namespace LiberadorSUAT.Screens.Modals
             // 
             this.btnAdicionarScript.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnAdicionarScript.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdicionarScript.Location = new System.Drawing.Point(28, 348);
+            this.btnAdicionarScript.Location = new System.Drawing.Point(39, 362);
             this.btnAdicionarScript.Name = "btnAdicionarScript";
             this.btnAdicionarScript.Size = new System.Drawing.Size(96, 26);
             this.btnAdicionarScript.TabIndex = 42;
@@ -171,7 +150,7 @@ namespace LiberadorSUAT.Screens.Modals
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(25, 241);
+            this.label8.Location = new System.Drawing.Point(36, 219);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(208, 16);
             this.label8.TabIndex = 41;
@@ -221,7 +200,7 @@ namespace LiberadorSUAT.Screens.Modals
             this.btnAjudaScripts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAjudaScripts.Cursor = System.Windows.Forms.Cursors.Help;
             this.btnAjudaScripts.Image = ((System.Drawing.Image)(resources.GetObject("btnAjudaScripts.Image")));
-            this.btnAjudaScripts.Location = new System.Drawing.Point(239, 231);
+            this.btnAjudaScripts.Location = new System.Drawing.Point(250, 209);
             this.btnAjudaScripts.Name = "btnAjudaScripts";
             this.btnAjudaScripts.Size = new System.Drawing.Size(24, 26);
             this.btnAjudaScripts.TabIndex = 48;
@@ -233,7 +212,7 @@ namespace LiberadorSUAT.Screens.Modals
             this.btnAjudaDocs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAjudaDocs.Cursor = System.Windows.Forms.Cursors.Help;
             this.btnAjudaDocs.Image = ((System.Drawing.Image)(resources.GetObject("btnAjudaDocs.Image")));
-            this.btnAjudaDocs.Location = new System.Drawing.Point(677, 231);
+            this.btnAjudaDocs.Location = new System.Drawing.Point(677, 209);
             this.btnAjudaDocs.Name = "btnAjudaDocs";
             this.btnAjudaDocs.Size = new System.Drawing.Size(24, 26);
             this.btnAjudaDocs.TabIndex = 49;
@@ -245,31 +224,52 @@ namespace LiberadorSUAT.Screens.Modals
             this.listViewArquivos.HideSelection = false;
             this.listViewArquivos.Location = new System.Drawing.Point(39, 56);
             this.listViewArquivos.Name = "listViewArquivos";
-            this.listViewArquivos.Size = new System.Drawing.Size(827, 114);
+            this.listViewArquivos.Size = new System.Drawing.Size(827, 130);
             this.listViewArquivos.TabIndex = 50;
             this.listViewArquivos.UseCompatibleStateImageBehavior = false;
             this.listViewArquivos.View = System.Windows.Forms.View.Details;
-            this.listViewArquivos.SelectedIndexChanged += new System.EventHandler(this.listViewArquivos_SelectedIndexChanged);
+            // 
+            // listViewScripts
+            // 
+            this.listViewScripts.BackColor = System.Drawing.Color.White;
+            this.listViewScripts.HideSelection = false;
+            this.listViewScripts.Location = new System.Drawing.Point(39, 241);
+            this.listViewScripts.Name = "listViewScripts";
+            this.listViewScripts.Size = new System.Drawing.Size(443, 101);
+            this.listViewScripts.TabIndex = 51;
+            this.listViewScripts.UseCompatibleStateImageBehavior = false;
+            this.listViewScripts.View = System.Windows.Forms.View.Details;
+            // 
+            // listViewDocumentos
+            // 
+            this.listViewDocumentos.BackColor = System.Drawing.Color.White;
+            this.listViewDocumentos.HideSelection = false;
+            this.listViewDocumentos.Location = new System.Drawing.Point(506, 241);
+            this.listViewDocumentos.Name = "listViewDocumentos";
+            this.listViewDocumentos.Size = new System.Drawing.Size(399, 101);
+            this.listViewDocumentos.TabIndex = 52;
+            this.listViewDocumentos.UseCompatibleStateImageBehavior = false;
+            this.listViewDocumentos.View = System.Windows.Forms.View.Details;
             // 
             // ModalAnexos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 486);
+            this.Controls.Add(this.listViewDocumentos);
+            this.Controls.Add(this.listViewScripts);
             this.Controls.Add(this.listViewArquivos);
             this.Controls.Add(this.btnAjudaDocs);
             this.Controls.Add(this.btnAjudaScripts);
             this.Controls.Add(this.btnAjudaArquivos);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnTelaEmail);
-            this.Controls.Add(this.listBoxScripts);
             this.Controls.Add(this.btnExcluirScript);
             this.Controls.Add(this.btnAdicionarScript);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnExcluirArquivos);
             this.Controls.Add(this.btnAdicionarArquivos);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBoxDocumentos);
             this.Controls.Add(this.btnExcluirDocumentacao);
             this.Controls.Add(this.btnAdcionarDocumentacao);
             this.Controls.Add(this.label10);
@@ -277,7 +277,6 @@ namespace LiberadorSUAT.Screens.Modals
             this.Name = "ModalAnexos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModalAnexos";
-            this.Load += new System.EventHandler(this.ModalAnexos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,7 +308,7 @@ namespace LiberadorSUAT.Screens.Modals
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
-        public System.Windows.Forms.ListBox listBoxDocumentos;
-        public System.Windows.Forms.ListBox listBoxScripts;
+        public System.Windows.Forms.ListView listViewScripts;
+        public System.Windows.Forms.ListView listViewDocumentos;
     }
 }
