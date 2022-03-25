@@ -8,15 +8,19 @@ using System.Windows.Forms;
 using Outlook = Microsoft.Office.Interop.Outlook;
 using LiberadorSUAT.Models;
 using LiberadorSUAT.Screens.Modals;
+using LiberadorSUAT.Screens;
 
 namespace LiberadorSUAT
 {
     public class Email
     {
-        private TelaLiberador telaLiberador;
-        private ModalAnexos modalAnexo;
-        public Email(TelaLiberador tela, ModalAnexos modal)
+        public SideBarLayout sideBar { get; set; }
+        public TelaLiberador telaLiberador { get; set; }
+        public ModalAnexos modalAnexo { get; set; }
+
+        public Email(SideBarLayout side, TelaLiberador tela, ModalAnexos modal)
         {
+            sideBar = side;
             telaLiberador = tela;
             modalAnexo = modal;
         }
@@ -38,10 +42,10 @@ namespace LiberadorSUAT
                     }
                 }
 
-                body = body.Replace("{nomeSistema}", telaLiberador.sistema);
-                body = body.Replace("{numVersao}", telaLiberador.versao);
-                body = body.Replace("{numRelease}", telaLiberador.release);
-                body = body.Replace("{tpLiberacao}", telaLiberador.tipoLiberacao);
+                body = body.Replace("{nomeSistema}", telaLiberador.Sistema);
+                body = body.Replace("{numVersao}", telaLiberador.txbVersao.Text);
+                body = body.Replace("{numRelease}", telaLiberador.txbRelease.Text);
+                body = body.Replace("{tpLiberacao}", telaLiberador.TipoLiberacao);
 
                 string alteracoes = "";
                 for (int i=0; i < telaLiberador.listViewAlteracoes.Items.Count; i++)

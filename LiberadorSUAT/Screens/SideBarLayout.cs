@@ -14,27 +14,20 @@ namespace LiberadorSUAT.Screens
 {
     public partial class SideBarLayout : Form
     {
-        public TelaLiberador telaLiberador { get; set; }
-        public ModalAnexos modalAnexos { get; set; }
-        public ModalEmail modalEmail { get; set; }
- 
 
         public SideBarLayout()
         {
             InitializeComponent();
-            telaLiberador = new TelaLiberador(this);
-            modalAnexos = new ModalAnexos(this);
-            modalEmail = new ModalEmail(this);
-            openChildForm(telaLiberador);   
+            openChildForm(new TelaLiberador(this));   
         }
 
-        public Form activeForm = null;
-        public  void openChildForm(Form childForm)
+        public Form FormAtivo = new Form();
+        public void openChildForm(Form childForm)
         {
-            if (activeForm != null)
-                activeForm.Close();
+            if (FormAtivo != null)
+            FormAtivo.Close();
 
-            activeForm = childForm;
+            FormAtivo = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;

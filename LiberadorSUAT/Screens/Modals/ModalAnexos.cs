@@ -15,17 +15,8 @@ namespace LiberadorSUAT.Screens.Modals
 {
     public partial class ModalAnexos : Form
     {
-        public TelaLiberador telaLiberador;
-        public SideBarLayout sideBar;
-        public ModalAnexos(TelaLiberador tela, SideBarLayout side)
-        {
-            InitializeComponent();
-            ConfigurarToolTip();
-            gerarGrade();
-            sideBar = side;
-            telaLiberador = tela;
-        }
-
+        private SideBarLayout sideBar;
+        public TelaLiberador telaLiberador{ get; set; }
         public ModalAnexos(SideBarLayout side)
         {
             InitializeComponent();
@@ -140,7 +131,6 @@ namespace LiberadorSUAT.Screens.Modals
             arquivo.ExcluirArquivos(listBoxDocumentos);
         }
 
-
         // ANEXAR Scripts de Banco de Dados
         //
         private void btnExcluirScript_Click(object sender, EventArgs e)
@@ -157,17 +147,21 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void button2_Click(object sender, EventArgs e)
         {
-            sideBar.openChildForm(sideBar.telaLiberador);
+            this.Hide();
+            telaLiberador.Show();
+            //sideBar.openChildForm(ReferenciaTelaLiberador);
         }
 
         private void btnTelaEmail_Click(object sender, EventArgs e)
         {
-            sideBar.openChildForm(sideBar.modalEmail);
+            this.Hide();
+            ModalEmail modalEmail = new ModalEmail(sideBar, telaLiberador);
+            modalEmail.modalAnexo = this;
+            modalEmail.Show();
         }
 
         private void ModalAnexos_Load(object sender, EventArgs e)
         {
-
         }
 
         private void btnLiberacao_Click(object sender, EventArgs e)
@@ -196,13 +190,8 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void button2_Click_2(object sender, EventArgs e)
         {
-            MessageBox.Show(telaLiberador.teste.Items.Count.ToString());
-            MessageBox.Show(telaLiberador.versao);
-        }
-
-        private void button2_Click_3(object sender, EventArgs e)
-        {
-            MessageBox.Show(sideBar.telaLiberador.titulo);
+            MessageBox.Show(telaLiberador.txbTitulo.Text);
+            MessageBox.Show(telaLiberador.listViewAlteracoes.Items[0].SubItems[1].Text);
         }
     }
 }

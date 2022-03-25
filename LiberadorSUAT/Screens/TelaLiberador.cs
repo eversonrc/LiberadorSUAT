@@ -17,13 +17,9 @@ namespace LiberadorSUAT
 {
     public partial class TelaLiberador : Form
     {
-        public string sistema = "";
-        public string tipoLiberacao = "";
-        public string versao = "";
-        public string release = "";
-        public string titulo = "";
-        public ListView teste = new ListView();
         private SideBarLayout sideBar;
+        public String Sistema { get; set; }
+        public String TipoLiberacao { get; set; }
         public TelaLiberador(SideBarLayout side)
         {
             InitializeComponent();
@@ -47,7 +43,7 @@ namespace LiberadorSUAT
             listViewAlteracoes.GridLines = true;
             listViewAlteracoes.CheckBoxes = true;
         }
-    
+
         private void btnExcluirAlteracao_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in listViewAlteracoes.Items)
@@ -87,11 +83,6 @@ namespace LiberadorSUAT
                 }
             }
         }
-       
-        public ListView getListViewAlteracoes()
-        {
-            return listViewAlteracoes;
-        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -114,14 +105,13 @@ namespace LiberadorSUAT
             toolTipTelaLiberador.SetToolTip(btnAjudaAlteracoes, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
         }
 
-        private void btnAjudaAlteracoes_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnModalAnexos_Click(object sender, EventArgs e)
         {
-            sideBar.openChildForm(sideBar.modalAnexos);
+            this.Hide();
+            ModalAnexos modalAnexo = new ModalAnexos(sideBar);
+            modalAnexo.telaLiberador = this;
+            modalAnexo.Show();
+            //sideBar.openChildForm(modalAnexo);
         }
 
         private void btnRegras_Click(object sender, EventArgs e)
@@ -135,11 +125,11 @@ namespace LiberadorSUAT
             {
                 if (listBoxSistemas.GetSelected(i))
                 {
-                    sistema = listBoxSistemas.Items[i].ToString();
+                    Sistema = listBoxSistemas.Items[i].ToString();
                 }
             }
 
-            switch (sistema)
+            switch (Sistema)
             {
                 case "Evasores":
                     txbSigla.Text = "EVA";
@@ -211,12 +201,12 @@ namespace LiberadorSUAT
 
         private void txbRelease_TextChanged(object sender, EventArgs e)
         {
-            release = txbRelease.Text;
+            
         }
 
         private void txbVersao_TextChanged(object sender, EventArgs e)
         {
-            versao = txbVersao.Text;
+           
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -240,7 +230,7 @@ namespace LiberadorSUAT
             {
                 if (listTipoLiberacao.GetSelected(i))
                 {
-                    tipoLiberacao = listTipoLiberacao.Items[i].ToString();
+                    TipoLiberacao = listTipoLiberacao.Items[i].ToString();
                 }
             }
         }
@@ -252,7 +242,7 @@ namespace LiberadorSUAT
 
         private void txbTitulo_TextChanged(object sender, EventArgs e)
         {
-            titulo = txbTitulo.Text;
+          
         }
 
         private void label2_Click(object sender, EventArgs e)

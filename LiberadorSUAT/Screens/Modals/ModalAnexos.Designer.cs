@@ -50,7 +50,6 @@ namespace LiberadorSUAT.Screens.Modals
             this.toolTipModalAnexo = new System.Windows.Forms.ToolTip(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.listViewArquivos = new System.Windows.Forms.ListView();
-            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxDocumentos
@@ -252,22 +251,11 @@ namespace LiberadorSUAT.Screens.Modals
             this.listViewArquivos.View = System.Windows.Forms.View.Details;
             this.listViewArquivos.SelectedIndexChanged += new System.EventHandler(this.listViewArquivos_SelectedIndexChanged);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(476, 405);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 51;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_3);
-            // 
             // ModalAnexos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 486);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.listViewArquivos);
             this.Controls.Add(this.btnAjudaDocs);
             this.Controls.Add(this.btnAjudaScripts);
@@ -323,6 +311,5 @@ namespace LiberadorSUAT.Screens.Modals
         private System.Windows.Forms.Button button4;
         public System.Windows.Forms.ListBox listBoxDocumentos;
         public System.Windows.Forms.ListBox listBoxScripts;
-        private System.Windows.Forms.Button button2;
     }
 }

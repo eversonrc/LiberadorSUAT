@@ -267,7 +267,7 @@ namespace LiberadorSUAT
             this.btnAjudaAlteracoes.Size = new System.Drawing.Size(27, 26);
             this.btnAjudaAlteracoes.TabIndex = 43;
             this.btnAjudaAlteracoes.UseVisualStyleBackColor = false;
-            this.btnAjudaAlteracoes.Click += new System.EventHandler(this.btnAjudaAlteracoes_Click);
+            //this.btnAjudaAlteracoes.Click += new System.EventHandler(this.btnAjudaAlteracoes_Click);
             // 
             // btnModalAnexos
             // 

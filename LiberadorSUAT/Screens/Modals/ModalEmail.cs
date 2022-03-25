@@ -12,21 +12,15 @@ namespace LiberadorSUAT.Screens.Modals
 {
     public partial class ModalEmail : Form
     {
-        private TelaLiberador telaLiberador;
-        private ModalAnexos modalAnexo;
-        private SideBarLayout sideBar;
-        public ModalEmail(SideBarLayout side, TelaLiberador tela, ModalAnexos modal)
-        {
-            InitializeComponent();
-            telaLiberador = tela;
-            modalAnexo = modal;
-            sideBar = side;
-        }
+        public SideBarLayout sideBar { get; set; }
+        public ModalAnexos modalAnexo { get; set; }
+        public TelaLiberador telaLiberador { get; set; }
 
-        public ModalEmail(SideBarLayout side)
+        public ModalEmail(SideBarLayout side, TelaLiberador tela)
         {
             InitializeComponent();
             sideBar = side;
+            telaLiberador = tela;
         }
         public ModalEmail()
         {
@@ -40,13 +34,13 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void btnEnviarEmail_Click(object sender, EventArgs e)
         {
-            Email email = new Email(telaLiberador, modalAnexo);
+            Email email = new Email(sideBar, telaLiberador, modalAnexo);
             email.GetApplicationObject();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            modalAnexo.Show();
         }
 
         private void ModalEmail_Load(object sender, EventArgs e)
