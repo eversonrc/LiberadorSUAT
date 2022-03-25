@@ -106,7 +106,26 @@ namespace LiberadorSUAT.Screens.Modals
                 DirectoryInfo[] directories = diretorioInicial.GetDirectories("*", SearchOption.AllDirectories);
                 FileInfo[] files = diretorioInicial.GetFiles("*.*", SearchOption.AllDirectories);
 
-                foreach (DirectoryInfo dir in directories)
+                if (directories.Length != 0)
+                {
+                    foreach (DirectoryInfo dir in directories)
+                    {
+                        foreach (FileInfo file in files)
+                        {
+                            if (!this.IsFileLocked(file))
+                            {
+                                string nome = file.Name;
+                                string caminho = file.FullName;
+
+                                ListViewItem listView = new ListViewItem();
+                                listView.SubItems.Add(nome);
+                                listView.SubItems.Add(caminho);
+                                listViewArquivos.Items.Add(listView);
+                            }
+                        }
+                    }
+                }
+                else
                 {
                     foreach (FileInfo file in files)
                     {

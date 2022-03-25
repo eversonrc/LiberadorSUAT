@@ -52,10 +52,10 @@ namespace LiberadorSUAT
                 for (int i=0; i < telaLiberador.listViewAlteracoes.Items.Count; i++)
                 {
                     string teste= "<tr>";
-                    teste += "<td style = \"font - size: 16px; \" >{helpdesk}</td > ";
-                    teste += "<td style = \"font - size: 16px; \" >{responsavel}</td >";
-                    teste += "<td style = \"font - size: 16px; \" >{descChamado}</td >";
-                    teste += "<td style = \"font-size: 16px;\" >{altChamado}</td>";
+                    teste += "<td style = \"font - size: 8px;\" >{helpdesk}</td > ";
+                    teste += "<td style = \"font - size: 8px;\" >{responsavel}</td >";
+                    teste += "<td style = \"font - size: 8px;\" >{descChamado}</td >";
+                    teste += "<td style = \"font-size: 8px;\" >{altChamado}</td>";
                     teste += "</tr>";
 
                     teste = teste.Replace("{helpdesk}", telaLiberador.listViewAlteracoes.Items[i].SubItems[0].Text);
@@ -66,16 +66,31 @@ namespace LiberadorSUAT
                 }
                 body = body.Replace("%gridAlteracoes%", alteracoes);
 
+                string arquivos = "";
+                for (int i = 0; i < modalAnexo.listViewArquivos.Items.Count; i++)
+                {
+                    string teste = "<tr>";
+                    teste += "<td style = \"font - size: 8px;\">{nomeArquivo}</td>";
+                    teste += "<td style = \"font - size: 8px;\" >{caminhoArquivo}</td > ";
+                    teste += "</tr>";
+
+                    teste = teste.Replace("{nomeArquivo}", modalAnexo.listViewArquivos.Items[i].SubItems[1].Text);
+                    teste = teste.Replace("{caminhoArquivo}", modalAnexo.listViewArquivos.Items[i].SubItems[2].Text);
+                    arquivos += teste;
+                }
+                body = body.Replace("%gridArquivos%", arquivos);
+
+
                 string scripts = "";
                 for (int i = 0; i < modalAnexo.listViewScripts.Items.Count; i++)
                 {
                     string teste = "<tr>";
-                    teste += "<tdstyle = \"font - size: 16px; \">{nomeScript}</td>";
-                    teste += "<td style = \"font - size: 16px; \" >{caminhoScript}</td > ";
+                    teste += "<td style = \"font - size: 8px;\">{nomeScript}</td>";
+                    teste += "<td style = \"font - size: 8px;\" >{caminhoScript}</td > ";
                     teste += "</tr>";
 
-                    teste = teste.Replace("{nomeScript}", modalAnexo.listViewScripts.Items[i].SubItems[0].Text);
-                    teste = teste.Replace("{caminhoScript}", modalAnexo.listViewScripts.Items[i].SubItems[1].Text);
+                    teste = teste.Replace("{nomeScript}", modalAnexo.listViewScripts.Items[i].SubItems[1].Text);
+                    teste = teste.Replace("{caminhoScript}", modalAnexo.listViewScripts.Items[i].SubItems[2].Text);
                     scripts += teste;
                 }
                 body = body.Replace("%gridScripts%", scripts);
@@ -84,12 +99,12 @@ namespace LiberadorSUAT
                 for (int i = 0; i < modalAnexo.listViewDocumentos.Items.Count; i++)
                 {
                     string teste = "<tr>";
-                    teste += "<td style = \"font - size: 16px; \" >{nomeDoc}</td > ";
-                    teste += "<td style = \"font - size: 16px; \" >{caminhoDoc}</td > ";
+                    teste += "<td style = \"font - size: 8px;\" >{nomeDoc}</td > ";
+                    teste += "<td style = \"font - size: 8px;\" >{caminhoDoc}</td > ";
                     teste += "</tr>";
 
-                    teste = teste.Replace("{nomeDoc}", modalAnexo.listViewDocumentos.Items[i].SubItems[0].Text);
-                    teste = teste.Replace("{caminhoDoc}", modalAnexo.listViewDocumentos.Items[i].SubItems[1].Text);
+                    teste = teste.Replace("{nomeDoc}", modalAnexo.listViewDocumentos.Items[i].SubItems[1].Text);
+                    teste = teste.Replace("{caminhoDoc}", modalAnexo.listViewDocumentos.Items[i].SubItems[2].Text);
                     documentacoes += teste;
                 }
                 body = body.Replace("%gridDocumentacoes%", documentacoes);
