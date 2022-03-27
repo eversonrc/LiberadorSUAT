@@ -204,7 +204,6 @@ namespace LiberadorSUAT.Screens.Modals
         {
             this.Hide();
             telaLiberador.Show();
-            //sideBar.openChildForm(new TelaLiberador(sideBar));
         }
 
         private void btnTelaEmail_Click(object sender, EventArgs e)

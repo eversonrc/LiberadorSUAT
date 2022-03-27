@@ -38,10 +38,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(150, 111);
+            this.label1.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(68, 178);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(632, 68);
+            this.label1.Size = new System.Drawing.Size(868, 84);
             this.label1.TabIndex = 0;
             this.label1.Text = resources.GetString("label1.Text");
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -49,10 +49,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(150, 61);
+            this.label2.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(67, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(608, 18);
+            this.label2.Size = new System.Drawing.Size(792, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Leia as regras de liberação abaixo antes de enviar o e-mail.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;

@@ -69,10 +69,6 @@ namespace LiberadorSUAT
                 {
                     listViewAlteracoes.Items.RemoveAt(item.Index);
                 }
-                else
-                {
-                    MessageBox.Show("Nenhuma alteração foi selecionada.");
-                }
             }
         }
         private void btnNovoAlteracao_Click(object sender, EventArgs e)
@@ -93,10 +89,6 @@ namespace LiberadorSUAT
                     string alteracao = item.SubItems[3].Text;
                     TelaAlteracoes telaAlteracao = new TelaAlteracoes(this, helpdesk, responsavel, descricao, alteracao, indice);
                     telaAlteracao.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Nenhuma alteração foi selecionada.");
                 }
             }
         }
