@@ -173,24 +173,43 @@ namespace LiberadorSUAT
             }
         }
 
-        private void listTipoLiberacao_SelectedIndexChanged(object sender, EventArgs e)
-        {
-     
-            for (int i = 0; i < listTipoLiberacao.Items.Count; i++)
-            {
-                if (listTipoLiberacao.GetSelected(i))
-                {
-                    TipoLiberacao = listTipoLiberacao.Items[i].ToString();
-                }
-            }
-        }
-
         private void TelaLiberador_Load(object sender, EventArgs e)
         {
             sideBar.btnInfos.BackColor = Color.DarkGray;
             sideBar.btnAnexos.Enabled = false;
             sideBar.btnEmail.Enabled = false;
             sideBar.btnEnvio.Enabled = false;
+        }
+
+        private void listBoxTipos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listBoxTipos.Items.Count; i++)
+            {
+                if (listBoxTipos.GetSelected(i))
+                {
+                    TipoLiberacao = listBoxTipos.Items[i].ToString();
+                }
+            }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbRelease_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbTitulo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

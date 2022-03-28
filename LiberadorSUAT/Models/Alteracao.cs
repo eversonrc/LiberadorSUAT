@@ -13,7 +13,6 @@ namespace LiberadorSUAT.Models
         public string Descricao { get; set; }
         public string AlteracaoRealizada { get; set; }
 
-
         public Alteracao (string helpdesk, string responsavel, string descricao, string alteracao)
         {
             HelpDesk = helpdesk;

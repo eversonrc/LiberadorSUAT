@@ -52,10 +52,10 @@ namespace LiberadorSUAT
                 for (int i=0; i < telaLiberador.listViewAlteracoes.Items.Count; i++)
                 {
                     string teste= "<tr>";
-                    teste += "<td style = \"font - size: 8px;\" >{helpdesk}</td > ";
-                    teste += "<td style = \"font - size: 8px;\" >{responsavel}</td >";
-                    teste += "<td style = \"font - size: 8px;\" >{descChamado}</td >";
-                    teste += "<td style = \"font-size: 8px;\" >{altChamado}</td>";
+                    teste += "<td style = \"font-size: 12px;\" >{helpdesk}</td > ";
+                    teste += "<td style = \"font-size: 12px;\" >{responsavel}</td >";
+                    teste += "<td style = \"font-size: 12px;\" >{descChamado}</td >";
+                    teste += "<td style = \"font-size: 12px;\" >{altChamado}</td>";
                     teste += "</tr>";
 
                     teste = teste.Replace("{helpdesk}", telaLiberador.listViewAlteracoes.Items[i].SubItems[0].Text);
@@ -70,7 +70,7 @@ namespace LiberadorSUAT
                 for (int i = 0; i < modalAnexo.listViewArquivos.Items.Count; i++)
                 {
                     string teste = "<tr>";
-                    teste += "<td style = \"font - size: 8px;\">{nomeArquivo}</td>";
+                    teste += "<td style = \"font-size: 12px;\">{nomeArquivo}</td>";
                     //teste += "<td style = \"font - size: 8px;\" >{caminhoArquivo}</td > ";
                     teste += "</tr>";
 
@@ -85,7 +85,7 @@ namespace LiberadorSUAT
                 for (int i = 0; i < modalAnexo.listViewScripts.Items.Count; i++)
                 {
                     string teste = "<tr>";
-                    teste += "<td style = \"font - size: 8px;\">{nomeScript}</td>";
+                    teste += "<td style = \"font-size: 12px;\">{nomeScript}</td>";
                     //teste += "<td style = \"font - size: 8px;\" >{caminhoScript}</td > ";
                     teste += "</tr>";
 
@@ -99,7 +99,7 @@ namespace LiberadorSUAT
                 for (int i = 0; i < modalAnexo.listViewDocumentos.Items.Count; i++)
                 {
                     string teste = "<tr>";
-                    teste += "<td style = \"font - size: 8px;\" >{nomeDoc}</td > ";
+                    teste += "<td style = \"font-size: 12px;\" >{nomeDoc}</td > ";
                     //teste += "<td style = \"font - size: 8px;\" >{caminhoDoc}</td > ";
                     teste += "</tr>";
 

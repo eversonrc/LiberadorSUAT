@@ -36,7 +36,6 @@ namespace LiberadorSUAT.Models
                         arquivos.SubItems.Add(nome);
                         arquivos.SubItems.Add(caminho);
                         listView.Items.Add(arquivos);
-                        //listView.Items.Add(file);
                     }
                 }
             }

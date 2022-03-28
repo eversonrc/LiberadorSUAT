@@ -204,7 +204,6 @@ namespace LiberadorSUAT.Screens.Modals
         }
 
         // ANEXAR Documentação
-        //
         private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo();
@@ -231,7 +230,6 @@ namespace LiberadorSUAT.Screens.Modals
         }
 
         // ANEXAR Scripts de Banco de Dados
-        //
         private void btnExcluirScript_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo();
