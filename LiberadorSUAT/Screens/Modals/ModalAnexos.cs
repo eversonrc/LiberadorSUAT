@@ -59,8 +59,8 @@ namespace LiberadorSUAT.Screens.Modals
             toolTipModalAnexo.ToolTipIcon = ToolTipIcon.Info;
 
             toolTipModalAnexo.SetToolTip(btnAjudaArquivos, "Selecione o diretório de arquivos desejado.");
-            toolTipModalAnexo.SetToolTip(btnAjudaScripts, "Selecione arquivos de banco de dados com as extensôes .sql");
-            toolTipModalAnexo.SetToolTip(btnAjudaDocs, "Insira as alterações realizadas no sistema de acordo com o helpdesk informado.");
+            toolTipModalAnexo.SetToolTip(btnAjudaScripts, "Selecione arquivos de banco de dados.");
+            toolTipModalAnexo.SetToolTip(btnAjudaDocs, "Selecione arquivos com extensões .doc ou .pdf");
         }
 
         private void gerarGrade()
@@ -228,6 +228,16 @@ namespace LiberadorSUAT.Screens.Modals
             {
                MessageBox.Show(listViewScripts.Items[i].ToString());
             }
+        }
+
+        private void btnAjudaArquivos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ModalAnexos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

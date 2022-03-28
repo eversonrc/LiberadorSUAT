@@ -14,11 +14,15 @@ namespace LiberadorSUAT.Screens
 {
     public partial class SideBarLayout : Form
     {
+        public TelaLiberador telaLiberador { get; set; }
+        public ModalAnexos modalAnexos { get; set; }
+        public ModalEmail modalEmail { get; set; }
 
         public SideBarLayout()
         {
             InitializeComponent();
             openChildForm(new TelaLiberador(this));
+            
         }
 
         public void openChildForm(Form childForm)
@@ -41,17 +45,17 @@ namespace LiberadorSUAT.Screens
 
         private void btnAnexos_Click_1(object sender, EventArgs e)
         {
-            /*if (ModalAnexos.isAcessivel)
+
+            /*if (validadorCampos() == true)
             {
                 this.Hide();
-                ModalAnexos anexos = new ModalAnexos(side, tela);
-                anexos.ReferenciaDaInstanciaDoForm = this;
-                anexos.Show();
-                //openChildForm(new ModalAnexos(side, tela));
+                ModalAnexos modalAnexo = new ModalAnexos(this);
+                modalAnexo.telaLiberador = new TelaLiberador();
+                openChildForm(modalAnexo);
             }
             else
             {
-                MessageBox.Show("Preencha as informações iniciais para acessar a tela de Anexos");
+                MessageBox.Show("Todos os campo devem ser preenchidos antes de avançar para a próxima etapa. Por favor verifique os dados novamente.");
             }*/
         }
 
