@@ -22,7 +22,6 @@ namespace LiberadorSUAT.Screens
         {
             InitializeComponent();
             openChildForm(new TelaLiberador(this));
-            
         }
 
         public void openChildForm(Form childForm)
@@ -44,32 +43,15 @@ namespace LiberadorSUAT.Screens
         }
 
         private void btnAnexos_Click_1(object sender, EventArgs e)
-        {
-
-            /*if (validadorCampos() == true)
-            {
-                this.Hide();
-                ModalAnexos modalAnexo = new ModalAnexos(this);
-                modalAnexo.telaLiberador = new TelaLiberador();
-                openChildForm(modalAnexo);
-            }
-            else
-            {
-                MessageBox.Show("Todos os campo devem ser preenchidos antes de avançar para a próxima etapa. Por favor verifique os dados novamente.");
-            }*/
+         {
+            ModalAnexos modalAnexo = new ModalAnexos(this);
+            modalAnexo.telaLiberador = this.telaLiberador;
+            openChildForm(modalAnexo);
+           
         }
 
         private void btnEmail_Click_1(object sender, EventArgs e)
         {
-            /*if (ModalEmail.isAcessivel)
-            {
-                openChildForm(new ModalEmail(side, tela, anexos));
-            }
-            else
-            {
-                MessageBox.Show("Preencha as informações iniciais e adicione os anexos para acessar a tela de E-mail pré-liberação");
-            }*/
-            
         }
 
         private void btnInfos_Click_1(object sender, EventArgs e)

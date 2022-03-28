@@ -31,7 +31,7 @@ namespace LiberadorSUAT.Screens
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SideBarLayout));
             this.panelSideBarMenu = new System.Windows.Forms.Panel();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.btnEnvio = new FontAwesome.Sharp.IconButton();
             this.btnEmail = new FontAwesome.Sharp.IconButton();
             this.btnAnexos = new FontAwesome.Sharp.IconButton();
             this.btnInfos = new FontAwesome.Sharp.IconButton();
@@ -51,7 +51,7 @@ namespace LiberadorSUAT.Screens
             // 
             this.panelSideBarMenu.AutoScroll = true;
             this.panelSideBarMenu.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.panelSideBarMenu.Controls.Add(this.iconButton5);
+            this.panelSideBarMenu.Controls.Add(this.btnEnvio);
             this.panelSideBarMenu.Controls.Add(this.btnEmail);
             this.panelSideBarMenu.Controls.Add(this.btnAnexos);
             this.panelSideBarMenu.Controls.Add(this.btnInfos);
@@ -63,27 +63,27 @@ namespace LiberadorSUAT.Screens
             this.panelSideBarMenu.Size = new System.Drawing.Size(213, 561);
             this.panelSideBarMenu.TabIndex = 48;
             // 
-            // iconButton5
+            // btnEnvio
             // 
-            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton5.ForeColor = System.Drawing.Color.White;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.Rocket;
-            this.iconButton5.IconColor = System.Drawing.Color.White;
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 30;
-            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(0, 208);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton5.Size = new System.Drawing.Size(213, 42);
-            this.iconButton5.TabIndex = 53;
-            this.iconButton5.Text = "Envio";
-            this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton5.UseVisualStyleBackColor = true;
+            this.btnEnvio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEnvio.FlatAppearance.BorderSize = 0;
+            this.btnEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnvio.ForeColor = System.Drawing.Color.White;
+            this.btnEnvio.IconChar = FontAwesome.Sharp.IconChar.Rocket;
+            this.btnEnvio.IconColor = System.Drawing.Color.White;
+            this.btnEnvio.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEnvio.IconSize = 30;
+            this.btnEnvio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEnvio.Location = new System.Drawing.Point(0, 208);
+            this.btnEnvio.Name = "btnEnvio";
+            this.btnEnvio.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnEnvio.Size = new System.Drawing.Size(213, 42);
+            this.btnEnvio.TabIndex = 53;
+            this.btnEnvio.Text = "Envio";
+            this.btnEnvio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEnvio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEnvio.UseVisualStyleBackColor = true;
             // 
             // btnEmail
             // 
@@ -263,9 +263,9 @@ namespace LiberadorSUAT.Screens
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelChildForm;
         private FontAwesome.Sharp.IconButton btnExit;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private FontAwesome.Sharp.IconButton btnEmail;
-        private FontAwesome.Sharp.IconButton btnAnexos;
-        private FontAwesome.Sharp.IconButton btnInfos;
+        public FontAwesome.Sharp.IconButton btnEnvio;
+        public FontAwesome.Sharp.IconButton btnEmail;
+        public FontAwesome.Sharp.IconButton btnAnexos;
+        public FontAwesome.Sharp.IconButton btnInfos;
     }
 }

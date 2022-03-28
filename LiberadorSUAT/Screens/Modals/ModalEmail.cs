@@ -35,12 +35,18 @@ namespace LiberadorSUAT.Screens.Modals
             Email email = new Email(sideBar, telaLiberador, modalAnexo);
             isAcessivel = true;
             email.GetApplicationObject();
+  
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Hide();
             modalAnexo.Show();
+            sideBar.btnAnexos.BackColor = Color.DarkGray;
+            sideBar.btnEmail.BackColor = Color.Transparent;
+            sideBar.btnInfos.Enabled = false;
+            sideBar.btnEnvio.Enabled = false;
+            sideBar.btnEmail.Enabled = false;
         }
 
         private void ModalEmail_Load(object sender, EventArgs e)

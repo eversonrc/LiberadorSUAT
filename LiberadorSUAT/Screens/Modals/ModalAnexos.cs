@@ -6,10 +6,10 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 
 namespace LiberadorSUAT.Screens.Modals
@@ -105,7 +105,7 @@ namespace LiberadorSUAT.Screens.Modals
                 DirectoryInfo diretorioInicial = new DirectoryInfo(folderBrowserDialog1.SelectedPath);
                 DirectoryInfo[] directories = diretorioInicial.GetDirectories("*", SearchOption.AllDirectories);
                 FileInfo[] files = diretorioInicial.GetFiles("*.*", SearchOption.AllDirectories);
-
+               
                 if (directories.Length != 0)
                 {
                     foreach (DirectoryInfo dir in directories)
@@ -121,6 +121,8 @@ namespace LiberadorSUAT.Screens.Modals
                                 listView.SubItems.Add(nome);
                                 listView.SubItems.Add(caminho);
                                 listViewArquivos.Items.Add(listView);
+
+                               // criarPastaFTP(listViewArquivos);
                             }
                         }
                     }
@@ -138,11 +140,53 @@ namespace LiberadorSUAT.Screens.Modals
                             listView.SubItems.Add(nome);
                             listView.SubItems.Add(caminho);
                             listViewArquivos.Items.Add(listView);
+
+                            //criarPastaFTP(listViewArquivos);
                         }
                     }
                 }
             }
         }
+
+        /*private void criarPastaFTP(ListView lista)
+        {
+            string caminhoFtp = @"ftp:/adnccr@ftp.adn.com.br/CCR/Versao/";
+            //caminhoFtp += telaLiberador.txbVersao.Text + telaLiberador.txbRelease.Text;
+ 
+            FtpWebResponse ftpResponse;
+
+            try
+            {
+                //define os requesitos para se conectar com o servidor
+                FtpWebRequest ftpRequest = (FtpWebRequest)WebRequest.Create(@"ftp://ftp.adn.com.br/");            
+                ftpRequest.Method = WebRequestMethods.Ftp.UploadFile;
+                ftpRequest.Proxy = null;
+                ftpRequest.UseBinary = true;
+                ftpRequest.Credentials = new NetworkCredential("adnccr", "Adn@cr123");
+
+                //Seleção do arquivo a ser enviado
+                FileInfo arquivo = new FileInfo(lista.Items[0].SubItems[1].ToString());
+                byte[] fileContents = new byte[arquivo.Length];
+
+                using (FileStream fr = arquivo.OpenRead())
+                {
+                    fr.Read(fileContents, 0, Convert.ToInt32(arquivo.Length));
+                }
+
+                using (Stream writer = ftpRequest.GetRequestStream())
+                {
+                    writer.Write(fileContents, 0, fileContents.Length);
+                }
+
+                //obtem o FtpWebResponse da operação de upload
+                ftpResponse = (FtpWebResponse)ftpRequest.GetResponse();
+                MessageBox.Show(ftpResponse.StatusDescription);
+            }
+            catch (WebException webex)
+            {
+                MessageBox.Show(webex.ToString());
+            }
+        }*/
 
         private void btnExcluirArquivos_Click(object sender, EventArgs e)
         {
@@ -203,7 +247,13 @@ namespace LiberadorSUAT.Screens.Modals
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            telaLiberador.Show();
+            sideBar.openChildForm(telaLiberador);
+
+            sideBar.btnInfos.BackColor = Color.DarkGray;
+            sideBar.btnAnexos.BackColor = Color.Transparent;
+            sideBar.btnAnexos.Enabled = false;
+            sideBar.btnEmail.Enabled = false;
+            sideBar.btnEnvio.Enabled = false;
         }
 
         private void btnTelaEmail_Click(object sender, EventArgs e)
@@ -215,6 +265,11 @@ namespace LiberadorSUAT.Screens.Modals
                 ModalEmail modalEmail = new ModalEmail(sideBar, telaLiberador);
                 modalEmail.modalAnexo = this;
                 sideBar.openChildForm(modalEmail);
+                sideBar.btnEmail.BackColor = Color.DarkGray;
+                sideBar.btnAnexos.BackColor = Color.Transparent;
+                sideBar.btnAnexos.Enabled = false;
+                sideBar.btnInfos.Enabled = false;
+                sideBar.btnEnvio.Enabled = false;
             }
             else
             {

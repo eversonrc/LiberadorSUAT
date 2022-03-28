@@ -308,6 +308,7 @@ namespace LiberadorSUAT
             this.Name = "TelaLiberador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Liberador de versão - SUAT";
+            this.Load += new System.EventHandler(this.TelaLiberador_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

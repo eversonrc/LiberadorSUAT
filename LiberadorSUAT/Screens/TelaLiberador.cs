@@ -119,6 +119,11 @@ namespace LiberadorSUAT
                 ModalAnexos modalAnexo = new ModalAnexos(sideBar);
                 modalAnexo.telaLiberador = this;
                 sideBar.openChildForm(modalAnexo);
+                sideBar.btnAnexos.BackColor = Color.DarkGray;
+                sideBar.btnInfos.BackColor = Color.Transparent;
+                sideBar.btnInfos.Enabled = false;
+                sideBar.btnEnvio.Enabled = false;
+                sideBar.btnEmail.Enabled = false;
             }
             else
             {
@@ -178,6 +183,14 @@ namespace LiberadorSUAT
                     TipoLiberacao = listTipoLiberacao.Items[i].ToString();
                 }
             }
+        }
+
+        private void TelaLiberador_Load(object sender, EventArgs e)
+        {
+            sideBar.btnInfos.BackColor = Color.DarkGray;
+            sideBar.btnAnexos.Enabled = false;
+            sideBar.btnEmail.Enabled = false;
+            sideBar.btnEnvio.Enabled = false;
         }
     }
 }
