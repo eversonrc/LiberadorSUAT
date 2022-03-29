@@ -114,26 +114,14 @@ namespace LiberadorSUAT.Screens.Modals
                             {
                                 string nome = file.Name;
                                 string caminho = file.FullName;
+                                file.CopyTo(nome, true);
 
                                 ListViewItem listView = new ListViewItem();
                                 listView.SubItems.Add(nome);
                                 listView.SubItems.Add(caminho);
                                 listViewArquivos.Items.Add(listView);
 
-                                using (var fs = new FileStream("listaArquivos.txt", FileMode.Create))
-                                {
-                                    using (var escritor = new StreamWriter(fs))
-                                    {
-                                        for (int i=0; i < listViewArquivos.Items.Count; i++)
-                                        {
-                                            escritor.Write("Nome do arquivo: " + listViewArquivos.Items[i].SubItems[1].Text);
-                                            escritor.Write("/ Caminho: " + listViewArquivos.Items[i].SubItems[2].Text);
-                                            escritor.WriteLine();
-                                        }
-                                    }
-                                }
-
-                                uploadFTP("listaArquivos.txt", "listaArquivos.pdf");
+                                uploadFTP(nome, nome);
                             }
                         }
                     }
@@ -146,26 +134,14 @@ namespace LiberadorSUAT.Screens.Modals
                         {
                             string nome = file.Name;
                             string caminho = file.FullName;
+                            file.CopyTo(nome, true);
 
                             ListViewItem listView = new ListViewItem();
                             listView.SubItems.Add(nome);
                             listView.SubItems.Add(caminho);
                             listViewArquivos.Items.Add(listView);
 
-                            using (var fs = new FileStream("listaArquivos.txt", FileMode.Create))
-                            {
-                                using (var escritor = new StreamWriter(fs))
-                                {
-                                    for (int i = 0; i < listViewArquivos.Items.Count; i++)
-                                    {
-                                        escritor.Write("Nome do arquivo: " +listViewArquivos.Items[i].SubItems[1].Text);
-                                        escritor.Write("/ Caminho: " + listViewArquivos.Items[i].SubItems[2].Text);
-                                        escritor.WriteLine();
-                                    }
-                                }
-                            }
-
-                            uploadFTP("listaArquivos.txt", "listaArquivos.pdf");
+                            uploadFTP(nome, nome);
                         }
                     }
                 }
@@ -174,7 +150,7 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void uploadFTP(string arquivo, string destino)
         {
-            var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(@"ftp://ftp.adn.com.br/CCR/Versao/" + destino);
+            var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(@"ftp://ftp.adn.com.br/CCR/Versao/LIBERADOR_SUAT" + destino);
             request.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
             request.Credentials = new System.Net.NetworkCredential("adnccr", "Adn@cr123");
 
