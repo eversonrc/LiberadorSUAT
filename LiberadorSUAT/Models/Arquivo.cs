@@ -29,17 +29,42 @@ namespace LiberadorSUAT.Models
                 {
                     foreach (var file in dialog.FileNames)
                     {
-                        string nome = dialog.SafeFileName;
-                        string caminho = dialog.FileName;
+                        string substringNome = file.Substring(file.LastIndexOf('\\'));
+                        string[] splitNome = substringNome.Split('\\');
+                        string nome = splitNome[1];
+                        string caminho = file;
+
+                        File.Copy(caminho, @"C:\Workspace\CCR\DesafioTecnico\LiberadorSUAT\bin\Debug\" + Path.GetFileName(caminho), true);
 
                         ListViewItem arquivos = new ListViewItem();
                         arquivos.SubItems.Add(nome);
                         arquivos.SubItems.Add(caminho);
                         listView.Items.Add(arquivos);
+
+                        uploadFTP(nome, nome);
                         
                     }
                 }
             }
+        }
+
+        private void uploadFTP(string arquivo, string destino)
+        {
+            var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(@"ftp://adnccr@ftp.adn.com.br/CCR/Versao/LIBERADOR_SUAT/" + destino);
+            request.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
+            request.Credentials = new System.Net.NetworkCredential("adnccr", "Adn@cr123");
+
+            var conteudoArquivo = System.IO.File.ReadAllBytes(arquivo);
+            request.ContentLength = conteudoArquivo.Length;
+
+            var requestStream = request.GetRequestStream();
+
+            requestStream.Write(conteudoArquivo, 0, conteudoArquivo.Length);
+            requestStream.Close();
+
+            var response = (System.Net.FtpWebResponse)request.GetResponse();
+            Console.WriteLine("Upload completo. Status: {0}", response.StatusDescription);
+            response.Close();
         }
 
         public void ExcluirArquivos(ListView listView)
