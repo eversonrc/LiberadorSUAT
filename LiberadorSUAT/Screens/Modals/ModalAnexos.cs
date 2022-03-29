@@ -150,7 +150,7 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void uploadFTP(string arquivo, string destino)
         {
-            var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(@"ftp://ftp.adn.com.br/CCR/Versao/LIBERADOR_SUAT" + destino);
+            var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(@"ftp://adnccr@ftp.adn.com.br/CCR/Versao/LIBERADOR_SUAT/" + destino);
             request.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
             request.Credentials = new System.Net.NetworkCredential("adnccr", "Adn@cr123");
 
@@ -180,7 +180,6 @@ namespace LiberadorSUAT.Screens.Modals
                 }
             }
         }
-
         
         private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
         {
