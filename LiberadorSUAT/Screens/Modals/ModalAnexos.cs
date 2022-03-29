@@ -95,8 +95,6 @@ namespace LiberadorSUAT.Screens.Modals
             listViewDocumentos.CheckBoxes = true;
         }
 
-        // ANEXAR Arquivos de compilação
-        //
         private void btnAdicionarArquivos_Click(object sender, EventArgs e)
         {
             DialogResult result = folderBrowserDialog1.ShowDialog();
@@ -122,7 +120,20 @@ namespace LiberadorSUAT.Screens.Modals
                                 listView.SubItems.Add(caminho);
                                 listViewArquivos.Items.Add(listView);
 
-                               // criarPastaFTP(listViewArquivos);
+                                using (var fs = new FileStream("listaArquivos.txt", FileMode.Create))
+                                {
+                                    using (var escritor = new StreamWriter(fs))
+                                    {
+                                        for (int i=0; i < listViewArquivos.Items.Count; i++)
+                                        {
+                                            escritor.Write("Nome do arquivo: " + listViewArquivos.Items[i].SubItems[1].Text);
+                                            escritor.Write("/ Caminho: " + listViewArquivos.Items[i].SubItems[2].Text);
+                                            escritor.WriteLine();
+                                        }
+                                    }
+                                }
+
+                                uploadFTP("listaArquivos.txt", "listaArquivos.pdf");
                             }
                         }
                     }
@@ -141,53 +152,44 @@ namespace LiberadorSUAT.Screens.Modals
                             listView.SubItems.Add(caminho);
                             listViewArquivos.Items.Add(listView);
 
-                            //criarPastaFTP(listViewArquivos);
+                            using (var fs = new FileStream("listaArquivos.txt", FileMode.Create))
+                            {
+                                using (var escritor = new StreamWriter(fs))
+                                {
+                                    for (int i = 0; i < listViewArquivos.Items.Count; i++)
+                                    {
+                                        escritor.Write("Nome do arquivo: " +listViewArquivos.Items[i].SubItems[1].Text);
+                                        escritor.Write("/ Caminho: " + listViewArquivos.Items[i].SubItems[2].Text);
+                                        escritor.WriteLine();
+                                    }
+                                }
+                            }
+
+                            uploadFTP("listaArquivos.txt", "listaArquivos.pdf");
                         }
                     }
                 }
             }
         }
 
-        /*private void criarPastaFTP(ListView lista)
+        private void uploadFTP(string arquivo, string destino)
         {
-            string caminhoFtp = @"ftp:/adnccr@ftp.adn.com.br/CCR/Versao/";
-            //caminhoFtp += telaLiberador.txbVersao.Text + telaLiberador.txbRelease.Text;
- 
-            FtpWebResponse ftpResponse;
+            var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(@"ftp://ftp.adn.com.br/CCR/Versao/" + destino);
+            request.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
+            request.Credentials = new System.Net.NetworkCredential("adnccr", "Adn@cr123");
 
-            try
-            {
-                //define os requesitos para se conectar com o servidor
-                FtpWebRequest ftpRequest = (FtpWebRequest)WebRequest.Create(@"ftp://ftp.adn.com.br/");            
-                ftpRequest.Method = WebRequestMethods.Ftp.UploadFile;
-                ftpRequest.Proxy = null;
-                ftpRequest.UseBinary = true;
-                ftpRequest.Credentials = new NetworkCredential("adnccr", "Adn@cr123");
+            var conteudoArquivo = System.IO.File.ReadAllBytes(arquivo);
+            request.ContentLength = conteudoArquivo.Length;
 
-                //Seleção do arquivo a ser enviado
-                FileInfo arquivo = new FileInfo(lista.Items[0].SubItems[1].ToString());
-                byte[] fileContents = new byte[arquivo.Length];
+            var requestStream = request.GetRequestStream();
+            
+            requestStream.Write(conteudoArquivo, 0, conteudoArquivo.Length);
+            requestStream.Close();
 
-                using (FileStream fr = arquivo.OpenRead())
-                {
-                    fr.Read(fileContents, 0, Convert.ToInt32(arquivo.Length));
-                }
-
-                using (Stream writer = ftpRequest.GetRequestStream())
-                {
-                    writer.Write(fileContents, 0, fileContents.Length);
-                }
-
-                //obtem o FtpWebResponse da operação de upload
-                ftpResponse = (FtpWebResponse)ftpRequest.GetResponse();
-                MessageBox.Show(ftpResponse.StatusDescription);
-            }
-            catch (WebException webex)
-            {
-                MessageBox.Show(webex.ToString());
-            }
-        }*/
-
+            var response = (System.Net.FtpWebResponse)request.GetResponse();
+            Console.WriteLine("Upload completo. Status: {0}", response.StatusDescription);
+            response.Close();
+        }
         private void btnExcluirArquivos_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in listViewArquivos.Items)
@@ -203,7 +205,7 @@ namespace LiberadorSUAT.Screens.Modals
             }
         }
 
-        // ANEXAR Documentação
+        
         private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo();
@@ -229,7 +231,6 @@ namespace LiberadorSUAT.Screens.Modals
             return false;
         }
 
-        // ANEXAR Scripts de Banco de Dados
         private void btnExcluirScript_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo();
