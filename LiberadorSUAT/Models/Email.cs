@@ -71,11 +71,9 @@ namespace LiberadorSUAT
                 {
                     string teste = "<tr>";
                     teste += "<td style = \"font-size: 12px;\">{nomeArquivo}</td>";
-                    //teste += "<td style = \"font - size: 8px;\" >{caminhoArquivo}</td > ";
                     teste += "</tr>";
 
                     teste = teste.Replace("{nomeArquivo}", modalAnexo.listViewArquivos.Items[i].SubItems[1].Text);
-                   //teste = teste.Replace("{caminhoArquivo}", modalAnexo.listViewArquivos.Items[i].SubItems[2].Text);
                     arquivos += teste;
                 }
                 body = body.Replace("%gridArquivos%", arquivos);
@@ -86,11 +84,9 @@ namespace LiberadorSUAT
                 {
                     string teste = "<tr>";
                     teste += "<td style = \"font-size: 12px;\">{nomeScript}</td>";
-                    //teste += "<td style = \"font - size: 8px;\" >{caminhoScript}</td > ";
                     teste += "</tr>";
 
                     teste = teste.Replace("{nomeScript}", modalAnexo.listViewScripts.Items[i].SubItems[1].Text);
-                    //teste = teste.Replace("{caminhoScript}", modalAnexo.listViewScripts.Items[i].SubItems[2].Text);
                     scripts += teste;
                 }
                 body = body.Replace("%gridScripts%", scripts);
@@ -100,11 +96,9 @@ namespace LiberadorSUAT
                 {
                     string teste = "<tr>";
                     teste += "<td style = \"font-size: 12px;\" >{nomeDoc}</td > ";
-                    //teste += "<td style = \"font - size: 8px;\" >{caminhoDoc}</td > ";
                     teste += "</tr>";
 
                     teste = teste.Replace("{nomeDoc}", modalAnexo.listViewDocumentos.Items[i].SubItems[1].Text);
-                    //teste = teste.Replace("{caminhoDoc}", modalAnexo.listViewDocumentos.Items[i].SubItems[2].Text);
                     documentacoes += teste;
                 }
                 body = body.Replace("%gridDocumentacoes%", documentacoes);
@@ -120,7 +114,7 @@ namespace LiberadorSUAT
        public void montaEmail(Outlook.Application application)
         {
             Outlook.MailItem message = (Outlook.MailItem)application.CreateItem(Outlook.OlItemType.olMailItem);
-            message.To = "";
+            message.To = telaLiberador.DadosConfiguracao[18];
             message.CC = "";
             message.Subject = "Liberador SUAT";
             message.HTMLBody = carregarHTML();

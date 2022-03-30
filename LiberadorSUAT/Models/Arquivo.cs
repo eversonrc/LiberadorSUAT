@@ -12,6 +12,12 @@ namespace LiberadorSUAT.Models
 {
     class Arquivo
     {
+        public TelaLiberador telaLiberador { get; set; }
+
+        public Arquivo (TelaLiberador tela){
+            telaLiberador = tela;
+        }
+
         string[] optionList = new string[2]
         {
             "Word Documents|*.doc|PDF Documents|*.pdf",
@@ -64,7 +70,7 @@ namespace LiberadorSUAT.Models
         {
             var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(@"ftp://adnccr@ftp.adn.com.br/CCR/Versao/LIBERADOR_SUAT/" + destino);
             request.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
-            request.Credentials = new System.Net.NetworkCredential("adnccr", "Adn@cr123");
+            request.Credentials = new System.Net.NetworkCredential(telaLiberador.DadosConfiguracao[15], telaLiberador.DadosConfiguracao[16]);
 
             var conteudoArquivo = System.IO.File.ReadAllBytes(arquivo);
             request.ContentLength = conteudoArquivo.Length;

@@ -153,12 +153,12 @@ namespace LiberadorSUAT.Screens.Modals
         
         private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
         {
-            Arquivo arquivo = new Arquivo();
+            Arquivo arquivo = new Arquivo(telaLiberador);
             arquivo.AdicionarArquivos(listViewDocumentos, 0);
         }
         private void btnExcluirDocumentacao_Click(object sender, EventArgs e)
         {
-            Arquivo arquivo = new Arquivo();
+            Arquivo arquivo = new Arquivo(telaLiberador);
             arquivo.ExcluirArquivos(listViewDocumentos);
         }
 
@@ -178,13 +178,13 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void btnExcluirScript_Click(object sender, EventArgs e)
         {
-            Arquivo arquivo = new Arquivo();
+            Arquivo arquivo = new Arquivo(telaLiberador);
             arquivo.ExcluirArquivos(listViewScripts);
         }
 
         private void btnAdicionarScript_Click(object sender, EventArgs e)
         {
-            Arquivo arquivo = new Arquivo();
+            Arquivo arquivo = new Arquivo(telaLiberador);
             arquivo.AdicionarArquivos(listViewScripts, 1);
         }
 
@@ -204,7 +204,8 @@ namespace LiberadorSUAT.Screens.Modals
         {
             if (validadorCampos() == true)
             {
-                Arquivo arquivo = new Arquivo();
+                //enviando arquivos pro FTP
+                Arquivo arquivo = new Arquivo(telaLiberador);
                 arquivo.percorrerDiretorioArquivos(@"C:\Workspace\CCR\DesafioTecnico\LiberadorSUAT\bin\Debug\arquivos\");
 
                 isAcessivel = true;

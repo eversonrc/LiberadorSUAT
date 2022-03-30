@@ -202,6 +202,7 @@ namespace LiberadorSUAT
                     }
                 }
             }
+
             txbVersao.Enabled = false;
             txbRelease.Enabled = false;
             txbSigla.Enabled = false;
