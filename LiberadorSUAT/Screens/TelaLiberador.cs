@@ -20,8 +20,7 @@ namespace LiberadorSUAT
         private SideBarLayout sideBar;
         public String Sistema { get; set; }
         public String TipoLiberacao { get; set; }
-
-        public String[] Dados { get; set; }
+        public String[] DadosConfiguracao { get; set; }
         public TelaLiberador(SideBarLayout side)
         {
             InitializeComponent();
@@ -153,32 +152,32 @@ namespace LiberadorSUAT
             {
                 case "Evasores":
                     txbSigla.Text = "EVA";
-                    txbVersao.Text = Dados[1];
-                    txbRelease.Text = Dados[2];
+                    txbVersao.Text = DadosConfiguracao[1];
+                    txbRelease.Text = DadosConfiguracao[2];
                     break;
 
                 case "SUATMobilidade":
                     txbSigla.Text = "SUAT";
-                    txbVersao.Text = Dados[4];
-                    txbRelease.Text = Dados[5];
+                    txbVersao.Text = DadosConfiguracao[4];
+                    txbRelease.Text = DadosConfiguracao[5];
                     break;
 
                 case "VLTRio":
                     txbSigla.Text = "VLT";
-                    txbVersao.Text = Dados[7];
-                    txbRelease.Text = Dados[8];
+                    txbVersao.Text = DadosConfiguracao[7];
+                    txbRelease.Text = DadosConfiguracao[8];
                     break;
 
                 case "Automatizador":
                     txbSigla.Text = "AUTO";
-                    txbVersao.Text = Dados[10];
-                    txbRelease.Text = Dados[11];
+                    txbVersao.Text = DadosConfiguracao[10];
+                    txbRelease.Text = DadosConfiguracao[11];
                     break;
 
                 case "Barcas":
                     txbSigla.Text = "BRC";
-                    txbVersao.Text = Dados[13];
-                    txbRelease.Text = Dados[14];
+                    txbVersao.Text = DadosConfiguracao[13];
+                    txbRelease.Text = DadosConfiguracao[14];
                     break;
 
                 default:
@@ -193,12 +192,12 @@ namespace LiberadorSUAT
                 using (var leitor = new StreamReader(fs))
                 {
                     int i = 0;
-                    Dados = new string[30];
+                    DadosConfiguracao = new string[30];
 
                     while (!leitor.EndOfStream)
                     {
                         string dado = leitor.ReadLine();
-                        Dados[i] = dado;
+                        DadosConfiguracao[i] = dado;
                         i++;
                     }
                 }

@@ -108,64 +108,34 @@ namespace LiberadorSUAT.Screens.Modals
                 {
                     foreach (DirectoryInfo dir in directories)
                     {
-                        foreach (FileInfo file in files)
-                        {
-                            if (!this.IsFileLocked(file))
-                            {
-                                string nome = file.Name;
-                                string caminho = file.FullName;
-                                file.CopyTo(nome, true);
-
-                                ListViewItem listView = new ListViewItem();
-                                listView.SubItems.Add(nome);
-                                listView.SubItems.Add(caminho);
-                                listViewArquivos.Items.Add(listView);
-
-                                uploadFTP(nome, nome);
-                            }
-                        }
+                        percorrerArquivos(files);    
                     }
                 }
                 else
                 {
-                    foreach (FileInfo file in files)
-                    {
-                        if (!this.IsFileLocked(file))
-                        {
-                            string nome = file.Name;
-                            string caminho = file.FullName;
-                            file.CopyTo(nome, true);
-
-                            ListViewItem listView = new ListViewItem();
-                            listView.SubItems.Add(nome);
-                            listView.SubItems.Add(caminho);
-                            listViewArquivos.Items.Add(listView);
-
-                            uploadFTP(nome, nome);
-                        }
-                    }
+                    percorrerArquivos(files);
                 }
             }
         }
 
-        private void uploadFTP(string arquivo, string destino)
+        private void percorrerArquivos(FileInfo[] files)
         {
-            var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(@"ftp://adnccr@ftp.adn.com.br/CCR/Versao/LIBERADOR_SUAT/" + destino);
-            request.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
-            request.Credentials = new System.Net.NetworkCredential("adnccr", "Adn@cr123");
+            foreach (FileInfo file in files)
+            {
+                if (!this.IsFileLocked(file))
+                {
+                    string nome = file.Name;
+                    string caminho = file.FullName;
+                    file.CopyTo(@"C:\Workspace\CCR\DesafioTecnico\LiberadorSUAT\bin\Debug\arquivos\"+nome, true);
 
-            var conteudoArquivo = System.IO.File.ReadAllBytes(arquivo);
-            request.ContentLength = conteudoArquivo.Length;
-
-            var requestStream = request.GetRequestStream();
-            
-            requestStream.Write(conteudoArquivo, 0, conteudoArquivo.Length);
-            requestStream.Close();
-
-            var response = (System.Net.FtpWebResponse)request.GetResponse();
-            Console.WriteLine("Upload completo. Status: {0}", response.StatusDescription);
-            response.Close();
+                    ListViewItem listView = new ListViewItem();
+                    listView.SubItems.Add(nome);
+                    listView.SubItems.Add(caminho);
+                    listViewArquivos.Items.Add(listView);
+                }
+            }
         }
+
         private void btnExcluirArquivos_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in listViewArquivos.Items)
@@ -234,6 +204,9 @@ namespace LiberadorSUAT.Screens.Modals
         {
             if (validadorCampos() == true)
             {
+                Arquivo arquivo = new Arquivo();
+                arquivo.percorrerDiretorioArquivos(@"C:\Workspace\CCR\DesafioTecnico\LiberadorSUAT\bin\Debug\arquivos\");
+
                 isAcessivel = true;
                 this.Hide();
                 ModalEmail modalEmail = new ModalEmail(sideBar, telaLiberador);
@@ -266,6 +239,11 @@ namespace LiberadorSUAT.Screens.Modals
         private void ModalAnexos_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            
         }
     }
 }
