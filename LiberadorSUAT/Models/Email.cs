@@ -78,7 +78,6 @@ namespace LiberadorSUAT
                 }
                 body = body.Replace("%gridArquivos%", arquivos);
 
-
                 string scripts = "";
                 for (int i = 0; i < modalAnexo.listViewScripts.Items.Count; i++)
                 {
@@ -109,7 +108,6 @@ namespace LiberadorSUAT
             }
             return body;
         }
-
 
        public void montaEmail(Outlook.Application application)
         {

@@ -9,6 +9,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.SharePoint;
+using Microsoft.SharePoint.Administration;
 
 namespace LiberadorSUAT.Screens
 {
@@ -22,6 +24,14 @@ namespace LiberadorSUAT.Screens
         {
             InitializeComponent();
             openChildForm(new TelaLiberador(this));
+
+            #region
+            string SiteUrl = "https://adntec.sharepoint.com/sites/Operacoes/ccr/SitePages/Forms/ByAuthor.aspx";
+            using (SPSite SiteCollection = new SPSite(SiteUrl))
+            {
+                MessageBox.Show(SiteUrl + "acessado com sucesso");
+            }
+            #endregion
         }
 
         public void openChildForm(Form childForm)
