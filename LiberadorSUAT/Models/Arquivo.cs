@@ -42,7 +42,6 @@ namespace LiberadorSUAT.Models
                         listView.Items.Add(arquivos);
 
                         uploadFTP(nome, nome);
-                        
                     }
                 }
             }
@@ -63,7 +62,7 @@ namespace LiberadorSUAT.Models
             requestStream.Close();
 
             var response = (System.Net.FtpWebResponse)request.GetResponse();
-            Console.WriteLine("Upload completo. Status: {0}", response.StatusDescription);
+            //Console.WriteLine("Upload completo. Status: {0}", response.StatusDescription);
             response.Close();
         }
 

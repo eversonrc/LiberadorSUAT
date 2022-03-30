@@ -122,6 +122,7 @@ namespace LiberadorSUAT
             this.txbVersao.Name = "txbVersao";
             this.txbVersao.Size = new System.Drawing.Size(142, 20);
             this.txbVersao.TabIndex = 12;
+            this.txbVersao.TextChanged += new System.EventHandler(this.txbVersao_TextChanged);
             // 
             // txbRelease
             // 

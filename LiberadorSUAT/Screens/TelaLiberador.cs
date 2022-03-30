@@ -20,6 +20,8 @@ namespace LiberadorSUAT
         private SideBarLayout sideBar;
         public String Sistema { get; set; }
         public String TipoLiberacao { get; set; }
+
+        public String[] Dados { get; set; }
         public TelaLiberador(SideBarLayout side)
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace LiberadorSUAT
         public TelaLiberador()
         {
         }
-        
+
         private void gerarGrade()
         {
             listViewAlteracoes.Columns.Add("Helpdesk", 100).TextAlign = HorizontalAlignment.Center;
@@ -47,8 +49,8 @@ namespace LiberadorSUAT
 
         private bool validadorCampos()
         {
-            if(
-                txbTitulo.Text != "" && 
+            if (
+                txbTitulo.Text != "" &&
                 txbVersao.Text != "" &&
                 txbRelease.Text != "" &&
                 txbSigla.Text != "" &&
@@ -57,7 +59,7 @@ namespace LiberadorSUAT
             {
                 return true;
             }
-            
+
             return false;
         }
 
@@ -77,7 +79,7 @@ namespace LiberadorSUAT
             telaAlteracao.ShowDialog();
         }
         private void btnAlterarAlteracao_Click(object sender, EventArgs e)
-        { 
+        {
             foreach (ListViewItem item in listViewAlteracoes.Items)
             {
                 if (item.Checked)
@@ -92,7 +94,7 @@ namespace LiberadorSUAT
                 }
             }
         }
-       
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -113,7 +115,8 @@ namespace LiberadorSUAT
 
         private void btnModalAnexos_Click(object sender, EventArgs e)
         {
-            if(validadorCampos() == true)
+
+            if (validadorCampos() == true)
             {
                 this.Hide();
                 ModalAnexos modalAnexo = new ModalAnexos(sideBar);
@@ -150,22 +153,32 @@ namespace LiberadorSUAT
             {
                 case "Evasores":
                     txbSigla.Text = "EVA";
+                    txbVersao.Text = Dados[1];
+                    txbRelease.Text = Dados[2];
                     break;
 
                 case "SUATMobilidade":
                     txbSigla.Text = "SUAT";
+                    txbVersao.Text = Dados[4];
+                    txbRelease.Text = Dados[5];
                     break;
 
                 case "VLTRio":
                     txbSigla.Text = "VLT";
+                    txbVersao.Text = Dados[7];
+                    txbRelease.Text = Dados[8];
                     break;
 
                 case "Automatizador":
                     txbSigla.Text = "AUTO";
+                    txbVersao.Text = Dados[10];
+                    txbRelease.Text = Dados[11];
                     break;
 
                 case "Barcas":
                     txbSigla.Text = "BRC";
+                    txbVersao.Text = Dados[13];
+                    txbRelease.Text = Dados[14];
                     break;
 
                 default:
@@ -175,6 +188,25 @@ namespace LiberadorSUAT
 
         private void TelaLiberador_Load(object sender, EventArgs e)
         {
+            using (var fs = new FileStream("arquivoConfiguracao.txt", FileMode.Open))
+            {
+                using (var leitor = new StreamReader(fs))
+                {
+                    int i = 0;
+                    Dados = new string[30];
+
+                    while (!leitor.EndOfStream)
+                    {
+                        string dado = leitor.ReadLine();
+                        Dados[i] = dado;
+                        i++;
+                    }
+                }
+            }
+            txbVersao.Enabled = false;
+            txbRelease.Enabled = false;
+            txbSigla.Enabled = false;
+
             sideBar.btnInfos.BackColor = Color.DarkGray;
             sideBar.btnAnexos.Enabled = false;
             sideBar.btnEmail.Enabled = false;
@@ -211,5 +243,11 @@ namespace LiberadorSUAT
         {
 
         }
+
+        private void txbVersao_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

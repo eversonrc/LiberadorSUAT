@@ -261,7 +261,6 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void btnAjudaArquivos_Click(object sender, EventArgs e)
         {
-
         }
 
         private void ModalAnexos_Load(object sender, EventArgs e)
