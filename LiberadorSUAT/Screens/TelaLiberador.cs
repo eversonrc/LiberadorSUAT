@@ -1,6 +1,7 @@
 ﻿using LiberadorSUAT.Models;
 using LiberadorSUAT.Screens;
 using LiberadorSUAT.Screens.Modals;
+using Microsoft.SharePoint.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,19 +9,24 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace LiberadorSUAT
 {
-    public partial class TelaLiberador : Form
+    public partial class TelaLiberador : System.Windows.Forms.Form
     {
         private SideBarLayout sideBar;
         public String Sistema { get; set; }
         public String TipoLiberacao { get; set; }
         public String[] DadosConfiguracao { get; set; }
+
+       // public Microsoft.SharePoint.Client.FileInformation fileInfo;
         public TelaLiberador(SideBarLayout side)
         {
             InitializeComponent();
@@ -39,7 +45,7 @@ namespace LiberadorSUAT
             listViewAlteracoes.Columns.Add("Responsável", 150).TextAlign = HorizontalAlignment.Center;
             listViewAlteracoes.Columns.Add("Descrição", 260).TextAlign = HorizontalAlignment.Center;
             listViewAlteracoes.Columns.Add("Alteração", 260).TextAlign = HorizontalAlignment.Center;
-            listViewAlteracoes.View = View.Details;
+            listViewAlteracoes.View = System.Windows.Forms.View.Details;
 
             listViewAlteracoes.FullRowSelect = true;
             listViewAlteracoes.GridLines = true;
@@ -187,6 +193,8 @@ namespace LiberadorSUAT
 
         private void TelaLiberador_Load(object sender, EventArgs e)
         {
+            DownloadArquivo();
+
             using (var fs = new FileStream("arquivoConfiguracao.txt", FileMode.Open))
             {
                 using (var leitor = new StreamReader(fs))
@@ -203,7 +211,6 @@ namespace LiberadorSUAT
                 }
             }
 
-            txbVersao.Enabled = false;
             txbRelease.Enabled = false;
             txbSigla.Enabled = false;
 
@@ -247,6 +254,41 @@ namespace LiberadorSUAT
         private void txbVersao_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void DownloadArquivo()
+        {
+            string sharePointSite = "https://adntec.sharepoint.com/sites/Operacoes/ccr";
+            using (ClientContext ctx = new ClientContext(sharePointSite))
+            {
+                string account = "iolanda.pereira@adn.com.br";
+                string password = "Aselecao@2021";
+                var secretPassword = new SecureString();
+
+                foreach (char c in password)
+                {
+                    secretPassword.AppendChar(c);
+                }
+                ctx.Credentials = new SharePointOnlineCredentials(account, secretPassword);
+                ctx.Load(ctx.Web);
+                ctx.ExecuteQuery();
+
+                string libraryTitle = "Documentos";
+                Microsoft.SharePoint.Client.List list = ctx.Web.Lists.GetByTitle(libraryTitle);
+
+                string url = @"/sites/Operacoes/ccr/Documentos Compartilhados/pastaTesteLiberador/arquivoConfiguracao.txt";
+                ctx.Load(list);
+                ctx.ExecuteQuery();
+
+                using (var fileInfo = Microsoft.SharePoint.Client.File.OpenBinaryDirect(ctx, url))
+                {
+                    var fileName = Path.Combine(@"C:\Workspace\CCR\DesafioTecnico\LiberadorSUAT\bin\Debug\", Path.GetFileName(url));
+                    using (var fileStream = System.IO.File.Create(fileName))
+                    {
+                        fileInfo.Stream.CopyTo(fileStream);
+                    }
+                }
+            };
         }
 
     }

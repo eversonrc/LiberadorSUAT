@@ -1,4 +1,5 @@
 ﻿
+
 namespace LiberadorSUAT.Screens
 {
     partial class SideBarLayout
