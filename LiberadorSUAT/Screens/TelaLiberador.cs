@@ -160,7 +160,7 @@ namespace LiberadorSUAT
                     txbSigla.Text = "EVA";
                     txbVersao.Text = DadosConfiguracao[1];
                     txbRelease.Text = DadosConfiguracao[2];
-                    break;
+                     break;
 
                 case "SUATMobilidade":
                     txbSigla.Text = "SUAT";
@@ -211,7 +211,6 @@ namespace LiberadorSUAT
                 }
             }
 
-            txbRelease.Enabled = false;
             txbSigla.Enabled = false;
 
             sideBar.btnInfos.BackColor = Color.DarkGray;
@@ -253,7 +252,47 @@ namespace LiberadorSUAT
 
         private void txbVersao_TextChanged(object sender, EventArgs e)
         {
+            switch (Sistema)
+            {
+                case "Evasores":
+                    if (txbVersao.Text != DadosConfiguracao[1])
+                    {
+                        txbRelease.Text = "0";
+                    }
+                    break;
 
+                case "SUATMobilidade":
+                    if (txbVersao.Text != DadosConfiguracao[4])
+                    {
+                        txbRelease.Text = "0";
+                    }
+                    break;
+
+                case "VLTRio":
+                    if (txbVersao.Text != DadosConfiguracao[7])
+                    {
+                        txbRelease.Text = "0";
+                    }
+                    break;
+
+                case "Automatizador":
+                    if(txbVersao.Text != DadosConfiguracao[10])
+                    {
+                        txbRelease.Text = "0";
+                    }
+                    break;
+
+                case "Barcas":
+                    if (txbVersao.Text != DadosConfiguracao[13])
+                    {
+                        txbRelease.Text = "0";
+                    }
+                    break;
+
+                default:
+                    break;
+
+            }
         }
 
         public void DownloadArquivo()
