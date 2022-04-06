@@ -229,7 +229,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelsSecundarios\ConfiguracaoEmail.cs" />
     <Compile Include="ModelsSecundarios\ConfiguracaoFTP.cs" />
     <Compile Include="ModelsSecundarios\ConfiguracoesBancoLiberador.cs" />
     <Compile Include="ModelsSecundarios\Sistema.cs" />

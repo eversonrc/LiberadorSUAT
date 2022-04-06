@@ -19,5 +19,7 @@ namespace LiberadorSUAT.ModelsSecundarios
 
         [BsonElement("senha")]
         public string Senha { get; set; }
+
+        //add caminho do FTP
     }
 }

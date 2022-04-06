@@ -16,8 +16,6 @@ namespace LiberadorSUAT.ModelsSecundarios
 
         public string SistemaCollectionName { get; set; }
 
-        public string ConfigEmailCollectionName { get; set; }
-
         public string ConfigFTPCollectionName { get; set; }
 
 

@@ -22,5 +22,7 @@ namespace LiberadorSUAT.ModelsSecundarios
 
         [BsonElement("release")]
         public string Release { get; set; } 
+
+        //adicionar sigla e array de destinatários
     }
  }
