@@ -1,4 +1,5 @@
-﻿using LiberadorSUAT.Screens;
+﻿using LiberadorSUAT.ModelsSecundarios;
+using LiberadorSUAT.Screens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,12 @@ namespace LiberadorSUAT
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SideBarLayout());
+
+           var builder = WebApplication.CreateBuilder(args);
+
+            // Add services to the container.
+            builder.Services.Configure<ConfiguracoesBancoLiberador>(
+                builder.Configuration.GetSection("ConfiguracoesBancoLiberador"));
         }
     }
 }
