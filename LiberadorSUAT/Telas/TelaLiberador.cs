@@ -160,36 +160,73 @@ namespace LiberadorSUAT
                 }
             }
 
+            List<Sistema> listaSistema = conexaoMongo.getSistemas();
+
             switch (Sistema)
             {
                 case "Evasores":
-                    txbSigla.Text = "EVA";
-                    txbVersao.Text = DadosConfiguracao[1];
-                    txbRelease.Text = DadosConfiguracao[2];
-                     break;
+                    foreach(var sistema in listaSistema)
+                    {
+                        if (sistema.Nome == "Evasores")
+                        {
+                            int indice = listaSistema.IndexOf(sistema);
+                            txbSigla.Text = listaSistema[indice].Sigla;
+                            txbVersao.Text = listaSistema[indice].Versao.ToString();
+                            txbRelease.Text = listaSistema[indice].Release.ToString();
+                        }
+                    }
+                    break;
 
                 case "SUATMobilidade":
-                    txbSigla.Text = "SUAT";
-                    txbVersao.Text = DadosConfiguracao[4];
-                    txbRelease.Text = DadosConfiguracao[5];
+                    foreach (var sistema in listaSistema)
+                    {
+                        if (sistema.Nome == "SUATMobilidade")
+                        {
+                            int indice = listaSistema.IndexOf(sistema);
+                            txbSigla.Text = listaSistema[indice].Sigla;
+                            txbVersao.Text = listaSistema[indice].Versao.ToString();
+                            txbRelease.Text = listaSistema[indice].Release.ToString();
+                        }
+                    }
                     break;
 
                 case "VLTRio":
-                    txbSigla.Text = "VLT";
-                    txbVersao.Text = DadosConfiguracao[7];
-                    txbRelease.Text = DadosConfiguracao[8];
+                    foreach (var sistema in listaSistema)
+                    {
+                        if (sistema.Nome == "VLTRio")
+                        {
+                            int indice = listaSistema.IndexOf(sistema);
+                            txbSigla.Text = listaSistema[indice].Sigla;
+                            txbVersao.Text = listaSistema[indice].Versao.ToString();
+                            txbRelease.Text = listaSistema[indice].Release.ToString();
+                        }
+                    }
                     break;
 
                 case "Automatizador":
-                    txbSigla.Text = "AUTO";
-                    txbVersao.Text = DadosConfiguracao[10];
-                    txbRelease.Text = DadosConfiguracao[11];
+                    foreach (var sistema in listaSistema)
+                    {
+                        if (sistema.Nome == "Automatizador")
+                        {
+                            int indice = listaSistema.IndexOf(sistema);
+                            txbSigla.Text = listaSistema[indice].Sigla;
+                            txbVersao.Text = listaSistema[indice].Versao.ToString();
+                            txbRelease.Text = listaSistema[indice].Release.ToString();
+                        }
+                    }
                     break;
 
                 case "Barcas":
-                    txbSigla.Text = "BRC";
-                    txbVersao.Text = DadosConfiguracao[13];
-                    txbRelease.Text = DadosConfiguracao[14];
+                    foreach (var sistema in listaSistema)
+                    {
+                        if (sistema.Nome == "Barcas")
+                        {
+                            int indice = listaSistema.IndexOf(sistema);
+                            txbSigla.Text = listaSistema[indice].Sigla;
+                            txbVersao.Text = listaSistema[indice].Versao.ToString();
+                            txbRelease.Text = listaSistema[indice].Release.ToString();
+                        }
+                    }
                     break;
 
                 default:
@@ -199,24 +236,7 @@ namespace LiberadorSUAT
 
         private void TelaLiberador_Load(object sender, EventArgs e)
         {
-            DownloadArquivo();
-
-            using (var fs = new FileStream("arquivoConfiguracao.txt", FileMode.Open))
-            {
-                using (var leitor = new StreamReader(fs))
-                {
-                    int i = 0;
-                    DadosConfiguracao = new string[30];
-
-                    while (!leitor.EndOfStream)
-                    {
-                        string dado = leitor.ReadLine();
-                        DadosConfiguracao[i] = dado;
-                        i++;
-                    }
-                }
-            }
-
+  
             txbSigla.Enabled = false;
 
             sideBar.btnInfos.BackColor = Color.DarkGray;
@@ -258,7 +278,7 @@ namespace LiberadorSUAT
 
         private void txbVersao_TextChanged(object sender, EventArgs e)
         {
-            switch (Sistema)
+           /* switch (Sistema)
             {
                 case "Evasores":
                     if (txbVersao.Text != DadosConfiguracao[1])
@@ -298,48 +318,14 @@ namespace LiberadorSUAT
                 default:
                     break;
 
-            }
-        }
-
-        public void DownloadArquivo()
-        {
-            string sharePointSite = "https://adntec.sharepoint.com/sites/Operacoes/ccr";
-            using (ClientContext ctx = new ClientContext(sharePointSite))
-            {
-                string account = "iolanda.pereira@adn.com.br";
-                string password = "Aselecao@2021";
-                var secretPassword = new SecureString();
-
-                foreach (char c in password)
-                {
-                    secretPassword.AppendChar(c);
-                }
-                ctx.Credentials = new SharePointOnlineCredentials(account, secretPassword);
-                ctx.Load(ctx.Web);
-                ctx.ExecuteQuery();
-
-                string libraryTitle = "Documentos";
-                Microsoft.SharePoint.Client.List list = ctx.Web.Lists.GetByTitle(libraryTitle);
-
-                string url = @"/sites/Operacoes/ccr/Documentos Compartilhados/pastaTesteLiberador/arquivoConfiguracao.txt";
-                ctx.Load(list);
-                ctx.ExecuteQuery();
-
-                using (var fileInfo = Microsoft.SharePoint.Client.File.OpenBinaryDirect(ctx, url))
-                {
-                    var fileName = Path.Combine(@"C:\Workspace\CCR\DesafioTecnico\LiberadorSUAT\bin\Debug\", Path.GetFileName(url));
-                    using (var fileStream = System.IO.File.Create(fileName))
-                    {
-                        fileInfo.Stream.CopyTo(fileStream);
-                    }
-                }
-            };
+            }*/
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<Sistema> lista = conexaoMongo.getSistemas();
-            dataGridView1.DataSource = lista;
+            //List<Sistema> lista = conexaoMongo.getSistemas();
+           // dataGridView1.DataSource = lista;
+
         }
     }
 }

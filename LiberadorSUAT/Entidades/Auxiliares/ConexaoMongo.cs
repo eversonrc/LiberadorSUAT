@@ -36,8 +36,5 @@ namespace LiberadorSUAT.Models.Auxiliares
             return listaSistema;
         }
 
-
-
-
     }
 }
