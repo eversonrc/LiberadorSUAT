@@ -19,10 +19,10 @@ namespace LiberadorSUAT.Models.Auxiliares
         public string Nome { get; set; }
 
         [BsonElement("versao")]
-        public double Versao { get; set; }
+        public Int32 Versao { get; set; }
 
         [BsonElement("release")]
-        public double Release { get; set; }
+        public Int32 Release { get; set; }
 
         [BsonElement("sigla")]
         public string Sigla { get; set; }
@@ -30,7 +30,7 @@ namespace LiberadorSUAT.Models.Auxiliares
         [BsonElement("grupoEmail")]
         public GrupoEmail grupoEmail { get; set; }
 
-        public Sistema(string nome, double versao, double release, string sigla, GrupoEmail grupoEmail)
+        public Sistema(string nome, int versao, int release, string sigla, GrupoEmail grupoEmail)
         {
             Nome = nome;
             Versao = versao;

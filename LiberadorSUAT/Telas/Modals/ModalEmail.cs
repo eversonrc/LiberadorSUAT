@@ -46,32 +46,32 @@ namespace LiberadorSUAT.Screens.Modals
             switch (telaLiberador.Sistema)
             {
                 case "Evasores":
-                   var updateBanco = Builders<Sistema>.Update.Set("versao", telaLiberador.txbVersao.Text).Set("release", telaLiberador.txbRelease.Text);
+                   var updateBanco = Builders<Sistema>.Update.Set("versao", int.Parse(telaLiberador.txbVersao.Text)).Set("release", int.Parse(telaLiberador.txbVersao.Text));
                     conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
                     break;
 
                 case "SUATMobilidade":
-                    updateBanco = Builders<Sistema>.Update.Set("versao", telaLiberador.txbVersao.Text).Set("release", telaLiberador.txbRelease.Text);
+                    updateBanco = Builders<Sistema>.Update.Set("versao", int.Parse(telaLiberador.txbVersao.Text)).Set("release", int.Parse(telaLiberador.txbVersao.Text));
                     conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
                     break;
 
                 case "VLTRio":
-                    updateBanco = Builders<Sistema>.Update.Set("versao", telaLiberador.txbVersao.Text).Set("release", telaLiberador.txbRelease.Text);
+                    updateBanco = Builders<Sistema>.Update.Set("versao", int.Parse(telaLiberador.txbVersao.Text)).Set("release", int.Parse(telaLiberador.txbVersao.Text));
                     conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
                     break;
 
                 case "Automatizador":
-                    updateBanco = Builders<Sistema>.Update.Set("versao", telaLiberador.txbVersao.Text).Set("release", telaLiberador.txbRelease.Text);
+                    updateBanco = Builders<Sistema>.Update.Set("versao", int.Parse(telaLiberador.txbVersao.Text)).Set("release", int.Parse(telaLiberador.txbVersao.Text));
                     conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
                     break;
 
                 case "Barcas":
-                    updateBanco = Builders<Sistema>.Update.Set("versao", telaLiberador.txbVersao.Text).Set("release", telaLiberador.txbRelease.Text);
+                    updateBanco = Builders<Sistema>.Update.Set("versao", int.Parse(telaLiberador.txbVersao.Text)).Set("release", int.Parse(telaLiberador.txbVersao.Text));
                     conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
                     break;
 
                 default:
-                    updateBanco = Builders<Sistema>.Update.Set("versao", telaLiberador.txbVersao.Text).Set("release", telaLiberador.txbRelease.Text);
+                    updateBanco = Builders<Sistema>.Update.Set("versao", int.Parse(telaLiberador.txbVersao.Text)).Set("release", int.Parse(telaLiberador.txbVersao.Text));
                     conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
                     break;
             }

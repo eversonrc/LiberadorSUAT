@@ -9,6 +9,8 @@ using Outlook = Microsoft.Office.Interop.Outlook;
 using LiberadorSUAT.Models;
 using LiberadorSUAT.Screens.Modals;
 using LiberadorSUAT.Screens;
+using LiberadorSUAT.Models.Auxiliares;
+using System.Collections.Generic;
 
 namespace LiberadorSUAT
 {
@@ -18,11 +20,14 @@ namespace LiberadorSUAT
         public TelaLiberador telaLiberador { get; set; }
         public ModalAnexos modalAnexo { get; set; }
 
+        public ConexaoMongo conexaoMongo { get; set; }
+
         public Email(SideBarLayout side, TelaLiberador tela, ModalAnexos modal)
         {
             sideBar = side;
             telaLiberador = tela;
             modalAnexo = modal;
+            conexaoMongo = new ConexaoMongo();
         }
 
         private string carregarHTML()
@@ -112,7 +117,14 @@ namespace LiberadorSUAT
        public void montaEmail(Outlook.Application application)
         {
             Outlook.MailItem message = (Outlook.MailItem)application.CreateItem(Outlook.OlItemType.olMailItem);
-            message.To = telaLiberador.DadosConfiguracao[18];
+            List<Sistema> listaSistema = conexaoMongo.getSistemas();
+            EnderecoEmail[] destinatarios = listaSistema[0].grupoEmail.destinatarios;
+
+            foreach(var destinatario in destinatarios)
+            {
+                message.To += destinatario.enderecoEmail + ";";
+            }
+
             message.CC = "";
             message.Subject = "Liberador SUAT";
             message.HTMLBody = carregarHTML();

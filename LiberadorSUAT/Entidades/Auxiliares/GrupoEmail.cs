@@ -13,12 +13,12 @@ namespace LiberadorSUAT.Models.Auxiliares
         public string Nome { get; set; }
 
         [BsonElement("destinatarios")]
-        public EnderecoEmail[] enderecoEmail { get; set; }
+        public EnderecoEmail[] destinatarios { get; set; }
 
-        public GrupoEmail(string nome, EnderecoEmail[] enderecoEmail)
+        public GrupoEmail(string nome, EnderecoEmail[] destinatarios)
         {
             Nome = nome;
-            this.enderecoEmail = enderecoEmail;
+            this.destinatarios = destinatarios;
         }
     }
 
