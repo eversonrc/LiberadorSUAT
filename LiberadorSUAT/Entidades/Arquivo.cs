@@ -1,4 +1,5 @@
-﻿using LiberadorSUAT.Screens.Modals;
+﻿using LiberadorSUAT.Models.Auxiliares;
+using LiberadorSUAT.Screens.Modals;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,9 +14,11 @@ namespace LiberadorSUAT.Models
     class Arquivo
     {
         public TelaLiberador telaLiberador { get; set; }
+        public ConexaoMongo conexaoMongo;
 
         public Arquivo (TelaLiberador tela){
             telaLiberador = tela;
+            conexaoMongo = new ConexaoMongo();
         }
 
         string[] optionList = new string[2]
@@ -47,7 +50,6 @@ namespace LiberadorSUAT.Models
                         arquivos.SubItems.Add(caminho);
                         listView.Items.Add(arquivos);
 
-                        //uploadFTP(nome, nome);
                     }
                 }
             }
@@ -68,9 +70,14 @@ namespace LiberadorSUAT.Models
 
         public void uploadFTP(string arquivo, string destino)
         {
-            var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(@"ftp://adnccr@ftp.adn.com.br/CCR/Versao/LIBERADOR_SUAT/" + destino);
+            List<ConfiguracaoFTP> lista = conexaoMongo.getConfigFTP();
+            string caminhoFTP = lista[0].Caminho.ToString();
+            string senhaFTP = lista[0].Senha.ToString();
+            string usuarioFTP = lista[0].Usuario.ToString();
+
+            var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(caminhoFTP + destino);
             request.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
-            request.Credentials = new System.Net.NetworkCredential(telaLiberador.DadosConfiguracao[15], telaLiberador.DadosConfiguracao[16]);
+            request.Credentials = new System.Net.NetworkCredential(usuarioFTP,senhaFTP);
 
             var conteudoArquivo = System.IO.File.ReadAllBytes(arquivo);
             request.ContentLength = conteudoArquivo.Length;

@@ -204,7 +204,6 @@ namespace LiberadorSUAT.Screens.Modals
         {
             if (validadorCampos() == true)
             {
-                //enviando arquivos pro FTP
                 Arquivo arquivo = new Arquivo(telaLiberador);
                 arquivo.percorrerDiretorioArquivos(@"C:\Workspace\CCR\DesafioTecnico\LiberadorSUAT\bin\Debug\arquivos\");
 

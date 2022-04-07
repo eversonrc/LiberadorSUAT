@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace LiberadorSUAT.ModelsSecundarios
+namespace LiberadorSUAT.Models.Auxiliares
 {
     public class ConfiguracaoFTP
     {
@@ -20,6 +20,14 @@ namespace LiberadorSUAT.ModelsSecundarios
         [BsonElement("senha")]
         public string Senha { get; set; }
 
-        //add caminho do FTP
+        [BsonElement("caminho")]
+        public string Caminho { get; set; }
+
+        public ConfiguracaoFTP(string usuario, string senha, string caminho)
+        {
+            Usuario = usuario;
+            Senha = senha;
+            Caminho = caminho;
+        }
     }
 }

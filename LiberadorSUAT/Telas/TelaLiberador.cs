@@ -16,6 +16,9 @@ using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using MongoDB.Driver;
+using LiberadorSUAT.Models.Auxiliares;
+using System.Collections.ObjectModel;
 
 namespace LiberadorSUAT
 {
@@ -26,13 +29,16 @@ namespace LiberadorSUAT
         public String TipoLiberacao { get; set; }
         public String[] DadosConfiguracao { get; set; }
 
-       // public Microsoft.SharePoint.Client.FileInformation fileInfo;
+        public ConexaoMongo conexaoMongo;
+        
+
         public TelaLiberador(SideBarLayout side)
         {
             InitializeComponent();
             ConfigurarToolTip();
             gerarGrade();
             sideBar = side;
+            conexaoMongo = new ConexaoMongo();
         }
 
         public TelaLiberador()
@@ -52,7 +58,7 @@ namespace LiberadorSUAT
             listViewAlteracoes.CheckBoxes = true;
         }
 
-        private bool validadorCampos()
+         private bool validadorCampos()
         {
             if (
                 txbTitulo.Text != "" &&
@@ -330,5 +336,10 @@ namespace LiberadorSUAT
             };
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+           var lista =  conexaoMongo.getConfigFTP();
+           txbRelease.Text = lista[0].Caminho.ToString();
+        }
     }
 }
