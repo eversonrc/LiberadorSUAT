@@ -278,7 +278,7 @@ namespace LiberadorSUAT
 
         private void txbVersao_TextChanged(object sender, EventArgs e)
         {
-           /* switch (Sistema)
+           /*switch (Sistema)
             {
                 case "Evasores":
                     if (txbVersao.Text != DadosConfiguracao[1])

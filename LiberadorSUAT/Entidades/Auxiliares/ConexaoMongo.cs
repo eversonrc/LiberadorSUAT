@@ -11,9 +11,9 @@ namespace LiberadorSUAT.Models.Auxiliares
     {
         string conexaoString = "mongodb+srv://liberadorSuat:61zy7S2uraHgTWTs@cluster0.9tbfn.mongodb.net/test";
         public MongoClient client;
-        static IMongoDatabase db;
-        static IMongoCollection<ConfiguracaoFTP> colecaoConfiguracaoFTP;
-        static IMongoCollection<Sistema> colecaoSistema;
+        public IMongoDatabase db { get; set; }
+        public IMongoCollection<ConfiguracaoFTP> colecaoConfiguracaoFTP { get; set; }
+        public IMongoCollection<Sistema> colecaoSistema { get; set; }
 
         public ConexaoMongo()
         {

@@ -1,4 +1,7 @@
-﻿using Microsoft.SharePoint.Client;
+﻿using LiberadorSUAT.Models.Auxiliares;
+using Microsoft.SharePoint.Client;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,12 +24,15 @@ namespace LiberadorSUAT.Screens.Modals
         public TelaLiberador telaLiberador { get; set; }
         public String[] LinhasArquivo { get; set; }
 
+        public ConexaoMongo conexaoMongo { get; set; }
+
         public ModalEmail(SideBarLayout side, TelaLiberador tela)
         {
             InitializeComponent();
             sideBar = side;
             telaLiberador = tela;
             isAcessivel = false;
+            conexaoMongo = new ConexaoMongo();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -36,7 +42,40 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void btnEnviarEmail_Click(object sender, EventArgs e)
         {
-           //insert no banco com a versão e release
+            
+            switch (telaLiberador.Sistema)
+            {
+                case "Evasores":
+                   var updateBanco = Builders<Sistema>.Update.Set("versao", telaLiberador.txbVersao.Text).Set("release", telaLiberador.txbRelease.Text);
+                    conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
+                    break;
+
+                case "SUATMobilidade":
+                    updateBanco = Builders<Sistema>.Update.Set("versao", telaLiberador.txbVersao.Text).Set("release", telaLiberador.txbRelease.Text);
+                    conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
+                    break;
+
+                case "VLTRio":
+                    updateBanco = Builders<Sistema>.Update.Set("versao", telaLiberador.txbVersao.Text).Set("release", telaLiberador.txbRelease.Text);
+                    conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
+                    break;
+
+                case "Automatizador":
+                    updateBanco = Builders<Sistema>.Update.Set("versao", telaLiberador.txbVersao.Text).Set("release", telaLiberador.txbRelease.Text);
+                    conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
+                    break;
+
+                case "Barcas":
+                    updateBanco = Builders<Sistema>.Update.Set("versao", telaLiberador.txbVersao.Text).Set("release", telaLiberador.txbRelease.Text);
+                    conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
+                    break;
+
+                default:
+                    updateBanco = Builders<Sistema>.Update.Set("versao", telaLiberador.txbVersao.Text).Set("release", telaLiberador.txbRelease.Text);
+                    conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
+                    break;
+            }
+
 
             Email email = new Email(sideBar, telaLiberador, modalAnexo);
             isAcessivel = true;
