@@ -20,19 +20,23 @@ namespace LiberadorSUAT.Models.Auxiliares
             client = new MongoClient(conexaoString);
             db = client.GetDatabase("LiberadorSUAT");
             colecaoConfiguracaoFTP = db.GetCollection<ConfiguracaoFTP>("ConfiguracoesFTP");
-            colecaoSistema = db.GetCollection<Sistema>("Sistema");
+            colecaoSistema = db.GetCollection<Sistema>("Sistemas");
         }
 
-        public void GetTodasColecoes()
-        {
-            var colecoes = db.ListCollectionNames().ToList();
-        }
 
         public List<ConfiguracaoFTP> getConfigFTP()
         {
             List<ConfiguracaoFTP> listaFTP = colecaoConfiguracaoFTP.AsQueryable().ToList<ConfiguracaoFTP>();
             return listaFTP;
         }
+
+        public List<Sistema> getSistemas()
+        {
+            List<Sistema> listaSistema = colecaoSistema.AsQueryable().ToList<Sistema>();
+            return listaSistema;
+        }
+
+
 
 
     }

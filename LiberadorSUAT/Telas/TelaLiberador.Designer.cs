@@ -286,7 +286,7 @@ namespace LiberadorSUAT
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(406, 441);
+            this.button1.Location = new System.Drawing.Point(455, 437);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 46;
@@ -297,9 +297,9 @@ namespace LiberadorSUAT
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(103, 427);
+            this.dataGridView1.Location = new System.Drawing.Point(178, 408);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(228, 57);
+            this.dataGridView1.Size = new System.Drawing.Size(240, 76);
             this.dataGridView1.TabIndex = 47;
             // 
             // TelaLiberador

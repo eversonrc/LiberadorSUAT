@@ -36,9 +36,7 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void btnEnviarEmail_Click(object sender, EventArgs e)
         {
-            EscreverArquivoConfiguracao();
-
-            UploadArquivo();
+           //insert no banco com a versão e release
 
             Email email = new Email(sideBar, telaLiberador, modalAnexo);
             isAcessivel = true;
@@ -46,102 +44,6 @@ namespace LiberadorSUAT.Screens.Modals
   
         }
 
-        private void EscreverArquivoConfiguracao()
-        {
-            string caminho = @"arquivoConfiguracao.txt";
-            LinhasArquivo = new string[30];
-            LinhasArquivo = telaLiberador.DadosConfiguracao;
-
-            using (var fs = new FileStream(caminho, FileMode.Open))
-            {
-                using (var escritor = new StreamWriter(fs))
-                {
-                    switch (telaLiberador.Sistema)
-                    {
-                        case "Evasores":
-                            LinhasArquivo[1] = telaLiberador.txbVersao.Text;
-                            LinhasArquivo[2] = telaLiberador.txbRelease.Text;
-                            break;
-
-                        case "SUATMobilidade":
-
-                            LinhasArquivo[4] = telaLiberador.txbVersao.Text;
-                            LinhasArquivo[5] = telaLiberador.txbRelease.Text;
-                            break;
-
-                        case "VLTRio":
-                            LinhasArquivo[7] = telaLiberador.txbVersao.Text;
-                            LinhasArquivo[8] = telaLiberador.txbRelease.Text;
-                            break;
-
-                        case "Automatizador":
-                            LinhasArquivo[10] = telaLiberador.txbVersao.Text;
-                            LinhasArquivo[11] = telaLiberador.txbRelease.Text;
-                            break;
-
-                        case "Barcas":
-                            LinhasArquivo[13] = telaLiberador.txbVersao.Text;
-                            LinhasArquivo[14] = telaLiberador.txbRelease.Text;
-                            break;
-
-                        default:
-                            break;
-                    }
-
-                    for (int i=0; i < LinhasArquivo.Length; i++)
-                    {
-                        escritor.WriteLine(LinhasArquivo[i]);
-                    }
-                }
-            }
-
-        }
-
-        private void UploadArquivo()
-        {
-            String FilePath = @"arquivoConfiguracao.txt";
-            string Library = "Documentos";
-            string SiteUrl = @"https://adntec.sharepoint.com/sites/Operacoes/ccr/";
-            string FileName = FilePath.Substring(FilePath.LastIndexOf("\\") + 1);
-
-            using (ClientContext ctx = new ClientContext(SiteUrl))
-            {
-                string account = "iolanda.pereira@adn.com.br";
-                string password = "Aselecao@2021";
-                var secretPassword = new SecureString();
-
-                foreach (char c in password)
-                {
-                    secretPassword.AppendChar(c);
-                }
-
-                ctx.Credentials = new SharePointOnlineCredentials(account, secretPassword);
-                ctx.Load(ctx.Web);
-                ctx.ExecuteQuery();
-
-                FileCreationInformation newFile = new FileCreationInformation();
-                newFile.Content = System.IO.File.ReadAllBytes(FilePath);
-                newFile.Url = System.IO.Path.GetFileName(FilePath);
-
-                string libraryTitle = "Documentos";
-                List oList = ctx.Web.Lists.GetByTitle(libraryTitle);
-                //Add Folder 
-                var folders = oList.RootFolder.Folders;
-                ctx.Load(folders);
-                ctx.ExecuteQuery();
-                var folder = folders.Where(r => r.Name == "TopFolder");
-                var folder1 = folder.FirstOrDefault();
-                Microsoft.SharePoint.Client.File uploadFile = oList.RootFolder.Files.Add(newFile);
-                //Microsoft.SharePoint.Client.File uploadFile = folder1.Files.Add(newFile);
-                ctx.Load(uploadFile);
-                ctx.ExecuteQuery();
-                ListItem item = uploadFile.ListItemAllFields;
-                string docTitle = string.Empty;
-                item["Title"] = docTitle;
-                item.Update();
-                ctx.ExecuteQuery();
-            }
-        }
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
