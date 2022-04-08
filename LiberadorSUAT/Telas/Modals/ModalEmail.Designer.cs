@@ -56,7 +56,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Leia as regras de liberação abaixo antes de enviar o e-mail.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnEnviarEmail
             // 

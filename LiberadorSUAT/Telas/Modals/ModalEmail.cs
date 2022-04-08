@@ -18,71 +18,62 @@ namespace LiberadorSUAT.Screens.Modals
 {
     public partial class ModalEmail : System.Windows.Forms.Form
     {
-        public static bool isAcessivel { get; set; }
         public SideBarLayout sideBar { get; set; }
         public ModalAnexos modalAnexo { get; set; }
         public TelaLiberador telaLiberador { get; set; }
         public String[] LinhasArquivo { get; set; }
-
         public ConexaoMongo conexaoMongo { get; set; }
+
+        public UpdateDefinition<Sistema> updateBanco { get; set; }
 
         public ModalEmail(SideBarLayout side, TelaLiberador tela)
         {
             InitializeComponent();
             sideBar = side;
             telaLiberador = tela;
-            isAcessivel = false;
             conexaoMongo = new ConexaoMongo();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+ 
         private void btnEnviarEmail_Click(object sender, EventArgs e)
         {
-            
             switch (telaLiberador.Sistema)
             {
                 case "Evasores":
-                   var updateBanco = Builders<Sistema>.Update.Set("versao", int.Parse(telaLiberador.txbVersao.Text)).Set("release", int.Parse(telaLiberador.txbVersao.Text));
-                    conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
+                    AtualizarBanco();
                     break;
 
                 case "SUATMobilidade":
-                    updateBanco = Builders<Sistema>.Update.Set("versao", int.Parse(telaLiberador.txbVersao.Text)).Set("release", int.Parse(telaLiberador.txbVersao.Text));
-                    conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
+                    AtualizarBanco();
                     break;
 
                 case "VLTRio":
-                    updateBanco = Builders<Sistema>.Update.Set("versao", int.Parse(telaLiberador.txbVersao.Text)).Set("release", int.Parse(telaLiberador.txbVersao.Text));
-                    conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
+                    AtualizarBanco();
                     break;
 
                 case "Automatizador":
-                    updateBanco = Builders<Sistema>.Update.Set("versao", int.Parse(telaLiberador.txbVersao.Text)).Set("release", int.Parse(telaLiberador.txbVersao.Text));
-                    conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
+                    AtualizarBanco();
                     break;
 
                 case "Barcas":
-                    updateBanco = Builders<Sistema>.Update.Set("versao", int.Parse(telaLiberador.txbVersao.Text)).Set("release", int.Parse(telaLiberador.txbVersao.Text));
-                    conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
+                    AtualizarBanco();
                     break;
 
                 default:
-                    updateBanco = Builders<Sistema>.Update.Set("versao", int.Parse(telaLiberador.txbVersao.Text)).Set("release", int.Parse(telaLiberador.txbVersao.Text));
-                    conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
+                    AtualizarBanco();
                     break;
             }
 
-
             Email email = new Email(sideBar, telaLiberador, modalAnexo);
-            isAcessivel = true;
             email.GetApplicationObject();
-  
         }
 
+
+        private void AtualizarBanco()
+        {
+            updateBanco = Builders<Sistema>.Update.Set("versao", telaLiberador.txbVersao.Text).Set("release", telaLiberador.txbRelease.Text);
+            conexaoMongo.colecaoSistema.UpdateOne(s => s.Nome == (telaLiberador.Sistema), updateBanco);
+        }
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {

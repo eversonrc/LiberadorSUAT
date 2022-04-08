@@ -118,11 +118,17 @@ namespace LiberadorSUAT
         {
             Outlook.MailItem message = (Outlook.MailItem)application.CreateItem(Outlook.OlItemType.olMailItem);
             List<Sistema> listaSistema = conexaoMongo.getSistemas();
-            EnderecoEmail[] destinatarios = listaSistema[0].grupoEmail.destinatarios;
+            EnderecoEmail[] enderecosEmail = listaSistema[0].grupoEmail.destinatarios;
+            string[] destinatarios = new string[enderecosEmail.Length];
+            //fazer switch case
+            for (int i = 0; i < enderecosEmail.Length; i++)
+            {
+                destinatarios[i] = (enderecosEmail[i].enderecoEmail + ";");
+            } 
 
             foreach(var destinatario in destinatarios)
             {
-                message.To += destinatario.enderecoEmail + ";";
+                message.To += destinatario;
             }
 
             message.CC = "";
