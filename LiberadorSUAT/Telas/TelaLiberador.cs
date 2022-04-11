@@ -278,47 +278,89 @@ namespace LiberadorSUAT
 
         private void txbVersao_TextChanged(object sender, EventArgs e)
         {
-           /*switch (Sistema)
+
+            List<Sistema> listaSistema = conexaoMongo.getSistemas();
+
+            switch (Sistema)
             {
                 case "Evasores":
-                    if (txbVersao.Text != DadosConfiguracao[1])
+                    foreach (var sistema in listaSistema)
                     {
-                        txbRelease.Text = "0";
+                        if (sistema.Nome == "Evasores")
+                        {
+                            int indice = listaSistema.IndexOf(sistema);
+
+                            if (txbVersao.Text != listaSistema[indice].Versao)
+                            {
+                                txbRelease.Text = "0";
+                            }
+                        } 
                     }
                     break;
 
                 case "SUATMobilidade":
-                    if (txbVersao.Text != DadosConfiguracao[4])
+                    foreach (var sistema in listaSistema)
                     {
-                        txbRelease.Text = "0";
+                        if (sistema.Nome == "SUATMobilidade")
+                        {
+                            int indice = listaSistema.IndexOf(sistema);
+
+                            if (txbVersao.Text != listaSistema[indice].Versao)
+                            {
+                                txbRelease.Text = "0";
+                            }
+                        }
                     }
                     break;
 
                 case "VLTRio":
-                    if (txbVersao.Text != DadosConfiguracao[7])
+                    foreach (var sistema in listaSistema)
                     {
-                        txbRelease.Text = "0";
+                        if (sistema.Nome == "VLTRio")
+                        {
+                            int indice = listaSistema.IndexOf(sistema);
+
+                            if (txbVersao.Text != listaSistema[indice].Versao)
+                            {
+                                txbRelease.Text = "0";
+                            }
+                        }
                     }
                     break;
 
                 case "Automatizador":
-                    if(txbVersao.Text != DadosConfiguracao[10])
+                    foreach (var sistema in listaSistema)
                     {
-                        txbRelease.Text = "0";
+                        if (sistema.Nome == "Automatizador")
+                        {
+                            int indice = listaSistema.IndexOf(sistema);
+
+                            if (txbVersao.Text != listaSistema[indice].Versao)
+                            {
+                                txbRelease.Text = "0";
+                            }
+                        }
                     }
                     break;
 
                 case "Barcas":
-                    if (txbVersao.Text != DadosConfiguracao[13])
+                    foreach (var sistema in listaSistema)
                     {
-                        txbRelease.Text = "0";
+                        if (sistema.Nome == "Barcas")
+                        {
+                            int indice = listaSistema.IndexOf(sistema);
+
+                            if (txbVersao.Text != listaSistema[indice].Versao)
+                            {
+                                txbRelease.Text = "0";
+                            }
+                        }
                     }
                     break;
 
                 default:
                     break;
-
-            }*/
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
