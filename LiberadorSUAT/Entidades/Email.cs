@@ -24,6 +24,8 @@ namespace LiberadorSUAT
 
         public List<Sistema> listaSistema { get; set; }
 
+        public List<ConfiguracaoFTP> configuracaoFTP { get; set; }
+
         public Email(SideBarLayout side, TelaLiberador tela, ModalAnexos modal)
         {
             sideBar = side;
@@ -31,6 +33,7 @@ namespace LiberadorSUAT
             modalAnexo = modal;
             conexaoMongo = new ConexaoMongo();
             listaSistema = conexaoMongo.getSistemas();
+            configuracaoFTP = conexaoMongo.getConfigFTP();
         }
 
         private string carregarHTML()
@@ -55,6 +58,7 @@ namespace LiberadorSUAT
                 body = body.Replace("{numVersao}", telaLiberador.txbVersao.Text);
                 body = body.Replace("{numRelease}", telaLiberador.txbRelease.Text);
                 body = body.Replace("{tpLiberacao}", telaLiberador.TipoLiberacao);
+                body = body.Replace("{lclArquivoFtp}", configuracaoFTP[0].Caminho);
 
                 string alteracoes = "";
                 for (int i=0; i < telaLiberador.listViewAlteracoes.Items.Count; i++)

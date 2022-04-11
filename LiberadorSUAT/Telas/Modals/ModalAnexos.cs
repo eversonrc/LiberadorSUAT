@@ -65,6 +65,10 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void gerarGrade()
         {
+            listViewArquivos.ForeColor = System.Drawing.Color.Red;
+            listViewScripts.ForeColor = System.Drawing.Color.Red;
+            listViewDocumentos.ForeColor = System.Drawing.Color.Red;
+
             listViewArquivos.Columns.Add("", -2).TextAlign = HorizontalAlignment.Left;
             listViewArquivos.Columns.Add("Arquivo", -2).TextAlign = HorizontalAlignment.Left;
             listViewArquivos.Columns.Add("Caminho do arquivo", 500).TextAlign = HorizontalAlignment.Left;

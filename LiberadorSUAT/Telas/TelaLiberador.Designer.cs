@@ -151,6 +151,7 @@ namespace LiberadorSUAT
             this.listViewAlteracoes.TabIndex = 22;
             this.listViewAlteracoes.UseCompatibleStateImageBehavior = false;
             this.listViewAlteracoes.View = System.Windows.Forms.View.Details;
+            this.listViewAlteracoes.SelectedIndexChanged += new System.EventHandler(this.listViewAlteracoes_SelectedIndexChanged);
             // 
             // btnNovoAlteracao
             // 
@@ -246,6 +247,7 @@ namespace LiberadorSUAT
             this.btnAjudaAlteracoes.Size = new System.Drawing.Size(27, 26);
             this.btnAjudaAlteracoes.TabIndex = 43;
             this.btnAjudaAlteracoes.UseVisualStyleBackColor = false;
+            this.btnAjudaAlteracoes.Click += new System.EventHandler(this.btnAjudaAlteracoes_Click);
             // 
             // btnModalAnexos
             // 

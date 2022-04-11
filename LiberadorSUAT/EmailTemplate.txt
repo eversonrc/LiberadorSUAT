@@ -1,1 +1,136 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head> <title>Libera&ccedil;&atilde;o de Vers&atilde;o</title> <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> <style type="text/css"> @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap"); </style> <style>body{Margin-left: 40%;}table{border-collapse: collapse; width: 640px; font-family: 'Poppins', sans-serif;}</style></head><body> <table> <td style="background-color: rgb(240, 240, 240); width:740px"> <table> <tr> <td> <div style="width:640px"> <img src="https://i.ibb.co/YDHxM5x/Microsoft-Teams-image-4.png" alt="Microsoft-Teams-image-4"> </div></td></tr></table> <table> <tr> <td width="60%"> <div class="versao-sistema"> <h1 style="font-weight: 800; font-size: 30px; color: #323232; width: 100%; padding: 10px 10px 0 10px;"> Sistema -{nomeSistema}</h1> <h2>Tipo da liberação:{tpLiberacao}</h2> <div> </td><td width="40%"> <div class="botao-versao-sistema texto-botao" style=" height: 40px; width:100px; padding: 5px 10px 0 10px; border: none; border-radius: 3px; background-color: #9f3224; "> <p style=" font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 12px; color: #f6f3f3; "> Vers&atilde;o:{numVersao}-{numRelease}</p></div></td></tr></table> <table> <tr> <td> <h3 style=" font-weight: 600; font-size: 18px; color: #f59f00; margin: 12px 0 0 0; "> Alterações Realizadas </h3> </td></tr><tr> <td> <table style="width: 100%"> <thead> <tr style=" width: 100%; border: 3px; border-radius: 13.5px 13.5px 0px 0px; background-color: #949494; "> <th style="text-align: left; width: 15%">Helpdesk</th> <th style="text-align: left; width: 15%">Responsável</th> <th style="text-align: center; width: 35%">Descrição do Chamado</th> <th style="text-align: center; width: 35%">Alteração</th> </tr></thead> %gridAlteracoes% </table> </td></tr></table> <table> <tr> <td> <h3 style=" font-weight: 600; font-size: 18px; color: #f59f00; margin: 12px 0 0 0; "> Arquivos disponibilizados </h3> </td></tr><tr> <td> <table style="width: 100%"> <tr style=" width: 100%; border: 3px; border-radius: 13.5px 13.5px 0px 0px; background-color: #949494; "> <th style="text-align: left; width: 100%">Arquivo</th> </tr>%gridArquivos% </table> </td></tr></table> <table> <tr> <td> <h3 style=" font-weight: 600; font-size: 18px; color: #f59f00; margin: 17px 0 0 0; "> Scripts de Banco de Dados </h3> </td></tr><tr> <td> <table style="width: 100%"> <tr style=" width: 100%; border: 3px; border-radius: 13.5px 13.5px 0px 0px; background-color: #949494; "> <th style="text-align: left; width: 100%">Script</th> </tr>%gridScripts% </table> </td></tr></table> <table> <tr> <td> <h3 style="font-weight: 600; font-size: 18px; color: #f59f00; margin: 12px 0 0 0;"> Documenta&ccedil;&otilde;es extras </h3> </td></tr><tr> <td> <table style="width: 100%"> <tr style=" width: 100%; border: 3px; border-radius: 13.5px 13.5px 0px 0px; background-color: #949494; "> <th style="text-align: left; width: 100%">Documento</th> </tr>%gridDocumentacoes% </table> </td></tr></table> </td></table></body></html>
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>Libera&ccedil;&atilde;o de Vers&atilde;o</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap");
+    </style>
+    <style>
+        body {
+            Margin-left: 40%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 640px;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <td style="background-color: rgb(240, 240, 240); width:740px">
+            <table>
+                <tr>
+                    <td>
+                        <div style="width:640px"> <img src="https://i.ibb.co/YDHxM5x/Microsoft-Teams-image-4.png"
+                                alt="Microsoft-Teams-image-4"> </div>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td width="80%">
+                        <div class="versao-sistema">
+                            <h1
+                                style="font-weight: 800; font-size: 30px; color: #323232; width: 100%; padding: 10px 10px 0 10px;">
+                                Sistema - <span>{nomeSistema}</span></h1>
+                            <h2>Tipo da liberação: <span>{tpLiberacao}</span></h2>
+                            <h2>Local do arquivo: </h2><p style="margin-top: -10px">{lclArquivoFtp}</p>
+                            <div>
+                    </td>
+                    <td width="20%">
+                        <div class="botao-versao-sistema texto-botao"
+                            style=" text-align: center; height: 40px; width:50px; padding: 10px 10px 0 10px; border: none; border-radius: 3px; background-color: #9f3224; ">
+                            <p
+                                style=" font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 12px; color: #f6f3f3; ">
+                                Vers&atilde;o: {numVersao} - {numRelease}</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3 style=" font-weight: 600; font-size: 18px; color: #f59f00; margin: 12px 0 0 0; "> Alterações
+                            Realizadas </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="width: 100%">
+                            <thead>
+                                <tr
+                                    style=" width: 100%; border: 3px; border-radius: 13.5px 13.5px 0px 0px; background-color: #949494; ">
+                                    <th style="text-align: left; width: 15%">Helpdesk</th>
+                                    <th style="text-align: left; width: 15%">Responsável</th>
+                                    <th style="text-align: center; width: 35%">Descrição do Chamado</th>
+                                    <th style="text-align: center; width: 35%">Alteração</th>
+                                </tr>
+                            </thead> %gridAlteracoes%
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3 style=" font-weight: 600; font-size: 18px; color: #f59f00; margin: 12px 0 0 0; "> Arquivos
+                            disponibilizados </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="width: 100%">
+                            <tr
+                                style=" width: 100%; border: 3px; border-radius: 13.5px 13.5px 0px 0px; background-color: #949494; ">
+                                <th style="text-align: left; width: 100%">Arquivo</th>
+                            </tr>%gridArquivos%
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3 style=" font-weight: 600; font-size: 18px; color: #f59f00; margin: 17px 0 0 0; "> Scripts de
+                            Banco de Dados </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="width: 100%">
+                            <tr
+                                style=" width: 100%; border: 3px; border-radius: 13.5px 13.5px 0px 0px; background-color: #949494; ">
+                                <th style="text-align: left; width: 100%">Script</th>
+                            </tr>%gridScripts%
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3 style="font-weight: 600; font-size: 18px; color: #f59f00; margin: 12px 0 0 0;">
+                            Documenta&ccedil;&otilde;es extras </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="width: 100%">
+                            <tr
+                                style=" width: 100%; border: 3px; border-radius: 13.5px 13.5px 0px 0px; background-color: #949494; ">
+                                <th style="text-align: left; width: 100%">Documento</th>
+                            </tr>%gridDocumentacoes%
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </table>
+</body>
+
+</html>

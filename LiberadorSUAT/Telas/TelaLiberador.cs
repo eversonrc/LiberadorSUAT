@@ -51,6 +51,7 @@ namespace LiberadorSUAT
             listViewAlteracoes.Columns.Add("Responsável", 150).TextAlign = HorizontalAlignment.Center;
             listViewAlteracoes.Columns.Add("Descrição", 260).TextAlign = HorizontalAlignment.Center;
             listViewAlteracoes.Columns.Add("Alteração", 260).TextAlign = HorizontalAlignment.Center;
+
             listViewAlteracoes.View = System.Windows.Forms.View.Details;
 
             listViewAlteracoes.FullRowSelect = true;
@@ -364,6 +365,16 @@ namespace LiberadorSUAT
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewAlteracoes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAjudaAlteracoes_Click(object sender, EventArgs e)
         {
 
         }
