@@ -24,8 +24,6 @@ namespace LiberadorSUAT
 
         public List<Sistema> listaSistema { get; set; }
 
-        public string[] destinatarios { get; set; }
-
         public Email(SideBarLayout side, TelaLiberador tela, ModalAnexos modal)
         {
             sideBar = side;
@@ -122,7 +120,7 @@ namespace LiberadorSUAT
        public void montaEmail(Outlook.Application application)
         {
             Outlook.MailItem message = (Outlook.MailItem)application.CreateItem(Outlook.OlItemType.olMailItem);
-            int indice = 0;
+            int indice = -1;
 
             switch (telaLiberador.Sistema)
             {
@@ -133,14 +131,22 @@ namespace LiberadorSUAT
                         {
                             indice = listaSistema.IndexOf(sistema);
 
-                            preencherDestinatarios(indice);
+                            EnderecoEmail[] enderecosEmail = listaSistema[indice].grupoEmail.destinatarios;
+
+                            string[] destinatarios = new string[enderecosEmail.Length];
+
+                            for (int i = 0; i < enderecosEmail.Length; i++)
+                            {
+                                destinatarios[i] = (enderecosEmail[i].enderecoEmail);
+                            }
+
                             foreach (var destinatario in destinatarios)
                             {
                                 message.To += destinatario;
                             }
-                        }
-                        
+                        }    
                     }
+
                     break;
 
                 case "SUATMobilidade":
@@ -150,16 +156,24 @@ namespace LiberadorSUAT
                         {
                             indice = listaSistema.IndexOf(sistema);
 
-                            preencherDestinatarios(indice);
+                            EnderecoEmail[] enderecosEmail = listaSistema[indice].grupoEmail.destinatarios;
+
+                            string[] destinatarios = new string[enderecosEmail.Length];
+
+                            for (int i = 0; i < enderecosEmail.Length; i++)
+                            {
+                                destinatarios[i] = (enderecosEmail[i].enderecoEmail);
+                            }
 
                             foreach (var destinatario in destinatarios)
                             {
                                 message.To += destinatario;
                             }
                         }
-                        
                     }
+
                     break;
+
 
                 case "VLTRio":
                     foreach (var sistema in listaSistema)
@@ -168,15 +182,22 @@ namespace LiberadorSUAT
                         {
                             indice = listaSistema.IndexOf(sistema);
 
-                            preencherDestinatarios(indice);
+                            EnderecoEmail[] enderecosEmail = listaSistema[indice].grupoEmail.destinatarios;
+
+                            string[] destinatarios = new string[enderecosEmail.Length];
+
+                            for (int i = 0; i < enderecosEmail.Length; i++)
+                            {
+                                destinatarios[i] = (enderecosEmail[i].enderecoEmail);
+                            }
 
                             foreach (var destinatario in destinatarios)
                             {
                                 message.To += destinatario;
                             }
                         }
-
                     }
+
                     break;
 
                 case "Automatizador":
@@ -186,15 +207,22 @@ namespace LiberadorSUAT
                         {
                             indice = listaSistema.IndexOf(sistema);
 
-                            preencherDestinatarios(indice);
+                            EnderecoEmail[] enderecosEmail = listaSistema[indice].grupoEmail.destinatarios;
+
+                            string[] destinatarios = new string[enderecosEmail.Length];
+
+                            for (int i = 0; i < enderecosEmail.Length; i++)
+                            {
+                                destinatarios[i] = (enderecosEmail[i].enderecoEmail);
+                            }
 
                             foreach (var destinatario in destinatarios)
                             {
                                 message.To += destinatario;
                             }
                         }
-
                     }
+
                     break;
 
                 case "Barcas":
@@ -204,39 +232,34 @@ namespace LiberadorSUAT
                         {
                             indice = listaSistema.IndexOf(sistema);
 
-                            preencherDestinatarios(indice);
+                            EnderecoEmail[] enderecosEmail = listaSistema[indice].grupoEmail.destinatarios;
+
+                            string[] destinatarios = new string[enderecosEmail.Length];
+
+                            for (int i = 0; i < enderecosEmail.Length; i++)
+                            {
+                                destinatarios[i] = (enderecosEmail[i].enderecoEmail);
+                            }
 
                             foreach (var destinatario in destinatarios)
                             {
                                 message.To += destinatario;
                             }
                         }
-
                     }
+
                     break;
 
                 default:
                     break;
-
-                    message.CC = "";
-                    message.Subject = "Liberador SUAT";
-                    message.HTMLBody = carregarHTML();
-                    message.Importance = Outlook.OlImportance.olImportanceHigh;
-                    message.Display(false);
-            }
-        }
-
-        public string[] preencherDestinatarios(int indice)
-        {
-            EnderecoEmail[] enderecosEmail = listaSistema[indice].grupoEmail.destinatarios;
-            destinatarios = new string[enderecosEmail.Length];
-
-            for (int i = 0; i < enderecosEmail.Length; i++)
-            {
-                destinatarios[i] = (enderecosEmail[i].enderecoEmail);
             }
 
-            return destinatarios;
+
+            message.CC = "";
+            message.Subject = "Liberador SUAT";
+            message.HTMLBody = carregarHTML();
+            message.Importance = Outlook.OlImportance.olImportanceHigh;
+            message.Display(false);
         }
 
         public Outlook.Application GetApplicationObject()
