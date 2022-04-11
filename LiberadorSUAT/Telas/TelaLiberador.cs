@@ -323,8 +323,6 @@ namespace LiberadorSUAT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //List<Sistema> lista = conexaoMongo.getSistemas();
-           // dataGridView1.DataSource = lista;
 
         }
     }

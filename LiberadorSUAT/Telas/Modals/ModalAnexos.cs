@@ -65,9 +65,9 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void gerarGrade()
         {
-            listViewArquivos.Columns.Add("", -2).TextAlign = HorizontalAlignment.Center;
-            listViewArquivos.Columns.Add("Arquivo", -2).TextAlign = HorizontalAlignment.Center;
-            listViewArquivos.Columns.Add("Caminho do arquivo", 500).TextAlign = HorizontalAlignment.Center;
+            listViewArquivos.Columns.Add("", -2).TextAlign = HorizontalAlignment.Left;
+            listViewArquivos.Columns.Add("Arquivo", -2).TextAlign = HorizontalAlignment.Left;
+            listViewArquivos.Columns.Add("Caminho do arquivo", 500).TextAlign = HorizontalAlignment.Left;
             listViewArquivos.View = View.Details;
 
             listViewArquivos.FullRowSelect = true;
@@ -75,9 +75,9 @@ namespace LiberadorSUAT.Screens.Modals
             listViewArquivos.CheckBoxes = true;
             
             /*Scripts*/
-            listViewScripts.Columns.Add("", -2).TextAlign = HorizontalAlignment.Center;
-            listViewScripts.Columns.Add("Arquivo", -2).TextAlign = HorizontalAlignment.Center;
-            listViewScripts.Columns.Add("Caminho do arquivo", 500).TextAlign = HorizontalAlignment.Center;
+            listViewScripts.Columns.Add("", -2).TextAlign = HorizontalAlignment.Left;
+            listViewScripts.Columns.Add("Arquivo", -2).TextAlign = HorizontalAlignment.Left;
+            listViewScripts.Columns.Add("Caminho do arquivo", 500).TextAlign = HorizontalAlignment.Left;
             listViewScripts.View = View.Details;
 
             listViewScripts.FullRowSelect = true;
@@ -85,9 +85,9 @@ namespace LiberadorSUAT.Screens.Modals
             listViewScripts.CheckBoxes = true;
 
             /*Documentações*/
-            listViewDocumentos.Columns.Add("", -2).TextAlign = HorizontalAlignment.Center;
-            listViewDocumentos.Columns.Add("Arquivo", -2).TextAlign = HorizontalAlignment.Center;
-            listViewDocumentos.Columns.Add("Caminho do arquivo", 500).TextAlign = HorizontalAlignment.Center;
+            listViewDocumentos.Columns.Add("", -2).TextAlign = HorizontalAlignment.Left;
+            listViewDocumentos.Columns.Add("Arquivo", -2).TextAlign = HorizontalAlignment.Left;
+            listViewDocumentos.Columns.Add("Caminho do arquivo", 500).TextAlign = HorizontalAlignment.Left;
             listViewDocumentos.View = View.Details;
 
             listViewDocumentos.FullRowSelect = true;
