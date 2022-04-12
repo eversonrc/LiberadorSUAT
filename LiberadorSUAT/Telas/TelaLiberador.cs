@@ -31,7 +31,6 @@ namespace LiberadorSUAT
 
         public ConexaoMongo conexaoMongo;
         
-
         public TelaLiberador(SideBarLayout side)
         {
             InitializeComponent();
@@ -204,10 +203,23 @@ namespace LiberadorSUAT
                     }
                     break;
 
-                case "Automatizador":
+                case "Automatizador Rodovias":
                     foreach (var sistema in listaSistema)
                     {
-                        if (sistema.Nome == "Automatizador")
+                        if (sistema.Nome == "Automatizador Rodovias")
+                        {
+                            int indice = listaSistema.IndexOf(sistema);
+                            txbSigla.Text = listaSistema[indice].Sigla;
+                            txbVersao.Text = listaSistema[indice].Versao.ToString();
+                            txbRelease.Text = listaSistema[indice].Release.ToString();
+                        }
+                    }
+                    break;
+
+                case "Automatizador Mobilidade":
+                    foreach (var sistema in listaSistema)
+                    {
+                        if (sistema.Nome == "Automatizador Mobilidade")
                         {
                             int indice = listaSistema.IndexOf(sistema);
                             txbSigla.Text = listaSistema[indice].Sigla;

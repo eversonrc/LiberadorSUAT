@@ -39,7 +39,7 @@ namespace LiberadorSUAT
         private string carregarHTML()
         {
             string body = string.Empty;
-            string caminho = @"C:\Workspace\CCR\DesafioTecnico\LiberadorSUAT\EmailTemplate.txt";
+            string caminho = Directory.GetCurrentDirectory() + @"\EmailTemplate.txt";
 
             try
             {
@@ -141,7 +141,7 @@ namespace LiberadorSUAT
 
                             for (int i = 0; i < enderecosEmail.Length; i++)
                             {
-                                destinatarios[i] = (enderecosEmail[i].enderecoEmail);
+                                destinatarios[i] = (enderecosEmail[i].enderecoEmail + ";");
                             }
 
                             foreach (var destinatario in destinatarios)
@@ -166,7 +166,7 @@ namespace LiberadorSUAT
 
                             for (int i = 0; i < enderecosEmail.Length; i++)
                             {
-                                destinatarios[i] = (enderecosEmail[i].enderecoEmail);
+                                destinatarios[i] = (enderecosEmail[i].enderecoEmail + ";");
                             }
 
                             foreach (var destinatario in destinatarios)
@@ -192,7 +192,7 @@ namespace LiberadorSUAT
 
                             for (int i = 0; i < enderecosEmail.Length; i++)
                             {
-                                destinatarios[i] = (enderecosEmail[i].enderecoEmail);
+                                destinatarios[i] = (enderecosEmail[i].enderecoEmail + ";");
                             }
 
                             foreach (var destinatario in destinatarios)
@@ -217,7 +217,7 @@ namespace LiberadorSUAT
 
                             for (int i = 0; i < enderecosEmail.Length; i++)
                             {
-                                destinatarios[i] = (enderecosEmail[i].enderecoEmail);
+                                destinatarios[i] = (enderecosEmail[i].enderecoEmail + ";");
                             }
 
                             foreach (var destinatario in destinatarios)
@@ -242,7 +242,7 @@ namespace LiberadorSUAT
 
                             for (int i = 0; i < enderecosEmail.Length; i++)
                             {
-                                destinatarios[i] = (enderecosEmail[i].enderecoEmail);
+                                destinatarios[i] = (enderecosEmail[i].enderecoEmail + ";");
                             }
 
                             foreach (var destinatario in destinatarios)

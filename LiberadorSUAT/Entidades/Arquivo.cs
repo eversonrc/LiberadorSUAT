@@ -24,7 +24,8 @@ namespace LiberadorSUAT.Models
         string[] optionList = new string[2]
         {
             "Word Documents|*.doc|PDF Documents|*.pdf",
-            "DB Files|*.sql|*.seq|*.syn|*.tab|*.trg|*.tps|*.vw|*.fnc|*.bdy"
+            "DB Files|*.sql|*.seq|*.syn|*.tab|*.trg|*.tps|*.vw|*.fnc|*.bdy|*.prc|*.pck|*.spc" +
+            "|*.pdy|*.typ|*.tps|*.tpb|*.trg|All Files|*.*"
         };
 
         public void AdicionarArquivos(ListView listView, int i)
@@ -43,7 +44,7 @@ namespace LiberadorSUAT.Models
                         string nome = splitNome[1];
                         string caminho = file;
 
-                        File.Copy(caminho, @"C:\Workspace\CCR\DesafioTecnico\LiberadorSUAT\bin\Debug\arquivos\" + Path.GetFileName(caminho), true);
+                        File.Copy(caminho,Directory.GetCurrentDirectory()+ @"\arquivos\" + Path.GetFileName(caminho), true);
 
                         ListViewItem arquivos = new ListViewItem();
                         arquivos.SubItems.Add(nome);
@@ -89,6 +90,8 @@ namespace LiberadorSUAT.Models
 
             var response = (System.Net.FtpWebResponse)request.GetResponse();
             response.Close();
+            File.Delete(arquivo);
+
         }
 
         public void ExcluirArquivos(ListView listView)

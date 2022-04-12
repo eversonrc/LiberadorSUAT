@@ -61,7 +61,7 @@ namespace LiberadorSUAT
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(43, 54);
+            this.label2.Location = new System.Drawing.Point(43, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(160, 17);
             this.label2.TabIndex = 3;
@@ -69,7 +69,7 @@ namespace LiberadorSUAT
             // 
             // txbTitulo
             // 
-            this.txbTitulo.Location = new System.Drawing.Point(46, 74);
+            this.txbTitulo.Location = new System.Drawing.Point(46, 60);
             this.txbTitulo.Name = "txbTitulo";
             this.txbTitulo.Size = new System.Drawing.Size(458, 20);
             this.txbTitulo.TabIndex = 4;
@@ -79,7 +79,7 @@ namespace LiberadorSUAT
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(403, 110);
+            this.label3.Location = new System.Drawing.Point(689, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 17);
             this.label3.TabIndex = 5;
@@ -90,7 +90,7 @@ namespace LiberadorSUAT
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(781, 136);
+            this.label4.Location = new System.Drawing.Point(563, 119);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 17);
             this.label4.TabIndex = 7;
@@ -100,7 +100,7 @@ namespace LiberadorSUAT
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(43, 136);
+            this.label5.Location = new System.Drawing.Point(291, 119);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 17);
             this.label5.TabIndex = 9;
@@ -110,7 +110,7 @@ namespace LiberadorSUAT
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(243, 136);
+            this.label6.Location = new System.Drawing.Point(440, 119);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 17);
             this.label6.TabIndex = 10;
@@ -118,17 +118,17 @@ namespace LiberadorSUAT
             // 
             // txbVersao
             // 
-            this.txbVersao.Location = new System.Drawing.Point(46, 156);
+            this.txbVersao.Location = new System.Drawing.Point(294, 139);
             this.txbVersao.Name = "txbVersao";
-            this.txbVersao.Size = new System.Drawing.Size(142, 20);
+            this.txbVersao.Size = new System.Drawing.Size(88, 20);
             this.txbVersao.TabIndex = 12;
             this.txbVersao.TextChanged += new System.EventHandler(this.txbVersao_TextChanged);
             // 
             // txbRelease
             // 
-            this.txbRelease.Location = new System.Drawing.Point(242, 156);
+            this.txbRelease.Location = new System.Drawing.Point(443, 139);
             this.txbRelease.Name = "txbRelease";
-            this.txbRelease.Size = new System.Drawing.Size(113, 20);
+            this.txbRelease.Size = new System.Drawing.Size(61, 20);
             this.txbRelease.TabIndex = 13;
             this.txbRelease.TextChanged += new System.EventHandler(this.txbRelease_TextChanged);
             // 
@@ -136,7 +136,7 @@ namespace LiberadorSUAT
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(43, 227);
+            this.label9.Location = new System.Drawing.Point(34, 259);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(264, 16);
             this.label9.TabIndex = 21;
@@ -145,7 +145,7 @@ namespace LiberadorSUAT
             // listViewAlteracoes
             // 
             this.listViewAlteracoes.HideSelection = false;
-            this.listViewAlteracoes.Location = new System.Drawing.Point(46, 246);
+            this.listViewAlteracoes.Location = new System.Drawing.Point(34, 278);
             this.listViewAlteracoes.Name = "listViewAlteracoes";
             this.listViewAlteracoes.Size = new System.Drawing.Size(747, 138);
             this.listViewAlteracoes.TabIndex = 22;
@@ -157,7 +157,7 @@ namespace LiberadorSUAT
             // 
             this.btnNovoAlteracao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnNovoAlteracao.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovoAlteracao.Location = new System.Drawing.Point(819, 246);
+            this.btnNovoAlteracao.Location = new System.Drawing.Point(787, 278);
             this.btnNovoAlteracao.Name = "btnNovoAlteracao";
             this.btnNovoAlteracao.Size = new System.Drawing.Size(96, 26);
             this.btnNovoAlteracao.TabIndex = 23;
@@ -168,7 +168,7 @@ namespace LiberadorSUAT
             // btnAlterarAlteracao
             // 
             this.btnAlterarAlteracao.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterarAlteracao.Location = new System.Drawing.Point(819, 278);
+            this.btnAlterarAlteracao.Location = new System.Drawing.Point(787, 310);
             this.btnAlterarAlteracao.Name = "btnAlterarAlteracao";
             this.btnAlterarAlteracao.Size = new System.Drawing.Size(96, 26);
             this.btnAlterarAlteracao.TabIndex = 24;
@@ -180,7 +180,7 @@ namespace LiberadorSUAT
             // 
             this.btnExcluirAlteracao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnExcluirAlteracao.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluirAlteracao.Location = new System.Drawing.Point(819, 310);
+            this.btnExcluirAlteracao.Location = new System.Drawing.Point(787, 342);
             this.btnExcluirAlteracao.Name = "btnExcluirAlteracao";
             this.btnExcluirAlteracao.Size = new System.Drawing.Size(96, 26);
             this.btnExcluirAlteracao.TabIndex = 25;
@@ -205,7 +205,7 @@ namespace LiberadorSUAT
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(591, 80);
+            this.label7.Location = new System.Drawing.Point(43, 110);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 17);
             this.label7.TabIndex = 39;
@@ -221,19 +221,20 @@ namespace LiberadorSUAT
             "Evasores",
             "SUATMobilidade",
             "VLTRio",
-            "Automatizador",
+            "Automatizador Rodovias",
+            "Automatizador Mobilidade",
             "Barcas"});
-            this.listBoxSistemas.Location = new System.Drawing.Point(594, 100);
+            this.listBoxSistemas.Location = new System.Drawing.Point(43, 130);
             this.listBoxSistemas.Name = "listBoxSistemas";
-            this.listBoxSistemas.Size = new System.Drawing.Size(131, 79);
+            this.listBoxSistemas.Size = new System.Drawing.Size(193, 94);
             this.listBoxSistemas.TabIndex = 41;
             this.listBoxSistemas.SelectedIndexChanged += new System.EventHandler(this.listBoxSistemas_SelectedIndexChanged);
             // 
             // txbSigla
             // 
-            this.txbSigla.Location = new System.Drawing.Point(784, 156);
+            this.txbSigla.Location = new System.Drawing.Point(566, 139);
             this.txbSigla.Name = "txbSigla";
-            this.txbSigla.Size = new System.Drawing.Size(131, 20);
+            this.txbSigla.Size = new System.Drawing.Size(61, 20);
             this.txbSigla.TabIndex = 42;
             // 
             // btnAjudaAlteracoes
@@ -242,7 +243,7 @@ namespace LiberadorSUAT
             this.btnAjudaAlteracoes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAjudaAlteracoes.Cursor = System.Windows.Forms.Cursors.Help;
             this.btnAjudaAlteracoes.Image = ((System.Drawing.Image)(resources.GetObject("btnAjudaAlteracoes.Image")));
-            this.btnAjudaAlteracoes.Location = new System.Drawing.Point(304, 217);
+            this.btnAjudaAlteracoes.Location = new System.Drawing.Point(304, 249);
             this.btnAjudaAlteracoes.Name = "btnAjudaAlteracoes";
             this.btnAjudaAlteracoes.Size = new System.Drawing.Size(27, 26);
             this.btnAjudaAlteracoes.TabIndex = 43;
@@ -276,8 +277,8 @@ namespace LiberadorSUAT
             this.listBoxTipos.Items.AddRange(new object[] {
             "Melhoria",
             "Sustentação",
-            "Apoio"});
-            this.listBoxTipos.Location = new System.Drawing.Point(406, 130);
+            "Projeto"});
+            this.listBoxTipos.Location = new System.Drawing.Point(692, 139);
             this.listBoxTipos.Name = "listBoxTipos";
             this.listBoxTipos.Size = new System.Drawing.Size(141, 49);
             this.listBoxTipos.TabIndex = 45;

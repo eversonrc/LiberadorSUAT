@@ -130,7 +130,7 @@ namespace LiberadorSUAT.Screens.Modals
                 {
                     string nome = file.Name;
                     string caminho = file.FullName;
-                    file.CopyTo(@"C:\Workspace\CCR\DesafioTecnico\LiberadorSUAT\bin\Debug\arquivos\"+nome, true);
+                    file.CopyTo(Directory.GetCurrentDirectory() + @"\arquivos\" + nome, true);
 
                     ListViewItem listView = new ListViewItem();
                     listView.SubItems.Add(nome);
@@ -206,10 +206,9 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void btnTelaEmail_Click(object sender, EventArgs e)
         {
-            if (validadorCampos() == true)
-            {
+
                 Arquivo arquivo = new Arquivo(telaLiberador);
-                arquivo.percorrerDiretorioArquivos(@"C:\Workspace\CCR\DesafioTecnico\LiberadorSUAT\bin\Debug\arquivos\");
+                arquivo.percorrerDiretorioArquivos(Directory.GetCurrentDirectory()+ @"\arquivos\");
 
                 isAcessivel = true;
                 this.Hide();
@@ -221,11 +220,6 @@ namespace LiberadorSUAT.Screens.Modals
                 sideBar.btnAnexos.Enabled = false;
                 sideBar.btnInfos.Enabled = false;
                 sideBar.btnEnvio.Enabled = false;
-            }
-            else
-            {
-                MessageBox.Show("Todos os campo devem ser preenchidos antes de avançar para a próxima etapa. Por favor verifique os dados novamente.");
-            } 
         }
 
         private void button2_Click_1(object sender, EventArgs e)
