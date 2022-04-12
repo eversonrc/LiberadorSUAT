@@ -243,7 +243,7 @@ namespace LiberadorSUAT
             this.btnAjudaAlteracoes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAjudaAlteracoes.Cursor = System.Windows.Forms.Cursors.Help;
             this.btnAjudaAlteracoes.Image = ((System.Drawing.Image)(resources.GetObject("btnAjudaAlteracoes.Image")));
-            this.btnAjudaAlteracoes.Location = new System.Drawing.Point(304, 249);
+            this.btnAjudaAlteracoes.Location = new System.Drawing.Point(294, 249);
             this.btnAjudaAlteracoes.Name = "btnAjudaAlteracoes";
             this.btnAjudaAlteracoes.Size = new System.Drawing.Size(27, 26);
             this.btnAjudaAlteracoes.TabIndex = 43;

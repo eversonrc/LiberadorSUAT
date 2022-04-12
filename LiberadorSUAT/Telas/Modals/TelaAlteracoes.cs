@@ -33,11 +33,12 @@ namespace LiberadorSUAT.Screens
             txbHelpdesk.Text = helpesk;
             txbResponsavel.Text = responsavel;
             txbDescricao.Text = descricao;
+            txbAlteracao.Text = alteracao;
             indice = index;
             _novaAlteracao = novaAlteracao;
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        private void btnCadastrarClick(object sender, EventArgs e)
         {
             try {
                 string helpdesk = txbHelpdesk.Text;
@@ -57,12 +58,7 @@ namespace LiberadorSUAT.Screens
                     item[3] = alteracao.AlteracaoRealizada;
                 }
 
-                if (
-                    //txbHelpdesk.Text != "" &&
-                    txbResponsavel.Text != "" &&
-                    txbDescricao.Text != "" //&&
-                    //txbAlteracao.Text != ""
-                )
+                if (txbResponsavel.Text != "" && txbDescricao.Text != "" )
                 {
                     telaLiberador.listViewAlteracoes.Items.Add(new ListViewItem(item));
                     this.Close();

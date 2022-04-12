@@ -294,7 +294,6 @@ namespace LiberadorSUAT
             }
         }
 
-
         private void incrementarRelease(string nomeSistema)
         {
             foreach (var sistema in listaSistema)
