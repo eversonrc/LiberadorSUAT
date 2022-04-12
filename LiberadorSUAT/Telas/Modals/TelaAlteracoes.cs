@@ -18,13 +18,15 @@ namespace LiberadorSUAT.Screens
         public List<Alteracao> listaAlteracoes = new List<Alteracao>();
         private TelaLiberador telaLiberador;
         private int indice = -1;
-        public TelaAlteracoes(TelaLiberador tela)
+        private bool _novaAlteracao { get; set; }
+        public TelaAlteracoes(TelaLiberador tela, bool novaAlteracao)
         {
             InitializeComponent();
             telaLiberador = tela;
+            _novaAlteracao = novaAlteracao;
         }
 
-        public TelaAlteracoes(TelaLiberador tela, string helpesk, string responsavel, string descricao, string alteracao, int index)
+        public TelaAlteracoes(TelaLiberador tela, string helpesk, string responsavel, string descricao, string alteracao, int index, bool novaAlteracao)
         {
             InitializeComponent();
             telaLiberador = tela;
@@ -32,6 +34,7 @@ namespace LiberadorSUAT.Screens
             txbResponsavel.Text = responsavel;
             txbDescricao.Text = descricao;
             indice = index;
+            _novaAlteracao = novaAlteracao;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -55,10 +58,10 @@ namespace LiberadorSUAT.Screens
                 }
 
                 if (
-                    txbHelpdesk.Text != "" &&
+                    //txbHelpdesk.Text != "" &&
                     txbResponsavel.Text != "" &&
-                    txbDescricao.Text != "" &&
-                    txbAlteracao.Text != ""
+                    txbDescricao.Text != "" //&&
+                    //txbAlteracao.Text != ""
                 )
                 {
                     telaLiberador.listViewAlteracoes.Items.Add(new ListViewItem(item));
@@ -124,6 +127,18 @@ namespace LiberadorSUAT.Screens
 
             }
             
+        }
+
+        private void TelaAlteracoes_Load(object sender, EventArgs e)
+        {
+            if (_novaAlteracao == true)
+            {
+                btnAlterar.Enabled = false;
+            }
+            else if (_novaAlteracao == false)
+            {
+                btnCadastrar.Enabled = false;
+            }
         }
     }
 }

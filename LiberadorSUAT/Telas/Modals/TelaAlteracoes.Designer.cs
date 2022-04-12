@@ -178,6 +178,7 @@ namespace LiberadorSUAT.Screens
             this.Name = "TelaAlteracoes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaAlteracoes";
+            this.Load += new System.EventHandler(this.TelaAlteracoes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -201,7 +201,6 @@ namespace LiberadorSUAT.Screens.Modals
             sideBar.btnAnexos.BackColor = Color.Transparent;
             sideBar.btnAnexos.Enabled = false;
             sideBar.btnEmail.Enabled = false;
-            sideBar.btnEnvio.Enabled = false;
         }
 
         private void btnTelaEmail_Click(object sender, EventArgs e)
@@ -218,8 +217,6 @@ namespace LiberadorSUAT.Screens.Modals
                 sideBar.btnEmail.BackColor = Color.DarkGray;
                 sideBar.btnAnexos.BackColor = Color.Transparent;
                 sideBar.btnAnexos.Enabled = false;
-                sideBar.btnInfos.Enabled = false;
-                sideBar.btnEnvio.Enabled = false;
         }
 
         private void button2_Click_1(object sender, EventArgs e)

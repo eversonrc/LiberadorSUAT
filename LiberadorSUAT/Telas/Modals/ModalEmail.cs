@@ -51,7 +51,11 @@ namespace LiberadorSUAT.Screens.Modals
                     AtualizarBanco();
                     break;
 
-                case "Automatizador":
+                case "Automatizador Rodovias":
+                    AtualizarBanco();
+                    break;
+
+                case "Automatizador Mobilidade":
                     AtualizarBanco();
                     break;
 
@@ -82,7 +86,6 @@ namespace LiberadorSUAT.Screens.Modals
             sideBar.btnAnexos.BackColor = Color.DarkGray;
             sideBar.btnEmail.BackColor = Color.Transparent;
             sideBar.btnInfos.Enabled = false;
-            sideBar.btnEnvio.Enabled = false;
             sideBar.btnEmail.Enabled = false;
         }
 
