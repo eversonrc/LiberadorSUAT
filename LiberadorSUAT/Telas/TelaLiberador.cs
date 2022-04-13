@@ -36,6 +36,8 @@ namespace LiberadorSUAT
 
         public bool novaAlteracao { get; set; }
 
+        public bool versaoEReleaseAlterados {get;set;}
+
         public TelaLiberador(SideBarLayout side)
         {
             InitializeComponent();
@@ -44,6 +46,7 @@ namespace LiberadorSUAT
             sideBar = side;
             conexaoMongo = new ConexaoMongo();
             listaSistema = conexaoMongo.getSistemas();
+            versaoEReleaseAlterados = false;
         }
 
         public TelaLiberador()
@@ -204,21 +207,24 @@ namespace LiberadorSUAT
 
         private void preencherVersaoReleaseESigla(string nomeSistema)
         {
+            int indice = -1;
             foreach (var sistema in listaSistema)
             {
                 if (sistema.Nome == nomeSistema)
                 {
-                    int indice = listaSistema.IndexOf(sistema);
+                    indice = listaSistema.IndexOf(sistema);
                     txbSigla.Text = listaSistema[indice].Sigla;
                     txbVersao.Text = listaSistema[indice].Versao;
                     txbRelease.Text = listaSistema[indice].Release;
-                }
+                } 
             }
         }
+
 
         private void TelaLiberador_Load(object sender, EventArgs e)
         {
             txbSigla.Enabled = false;
+            txbRelease.Enabled = false;
             sideBar.btnInfos.BackColor = Color.DarkGray;
             sideBar.btnAnexos.Enabled = false;
             sideBar.btnEmail.Enabled = false;
@@ -252,7 +258,6 @@ namespace LiberadorSUAT
 
         private void txbTitulo_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void txbVersao_TextChanged(object sender, EventArgs e)
@@ -291,10 +296,9 @@ namespace LiberadorSUAT
 
                 default:
                     break;
-            }
-        }
+            }        }
 
-        private void incrementarRelease(string nomeSistema)
+       private void incrementarRelease(string nomeSistema)
         {
             foreach (var sistema in listaSistema)
             {
@@ -305,6 +309,7 @@ namespace LiberadorSUAT
                     if (txbVersao.Text != listaSistema[indice].Versao)
                     {
                         txbRelease.Text = "a";
+                        versaoEReleaseAlterados = true;
                     }
                 }
             }
@@ -312,17 +317,14 @@ namespace LiberadorSUAT
 
         private void button1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void listViewAlteracoes_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void btnAjudaAlteracoes_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

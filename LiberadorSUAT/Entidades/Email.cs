@@ -189,16 +189,20 @@ namespace LiberadorSUAT
                             EnderecoEmail[] enderecosEmail = listaSistema[indice].grupoEmail.destinatarios;
 
                             string[] destinatarios = new string[enderecosEmail.Length];
+                            string dest = "";
 
                             for (int i = 0; i < enderecosEmail.Length; i++)
                             {
-                                destinatarios[i] = (enderecosEmail[i].enderecoEmail + ";");
+                                dest = dest + (enderecosEmail[i].enderecoEmail + ";");
                             }
 
-                            foreach (var destinatario in destinatarios)
-                            {
-                                message.To += destinatario;
-                            }
+                            /* foreach (var destinatario in destinatarios)
+                             {
+                                 message.To += destinatario;
+                                 message.
+                             }*/
+
+                            message.To = dest;
                         }
                     }
 
@@ -257,7 +261,6 @@ namespace LiberadorSUAT
                 default:
                     break;
             }
-
 
             message.CC = "";
             message.Subject = "Liberador SUAT";
