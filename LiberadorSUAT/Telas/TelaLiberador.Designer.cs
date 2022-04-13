@@ -151,7 +151,7 @@ namespace LiberadorSUAT
             this.listViewAlteracoes.TabIndex = 22;
             this.listViewAlteracoes.UseCompatibleStateImageBehavior = false;
             this.listViewAlteracoes.View = System.Windows.Forms.View.Details;
-            this.listViewAlteracoes.SelectedIndexChanged += new System.EventHandler(this.listViewAlteracoes_SelectedIndexChanged);
+//            this.listViewAlteracoes.SelectedIndexChanged += new System.EventHandler(this.listViewAlteracoes_SelectedIndexChanged);
             // 
             // btnNovoAlteracao
             // 
@@ -243,12 +243,12 @@ namespace LiberadorSUAT
             this.btnAjudaAlteracoes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAjudaAlteracoes.Cursor = System.Windows.Forms.Cursors.Help;
             this.btnAjudaAlteracoes.Image = ((System.Drawing.Image)(resources.GetObject("btnAjudaAlteracoes.Image")));
-            this.btnAjudaAlteracoes.Location = new System.Drawing.Point(304, 249);
+            this.btnAjudaAlteracoes.Location = new System.Drawing.Point(294, 249);
             this.btnAjudaAlteracoes.Name = "btnAjudaAlteracoes";
             this.btnAjudaAlteracoes.Size = new System.Drawing.Size(27, 26);
             this.btnAjudaAlteracoes.TabIndex = 43;
             this.btnAjudaAlteracoes.UseVisualStyleBackColor = false;
-            this.btnAjudaAlteracoes.Click += new System.EventHandler(this.btnAjudaAlteracoes_Click);
+         //  this.btnAjudaAlteracoes.Click += new System.EventHandler(this.btnAjudaAlteracoes_Click);
             // 
             // btnModalAnexos
             // 

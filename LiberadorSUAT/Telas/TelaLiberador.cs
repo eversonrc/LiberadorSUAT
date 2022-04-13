@@ -30,7 +30,14 @@ namespace LiberadorSUAT
         public String[] DadosConfiguracao { get; set; }
 
         public ConexaoMongo conexaoMongo;
-        
+        public List<Sistema> listaSistema { get; set; }
+
+        public string nomeSistema { get; set; }
+
+        public bool novaAlteracao { get; set; }
+
+        public bool versaoEReleaseAlterados {get;set;}
+
         public TelaLiberador(SideBarLayout side)
         {
             InitializeComponent();
@@ -38,6 +45,8 @@ namespace LiberadorSUAT
             gerarGrade();
             sideBar = side;
             conexaoMongo = new ConexaoMongo();
+            listaSistema = conexaoMongo.getSistemas();
+            versaoEReleaseAlterados = false;
         }
 
         public TelaLiberador()
@@ -57,7 +66,6 @@ namespace LiberadorSUAT
             listViewAlteracoes.GridLines = true;
             listViewAlteracoes.CheckBoxes = true;
         }
-
          private bool validadorCampos()
         {
             if (
@@ -73,7 +81,6 @@ namespace LiberadorSUAT
 
             return false;
         }
-
         private void btnExcluirAlteracao_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in listViewAlteracoes.Items)
@@ -86,11 +93,13 @@ namespace LiberadorSUAT
         }
         private void btnNovoAlteracao_Click(object sender, EventArgs e)
         {
-            TelaAlteracoes telaAlteracao = new TelaAlteracoes(this);
+            novaAlteracao = true;
+            TelaAlteracoes telaAlteracao = new TelaAlteracoes(this, novaAlteracao);
             telaAlteracao.ShowDialog();
         }
         private void btnAlterarAlteracao_Click(object sender, EventArgs e)
         {
+            novaAlteracao = false;
             foreach (ListViewItem item in listViewAlteracoes.Items)
             {
                 if (item.Checked)
@@ -100,7 +109,7 @@ namespace LiberadorSUAT
                     string responsavel = item.SubItems[1].Text;
                     string descricao = item.SubItems[2].Text;
                     string alteracao = item.SubItems[3].Text;
-                    TelaAlteracoes telaAlteracao = new TelaAlteracoes(this, helpdesk, responsavel, descricao, alteracao, indice);
+                    TelaAlteracoes telaAlteracao = new TelaAlteracoes(this, helpdesk, responsavel, descricao, alteracao, indice, novaAlteracao);
                     telaAlteracao.ShowDialog();
                 }
             }
@@ -136,7 +145,6 @@ namespace LiberadorSUAT
                 sideBar.btnAnexos.BackColor = Color.DarkGray;
                 sideBar.btnInfos.BackColor = Color.Transparent;
                 sideBar.btnInfos.Enabled = false;
-                sideBar.btnEnvio.Enabled = false;
                 sideBar.btnEmail.Enabled = false;
             }
             else
@@ -160,86 +168,36 @@ namespace LiberadorSUAT
                 }
             }
 
-            List<Sistema> listaSistema = conexaoMongo.getSistemas();
-
             switch (Sistema)
             {
                 case "Evasores":
-                    foreach(var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "Evasores")
-                        {
-                            int indice = listaSistema.IndexOf(sistema);
-                            txbSigla.Text = listaSistema[indice].Sigla;
-                            txbVersao.Text = listaSistema[indice].Versao.ToString();
-                            txbRelease.Text = listaSistema[indice].Release.ToString();
-                        }
-                    }
+                    nomeSistema = "Evasores";
+                    preencherVersaoReleaseESigla(nomeSistema);
                     break;
 
                 case "SUATMobilidade":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "SUATMobilidade")
-                        {
-                            int indice = listaSistema.IndexOf(sistema);
-                            txbSigla.Text = listaSistema[indice].Sigla;
-                            txbVersao.Text = listaSistema[indice].Versao.ToString();
-                            txbRelease.Text = listaSistema[indice].Release.ToString();
-                        }
-                    }
+                    nomeSistema = "SUATMobilidade";
+                    preencherVersaoReleaseESigla(nomeSistema);
                     break;
 
                 case "VLTRio":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "VLTRio")
-                        {
-                            int indice = listaSistema.IndexOf(sistema);
-                            txbSigla.Text = listaSistema[indice].Sigla;
-                            txbVersao.Text = listaSistema[indice].Versao.ToString();
-                            txbRelease.Text = listaSistema[indice].Release.ToString();
-                        }
-                    }
+                    nomeSistema = "VLTRio";
+                    preencherVersaoReleaseESigla(nomeSistema);
                     break;
 
                 case "Automatizador Rodovias":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "Automatizador Rodovias")
-                        {
-                            int indice = listaSistema.IndexOf(sistema);
-                            txbSigla.Text = listaSistema[indice].Sigla;
-                            txbVersao.Text = listaSistema[indice].Versao.ToString();
-                            txbRelease.Text = listaSistema[indice].Release.ToString();
-                        }
-                    }
+                    nomeSistema = "Automatizador Rodovias";
+                    preencherVersaoReleaseESigla(nomeSistema);
                     break;
 
                 case "Automatizador Mobilidade":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "Automatizador Mobilidade")
-                        {
-                            int indice = listaSistema.IndexOf(sistema);
-                            txbSigla.Text = listaSistema[indice].Sigla;
-                            txbVersao.Text = listaSistema[indice].Versao.ToString();
-                            txbRelease.Text = listaSistema[indice].Release.ToString();
-                        }
-                    }
+                    nomeSistema = "Automatizador Mobilidade";
+                    preencherVersaoReleaseESigla(nomeSistema);
                     break;
 
                 case "Barcas":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "Barcas")
-                        {
-                            int indice = listaSistema.IndexOf(sistema);
-                            txbSigla.Text = listaSistema[indice].Sigla;
-                            txbVersao.Text = listaSistema[indice].Versao.ToString();
-                            txbRelease.Text = listaSistema[indice].Release.ToString();
-                        }
-                    }
+                    nomeSistema = "Barcas";
+                    preencherVersaoReleaseESigla(nomeSistema);
                     break;
 
                 default:
@@ -247,15 +205,29 @@ namespace LiberadorSUAT
             }
         }
 
+        private void preencherVersaoReleaseESigla(string nomeSistema)
+        {
+            int indice = -1;
+            foreach (var sistema in listaSistema)
+            {
+                if (sistema.Nome == nomeSistema)
+                {
+                    indice = listaSistema.IndexOf(sistema);
+                    txbSigla.Text = listaSistema[indice].Sigla;
+                    txbVersao.Text = listaSistema[indice].Versao;
+                    txbRelease.Text = listaSistema[indice].Release;
+                } 
+            }
+        }
+
+
         private void TelaLiberador_Load(object sender, EventArgs e)
         {
-  
             txbSigla.Enabled = false;
-
+            txbRelease.Enabled = false;
             sideBar.btnInfos.BackColor = Color.DarkGray;
             sideBar.btnAnexos.Enabled = false;
             sideBar.btnEmail.Enabled = false;
-            sideBar.btnEnvio.Enabled = false;
         }
 
         private void listBoxTipos_SelectedIndexChanged(object sender, EventArgs e)
@@ -286,109 +258,73 @@ namespace LiberadorSUAT
 
         private void txbTitulo_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void txbVersao_TextChanged(object sender, EventArgs e)
         {
-
-            List<Sistema> listaSistema = conexaoMongo.getSistemas();
-
             switch (Sistema)
             {
                 case "Evasores":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "Evasores")
-                        {
-                            int indice = listaSistema.IndexOf(sistema);
-
-                            if (txbVersao.Text != listaSistema[indice].Versao)
-                            {
-                                txbRelease.Text = "0";
-                            }
-                        } 
-                    }
+                    nomeSistema = "Evasores";
+                    incrementarRelease(nomeSistema);
                     break;
 
                 case "SUATMobilidade":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "SUATMobilidade")
-                        {
-                            int indice = listaSistema.IndexOf(sistema);
-
-                            if (txbVersao.Text != listaSistema[indice].Versao)
-                            {
-                                txbRelease.Text = "0";
-                            }
-                        }
-                    }
+                    nomeSistema = "SUATMobilidade";
+                    incrementarRelease(nomeSistema);
                     break;
 
                 case "VLTRio":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "VLTRio")
-                        {
-                            int indice = listaSistema.IndexOf(sistema);
-
-                            if (txbVersao.Text != listaSistema[indice].Versao)
-                            {
-                                txbRelease.Text = "0";
-                            }
-                        }
-                    }
+                    nomeSistema = "VLTRio";
+                    incrementarRelease(nomeSistema);
                     break;
 
-                case "Automatizador":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "Automatizador")
-                        {
-                            int indice = listaSistema.IndexOf(sistema);
+                case "Automatizador Rodovias":
+                    nomeSistema = "Automatizador Rodovias";
+                    incrementarRelease(nomeSistema);
+                    break;
 
-                            if (txbVersao.Text != listaSistema[indice].Versao)
-                            {
-                                txbRelease.Text = "0";
-                            }
-                        }
-                    }
+                case "Automatizador Mobilidade":
+                    nomeSistema = "Automatizador Mobilidade";
+                    incrementarRelease(nomeSistema);
                     break;
 
                 case "Barcas":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "Barcas")
-                        {
-                            int indice = listaSistema.IndexOf(sistema);
-
-                            if (txbVersao.Text != listaSistema[indice].Versao)
-                            {
-                                txbRelease.Text = "0";
-                            }
-                        }
-                    }
+                    nomeSistema = "Barcas";
+                    incrementarRelease(nomeSistema);
                     break;
 
                 default:
                     break;
+            }        }
+
+       private void incrementarRelease(string nomeSistema)
+        {
+            foreach (var sistema in listaSistema)
+            {
+                if (sistema.Nome == nomeSistema)
+                {
+                    int indice = listaSistema.IndexOf(sistema);
+
+                    if (txbVersao.Text != listaSistema[indice].Versao)
+                    {
+                        txbRelease.Text = "a";
+                        versaoEReleaseAlterados = true;
+                    }
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void listViewAlteracoes_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void btnAjudaAlteracoes_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

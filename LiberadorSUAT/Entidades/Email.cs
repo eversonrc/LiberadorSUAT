@@ -63,11 +63,11 @@ namespace LiberadorSUAT
                 string alteracoes = "";
                 for (int i=0; i < telaLiberador.listViewAlteracoes.Items.Count; i++)
                 {
-                    string teste= "<tr>";
-                    teste += "<td style = \"font-size: 12px;\" >{helpdesk}</td > ";
-                    teste += "<td style = \"font-size: 12px;\" >{responsavel}</td >";
-                    teste += "<td style = \"font-size: 12px;\" >{descChamado}</td >";
-                    teste += "<td style = \"font-size: 12px;\" >{altChamado}</td>";
+                    string teste= "<tr style = \"border: 1.5px solid #727272;\">";
+                    teste += "<td style = \"font-size: 12px; text-align: start; border: 1.5px solid #727272;\" >{helpdesk}</td > ";
+                    teste += "<td style = \"font-size: 12px; text-align: start; border: 1.5px solid #727272;\" >{responsavel}</td >";
+                    teste += "<td style = \"font-size: 12px; text-align: start; border: 1.5px solid #727272;\" >{descChamado}</td >";
+                    teste += "<td style = \"font-size: 12px; text-align: start; border: 1.5px solid #727272;\" >{altChamado}</td>";
                     teste += "</tr>";
 
                     teste = teste.Replace("{helpdesk}", telaLiberador.listViewAlteracoes.Items[i].SubItems[0].Text);
@@ -124,134 +124,45 @@ namespace LiberadorSUAT
        public void montaEmail(Outlook.Application application)
         {
             Outlook.MailItem message = (Outlook.MailItem)application.CreateItem(Outlook.OlItemType.olMailItem);
-            int indice = -1;
+            string nomeSistema;
+            string destinatarios;
 
             switch (telaLiberador.Sistema)
             {
                 case "Evasores":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "Evasores")
-                        {
-                            indice = listaSistema.IndexOf(sistema);
-
-                            EnderecoEmail[] enderecosEmail = listaSistema[indice].grupoEmail.destinatarios;
-
-                            string[] destinatarios = new string[enderecosEmail.Length];
-
-                            for (int i = 0; i < enderecosEmail.Length; i++)
-                            {
-                                destinatarios[i] = (enderecosEmail[i].enderecoEmail + ";");
-                            }
-
-                            foreach (var destinatario in destinatarios)
-                            {
-                                message.To += destinatario;
-                            }
-                        }    
-                    }
-
+                    nomeSistema = "Evasores";
+                    destinatarios = getDestinatarios(nomeSistema);
+                    message.To = destinatarios;
                     break;
 
                 case "SUATMobilidade":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "SUATMobilidade")
-                        {
-                            indice = listaSistema.IndexOf(sistema);
-
-                            EnderecoEmail[] enderecosEmail = listaSistema[indice].grupoEmail.destinatarios;
-
-                            string[] destinatarios = new string[enderecosEmail.Length];
-
-                            for (int i = 0; i < enderecosEmail.Length; i++)
-                            {
-                                destinatarios[i] = (enderecosEmail[i].enderecoEmail + ";");
-                            }
-
-                            foreach (var destinatario in destinatarios)
-                            {
-                                message.To += destinatario;
-                            }
-                        }
-                    }
-
+                    nomeSistema = "SUATMobilidade";
+                    destinatarios = getDestinatarios(nomeSistema);
+                    message.To = destinatarios;
                     break;
-
 
                 case "VLTRio":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "VLTRio")
-                        {
-                            indice = listaSistema.IndexOf(sistema);
-
-                            EnderecoEmail[] enderecosEmail = listaSistema[indice].grupoEmail.destinatarios;
-
-                            string[] destinatarios = new string[enderecosEmail.Length];
-
-                            for (int i = 0; i < enderecosEmail.Length; i++)
-                            {
-                                destinatarios[i] = (enderecosEmail[i].enderecoEmail + ";");
-                            }
-
-                            foreach (var destinatario in destinatarios)
-                            {
-                                message.To += destinatario;
-                            }
-                        }
-                    }
-
+                    nomeSistema = "VLTRio";
+                    destinatarios = getDestinatarios(nomeSistema);
+                    message.To = destinatarios;
                     break;
 
-                case "Automatizador":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "Automatizador")
-                        {
-                            indice = listaSistema.IndexOf(sistema);
+                case "Automatizador Mobilidade":
+                    nomeSistema = "Automatizador Mobilidade";
+                    destinatarios = getDestinatarios(nomeSistema);
+                    message.To = destinatarios;
+                    break;
 
-                            EnderecoEmail[] enderecosEmail = listaSistema[indice].grupoEmail.destinatarios;
-
-                            string[] destinatarios = new string[enderecosEmail.Length];
-
-                            for (int i = 0; i < enderecosEmail.Length; i++)
-                            {
-                                destinatarios[i] = (enderecosEmail[i].enderecoEmail + ";");
-                            }
-
-                            foreach (var destinatario in destinatarios)
-                            {
-                                message.To += destinatario;
-                            }
-                        }
-                    }
-
+                case "Automatizador Rodovias":
+                    nomeSistema = "Automatizador Rodovias";
+                    destinatarios = getDestinatarios(nomeSistema);
+                    message.To = destinatarios;
                     break;
 
                 case "Barcas":
-                    foreach (var sistema in listaSistema)
-                    {
-                        if (sistema.Nome == "Barcas")
-                        {
-                            indice = listaSistema.IndexOf(sistema);
-
-                            EnderecoEmail[] enderecosEmail = listaSistema[indice].grupoEmail.destinatarios;
-
-                            string[] destinatarios = new string[enderecosEmail.Length];
-
-                            for (int i = 0; i < enderecosEmail.Length; i++)
-                            {
-                                destinatarios[i] = (enderecosEmail[i].enderecoEmail + ";");
-                            }
-
-                            foreach (var destinatario in destinatarios)
-                            {
-                                message.To += destinatario;
-                            }
-                        }
-                    }
-
+                    nomeSistema = "Barcas";
+                    destinatarios = getDestinatarios(nomeSistema);
+                    message.To = destinatarios;
                     break;
 
                 default:
@@ -263,6 +174,27 @@ namespace LiberadorSUAT
             message.HTMLBody = carregarHTML();
             message.Importance = Outlook.OlImportance.olImportanceHigh;
             message.Display(false);
+        }
+
+        public string getDestinatarios(string nomeSistema)
+        {
+            int indice;
+            string dest = "";
+
+            foreach (var sistema in listaSistema)
+            {
+                if (sistema.Nome == nomeSistema)
+                {
+                    indice = listaSistema.IndexOf(sistema);
+                    EnderecoEmail[] enderecosEmail = listaSistema[indice].grupoEmail.destinatarios;
+
+                    for (int i = 0; i < enderecosEmail.Length; i++)
+                    {
+                        dest = dest + (enderecosEmail[i].enderecoEmail + ";");
+                    } 
+                }
+            }
+            return dest;
         }
 
         public Outlook.Application GetApplicationObject()

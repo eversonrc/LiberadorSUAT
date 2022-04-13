@@ -118,7 +118,7 @@ namespace LiberadorSUAT.Screens
             this.btnCadastrar.TabIndex = 9;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = false;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnOk_Click);
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrarClick);
             // 
             // btnCancelar
             // 
@@ -178,6 +178,7 @@ namespace LiberadorSUAT.Screens
             this.Name = "TelaAlteracoes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaAlteracoes";
+            this.Load += new System.EventHandler(this.TelaAlteracoes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

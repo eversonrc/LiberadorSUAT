@@ -339,6 +339,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Auxiliares\Alfabeto.cs" />
     <Compile Include="Entidades\Auxiliares\ConexaoMongo.cs" />
     <Compile Include="Entidades\Auxiliares\ConfiguracaoFTP.cs" />
     <Compile Include="Entidades\Auxiliares\GrupoEmail.cs" />

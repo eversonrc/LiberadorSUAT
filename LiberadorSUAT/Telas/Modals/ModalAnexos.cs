@@ -225,7 +225,6 @@ namespace LiberadorSUAT.Screens.Modals
                 sideBar.btnEmail.BackColor = Color.DarkGray;
                 sideBar.btnAnexos.BackColor = Color.Transparent;
                 sideBar.btnAnexos.Enabled = false;
-                sideBar.btnInfos.Enabled = false;
         }
 
         private void button2_Click_1(object sender, EventArgs e)
