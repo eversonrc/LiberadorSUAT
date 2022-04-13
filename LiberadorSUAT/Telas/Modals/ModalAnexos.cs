@@ -201,14 +201,21 @@ namespace LiberadorSUAT.Screens.Modals
             sideBar.btnAnexos.BackColor = Color.Transparent;
             sideBar.btnAnexos.Enabled = false;
             sideBar.btnEmail.Enabled = false;
-            sideBar.btnEnvio.Enabled = false;
         }
 
         private void btnTelaEmail_Click(object sender, EventArgs e)
         {
-
                 Arquivo arquivo = new Arquivo(telaLiberador);
-                arquivo.percorrerDiretorioArquivos(Directory.GetCurrentDirectory()+ @"\arquivos\");
+                string pastaArquivosTemporarios = Directory.GetCurrentDirectory() + @"\arquivos\";
+                if (Directory.Exists(pastaArquivosTemporarios))
+                {
+                    arquivo.percorrerDiretorioArquivos(pastaArquivosTemporarios);
+                }
+                else
+                {
+                    Directory.CreateDirectory(pastaArquivosTemporarios);
+                    arquivo.percorrerDiretorioArquivos(pastaArquivosTemporarios);
+                }
 
                 isAcessivel = true;
                 this.Hide();
@@ -219,7 +226,6 @@ namespace LiberadorSUAT.Screens.Modals
                 sideBar.btnAnexos.BackColor = Color.Transparent;
                 sideBar.btnAnexos.Enabled = false;
                 sideBar.btnInfos.Enabled = false;
-                sideBar.btnEnvio.Enabled = false;
         }
 
         private void button2_Click_1(object sender, EventArgs e)

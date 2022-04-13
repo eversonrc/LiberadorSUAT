@@ -32,7 +32,6 @@ namespace LiberadorSUAT.Screens
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SideBarLayout));
             this.panelSideBarMenu = new System.Windows.Forms.Panel();
-            this.btnEnvio = new FontAwesome.Sharp.IconButton();
             this.btnEmail = new FontAwesome.Sharp.IconButton();
             this.btnAnexos = new FontAwesome.Sharp.IconButton();
             this.btnInfos = new FontAwesome.Sharp.IconButton();
@@ -52,7 +51,6 @@ namespace LiberadorSUAT.Screens
             // 
             this.panelSideBarMenu.AutoScroll = true;
             this.panelSideBarMenu.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.panelSideBarMenu.Controls.Add(this.btnEnvio);
             this.panelSideBarMenu.Controls.Add(this.btnEmail);
             this.panelSideBarMenu.Controls.Add(this.btnAnexos);
             this.panelSideBarMenu.Controls.Add(this.btnInfos);
@@ -64,28 +62,6 @@ namespace LiberadorSUAT.Screens
             this.panelSideBarMenu.Size = new System.Drawing.Size(213, 561);
             this.panelSideBarMenu.TabIndex = 48;
             // 
-            // btnEnvio
-            // 
-            this.btnEnvio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEnvio.FlatAppearance.BorderSize = 0;
-            this.btnEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnvio.ForeColor = System.Drawing.Color.White;
-            this.btnEnvio.IconChar = FontAwesome.Sharp.IconChar.Rocket;
-            this.btnEnvio.IconColor = System.Drawing.Color.White;
-            this.btnEnvio.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEnvio.IconSize = 30;
-            this.btnEnvio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEnvio.Location = new System.Drawing.Point(0, 208);
-            this.btnEnvio.Name = "btnEnvio";
-            this.btnEnvio.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnEnvio.Size = new System.Drawing.Size(213, 42);
-            this.btnEnvio.TabIndex = 53;
-            this.btnEnvio.Text = "Envio";
-            this.btnEnvio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEnvio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEnvio.UseVisualStyleBackColor = true;
-            // 
             // btnEmail
             // 
             this.btnEmail.Dock = System.Windows.Forms.DockStyle.Top;
@@ -93,7 +69,7 @@ namespace LiberadorSUAT.Screens
             this.btnEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmail.ForeColor = System.Drawing.Color.White;
-            this.btnEmail.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpenText;
+            this.btnEmail.IconChar = FontAwesome.Sharp.IconChar.Rocket;
             this.btnEmail.IconColor = System.Drawing.Color.White;
             this.btnEmail.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEmail.IconSize = 30;
@@ -103,7 +79,7 @@ namespace LiberadorSUAT.Screens
             this.btnEmail.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEmail.Size = new System.Drawing.Size(213, 42);
             this.btnEmail.TabIndex = 52;
-            this.btnEmail.Text = "E-mail pré-liberação";
+            this.btnEmail.Text = "Envio";
             this.btnEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEmail.UseVisualStyleBackColor = true;
@@ -264,7 +240,6 @@ namespace LiberadorSUAT.Screens
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelChildForm;
         private FontAwesome.Sharp.IconButton btnExit;
-        public FontAwesome.Sharp.IconButton btnEnvio;
         public FontAwesome.Sharp.IconButton btnEmail;
         public FontAwesome.Sharp.IconButton btnAnexos;
         public FontAwesome.Sharp.IconButton btnInfos;

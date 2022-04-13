@@ -71,7 +71,7 @@ namespace LiberadorSUAT
             // 
             this.txbTitulo.Location = new System.Drawing.Point(46, 60);
             this.txbTitulo.Name = "txbTitulo";
-            this.txbTitulo.Size = new System.Drawing.Size(458, 20);
+            this.txbTitulo.Size = new System.Drawing.Size(520, 20);
             this.txbTitulo.TabIndex = 4;
             this.txbTitulo.TextChanged += new System.EventHandler(this.txbTitulo_TextChanged);
             // 
@@ -79,7 +79,7 @@ namespace LiberadorSUAT
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(689, 119);
+            this.label3.Location = new System.Drawing.Point(591, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 17);
             this.label3.TabIndex = 5;
@@ -90,7 +90,7 @@ namespace LiberadorSUAT
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(563, 119);
+            this.label4.Location = new System.Drawing.Point(436, 104);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 17);
             this.label4.TabIndex = 7;
@@ -100,7 +100,7 @@ namespace LiberadorSUAT
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(291, 119);
+            this.label5.Location = new System.Drawing.Point(302, 104);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 17);
             this.label5.TabIndex = 9;
@@ -110,7 +110,7 @@ namespace LiberadorSUAT
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(440, 119);
+            this.label6.Location = new System.Drawing.Point(302, 164);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 17);
             this.label6.TabIndex = 10;
@@ -118,17 +118,17 @@ namespace LiberadorSUAT
             // 
             // txbVersao
             // 
-            this.txbVersao.Location = new System.Drawing.Point(294, 139);
+            this.txbVersao.Location = new System.Drawing.Point(305, 127);
             this.txbVersao.Name = "txbVersao";
-            this.txbVersao.Size = new System.Drawing.Size(88, 20);
+            this.txbVersao.Size = new System.Drawing.Size(106, 20);
             this.txbVersao.TabIndex = 12;
             this.txbVersao.TextChanged += new System.EventHandler(this.txbVersao_TextChanged);
             // 
             // txbRelease
             // 
-            this.txbRelease.Location = new System.Drawing.Point(443, 139);
+            this.txbRelease.Location = new System.Drawing.Point(305, 184);
             this.txbRelease.Name = "txbRelease";
-            this.txbRelease.Size = new System.Drawing.Size(61, 20);
+            this.txbRelease.Size = new System.Drawing.Size(106, 20);
             this.txbRelease.TabIndex = 13;
             this.txbRelease.TextChanged += new System.EventHandler(this.txbRelease_TextChanged);
             // 
@@ -205,7 +205,7 @@ namespace LiberadorSUAT
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(43, 110);
+            this.label7.Location = new System.Drawing.Point(44, 104);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 17);
             this.label7.TabIndex = 39;
@@ -224,17 +224,17 @@ namespace LiberadorSUAT
             "Automatizador Rodovias",
             "Automatizador Mobilidade",
             "Barcas"});
-            this.listBoxSistemas.Location = new System.Drawing.Point(43, 130);
+            this.listBoxSistemas.Location = new System.Drawing.Point(47, 127);
             this.listBoxSistemas.Name = "listBoxSistemas";
-            this.listBoxSistemas.Size = new System.Drawing.Size(193, 94);
+            this.listBoxSistemas.Size = new System.Drawing.Size(234, 94);
             this.listBoxSistemas.TabIndex = 41;
             this.listBoxSistemas.SelectedIndexChanged += new System.EventHandler(this.listBoxSistemas_SelectedIndexChanged);
             // 
             // txbSigla
             // 
-            this.txbSigla.Location = new System.Drawing.Point(566, 139);
+            this.txbSigla.Location = new System.Drawing.Point(439, 127);
             this.txbSigla.Name = "txbSigla";
-            this.txbSigla.Size = new System.Drawing.Size(61, 20);
+            this.txbSigla.Size = new System.Drawing.Size(88, 20);
             this.txbSigla.TabIndex = 42;
             // 
             // btnAjudaAlteracoes
@@ -259,7 +259,7 @@ namespace LiberadorSUAT
             this.btnModalAnexos.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnModalAnexos.Size = new System.Drawing.Size(169, 43);
             this.btnModalAnexos.TabIndex = 44;
-            this.btnModalAnexos.Text = "Adicionar anexos";
+            this.btnModalAnexos.Text = "Avançar";
             this.btnModalAnexos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnModalAnexos.UseVisualStyleBackColor = true;
             this.btnModalAnexos.Click += new System.EventHandler(this.btnModalAnexos_Click);
@@ -278,9 +278,9 @@ namespace LiberadorSUAT
             "Melhoria",
             "Sustentação",
             "Projeto"});
-            this.listBoxTipos.Location = new System.Drawing.Point(692, 139);
+            this.listBoxTipos.Location = new System.Drawing.Point(594, 64);
             this.listBoxTipos.Name = "listBoxTipos";
-            this.listBoxTipos.Size = new System.Drawing.Size(141, 49);
+            this.listBoxTipos.Size = new System.Drawing.Size(162, 49);
             this.listBoxTipos.TabIndex = 45;
             this.listBoxTipos.SelectedIndexChanged += new System.EventHandler(this.listBoxTipos_SelectedIndexChanged);
             // 

@@ -258,7 +258,6 @@ namespace LiberadorSUAT
                     break;
             }
 
-
             message.CC = "";
             message.Subject = "Liberador SUAT";
             message.HTMLBody = carregarHTML();

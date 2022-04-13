@@ -164,7 +164,7 @@ namespace LiberadorSUAT.Screens.Modals
             this.btnTelaEmail.Name = "btnTelaEmail";
             this.btnTelaEmail.Size = new System.Drawing.Size(122, 35);
             this.btnTelaEmail.TabIndex = 45;
-            this.btnTelaEmail.Text = "Enviar E-mail";
+            this.btnTelaEmail.Text = "Avançar";
             this.btnTelaEmail.UseVisualStyleBackColor = false;
             this.btnTelaEmail.Click += new System.EventHandler(this.btnTelaEmail_Click);
             // 

@@ -45,7 +45,7 @@ namespace LiberadorSUAT.Screens
         }
 
         private void btnAnexos_Click_1(object sender, EventArgs e)
-         {
+        {
             ModalAnexos modalAnexo = new ModalAnexos(this);
             modalAnexo.telaLiberador = this.telaLiberador;
             openChildForm(modalAnexo);
