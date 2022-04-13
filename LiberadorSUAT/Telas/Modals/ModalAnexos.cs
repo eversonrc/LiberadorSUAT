@@ -195,6 +195,8 @@ namespace LiberadorSUAT.Screens.Modals
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
+            telaLiberador.modalAnexos = this;
+            telaLiberador.contadorClickModalAnexo++;
             sideBar.openChildForm(telaLiberador);
 
             sideBar.btnInfos.BackColor = Color.DarkGray;
