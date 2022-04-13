@@ -72,26 +72,65 @@ namespace LiberadorSUAT.Models
         public void uploadFTP(string arquivo, string destino)
         {
             List<ConfiguracaoFTP> lista = conexaoMongo.getConfigFTP();
-            string caminhoFTP = lista[0].Caminho.ToString();
+            string caminhoFTP = "";
             string senhaFTP = lista[0].Senha.ToString();
             string usuarioFTP = lista[0].Usuario.ToString();
 
-            var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(caminhoFTP + destino);
-            request.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
-            request.Credentials = new System.Net.NetworkCredential(usuarioFTP,senhaFTP);
+            string nomeSistema = telaLiberador.Sistema.ToString().ToUpper();
+            string versaoSistema = telaLiberador.txbVersao.Text;
+            string releaseSistema = telaLiberador.txbRelease.Text;
 
-            var conteudoArquivo = System.IO.File.ReadAllBytes(arquivo);
-            request.ContentLength = conteudoArquivo.Length;
+            if (nomeSistema != "VLTRIO")
+            {
+                caminhoFTP = lista[0].Caminho.ToString() + nomeSistema + "/" + versaoSistema + releaseSistema;
+                senhaFTP = lista[0].Senha.ToString();
+                usuarioFTP = lista[0].Usuario.ToString();
+            }
+            else
+            {
+                caminhoFTP = lista[1].Caminho.ToString() + nomeSistema + "/" + versaoSistema + releaseSistema;
+                senhaFTP = lista[1].Senha.ToString();
+                usuarioFTP = lista[1].Usuario.ToString();
+            }
 
-            var requestStream = request.GetRequestStream();
+            bool DirectoryExists = Directory.Exists(caminhoFTP);
 
-            requestStream.Write(conteudoArquivo, 0, conteudoArquivo.Length);
-            requestStream.Close();
+            try
+            {
+                if (DirectoryExists == false)
+                {
+                    var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(caminhoFTP);
+                    request.Method = System.Net.WebRequestMethods.Ftp.MakeDirectory;
+                    request.Credentials = new System.Net.NetworkCredential(usuarioFTP, senhaFTP);
+                    var response = (System.Net.FtpWebResponse)request.GetResponse();
+                    DirectoryExists = true;
+                    response.Close();
+                }
+                else
+                {
+                    var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(caminhoFTP + "/" + destino);
+                    request.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
+                    request.Credentials = new System.Net.NetworkCredential(usuarioFTP, senhaFTP);
 
-            var response = (System.Net.FtpWebResponse)request.GetResponse();
-            response.Close();
-            File.Delete(arquivo);
+                    var conteudoArquivo = System.IO.File.ReadAllBytes(arquivo);
+                    request.ContentLength = conteudoArquivo.Length;
 
+                    var requestStream = request.GetRequestStream();
+
+                    requestStream.Write(conteudoArquivo, 0, conteudoArquivo.Length);
+                    requestStream.Close();
+
+                    var response = (System.Net.FtpWebResponse)request.GetResponse();
+                    response.Close();
+                }
+            }
+            catch
+            {
+            }
+            finally
+            {
+                File.Delete(arquivo);
+            }
         }
 
         public void ExcluirArquivos(ListView listView)
