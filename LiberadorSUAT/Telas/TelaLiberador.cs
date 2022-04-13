@@ -31,12 +31,12 @@ namespace LiberadorSUAT
 
         public ConexaoMongo conexaoMongo;
         public List<Sistema> listaSistema { get; set; }
-
         public string nomeSistema { get; set; }
-
         public bool novaAlteracao { get; set; }
-
         public bool versaoEReleaseAlterados {get;set;}
+        public ModalAnexos modalAnexos { get; set; }
+
+        public int contadorClickModalAnexo { get; set; }
 
         public TelaLiberador(SideBarLayout side)
         {
@@ -47,6 +47,7 @@ namespace LiberadorSUAT
             conexaoMongo = new ConexaoMongo();
             listaSistema = conexaoMongo.getSistemas();
             versaoEReleaseAlterados = false;
+            contadorClickModalAnexo = 0;
         }
 
         public TelaLiberador()
@@ -138,10 +139,19 @@ namespace LiberadorSUAT
 
             if (validadorCampos() == true)
             {
-                this.Hide();
-                ModalAnexos modalAnexo = new ModalAnexos(sideBar);
-                modalAnexo.telaLiberador = this;
-                sideBar.openChildForm(modalAnexo);
+                if (contadorClickModalAnexo == 0)
+                {
+                    this.Hide();
+                    ModalAnexos modalAnexo = new ModalAnexos(sideBar);
+                    modalAnexo.telaLiberador = this;
+                    sideBar.openChildForm(modalAnexo);
+                }
+                else
+                {
+                    this.Hide();
+                    sideBar.openChildForm(modalAnexos);
+                }
+                
                 sideBar.btnAnexos.BackColor = Color.DarkGray;
                 sideBar.btnInfos.BackColor = Color.Transparent;
                 sideBar.btnInfos.Enabled = false;
