@@ -24,6 +24,8 @@ namespace LiberadorSUAT.Screens.Modals
             InitializeComponent();
             ConfigurarToolTip();
             gerarGrade();
+            RegrasLiberacao regra = new RegrasLiberacao();
+            regra.ShowDialog();
             sideBar = side;
             isAcessivel = false;
         }
@@ -142,17 +144,9 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void btnExcluirArquivos_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in listViewArquivos.Items)
-            {
-                if (item.Checked)
-                {
-                    listViewArquivos.Items.RemoveAt(item.Index);
-                }
-                else
-                {
-                    MessageBox.Show("Nenhuma alteração foi selecionada.");
-                }
-            }
+            Arquivo arquivo = new Arquivo(telaLiberador);
+            arquivo.ExcluirArquivos(listViewArquivos);
+            checkBox1.Checked = false;
         }
         
         private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
@@ -164,6 +158,7 @@ namespace LiberadorSUAT.Screens.Modals
         {
             Arquivo arquivo = new Arquivo(telaLiberador);
             arquivo.ExcluirArquivos(listViewDocumentos);
+            checkBox3.Checked = false;
         }
 
         private bool validadorCampos()
@@ -184,6 +179,7 @@ namespace LiberadorSUAT.Screens.Modals
         {
             Arquivo arquivo = new Arquivo(telaLiberador);
             arquivo.ExcluirArquivos(listViewScripts);
+            checkBox2.Checked = false;
         }
 
         private void btnAdicionarScript_Click(object sender, EventArgs e)
@@ -249,6 +245,51 @@ namespace LiberadorSUAT.Screens.Modals
         private void button2_Click_2(object sender, EventArgs e)
         {
             
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (ListViewItem listItem in listViewArquivos.Items)
+            {
+                if (checkBox1.Checked == true)
+                {
+                    listItem.Checked = true;
+                }
+                else
+                {
+                    listItem.Checked = false;
+                }
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (ListViewItem listItem in listViewScripts.Items)
+            {
+                if (checkBox2.Checked == true)
+                {
+                    listItem.Checked = true;
+                }
+                else
+                {
+                    listItem.Checked = false;
+                }
+            }
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (ListViewItem listItem in listViewDocumentos.Items)
+            {
+                if (checkBox3.Checked == true)
+                {
+                    listItem.Checked = true;
+                }
+                else
+                {
+                    listItem.Checked = false;
+                }
+            }
         }
     }
 }

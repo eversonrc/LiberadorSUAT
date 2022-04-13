@@ -219,8 +219,11 @@ namespace LiberadorSUAT.Screens
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelSideBarMenu);
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(950, 600);
             this.Name = "SideBarLayout";
+            this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Liberador de versão - SUAT";
             this.panelSideBarMenu.ResumeLayout(false);

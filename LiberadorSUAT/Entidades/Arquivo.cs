@@ -17,9 +17,9 @@ namespace LiberadorSUAT.Models
 
         string[] optionList = new string[2]
         {
-            "Word Documents|*.doc|PDF Documents|*.pdf",
-            "DB Files|*.sql|*.seq|*.syn|*.tab|*.trg|*.tps|*.vw|*.fnc|*.bdy|*.prc|*.pck|*.spc" +
-            "|*.pdy|*.typ|*.tps|*.tpb|*.trg|All Files|*.*"
+            "Text Files|*.doc;*.docx;*.pdf;*.txt;*.txt,*.ppt;*.xls",
+            "DB Files|*.sql;*.seq;*.syn;*.tab;*.trg;*.tps;*.vw;*.fnc;*.bdy;*.prc;*.pck;*.spc" +
+            ";*.pdy;*.typ;*.tps;*.tpb;*.trg;"
         };
 
         public void AdicionarArquivos(ListView listView, int i)
@@ -130,16 +130,19 @@ namespace LiberadorSUAT.Models
 
         public void ExcluirArquivos(ListView listView)
         {
-            foreach (ListViewItem item in listView.Items)
+            if (listView.Items.Count > 0)
             {
-                if (item.Checked)
+                foreach (ListViewItem item in listView.Items)
                 {
-                    listView.Items.RemoveAt(item.Index);
+                    if (item.Checked)
+                    {
+                        listView.Items.RemoveAt(item.Index);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Nenhuma alteração foi selecionada.");
-                }
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma alteração foi selecionada.");
             }
         }
     }

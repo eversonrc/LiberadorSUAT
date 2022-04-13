@@ -42,16 +42,14 @@ namespace LiberadorSUAT
         {
             InitializeComponent();
             ConfigurarToolTip();
+            listBoxTipos.SelectionMode = SelectionMode.One;
+            listBoxSistemas.SelectionMode = SelectionMode.One;
             gerarGrade();
             sideBar = side;
             conexaoMongo = new ConexaoMongo();
             listaSistema = conexaoMongo.getSistemas();
             versaoEReleaseAlterados = false;
             contadorClickModalAnexo = 0;
-        }
-
-        public TelaLiberador()
-        {
         }
 
         private void gerarGrade()
@@ -67,7 +65,7 @@ namespace LiberadorSUAT
             listViewAlteracoes.GridLines = true;
             listViewAlteracoes.CheckBoxes = true;
         }
-         private bool validadorCampos()
+        private bool validadorCampos()
         {
             if (
                 txbTitulo.Text != "" &&
@@ -91,6 +89,7 @@ namespace LiberadorSUAT
                     listViewAlteracoes.Items.RemoveAt(item.Index);
                 }
             }
+            checkBox1.Checked = false;
         }
         private void btnNovoAlteracao_Click(object sender, EventArgs e)
         {
@@ -114,11 +113,6 @@ namespace LiberadorSUAT
                     telaAlteracao.ShowDialog();
                 }
             }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void ConfigurarToolTip()
@@ -162,16 +156,16 @@ namespace LiberadorSUAT
                 MessageBox.Show("Todos os campo devem ser preenchidos antes de avançar para a próxima etapa. Por favor verifique os dados novamente.");
             }
         }
-
-        private void btnRegras_Click(object sender, EventArgs e)
-        {
-            RegrasLiberacao regras = new RegrasLiberacao();
-            regras.ShowDialog();
-        }
         private void listBoxSistemas_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int index = listBoxSistemas.SelectedIndex;
             for (int i = 0; i < listBoxSistemas.Items.Count; i++)
             {
+                if (index != i)
+                {
+                    listBoxSistemas.SetItemChecked(i, false);
+                }
+
                 if (listBoxSistemas.GetSelected(i))
                 {
                     Sistema = listBoxSistemas.Items[i].ToString();
@@ -230,7 +224,6 @@ namespace LiberadorSUAT
             }
         }
 
-
         private void TelaLiberador_Load(object sender, EventArgs e)
         {
             txbSigla.Enabled = false;
@@ -242,32 +235,19 @@ namespace LiberadorSUAT
 
         private void listBoxTipos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int index = listBoxTipos.SelectedIndex;
             for (int i = 0; i < listBoxTipos.Items.Count; i++)
             {
+                if(index != i)
+                {
+                    listBoxTipos.SetItemChecked(i, false);
+                }
+
                 if (listBoxTipos.GetSelected(i))
                 {
                     TipoLiberacao = listBoxTipos.Items[i].ToString();
                 }
             }
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txbRelease_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txbTitulo_TextChanged(object sender, EventArgs e)
-        {
         }
 
         private void txbVersao_TextChanged(object sender, EventArgs e)
@@ -325,16 +305,25 @@ namespace LiberadorSUAT
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            foreach (ListViewItem listItem in listViewAlteracoes.Items)
+            {
+                if (checkBox1.Checked == true)
+                {
+                    listItem.Checked = true;
+                }
+                else 
+                {
+                    listItem.Checked = false;
+                }
+            }
         }
 
-        private void listViewAlteracoes_SelectedIndexChanged(object sender, EventArgs e)
+        private void label6_Click(object sender, EventArgs e)
         {
+
         }
 
-        private void btnAjudaAlteracoes_Click(object sender, EventArgs e)
-        {
-        }
     }
 }
