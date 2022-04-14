@@ -64,6 +64,39 @@ namespace LiberadorSUAT.Models
                 }
             }
         }
+        public void ExcluirArquivos(ListView listView, string tipo)
+        {
+            foreach (ListViewItem item in listView.Items)
+            {
+                string bover = item.SubItems.ToString();
+                if (item.Checked)
+                {
+                    int index = item.Index;
+                    string nomeArquivo = listView.Items[index].SubItems[index+1].Text;
+
+                    switch (tipo)
+                    {
+                        case "scripts":
+                            File.Delete(Directory.GetCurrentDirectory() + @"\scripts\" + Path.GetFileName(nomeArquivo));
+                            break;
+
+                        case "documentos":
+                            File.Delete(Directory.GetCurrentDirectory() + @"\documentacao\" + Path.GetFileName(nomeArquivo));
+                            break;
+
+                        case "sistema":
+                            File.Delete(Directory.GetCurrentDirectory() + @"\sistema\" + Path.GetFileName(nomeArquivo));
+                            break;
+                    }
+                    
+                    listView.Items.RemoveAt(item.Index);
+                }
+                else
+                {
+                    MessageBox.Show("Nenhuma alteração foi selecionada.");
+                }
+            }
+        }
         public void percorrerDiretorioArquivos(string caminho, string tipo)
         {
             string[] files = Directory.GetFiles(caminho, "*", SearchOption.AllDirectories);
@@ -248,19 +281,6 @@ namespace LiberadorSUAT.Models
                 MessageBox.Show(ex.Message);
             }
         }
-        public void ExcluirArquivos(ListView listView)
-        {
-            foreach (ListViewItem item in listView.Items)
-            {
-                if (item.Checked)
-                {
-                    listView.Items.RemoveAt(item.Index);
-                }
-                else
-                {
-                    MessageBox.Show("Nenhuma alteração foi selecionada.");
-                }
-            }
-        }
+       
     }
 }
