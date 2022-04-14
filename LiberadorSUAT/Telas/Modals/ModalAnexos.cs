@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace LiberadorSUAT.Screens.Modals
 {
     public partial class ModalAnexos : Form
@@ -35,7 +34,6 @@ namespace LiberadorSUAT.Screens.Modals
             tipoDocumento = "documentos";
             tipoArquivoSistema = "sistema";
         }
-
         public bool IsFileLocked(FileInfo file)
         {
             FileStream stream = null;
@@ -53,6 +51,8 @@ namespace LiberadorSUAT.Screens.Modals
                 if (stream != null)
                     stream.Close();
             }
+
+
 
             return false;
         }
@@ -76,22 +76,19 @@ namespace LiberadorSUAT.Screens.Modals
             listViewArquivos.ForeColor = System.Drawing.Color.Red;
             listViewScripts.ForeColor = System.Drawing.Color.Red;
             listViewDocumentos.ForeColor = System.Drawing.Color.Red;
-
             listViewArquivos.Columns.Add("", -2).TextAlign = HorizontalAlignment.Left;
             listViewArquivos.Columns.Add("Arquivo", -2).TextAlign = HorizontalAlignment.Left;
             listViewArquivos.Columns.Add("Caminho do arquivo", 500).TextAlign = HorizontalAlignment.Left;
             listViewArquivos.View = View.Details;
-
             listViewArquivos.FullRowSelect = true;
             listViewArquivos.GridLines = true;
             listViewArquivos.CheckBoxes = true;
-            
+
             /*Scripts*/
             listViewScripts.Columns.Add("", -2).TextAlign = HorizontalAlignment.Left;
             listViewScripts.Columns.Add("Arquivo", -2).TextAlign = HorizontalAlignment.Left;
             listViewScripts.Columns.Add("Caminho do arquivo", 500).TextAlign = HorizontalAlignment.Left;
             listViewScripts.View = View.Details;
-
             listViewScripts.FullRowSelect = true;
             listViewScripts.GridLines = true;
             listViewScripts.CheckBoxes = true;
@@ -101,7 +98,6 @@ namespace LiberadorSUAT.Screens.Modals
             listViewDocumentos.Columns.Add("Arquivo", -2).TextAlign = HorizontalAlignment.Left;
             listViewDocumentos.Columns.Add("Caminho do arquivo", 500).TextAlign = HorizontalAlignment.Left;
             listViewDocumentos.View = View.Details;
-
             listViewDocumentos.FullRowSelect = true;
             listViewDocumentos.GridLines = true;
             listViewDocumentos.CheckBoxes = true;
@@ -115,12 +111,12 @@ namespace LiberadorSUAT.Screens.Modals
                 DirectoryInfo diretorioInicial = new DirectoryInfo(folderBrowserDialog1.SelectedPath);
                 DirectoryInfo[] directories = diretorioInicial.GetDirectories("*", SearchOption.AllDirectories);
                 FileInfo[] files = diretorioInicial.GetFiles("*.*", SearchOption.AllDirectories);
-               
+
                 if (directories.Length != 0)
                 {
                     foreach (DirectoryInfo dir in directories)
                     {
-                        percorrerArquivos(files);    
+                        percorrerArquivos(files);
                     }
                 }
                 else
@@ -151,7 +147,7 @@ namespace LiberadorSUAT.Screens.Modals
         private void btnExcluirArquivos_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo(telaLiberador);
-            arquivo.ExcluirArquivos(listViewArquivos, tipoArquivoSistema);
+            arquivo.ExcluirArquivos(listViewArquivos, tipoArquivoSistema, checkBox1);
             checkBox1.Checked = false;
         }
 
@@ -164,28 +160,27 @@ namespace LiberadorSUAT.Screens.Modals
         private void btnExcluirDocumentacao_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo(telaLiberador);
-            arquivo.ExcluirArquivos(listViewDocumentos, tipoDocumento);
+            arquivo.ExcluirArquivos(listViewDocumentos, tipoDocumento, checkBox3);
             checkBox3.Checked = false;
         }
 
         private bool validadorCampos()
         {
             if (
-                listViewArquivos.Items.Count > 0 &&
-                listViewScripts.Items.Count > 0 &&
-                listViewDocumentos.Items.Count > 0 
+            listViewArquivos.Items.Count > 0 &&
+            listViewScripts.Items.Count > 0 &&
+            listViewDocumentos.Items.Count > 0
             )
             {
                 return true;
             }
-
             return false;
         }
 
         private void btnExcluirScript_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo(telaLiberador);
-            arquivo.ExcluirArquivos(listViewScripts, tipoScript);
+            arquivo.ExcluirArquivos(listViewScripts, tipoScript, checkBox2);
             checkBox2.Checked = false;
         }
 
@@ -194,14 +189,12 @@ namespace LiberadorSUAT.Screens.Modals
             Arquivo arquivo = new Arquivo(telaLiberador);
             arquivo.AdicionarArquivos(listViewScripts, 1, tipoScript);
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
             telaLiberador.modalAnexos = this;
             telaLiberador.contadorClickModalAnexo++;
             sideBar.openChildForm(telaLiberador);
-
             sideBar.btnInfos.BackColor = Color.DarkGray;
             sideBar.btnAnexos.BackColor = Color.Transparent;
             sideBar.btnAnexos.Enabled = false;
@@ -214,7 +207,6 @@ namespace LiberadorSUAT.Screens.Modals
             arquivo.percorrerDiretorioArquivos(Directory.GetCurrentDirectory() + @"\sistema\", tipoArquivoSistema);
             arquivo.percorrerDiretorioArquivos(Directory.GetCurrentDirectory() + @"\scripts\", tipoScript);
             arquivo.percorrerDiretorioArquivos(Directory.GetCurrentDirectory() + @"\documentacao\", tipoDocumento);
-
             isAcessivel = true;
             this.Hide();
             ModalEmail modalEmail = new ModalEmail(sideBar, telaLiberador);
@@ -229,7 +221,7 @@ namespace LiberadorSUAT.Screens.Modals
         {
             for (int i = 0; i < listViewScripts.Items.Count; i++)
             {
-               MessageBox.Show(listViewScripts.Items[i].ToString());
+                MessageBox.Show(listViewScripts.Items[i].ToString());
             }
         }
 
@@ -262,6 +254,7 @@ namespace LiberadorSUAT.Screens.Modals
                 }
             }
         }
+
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {

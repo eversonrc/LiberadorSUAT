@@ -316,6 +316,7 @@ namespace LiberadorSUAT.Screens.Modals
             this.Name = "ModalAnexos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModalAnexos";
+            //this.Load += new System.EventHandler(this.ModalAnexos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
