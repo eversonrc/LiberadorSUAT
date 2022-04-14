@@ -148,12 +148,13 @@ namespace LiberadorSUAT.Screens.Modals
             arquivo.ExcluirArquivos(listViewArquivos);
             checkBox1.Checked = false;
         }
-        
+
         private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo(telaLiberador);
             arquivo.AdicionarArquivos(listViewDocumentos, 0);
         }
+
         private void btnExcluirDocumentacao_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo(telaLiberador);
@@ -203,26 +204,17 @@ namespace LiberadorSUAT.Screens.Modals
 
         private void btnTelaEmail_Click(object sender, EventArgs e)
         {
-                Arquivo arquivo = new Arquivo(telaLiberador);
-                string pastaArquivosTemporarios = Directory.GetCurrentDirectory() + @"\arquivos\";
-                if (Directory.Exists(pastaArquivosTemporarios))
-                {
-                    arquivo.percorrerDiretorioArquivos(pastaArquivosTemporarios);
-                }
-                else
-                {
-                    Directory.CreateDirectory(pastaArquivosTemporarios);
-                    arquivo.percorrerDiretorioArquivos(pastaArquivosTemporarios);
-                }
+            Arquivo arquivo = new Arquivo(telaLiberador);
+            arquivo.percorrerDiretorioArquivos(Directory.GetCurrentDirectory() + @"\arquivos\");
 
-                isAcessivel = true;
-                this.Hide();
-                ModalEmail modalEmail = new ModalEmail(sideBar, telaLiberador);
-                modalEmail.modalAnexo = this;
-                sideBar.openChildForm(modalEmail);
-                sideBar.btnEmail.BackColor = Color.DarkGray;
-                sideBar.btnAnexos.BackColor = Color.Transparent;
-                sideBar.btnAnexos.Enabled = false;
+            isAcessivel = true;
+            this.Hide();
+            ModalEmail modalEmail = new ModalEmail(sideBar, telaLiberador);
+            modalEmail.modalAnexo = this;
+            sideBar.openChildForm(modalEmail);
+            sideBar.btnEmail.BackColor = Color.DarkGray;
+            sideBar.btnAnexos.BackColor = Color.Transparent;
+            sideBar.btnAnexos.Enabled = false;
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -231,20 +223,6 @@ namespace LiberadorSUAT.Screens.Modals
             {
                MessageBox.Show(listViewScripts.Items[i].ToString());
             }
-        }
-
-        private void btnAjudaArquivos_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void ModalAnexos_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click_2(object sender, EventArgs e)
-        {
-            
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

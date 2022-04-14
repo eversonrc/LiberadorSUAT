@@ -41,6 +41,8 @@ namespace LiberadorSUAT.Screens
             this.btnAlterar = new System.Windows.Forms.Button();
             this.txbDescricao = new System.Windows.Forms.RichTextBox();
             this.txbAlteracao = new System.Windows.Forms.RichTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -158,11 +160,33 @@ namespace LiberadorSUAT.Screens
             this.txbAlteracao.TabIndex = 13;
             this.txbAlteracao.Text = "";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(167, 132);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "(Obrigatório)";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(256, 65);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "(Obrigatório)";
+            // 
             // TelaAlteracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 496);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txbAlteracao);
             this.Controls.Add(this.txbDescricao);
             this.Controls.Add(this.btnAlterar);
@@ -198,5 +222,7 @@ namespace LiberadorSUAT.Screens
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.RichTextBox txbDescricao;
         private System.Windows.Forms.RichTextBox txbAlteracao;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

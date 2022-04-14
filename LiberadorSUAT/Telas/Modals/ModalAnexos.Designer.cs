@@ -196,7 +196,6 @@ namespace LiberadorSUAT.Screens.Modals
             this.btnAjudaArquivos.Size = new System.Drawing.Size(24, 26);
             this.btnAjudaArquivos.TabIndex = 47;
             this.btnAjudaArquivos.UseVisualStyleBackColor = false;
-            this.btnAjudaArquivos.Click += new System.EventHandler(this.btnAjudaArquivos_Click);
             // 
             // btnAjudaScripts
             // 
@@ -317,7 +316,6 @@ namespace LiberadorSUAT.Screens.Modals
             this.Name = "ModalAnexos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModalAnexos";
-            this.Load += new System.EventHandler(this.ModalAnexos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

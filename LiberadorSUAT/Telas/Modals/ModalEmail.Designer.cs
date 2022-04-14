@@ -44,7 +44,6 @@
             this.label1.Size = new System.Drawing.Size(788, 72);
             this.label1.TabIndex = 0;
             this.label1.Text = resources.GetString("label1.Text");
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -94,7 +93,6 @@
             this.Controls.Add(this.label1);
             this.Name = "ModalEmail";
             this.Text = "ModalEmail";
-            this.Load += new System.EventHandler(this.ModalEmail_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -132,15 +132,5 @@ namespace LiberadorSUAT.Screens.Modals
             sideBar.btnInfos.Enabled = false;
             sideBar.btnEmail.Enabled = false;
         }
-
-        private void ModalEmail_Load(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
