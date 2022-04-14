@@ -136,7 +136,6 @@ namespace LiberadorSUAT
 
         private void btnModalAnexos_Click(object sender, EventArgs e)
         {
-
             if (validadorCampos() == true)
             {
                 if (contadorClickModalAnexo == 0)
