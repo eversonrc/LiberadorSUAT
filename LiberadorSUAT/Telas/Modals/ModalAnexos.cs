@@ -151,7 +151,7 @@ namespace LiberadorSUAT.Screens.Modals
         private void btnExcluirArquivos_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo(telaLiberador);
-            arquivo.ExcluirArquivos(listViewArquivos, tipoArquivoSistema);
+            arquivo.ExcluirArquivos(listViewArquivos, tipoArquivoSistema, checkBox1);
             checkBox1.Checked = false;
         }
 
@@ -164,7 +164,7 @@ namespace LiberadorSUAT.Screens.Modals
         private void btnExcluirDocumentacao_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo(telaLiberador);
-            arquivo.ExcluirArquivos(listViewDocumentos, tipoDocumento);
+            arquivo.ExcluirArquivos(listViewDocumentos, tipoDocumento, checkBox3);
             checkBox3.Checked = false;
         }
 
@@ -185,7 +185,7 @@ namespace LiberadorSUAT.Screens.Modals
         private void btnExcluirScript_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo(telaLiberador);
-            arquivo.ExcluirArquivos(listViewScripts, tipoScript);
+            arquivo.ExcluirArquivos(listViewScripts, tipoScript, checkBox2);
             checkBox2.Checked = false;
         }
 
