@@ -19,6 +19,9 @@ namespace LiberadorSUAT.Screens.Modals
         private SideBarLayout sideBar;
         public TelaLiberador telaLiberador { get; set; }
         public static bool isAcessivel { get; set; }
+        public string tipoDocumento { get; set; }
+        public string tipoScript { get; set; }
+        public string tipoArquivoSistema { get; set; }
         public ModalAnexos(SideBarLayout side)
         {
             InitializeComponent();
@@ -28,6 +31,9 @@ namespace LiberadorSUAT.Screens.Modals
             regra.ShowDialog();
             sideBar = side;
             isAcessivel = false;
+            tipoScript = "scripts";
+            tipoDocumento = "documentos";
+            tipoArquivoSistema = "sistema";
         }
 
         public bool IsFileLocked(FileInfo file)
@@ -132,7 +138,7 @@ namespace LiberadorSUAT.Screens.Modals
                 {
                     string nome = file.Name;
                     string caminho = file.FullName;
-                    file.CopyTo(Directory.GetCurrentDirectory() + @"\arquivos\" + nome, true);
+                    file.CopyTo(Directory.GetCurrentDirectory() + @"\sistema\" + nome, true);
 
                     ListViewItem listView = new ListViewItem();
                     listView.SubItems.Add(nome);
@@ -152,7 +158,7 @@ namespace LiberadorSUAT.Screens.Modals
         private void btnAdcionarDocumentacao_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo(telaLiberador);
-            arquivo.AdicionarArquivos(listViewDocumentos, 0);
+            arquivo.AdicionarArquivos(listViewDocumentos, 0, tipoDocumento);
         }
 
         private void btnExcluirDocumentacao_Click(object sender, EventArgs e)
@@ -186,7 +192,7 @@ namespace LiberadorSUAT.Screens.Modals
         private void btnAdicionarScript_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo(telaLiberador);
-            arquivo.AdicionarArquivos(listViewScripts, 1);
+            arquivo.AdicionarArquivos(listViewScripts, 1, tipoScript);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -205,7 +211,9 @@ namespace LiberadorSUAT.Screens.Modals
         private void btnTelaEmail_Click(object sender, EventArgs e)
         {
             Arquivo arquivo = new Arquivo(telaLiberador);
-            arquivo.percorrerDiretorioArquivos(Directory.GetCurrentDirectory() + @"\arquivos\");
+            arquivo.percorrerDiretorioArquivos(Directory.GetCurrentDirectory() + @"\sistema\", tipoArquivoSistema);
+            arquivo.percorrerDiretorioArquivos(Directory.GetCurrentDirectory() + @"\scripts\", tipoScript);
+            arquivo.percorrerDiretorioArquivos(Directory.GetCurrentDirectory() + @"\documentacao\", tipoDocumento);
 
             isAcessivel = true;
             this.Hide();

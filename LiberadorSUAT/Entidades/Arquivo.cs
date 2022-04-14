@@ -30,7 +30,7 @@ namespace LiberadorSUAT.Models
             ";*.pdy;*.typ;*.tps;*.tpb;*.trg;"
         };
 
-        public void AdicionarArquivos(ListView listView, int i)
+        public void AdicionarArquivos(ListView listView, int i, string tipo)
         {
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
@@ -45,8 +45,16 @@ namespace LiberadorSUAT.Models
                         string[] splitNome = substringNome.Split('\\');
                         string nome = splitNome[1];
                         string caminho = file;
+                        switch (tipo)
+                        {
+                            case "documentos":
+                                File.Copy(caminho, Directory.GetCurrentDirectory() + @"\documentacao\" + Path.GetFileName(caminho), true);
+                                break;
 
-                        File.Copy(caminho, Directory.GetCurrentDirectory() + @"\arquivos\" + Path.GetFileName(caminho), true);
+                            case "scripts":
+                                File.Copy(caminho, Directory.GetCurrentDirectory() + @"\scripts\" + Path.GetFileName(caminho), true);
+                                break;
+                        }
 
                         ListViewItem arquivos = new ListViewItem();
                         arquivos.SubItems.Add(nome);
@@ -56,7 +64,7 @@ namespace LiberadorSUAT.Models
                 }
             }
         }
-        public void percorrerDiretorioArquivos(string caminho)
+        public void percorrerDiretorioArquivos(string caminho, string tipo)
         {
             string[] files = Directory.GetFiles(caminho, "*", SearchOption.AllDirectories);
 
@@ -67,10 +75,10 @@ namespace LiberadorSUAT.Models
                 string nome = splitNome[1];
                 arquivo = caminho + nome;
                 destino = nome;
-                listarDiretorio();
+                listarDiretorio(tipo);
             }
         }
-        public void listarDiretorio()
+        public void listarDiretorio(string tipo)
         {
             List<ConfiguracaoFTP> lista = conexaoMongo.getConfigFTP();
             string nomeSistema = telaLiberador.Sistema.ToString().ToUpper();
@@ -116,6 +124,9 @@ namespace LiberadorSUAT.Models
             }
 
             nomeDiretorio = versaoSistema + releaseSistema;
+            string pastaScript = nomeDiretorio + "/" + "scripts";
+            string pastaDocumentos = nomeDiretorio + "/" + "documentacao";
+            string pastaSistema = nomeDiretorio + "/" + "sistema";
 
             //verificando se existe o diretório acima (nomeDiretorio)
             try
@@ -145,12 +156,41 @@ namespace LiberadorSUAT.Models
 
                 if (diretorioExiste)
                 {
-                    uploadFTP(caminhoFTP, nomeDiretorio, arquivo, destino);
+                    switch (tipo)
+                    {
+                        case "scripts":
+                            uploadFTP(caminhoFTP, pastaScript, arquivo, destino);
+                            break;
+
+                        case "documentos":
+                            uploadFTP(caminhoFTP, pastaDocumentos, arquivo, destino);
+                            break;
+
+                        case "sistema":
+                            uploadFTP(caminhoFTP, pastaSistema, arquivo, destino);
+                            break;
+                    }
                 }
                 else
                 {
                     criarDiretorio(nomeDiretorio, caminhoFTP);
-                    uploadFTP(caminhoFTP, nomeDiretorio, arquivo, destino);
+                    criarDiretorio(pastaScript, caminhoFTP);
+                    criarDiretorio(pastaDocumentos, caminhoFTP);
+                    criarDiretorio(pastaSistema, caminhoFTP);
+                    switch (tipo)
+                    {
+                        case "scripts":
+                            uploadFTP(caminhoFTP, pastaScript, arquivo, destino);
+                            break;
+
+                        case "documentos":
+                            uploadFTP(caminhoFTP, pastaDocumentos, arquivo, destino);
+                            break;
+
+                        case "sistema":
+                            uploadFTP(caminhoFTP, pastaSistema, arquivo, destino);
+                            break;
+                    }
                 }
 
                 streamReader.Close();
