@@ -18,6 +18,10 @@ namespace LiberadorSUAT.Models
         public ConexaoMongo conexaoMongo;
         public bool DiretorioExiste { get; set; }
 
+        public String arquivo { get; set; }
+
+        public String destino { get; set; }
+
         public Arquivo(TelaLiberador tela)
         {
             telaLiberador = tela;
@@ -68,44 +72,22 @@ namespace LiberadorSUAT.Models
                 string substringNome = file.Substring(file.LastIndexOf('\\'));
                 string[] splitNome = substringNome.Split('\\');
                 string nome = splitNome[1];
-                uploadFTP(caminho + nome, nome);
+                arquivo = caminho + nome;
+                destino = nome;
+                listarDiretorio();
             }
         }
-        /*public void uploadFTP(string arquivo, string destino)
+
+        public void listarDiretorio()
         {
             List<ConfiguracaoFTP> lista = conexaoMongo.getConfigFTP();
-            string caminhoFTP = lista[0].Caminho.ToString();
-            string senhaFTP = lista[0].Senha.ToString();
-            string usuarioFTP = lista[0].Usuario.ToString();
-
-            var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(caminhoFTP + destino);
-            request.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
-            request.Credentials = new System.Net.NetworkCredential(usuarioFTP, senhaFTP);
-
-            var conteudoArquivo = System.IO.File.ReadAllBytes(arquivo);
-            request.ContentLength = conteudoArquivo.Length;
-
-            var requestStream = request.GetRequestStream();
-
-            requestStream.Write(conteudoArquivo, 0, conteudoArquivo.Length);
-            requestStream.Close();
-
-            var response = (System.Net.FtpWebResponse)request.GetResponse();
-            response.Close();
-            File.Delete(arquivo);
-
-        }*/
-
-        public void uploadFTP(string arquivo, string destino)
-        {
-            List<ConfiguracaoFTP> lista = conexaoMongo.getConfigFTP();
-
             string nomeSistema = telaLiberador.Sistema.ToString().ToUpper();
             string versaoSistema = telaLiberador.txbVersao.Text;
             string releaseSistema = telaLiberador.txbRelease.Text;
-            string caminhoFTP;
+            string caminhoFTP = "";
             string senhaFTP;
             string usuarioFTP;
+            string nomeDiretorio;
 
             if (nomeSistema == "VLTRIO")
             {
@@ -115,25 +97,96 @@ namespace LiberadorSUAT.Models
             }
             else
             {
-                //teste com barcas
-                caminhoFTP = lista[0].Caminho.ToString() + "LIBERADOR_SUAT/" + "Barcas/";
-                senhaFTP = lista[0].Senha.ToString();
-                usuarioFTP = lista[0].Usuario.ToString();
-            }
-            string diretorio = caminhoFTP + versaoSistema + releaseSistema + "/";
-            DiretorioExiste = Directory.Exists(diretorio); //colocar dentro da requisição FTP
+                switch (telaLiberador.Sistema)
+                {
+                    case "Evasores":
+                        caminhoFTP = lista[0].Caminho.ToString() + "Evasores/";
+                        senhaFTP = lista[0].Senha.ToString();
+                        usuarioFTP = lista[0].Usuario.ToString();
+                        break;
 
-            if (DiretorioExiste == false)
-            {
-                criarDiretorio(versaoSistema + releaseSistema);
-                caminhoFTP = caminhoFTP + "/"+ versaoSistema + releaseSistema;
+                    case "SUATMobilidade":
+                        caminhoFTP = lista[0].Caminho.ToString() +  "SUATMobilidade/";
+                        senhaFTP = lista[0].Senha.ToString();
+                        usuarioFTP = lista[0].Usuario.ToString();
+                        break;
+
+                    case "Automatizador Rodovias":
+                        caminhoFTP = lista[0].Caminho.ToString() + "Automatizador Rodovias/";
+                        senhaFTP = lista[0].Senha.ToString();
+                        usuarioFTP = lista[0].Usuario.ToString();
+                        break;
+
+                    case "Automatizador Mobilidade":
+                        caminhoFTP = lista[0].Caminho.ToString() + "Automatizador Mobilidade/";
+                        senhaFTP = lista[0].Senha.ToString();
+                        usuarioFTP = lista[0].Usuario.ToString();
+                        break;
+
+                    case "Barcas":
+                        caminhoFTP = lista[0].Caminho.ToString() + "Barcas/";
+                        senhaFTP = lista[0].Senha.ToString();
+                        usuarioFTP = lista[0].Usuario.ToString();
+                        break;
+                }
             }
+
+            nomeDiretorio = versaoSistema + releaseSistema;
+
+            //verificando se existe o diretório acima (nomeDiretorio)
+                try
+                {
+                    FtpWebRequest ftpRequest = (FtpWebRequest)WebRequest.Create(caminhoFTP);
+                    ftpRequest.Credentials = new NetworkCredential("adnccr", "Adn@cr123");
+                    ftpRequest.Method = WebRequestMethods.Ftp.ListDirectory;
+                    FtpWebResponse response = (FtpWebResponse)ftpRequest.GetResponse();
+                    StreamReader streamReader = new StreamReader(response.GetResponseStream());
+
+                    List<string> diretorios = new List<string>();
+                    string linha = streamReader.ReadLine();
+                    while (!string.IsNullOrEmpty(linha))
+                    {
+                        diretorios.Add(linha);
+                        linha = streamReader.ReadLine();
+                    }
+
+               
+                    bool diretorioExiste = false;
+                    foreach (var diretorio in diretorios)
+                    {
+                        if (diretorio == nomeDiretorio)
+                        {
+                            diretorioExiste = true;
+                        }
+                    }
+
+                    if (diretorioExiste)
+                    {
+                        uploadFTP(caminhoFTP, nomeDiretorio, arquivo, destino);
+                    }
+                    else
+                    {
+                        criarDiretorio(nomeDiretorio, caminhoFTP);
+                        uploadFTP(caminhoFTP, nomeDiretorio, arquivo, destino);
+                    }
+
+                streamReader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+          }
+        
+
+        public void uploadFTP(string caminhoFTP, string nomeDiretorio, string arquivo, string destino)
+        {
 
             try
             {
-                var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(caminhoFTP  + "/" + destino);
+                var request = (System.Net.FtpWebRequest)System.Net.WebRequest.Create(caminhoFTP + nomeDiretorio +"/" + destino);
                 request.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
-                request.Credentials = new System.Net.NetworkCredential(usuarioFTP, senhaFTP);
+                request.Credentials = new System.Net.NetworkCredential("adnccr", "Adn@cr123");
 
                 var conteudoArquivo = System.IO.File.ReadAllBytes(arquivo);
                 request.ContentLength = conteudoArquivo.Length;
@@ -157,44 +210,46 @@ namespace LiberadorSUAT.Models
         }
 
 
-        public void criarDiretorio(string nomeDiretorio)
-        {
-            FtpWebRequest requisicaoFTP;
-            try
+       public void criarDiretorio(string nomeDiretorio, string caminhoFTP)
             {
-                // _nomeDiretorio = nome do diretorio a ser criado
-                requisicaoFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://adnccr@ftp.adn.com.br/CCR/Versao/LIBERADOR_SUAT/Barcas/" + nomeDiretorio));
-                requisicaoFTP.Method = WebRequestMethods.Ftp.MakeDirectory;
-                DiretorioExiste = true;
-                requisicaoFTP.UseBinary = true;
-                requisicaoFTP.Credentials = new NetworkCredential("adnccr", "Adn@cr123");
-                FtpWebResponse response = (FtpWebResponse)requisicaoFTP.GetResponse();
-                Stream ftpStream = response.GetResponseStream();
+                FtpWebRequest requisicaoFTP;
+                try
+                {
+                    requisicaoFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(caminhoFTP + nomeDiretorio));
+                    requisicaoFTP.Method = WebRequestMethods.Ftp.MakeDirectory;
+                    DiretorioExiste = true;
+                    requisicaoFTP.UseBinary = true;
+                    requisicaoFTP.Credentials = new NetworkCredential("adnccr", "Adn@cr123");
+                    FtpWebResponse response = (FtpWebResponse)requisicaoFTP.GetResponse();
+                    Stream ftpStream = response.GetResponseStream();
 
-                ftpStream.Close();
-                response.Close();
+                    ftpStream.Close();
+                    response.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
 
         public void ExcluirArquivos(ListView listView)
-        {
-            foreach (ListViewItem item in listView.Items)
             {
-                if (item.Checked)
+                foreach (ListViewItem item in listView.Items)
                 {
-                    listView.Items.RemoveAt(item.Index);
-                }
-                else
-                {
-                    MessageBox.Show("Nenhuma alteração foi selecionada.");
+                    if (item.Checked)
+                    {
+                        listView.Items.RemoveAt(item.Index);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nenhuma alteração foi selecionada.");
+                    }
                 }
             }
+
         }
-    }
-}
+    
+    } 
+
+
 
